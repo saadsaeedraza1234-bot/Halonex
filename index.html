@@ -38,16 +38,6 @@
     }
 
     /* ============================================================
-       GLASS MORPHISM BASE
-    ============================================================ */
-    .glass {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(32px) saturate(1.4);
-      -webkit-backdrop-filter: blur(32px) saturate(1.4);
-      border: 1px solid rgba(214, 188, 146, 0.04);
-    }
-
-    /* ============================================================
        PARTICLE CANVAS
     ============================================================ */
     #particle-canvas {
@@ -84,12 +74,8 @@
     }
 
     @keyframes goldShimmer {
-      0% {
-        background-position: 0% 50%;
-      }
-      100% {
-        background-position: 100% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
     /* ============================================================
@@ -191,13 +177,8 @@
     }
 
     @keyframes floatBadge {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-6px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
     .hero h1 {
@@ -213,14 +194,8 @@
     }
 
     @keyframes heroReveal {
-      0% {
-        opacity: 0;
-        transform: translateY(40px) scale(0.96);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+      0% { opacity: 0; transform: translateY(40px) scale(0.96); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .hero p {
@@ -236,14 +211,8 @@
     }
 
     @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     .cta-button {
@@ -293,7 +262,7 @@
     }
 
     /* ============================================================
-       RING DISPLAY — 3D SPINNING + SOFT FOCUS
+       RING DISPLAY — 3D SPINNING WITH YOUR IMAGES
     ============================================================ */
     .ring-display {
       margin: 40px 0 16px;
@@ -308,7 +277,7 @@
       animation: fadeUp 1.6s 0.9s cubic-bezier(0.23, 1, 0.32, 1) forwards;
     }
 
-    /* ---- 3D SPINNING RING ---- */
+    /* ---- 3D SPINNING RING WITH YOUR IMAGE ---- */
     .ring-wrapper {
       width: 220px;
       height: 220px;
@@ -324,12 +293,8 @@
     }
 
     @keyframes spinRing {
-      0% {
-        transform: rotateX(20deg) rotateY(0deg) rotateZ(0deg);
-      }
-      100% {
-        transform: rotateX(20deg) rotateY(360deg) rotateZ(0deg);
-      }
+      0% { transform: rotateX(20deg) rotateY(0deg) rotateZ(0deg); }
+      100% { transform: rotateX(20deg) rotateY(360deg) rotateZ(0deg); }
     }
 
     /* Ring outer glow */
@@ -344,22 +309,16 @@
     }
 
     @keyframes softGlow {
-      0% {
-        opacity: 0.3;
-        transform: scale(0.95);
-      }
-      100% {
-        opacity: 0.8;
-        transform: scale(1.1);
-      }
+      0% { opacity: 0.3; transform: scale(0.95); }
+      100% { opacity: 0.8; transform: scale(1.1); }
     }
 
-    /* Ring face */
+    /* Ring face with YOUR IMAGE */
     .ring-face {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #4a3f33, #0f0d0b 80%);
+      overflow: hidden;
       box-shadow:
         inset 0 -10px 40px rgba(0, 0, 0, 0.9),
         0 30px 70px rgba(0, 0, 0, 0.7),
@@ -370,58 +329,36 @@
       position: relative;
       transform: rotateY(-10deg);
       transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      background: #0f0d0b;
     }
 
     .ring-face:hover {
       transform: rotateY(0deg) scale(1.02);
     }
 
-    /* Inner ring detail */
-    .ring-inner {
-      width: 60%;
-      height: 60%;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 25%, #6a5b44, #1e1914 85%);
-      box-shadow:
-        inset 0 -6px 30px rgba(0, 0, 0, 0.8),
-        0 10px 40px rgba(0, 0, 0, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.8rem;
-      font-weight: 100;
-      color: rgba(214, 188, 146, 0.12);
-      letter-spacing: 0.15em;
-      position: relative;
+    .ring-face img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      mix-blend-mode: screen;
+      opacity: 0.92;
     }
 
-    /* Shine reflection on ring */
-    .ring-inner::before {
+    /* Ring shine overlay */
+    .ring-face::after {
       content: '';
       position: absolute;
-      top: 10%;
-      left: 18%;
-      width: 35%;
-      height: 14%;
-      background: radial-gradient(circle, rgba(214, 188, 146, 0.12), transparent 70%);
+      inset: 0;
       border-radius: 50%;
-      filter: blur(6px);
+      background: radial-gradient(circle at 20% 20%, rgba(214, 188, 146, 0.04), transparent 60%);
+      pointer-events: none;
     }
 
-    /* H letter on ring */
-    .ring-inner::after {
-      content: 'H';
-      font-size: 2.4rem;
-      font-weight: 200;
-      color: rgba(214, 188, 146, 0.08);
-      letter-spacing: 0.1em;
-    }
-
-    /* ---- Founder Badge (Glass) ---- */
+    /* ---- PACKAGING BADGE (Your packaging image) ---- */
     .founder-badge {
       max-width: 190px;
       width: 100%;
-      padding: 20px 22px;
       border-radius: 20px;
       background: rgba(15, 13, 11, 0.35);
       backdrop-filter: blur(32px) saturate(1.4);
@@ -431,6 +368,8 @@
       transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
       transform: rotateY(4deg) rotateX(2deg);
+      padding: 6px;
+      overflow: hidden;
     }
 
     .founder-badge:hover {
@@ -439,35 +378,17 @@
       box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
     }
 
-    .founder-badge .number {
-      font-size: 1.4rem;
-      font-weight: 200;
-      color: #d6bc92;
-      letter-spacing: 0.08em;
+    .founder-badge img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      opacity: 0.95;
+      transition: opacity 0.4s ease;
     }
 
-    .founder-badge .label {
-      font-size: 0.5rem;
-      letter-spacing: 0.2em;
-      color: #7a6e5f;
-      margin-top: 2px;
-      text-transform: uppercase;
-    }
-
-    .founder-badge .divider {
-      width: 28px;
-      height: 1px;
-      background: #d6bc92;
-      margin: 8px auto;
-      opacity: 0.4;
-    }
-
-    .founder-badge .brand {
-      font-size: 0.85rem;
-      letter-spacing: 0.25em;
-      color: #f0ebe3;
-      margin-top: 6px;
-      font-weight: 300;
+    .founder-badge:hover img {
+      opacity: 1;
     }
 
     .ring-caption {
@@ -592,12 +513,8 @@
     }
 
     @keyframes shimmerMove {
-      0% {
-        transform: translate(0, 0) scale(1);
-      }
-      100% {
-        transform: translate(30%, 20%) scale(1.2);
-      }
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30%, 20%) scale(1.2); }
     }
 
     /* ============================================================
@@ -677,14 +594,8 @@
     }
 
     @keyframes vaultGlow {
-      0% {
-        opacity: 0.3;
-        transform: scale(1);
-      }
-      100% {
-        opacity: 0.6;
-        transform: scale(1.1);
-      }
+      0% { opacity: 0.3; transform: scale(1); }
+      100% { opacity: 0.6; transform: scale(1.1); }
     }
 
     .vault-content {
@@ -823,13 +734,8 @@
         height: 170px;
       }
 
-      .ring-inner::after {
-        font-size: 1.8rem;
-      }
-
       .founder-badge {
-        max-width: 160px;
-        padding: 16px 18px;
+        max-width: 140px;
       }
 
       .container {
@@ -860,17 +766,9 @@
         height: 140px;
       }
 
-      .ring-inner::after {
-        font-size: 1.4rem;
-      }
-
       .founder-badge {
-        max-width: 130px;
-        padding: 12px 14px;
-      }
-
-      .founder-badge .number {
-        font-size: 1rem;
+        max-width: 110px;
+        padding: 4px;
       }
 
       .hero h1 {
@@ -901,15 +799,9 @@
       transform: translateY(0);
     }
 
-    .reveal-delay-1 {
-      transition-delay: 0.1s;
-    }
-    .reveal-delay-2 {
-      transition-delay: 0.2s;
-    }
-    .reveal-delay-3 {
-      transition-delay: 0.3s;
-    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
   </style>
 </head>
 <body>
@@ -937,21 +829,18 @@
       <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
       <button class="cta-button" id="ctaBtn">Request Private Access</button>
 
-      <!-- ===== RING DISPLAY (3D Spinning + Soft Focus) ===== -->
+      <!-- ===== RING DISPLAY (YOUR IMAGES) ===== -->
       <div class="ring-display">
         <div class="ring-wrapper">
           <div class="ring-3d">
             <div class="ring-face">
-              <div class="ring-inner"></div>
+              <img src="ring.webp" alt="HALONEX Ring" />
             </div>
           </div>
         </div>
 
         <div class="founder-badge">
-          <div class="number">001/1000</div>
-          <div class="label">founder's edition</div>
-          <div class="divider"></div>
-          <div class="brand">HALONEX</div>
+          <img src="packaging.webp" alt="Founder's Edition Packaging" />
         </div>
       </div>
 
@@ -1098,7 +987,6 @@
           ctx.fillStyle = `rgba(214, 188, 146, ${this.opacity})`;
           ctx.fill();
 
-          // Soft glow for brighter particles
           if (this.opacity > 0.2) {
             ctx.shadowColor = 'rgba(214, 188, 146, 0.05)';
             ctx.shadowBlur = 15;
@@ -1113,7 +1001,6 @@
         particles.push(new Particle());
       }
 
-      // Mouse / Touch tracking
       document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
@@ -1133,7 +1020,6 @@
           p.draw();
         });
 
-        // Connections
         for (let i = 0; i < particles.length; i++) {
           for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
@@ -1156,33 +1042,13 @@
       animateParticles();
 
       // ============================================================
-      // 2. RING 3D TILT (Mouse tracking)
-      // ============================================================
-      const ring = document.querySelector('.ring-3d');
-      if (ring) {
-        document.addEventListener('mousemove', (e) => {
-          const rect = ring.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-          const deltaX = (e.clientX - centerX) / rect.width;
-          const deltaY = (e.clientY - centerY) / rect.height;
-
-          // Adjust tilt while preserving spin
-          const currentRotation = getComputedStyle(ring).transform;
-          ring.style.setProperty('--tilt-x', `${6 - deltaY * 10}deg`);
-          ring.style.setProperty('--tilt-y', `${-4 + deltaX * 10}deg`);
-        });
-      }
-
-      // ============================================================
-      // 3. CTA BUTTON — Ripple + Alert
+      // 2. CTA BUTTON
       // ============================================================
       const cta = document.getElementById('ctaBtn');
       if (cta) {
         cta.addEventListener('click', function(e) {
           e.preventDefault();
 
-          // Scale feedback
           this.style.transform = 'scale(0.95)';
           setTimeout(() => {
             this.style.transform = 'scale(1.03)';
@@ -1191,7 +1057,6 @@
             }, 150);
           }, 100);
 
-          // Ripple effect
           const ripple = document.createElement('span');
           ripple.style.position = 'absolute';
           ripple.style.borderRadius = '50%';
@@ -1214,7 +1079,6 @@
 
           setTimeout(() => ripple.remove(), 800);
 
-          // Alert
           setTimeout(() => {
             alert('🔐 Private access request received.\nOur concierge will contact you within 48 hours.');
           }, 300);
@@ -1222,7 +1086,7 @@
       }
 
       // ============================================================
-      // 4. SCROLL REVEAL (Intersection Observer)
+      // 3. SCROLL REVEAL
       // ============================================================
       const revealElements = document.querySelectorAll('.reveal');
 
@@ -1241,7 +1105,6 @@
         observer.observe(el);
       });
 
-      // Also observe craft and ownership items individually
       document.querySelectorAll('.craft-item, .ownership-item').forEach((el, index) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>HALONEX · About</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0908;
+            color: #e8e2dc;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        ::selection {
+            background: #d4a88c;
+            color: #0a0908;
+        }
+
+        .rose-gold-bg {
+            background: linear-gradient(135deg, #d4a88c, #e8c4a8, #d4a88c);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: roseShimmer 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes roseShimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .signature {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 9, 8, 0.6);
+            backdrop-filter: blur(40px);
+            border-bottom: 1px solid rgba(212, 168, 140, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-radius: 0 0 20px 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.35em;
+            color: #e8e2dc;
+            text-transform: uppercase;
+        }
+
+        .logo .rose {
+            color: #d4a88c;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #8a827a;
+        }
+
+        .nav-links a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.5s ease;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #d4a88c;
+            transition: width 0.6s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #d4a88c;
+        }
+
+        .nav-links a.active {
+            color: #d4a88c;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* ===== ABOUT HERO ===== */
+        .about-hero {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: #f0ece8;
+            margin-bottom: 16px;
+        }
+
+        .about-hero h1 .rose-gold-bg {
+            font-weight: 500;
+        }
+
+        .about-hero p {
+            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+            max-width: 600px;
+            margin: 0 auto;
+            color: #9a928a;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            line-height: 1.7;
+        }
+
+        /* ===== ABOUT CONTENT ===== */
+        .about-content {
+            padding: 20px 0 60px;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .about-content .section {
+            margin-bottom: 40px;
+        }
+
+        .about-content .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #f0ece8;
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+        }
+
+        .about-content .section h2 .rose-gold-bg {
+            font-weight: 600;
+        }
+
+        .about-content .section p {
+            font-size: 0.9rem;
+            color: #b0aaa2;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        .about-content .section .highlight {
+            border-left: 2px solid #d4a88c;
+            padding-left: 20px;
+            color: #e8e2dc;
+            font-size: 0.95rem;
+            font-weight: 300;
+            background: linear-gradient(135deg, rgba(212, 168, 140, 0.02), transparent);
+            padding: 14px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+            font-style: italic;
+        }
+
+        /* ===== VALUES ===== */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .value-item {
+            padding: 24px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(212, 168, 140, 0.02);
+            background: rgba(20, 18, 16, 0.4);
+            backdrop-filter: blur(8px);
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+
+        .value-item:hover {
+            border-color: rgba(212, 168, 140, 0.06);
+            background: rgba(30, 28, 26, 0.5);
+            transform: translateY(-4px);
+        }
+
+        .value-item .icon {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            opacity: 0.4;
+            color: #d4a88c;
+        }
+
+        .value-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #e8e2dc;
+            margin-bottom: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        .value-item p {
+            font-size: 0.7rem;
+            color: #8a827a;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 30px 0 24px;
+            text-align: center;
+            border-top: 1px solid rgba(212, 168, 140, 0.02);
+            background: rgba(10, 9, 8, 0.3);
+            backdrop-filter: blur(20px);
+        }
+
+        .footer .tagline {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1rem;
+            color: #d4a88c;
+            margin-top: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        .footer p {
+            color: #4a4642;
+            font-size: 0.45rem;
+            letter-spacing: 0.12em;
+            margin-top: 6px;
+        }
+
+        .footer .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            color: #e8e2dc;
+        }
+
+        /* ===== BACK LINK ===== */
+        .back-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: #8a827a;
+            text-decoration: none;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .back-link:hover {
+            color: #d4a88c;
+            border-bottom-color: #d4a88c;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 8px;
+                padding: 14px 0;
+                border-radius: 0 0 14px 14px;
+            }
+
+            .nav-links {
+                gap: 1.2rem;
+                font-size: 0.5rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .about-hero {
+                padding: 40px 0 30px;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 0.8rem;
+                font-size: 0.4rem;
+            }
+
+            .about-hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .about-content .section h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== PARTICLES ===== -->
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="container">
+
+        <!-- ===== NAVBAR ===== -->
+        <header class="navbar">
+            <div class="logo">HALONEX <span class="rose">·</span></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#" class="active">About</a>
+                <a href="index.html#craft">Craft</a>
+                <a href="index.html#security">Security</a>
+                <a href="index.html#private">Private</a>
+            </div>
+        </header>
+
+        <!-- ===== ABOUT HERO ===== -->
+        <section class="about-hero">
+            <h1>About <span class="rose-gold-bg">HALONEX</span></h1>
+            <p>Where fine jewelry meets invisible technology. Where personal finance becomes an extension of self.</p>
+        </section>
+
+        <!-- ===== ABOUT CONTENT ===== -->
+        <section class="about-content">
+
+            <div class="section">
+                <h2>An <span class="rose-gold-bg">Invitation</span>, Not a Product</h2>
+                <p>HALONEX was not created for everyone. It was created for those who understand that true luxury is quiet, personal, and earned. It is not a gadget. It is not a trend.</p>
+                <p>It is a statement. A commitment to craftsmanship, to privacy, and to the belief that the most sophisticated technology is the kind you never notice — because it simply becomes part of you.</p>
+                <div class="highlight">"Luxury that moves with you."</div>
+            </div>
+
+            <div class="section">
+                <h2>The <span class="rose-gold-bg">Philosophy</span></h2>
+                <p>HALONEX exists at the intersection of three worlds: fine jewelry, invisible technology, and modern finance. Each piece is sculpted with the precision of a Swiss timepiece, engineered with the sophistication of a private bank, and finished with the warmth of a master jeweler.</p>
+                <p>We believe that the future of personal finance is not in your phone. It is on your finger. Discreet. Elegant. Unmistakably yours.</p>
+            </div>
+
+            <div class="section">
+                <h2>Core <span class="rose-gold-bg">Values</span></h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="icon">✦</div>
+                        <h4>Exclusivity</h4>
+                        <p>Limited to one thousand pieces. For those who value the rare.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="icon">◈</div>
+                        <h4>Privacy</h4>
+                        <p>Your financial life is yours alone. We protect it as such.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="icon">◇</div>
+                        <h4>Craftsmanship</h4>
+                        <p>Every detail is considered. Every surface is perfected.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" style="text-align:center; margin-top:8px;">
+                <a href="index.html" class="back-link">← Return to HALONEX</a>
+            </div>
+
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-logo">HALONEX <span style="color:#d4a88c;">·</span></div>
+            <p class="tagline">Luxury that moves with you.</p>
+            <p>© 2026 HALONEX · Private Collection</p>
+        </footer>
+
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let mouseX = -1000;
+            let mouseY = -1000;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 1.8 + 0.3;
+                    this.speedX = (Math.random() - 0.5) * 0.12;
+                    this.speedY = (Math.random() - 0.5) * 0.12;
+                    this.opacity = Math.random() * 0.15 + 0.02;
+                    this.targetOpacity = this.opacity;
+                }
+
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+
+                    const dx = this.x - mouseX;
+                    const dy = this.y - mouseY;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 100) {
+                        const force = (100 - dist) / 100;
+                        this.x += (dx / dist) * force * 0.8;
+                        this.y += (dy / dist) * force * 0.8;
+                        this.targetOpacity = 0.25;
+                    } else {
+                        this.targetOpacity = Math.random() * 0.12 + 0.02;
+                    }
+
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                    if (this.y > canvas.height) this.y = 0;
+
+                    this.opacity += (this.targetOpacity - this.opacity) * 0.02;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity})`;
+                    ctx.fill();
+
+                    if (this.opacity > 0.12) {
+                        ctx.shadowColor = 'rgba(212, 168, 140, 0.02)';
+                        ctx.shadowBlur = 10;
+                        ctx.fill();
+                        ctx.shadowBlur = 0;
+                    }
+                }
+            }
+
+            const particleCount = Math.min(50, Math.floor(window.innerWidth / 18));
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            document.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    mouseX = e.touches[0].clientX;
+                    mouseY = e.touches[0].clientY;
+                }
+            }, { passive: true });
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 120) {
+                            const opacity = (1 - dist / 120) * 0.02;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(212, 168, 140, ${opacity})`;
+                            ctx.lineWidth = 0.3;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+
+        })();
+    </script>
+
+</body>
+</html>

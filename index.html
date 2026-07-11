@@ -11,7 +11,12 @@
 
     <style>
         /* ===== RESET & BASE ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             background: #0a0908;
             color: #e8e2dc;
@@ -21,7 +26,11 @@
             overflow-x: hidden;
             min-height: 100vh;
         }
-        ::selection { background: #d4a88c; color: #0a0908; }
+
+        ::selection {
+            background: #d4a88c;
+            color: #0a0908;
+        }
 
         .rose-gold-bg {
             background: linear-gradient(135deg, #d4a88c, #e8c4a8, #d4a88c);
@@ -31,13 +40,17 @@
             background-clip: text;
             animation: roseShimmer 6s ease-in-out infinite alternate;
         }
+
         @keyframes roseShimmer {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
 
-        .signature { font-family: 'Great Vibes', cursive; font-weight: 400; letter-spacing: 0.02em; }
-        .serif { font-family: 'Playfair Display', serif; font-weight: 400; letter-spacing: -0.01em; }
+        .signature {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
 
         /* ===== PARTICLES ===== */
         #particle-canvas {
@@ -60,7 +73,7 @@
 
         /* ===== NAVBAR ===== */
         .navbar {
-            padding: 20px 0;
+            padding: 16px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -74,6 +87,7 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 1.1rem;
@@ -82,16 +96,20 @@
             color: #e8e2dc;
             text-transform: uppercase;
         }
+
         .logo .rose { color: #d4a88c; }
+
         .nav-links {
             display: flex;
             gap: 2.2rem;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             font-weight: 400;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: #8a827a;
+            flex-wrap: wrap;
         }
+
         .nav-links a {
             color: inherit;
             text-decoration: none;
@@ -99,6 +117,7 @@
             position: relative;
             padding-bottom: 4px;
         }
+
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -109,6 +128,7 @@
             background: #d4a88c;
             transition: width 0.6s ease;
         }
+
         .nav-links a:hover::after { width: 100%; }
         .nav-links a:hover { color: #d4a88c; }
 
@@ -122,6 +142,7 @@
             min-height: 80vh;
             justify-content: center;
         }
+
         .hero-badge {
             border: 1px solid rgba(212, 168, 140, 0.08);
             padding: 5px 22px;
@@ -136,6 +157,7 @@
             animation: fadeIn 1.8s 0.2s ease forwards;
             opacity: 0;
         }
+
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(2.8rem, 9vw, 5.5rem);
@@ -147,7 +169,9 @@
             animation: fadeIn 2s 0.4s ease forwards;
             opacity: 0;
         }
+
         .hero h1 .rose-gold-bg { font-weight: 500; }
+
         .hero .sub-line {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -159,6 +183,7 @@
             animation: fadeIn 1.8s 0.5s ease forwards;
             opacity: 0;
         }
+
         .hero p {
             font-size: clamp(0.9rem, 1.2vw, 1.1rem);
             max-width: 480px;
@@ -169,6 +194,7 @@
             animation: fadeIn 1.8s 0.6s ease forwards;
             opacity: 0;
         }
+
         .cta-button {
             display: inline-block;
             background: transparent;
@@ -187,6 +213,7 @@
             animation: fadeIn 1.8s 0.8s ease forwards;
             opacity: 0;
         }
+
         .cta-button:hover {
             background: #d4a88c;
             color: #0a0908;
@@ -194,6 +221,7 @@
             box-shadow: 0 20px 60px rgba(212, 168, 140, 0.08);
             transform: scale(1.02) translateY(-2px);
         }
+
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -209,6 +237,7 @@
             opacity: 0;
             width: 100%;
         }
+
         .box-item {
             max-width: 400px;
             width: 100%;
@@ -222,6 +251,7 @@
             background: transparent;
             transition: all 0.8s ease;
         }
+
         .box-item::before {
             content: '';
             position: absolute;
@@ -238,11 +268,13 @@
             pointer-events: none;
             animation: shimmerSlide 8s ease-in-out infinite alternate;
         }
+
         @keyframes shimmerSlide {
             0% { background-position: 0% 50%; opacity: 0.2; }
             50% { opacity: 0.7; }
             100% { background-position: 100% 50%; opacity: 0.2; }
         }
+
         .box-item::after {
             content: '';
             position: absolute;
@@ -253,10 +285,12 @@
             z-index: 0;
             animation: glowPulse 7s ease-in-out infinite alternate;
         }
+
         @keyframes glowPulse {
             0% { opacity: 0.2; transform: scale(0.95); }
             100% { opacity: 0.5; transform: scale(1.05); }
         }
+
         .box-item img {
             width: 100%;
             height: 100%;
@@ -269,10 +303,12 @@
             transition: all 0.6s ease;
             border-radius: 16px;
         }
+
         .box-item:hover img {
             transform: scale(1.01);
             filter: brightness(1.12) contrast(1.04) saturate(1.0);
         }
+
         .box-item:hover::before { opacity: 1; }
 
         .ring-caption {
@@ -285,6 +321,7 @@
             animation: fadeIn 1.8s 1.4s ease forwards;
             opacity: 0;
         }
+
         .ring-caption span { color: #d4a88c; }
 
         /* ===== FOUNDER ===== */
@@ -294,6 +331,7 @@
             animation: fadeIn 2s 1.6s ease forwards;
             opacity: 0;
         }
+
         .founder-label {
             font-size: 0.45rem;
             letter-spacing: 0.3em;
@@ -301,6 +339,7 @@
             color: #6a645c;
             margin-bottom: 2px;
         }
+
         .founder-name {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(1.8rem, 3.5vw, 2.8rem);
@@ -315,12 +354,14 @@
             animation: fadeIn 2s 1.8s ease forwards;
             opacity: 0;
         }
+
         .never-again .divider {
             width: 40px;
             height: 1px;
             background: rgba(212, 168, 140, 0.08);
             margin: 0 auto 10px;
         }
+
         .never-again p {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -328,51 +369,60 @@
             color: #6a645c;
             letter-spacing: 0.08em;
         }
+
         .never-again p strong { color: #d4a88c; font-weight: 400; }
 
-        /* ===== CRAFT ===== */
+        /* ============================================================
+           CRAFT — 3 Cards
+        ============================================================ */
         .craft-section {
             padding: 50px 0 40px;
             border-top: 1px solid rgba(212, 168, 140, 0.03);
             border-bottom: 1px solid rgba(212, 168, 140, 0.03);
         }
+
         .craft-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-            margin-top: 28px;
+            gap: 24px;
+            margin-top: 24px;
         }
+
         .craft-item {
-            padding: 28px 20px;
-            border-radius: 18px;
+            padding: 24px 18px;
+            border-radius: 16px;
             border: 1px solid rgba(212, 168, 140, 0.02);
             transition: all 0.6s ease;
             background: rgba(20, 18, 16, 0.4);
             backdrop-filter: blur(8px);
             text-align: center;
         }
+
         .craft-item:hover {
             border-color: rgba(212, 168, 140, 0.06);
             background: rgba(30, 28, 26, 0.5);
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
+
         .craft-item .icon {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
             opacity: 0.3;
             color: #d4a88c;
         }
+
         .craft-item h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #e8e2dc;
             margin-bottom: 4px;
             letter-spacing: 0.04em;
         }
+
         .craft-item p {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #8a827a;
             font-weight: 300;
             line-height: 1.6;
@@ -380,14 +430,14 @@
         }
 
         /* ============================================================
-           EXPERIENCE — HORIZONTAL SCROLL ON MOBILE
+           EXPERIENCE — VERTICAL LAYOUT (FULLY VISIBLE)
         ============================================================ */
         .experience-section {
-            padding: 60px 0 50px;
+            padding: 50px 0 40px;
             border-bottom: 1px solid rgba(212, 168, 140, 0.03);
             background: linear-gradient(180deg, #0a0908 0%, #0f0d0b 100%);
-            overflow: hidden;
         }
+
         .experience-section .label {
             text-align: center;
             font-size: 0.45rem;
@@ -395,424 +445,89 @@
             text-transform: uppercase;
             color: #6a645c;
             margin-bottom: 8px;
-            padding: 0 16px;
         }
+
         .experience-section .section-title {
             text-align: center;
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
             font-weight: 400;
             color: #f0ece8;
             letter-spacing: -0.02em;
-            margin-bottom: 30px;
-            padding: 0 16px;
-        }
-        .experience-section .section-title .rose-gold-bg { font-weight: 500; }
-
-        .movement-wrapper {
-            position: relative;
-            overflow: visible;
+            margin-bottom: 28px;
         }
 
-        .movement-steps {
+        .experience-section .section-title .rose-gold-bg {
+            font-weight: 500;
+        }
+
+        /* ---- Vertical Steps ---- */
+        .experience-steps {
             display: flex;
             flex-direction: column;
-            gap: 0;
-            max-width: 800px;
+            gap: 20px;
+            max-width: 600px;
             margin: 0 auto;
-            position: relative;
-        }
-        .movement-steps::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 40px;
-            bottom: 40px;
-            width: 1px;
-            background: rgba(212, 168, 140, 0.04);
-            transform: translateX(-50%);
         }
 
-        .step {
+        .exp-step {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 40px;
-            padding: 30px 0;
-            position: relative;
-            opacity: 0.3;
-            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+            gap: 20px;
+            padding: 18px 20px;
+            border: 1px solid rgba(212, 168, 140, 0.02);
+            border-radius: 14px;
+            background: rgba(20, 18, 16, 0.2);
+            transition: all 0.5s ease;
         }
-        .step.active { opacity: 1; }
 
-        .step .step-content { flex: 1; text-align: right; padding-right: 20px; }
-        .step .step-content.left { text-align: right; }
-        .step .step-content.right { text-align: left; padding-left: 20px; padding-right: 0; }
-        .step .step-content h4 {
+        .exp-step:hover {
+            border-color: rgba(212, 168, 140, 0.04);
+            background: rgba(30, 28, 26, 0.3);
+        }
+
+        .exp-step .step-num {
             font-family: 'Playfair Display', serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #e8e2dc;
-            margin-bottom: 2px;
-            letter-spacing: 0.02em;
+            font-size: 0.6rem;
+            color: #6a645c;
+            letter-spacing: 0.1em;
+            opacity: 0.3;
+            min-width: 32px;
         }
-        .step .step-content p {
-            font-size: 0.7rem;
-            color: #8a827a;
-            font-weight: 300;
-            line-height: 1.4;
-            letter-spacing: 0.02em;
-            max-width: 200px;
-            margin-left: auto;
-        }
-        .step .step-content.right p { margin-left: 0; margin-right: auto; }
 
-        .step-graphic {
-            width: 80px;
-            height: 80px;
+        .exp-step .step-icon {
+            width: 48px;
+            height: 48px;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             border: 1px solid rgba(212, 168, 140, 0.04);
-            background: rgba(20, 18, 16, 0.3);
-            backdrop-filter: blur(8px);
-            transition: all 0.8s ease;
-            position: relative;
-            z-index: 2;
-        }
-        .step.active .step-graphic {
-            border-color: rgba(212, 168, 140, 0.08);
-            background: rgba(30, 28, 26, 0.4);
-            box-shadow: 0 0 40px rgba(212, 168, 140, 0.02);
+            background: rgba(20, 18, 16, 0.2);
+            font-size: 1.2rem;
+            color: #d4a88c;
+            opacity: 0.4;
         }
 
-        /* ---- Rose Gold Graphics ---- */
-        .graphic-envelope { width: 52px; height: 40px; position: relative; }
-        .envelope-body {
-            width: 100%; height: 100%;
-            background: transparent;
-            border: 1.5px solid rgba(212, 168, 140, 0.2);
-            border-radius: 2px;
-            position: relative;
-            transition: all 0.6s ease;
-        }
-        .step.active .envelope-body { border-color: rgba(212, 168, 140, 0.5); }
-        .envelope-flap {
-            position: absolute;
-            top: -1px; left: -1px;
-            width: calc(100% + 2px);
-            height: 55%;
-            background: transparent;
-            border-left: 1.5px solid rgba(212, 168, 140, 0.2);
-            border-right: 1.5px solid rgba(212, 168, 140, 0.2);
-            border-bottom: 1.5px solid rgba(212, 168, 140, 0.2);
-            border-radius: 0 0 50% 50% / 0 0 100% 100%;
-            transform-origin: top center;
-            transition: all 0.6s ease;
-            clip-path: polygon(0 0, 50% 60%, 100% 0);
-        }
-        .step.active .envelope-flap {
-            border-color: rgba(212, 168, 140, 0.5);
-            transform: rotateX(180deg);
-        }
-        .envelope-seal {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 8px; height: 8px;
-            background: rgba(212, 168, 140, 0.1);
-            border-radius: 50%;
-            transition: all 0.6s ease;
-        }
-        .step.active .envelope-seal {
-            background: rgba(212, 168, 140, 0.3);
-            box-shadow: 0 0 20px rgba(212, 168, 140, 0.05);
+        .exp-step .step-text {
+            flex: 1;
         }
 
-        .graphic-tap {
-            width: 64px; height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-        .tap-hand {
-            width: 18px; height: 28px;
-            border: 1.5px solid rgba(212, 168, 140, 0.15);
-            border-radius: 10px 10px 6px 6px;
-            position: relative;
-            transition: all 0.6s ease;
-        }
-        .step.active .tap-hand { border-color: rgba(212, 168, 140, 0.4); }
-        .tap-hand::before {
-            content: '';
-            position: absolute;
-            top: -6px; left: 2px;
-            width: 4px; height: 8px;
-            border: 1.5px solid rgba(212, 168, 140, 0.1);
-            border-radius: 4px 4px 0 0;
-            transition: all 0.6s ease;
-        }
-        .tap-hand::after {
-            content: '';
-            position: absolute;
-            top: -6px; right: 2px;
-            width: 4px; height: 8px;
-            border: 1.5px solid rgba(212, 168, 140, 0.1);
-            border-radius: 4px 4px 0 0;
-            transition: all 0.6s ease;
-        }
-        .step.active .tap-hand::before,
-        .step.active .tap-hand::after { border-color: rgba(212, 168, 140, 0.3); }
-
-        .tap-phone {
-            width: 20px; height: 32px;
-            border: 1.5px solid rgba(212, 168, 140, 0.15);
-            border-radius: 4px;
-            position: relative;
-            transition: all 0.6s ease;
-        }
-        .step.active .tap-phone { border-color: rgba(212, 168, 140, 0.4); }
-        .phone-screen {
-            position: absolute;
-            top: 4px; left: 4px; right: 4px; bottom: 4px;
-            border-radius: 1px;
-            background: rgba(212, 168, 140, 0.03);
-            transition: all 0.6s ease;
-        }
-        .step.active .phone-screen { background: rgba(212, 168, 140, 0.06); }
-        .phone-ring {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 8px; height: 8px;
-            border: 1.5px solid rgba(212, 168, 140, 0.08);
-            border-radius: 50%;
-            transition: all 0.6s ease;
-        }
-        .step.active .phone-ring {
-            border-color: rgba(212, 168, 140, 0.3);
-            box-shadow: 0 0 20px rgba(212, 168, 140, 0.04);
-        }
-        .tap-ring {
-            width: 10px; height: 10px;
-            border: 1.5px solid rgba(212, 168, 140, 0.1);
-            border-radius: 50%;
-            transition: all 0.6s ease;
-        }
-        .step.active .tap-ring {
-            border-color: rgba(212, 168, 140, 0.4);
-            box-shadow: 0 0 20px rgba(212, 168, 140, 0.04);
-        }
-
-        .graphic-luxury {
-            width: 60px; height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .luxury-diamond-left,
-        .luxury-diamond-right {
-            width: 10px; height: 12px;
-            background: transparent;
-            border: 1.5px solid rgba(212, 168, 140, 0.1);
-            transform: rotate(45deg);
-            transition: all 0.6s ease;
-        }
-        .step.active .luxury-diamond-left,
-        .step.active .luxury-diamond-right {
-            border-color: rgba(212, 168, 140, 0.4);
-            box-shadow: 0 0 30px rgba(212, 168, 140, 0.04);
-        }
-        .luxury-ring {
-            width: 24px; height: 24px;
-            position: relative;
-            transition: all 0.6s ease;
-        }
-        .ring-band {
-            position: absolute;
-            inset: 0;
-            border: 1.5px solid rgba(212, 168, 140, 0.15);
-            border-radius: 50%;
-            transition: all 0.6s ease;
-        }
-        .step.active .ring-band {
-            border-color: rgba(212, 168, 140, 0.4);
-            box-shadow: 0 0 30px rgba(212, 168, 140, 0.04);
-        }
-        .ring-stone {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 8px; height: 8px;
-            background: rgba(212, 168, 140, 0.06);
-            border-radius: 50%;
-            transition: all 0.6s ease;
-        }
-        .step.active .ring-stone {
-            background: rgba(212, 168, 140, 0.15);
-            box-shadow: 0 0 30px rgba(212, 168, 140, 0.06);
-        }
-
-        .step-number {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: -4px;
+        .exp-step .step-text h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 0.5rem;
-            color: #6a645c;
-            letter-spacing: 0.15em;
-            opacity: 0.2;
-            z-index: 1;
-        }
-        .step.active .step-number { opacity: 0.4; }
-
-        /* ============================================================
-           MOBILE: HORIZONTAL SCROLL
-        ============================================================ */
-        @media (max-width: 768px) {
-            .movement-wrapper {
-                overflow-x: auto;
-                overflow-y: hidden;
-                -webkit-overflow-scrolling: touch;
-                scroll-snap-type: x mandatory;
-                padding: 0 16px 20px;
-                margin: 0 -16px;
-                padding-left: 16px;
-                padding-right: 16px;
-                scroll-behavior: smooth;
-            }
-            .movement-wrapper::-webkit-scrollbar {
-                height: 2px;
-            }
-            .movement-wrapper::-webkit-scrollbar-track {
-                background: rgba(212, 168, 140, 0.02);
-                border-radius: 4px;
-            }
-            .movement-wrapper::-webkit-scrollbar-thumb {
-                background: rgba(212, 168, 140, 0.15);
-                border-radius: 4px;
-            }
-
-            .movement-steps {
-                flex-direction: row;
-                flex-wrap: nowrap;
-                gap: 0;
-                max-width: none;
-                width: 100%;
-                padding: 0;
-            }
-            .movement-steps::before { display: none; }
-
-            .step {
-                flex: 0 0 85%;
-                max-width: 85%;
-                flex-direction: column;
-                gap: 12px;
-                padding: 20px 16px;
-                opacity: 0.4;
-                scroll-snap-align: center;
-                transition: opacity 0.5s ease;
-                min-height: 280px;
-                justify-content: center;
-                border: 1px solid rgba(212, 168, 140, 0.02);
-                border-radius: 16px;
-                margin-right: 12px;
-                background: rgba(20, 18, 16, 0.2);
-                backdrop-filter: blur(4px);
-            }
-            .step:last-child { margin-right: 0; }
-            .step.active {
-                opacity: 1;
-                border-color: rgba(212, 168, 140, 0.04);
-                background: rgba(30, 28, 26, 0.3);
-            }
-            .step .step-content {
-                text-align: center !important;
-                padding: 0 !important;
-                flex: none;
-                width: 100%;
-            }
-            .step .step-content h4 { font-size: 0.9rem; }
-            .step .step-content p {
-                margin: 0 auto !important;
-                max-width: 220px;
-                font-size: 0.7rem;
-            }
-            .step-graphic {
-                width: 64px;
-                height: 64px;
-                flex-shrink: 0;
-            }
-            .step-number { display: none; }
-
-            .dots-indicator {
-                display: flex;
-                justify-content: center;
-                gap: 8px;
-                margin-top: 16px;
-                padding-bottom: 4px;
-            }
-            .dots-indicator .dot {
-                width: 6px;
-                height: 6px;
-                border-radius: 50%;
-                background: rgba(212, 168, 140, 0.1);
-                transition: all 0.5s ease;
-                border: none;
-                cursor: pointer;
-                padding: 0;
-            }
-            .dots-indicator .dot.active {
-                background: rgba(212, 168, 140, 0.4);
-                width: 18px;
-                border-radius: 4px;
-            }
-
-            .graphic-envelope { width: 40px; height: 32px; }
-            .graphic-tap { width: 50px; height: 44px; gap: 4px; }
-            .tap-hand { width: 14px; height: 22px; }
-            .tap-hand::before, .tap-hand::after { height: 6px; width: 3px; top: -5px; }
-            .tap-phone { width: 16px; height: 26px; }
-            .phone-screen { top: 3px; left: 3px; right: 3px; bottom: 3px; }
-            .phone-ring { width: 6px; height: 6px; }
-            .tap-ring { width: 8px; height: 8px; }
-            .graphic-luxury { width: 48px; height: 32px; gap: 6px; }
-            .luxury-diamond-left, .luxury-diamond-right { width: 8px; height: 10px; }
-            .luxury-ring { width: 20px; height: 20px; }
-            .ring-stone { width: 6px; height: 6px; }
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #e8e2dc;
+            letter-spacing: 0.02em;
+            margin-bottom: 2px;
         }
 
-        @media (max-width: 480px) {
-            .step {
-                flex: 0 0 90%;
-                max-width: 90%;
-                min-height: 240px;
-                padding: 16px 14px;
-            }
-            .step .step-content h4 { font-size: 0.8rem; }
-            .step .step-content p { font-size: 0.6rem; max-width: 180px; }
-            .step-graphic { width: 56px; height: 56px; }
-            .graphic-envelope { width: 34px; height: 28px; }
-            .graphic-tap { width: 42px; height: 38px; gap: 3px; }
-            .tap-hand { width: 12px; height: 18px; }
-            .tap-hand::before, .tap-hand::after { height: 5px; width: 2.5px; top: -4px; left: 1.5px; }
-            .tap-hand::after { left: auto; right: 1.5px; }
-            .tap-phone { width: 14px; height: 22px; }
-            .phone-ring { width: 5px; height: 5px; }
-            .tap-ring { width: 6px; height: 6px; }
-            .graphic-luxury { width: 40px; height: 28px; gap: 4px; }
-            .luxury-diamond-left, .luxury-diamond-right { width: 6px; height: 8px; }
-            .luxury-ring { width: 16px; height: 16px; }
-            .ring-stone { width: 5px; height: 5px; }
-        }
-
-        @media (min-width: 769px) {
-            .dots-indicator { display: none !important; }
+        .exp-step .step-text p {
+            font-size: 0.7rem;
+            color: #8a827a;
+            font-weight: 300;
+            line-height: 1.4;
         }
 
         /* ============================================================
@@ -825,6 +540,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .vault-section::before {
             content: '';
             position: absolute;
@@ -836,10 +552,12 @@
             pointer-events: none;
             animation: vaultGlow 10s ease-in-out infinite alternate;
         }
+
         @keyframes vaultGlow {
             0% { opacity: 0.2; transform: scale(1); }
             100% { opacity: 0.4; transform: scale(1.1); }
         }
+
         .vault-content {
             max-width: 650px;
             margin: 0 auto;
@@ -847,6 +565,7 @@
             position: relative;
             z-index: 2;
         }
+
         .vault-content .section-title {
             font-family: 'Playfair Display', serif;
             font-size: clamp(2rem, 3.5vw, 2.8rem);
@@ -856,7 +575,9 @@
             color: #f0ece8;
             margin-bottom: 6px;
         }
+
         .vault-content .section-title .rose-gold-bg { font-weight: 500; }
+
         .vault-content p {
             color: #9a928a;
             font-size: 0.85rem;
@@ -865,6 +586,7 @@
             font-weight: 300;
             letter-spacing: 0.02em;
         }
+
         .vault-badge {
             border: 1px solid rgba(212, 168, 140, 0.04);
             padding: 4px 20px;
@@ -883,12 +605,14 @@
             padding: 30px 0 20px;
             text-align: center;
         }
+
         .teaser-section .divider {
             width: 40px;
             height: 1px;
             background: rgba(212, 168, 140, 0.06);
             margin: 0 auto 16px;
         }
+
         .teaser-section p {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -896,6 +620,7 @@
             color: #6a645c;
             letter-spacing: 0.04em;
         }
+
         .teaser-section p .rose-gold-bg {
             font-style: normal;
             font-weight: 500;
@@ -909,6 +634,7 @@
             background: rgba(10, 9, 8, 0.3);
             backdrop-filter: blur(20px);
         }
+
         .footer .private-emblem {
             font-size: 1.2rem;
             color: #d4a88c;
@@ -916,6 +642,7 @@
             letter-spacing: 0.2em;
             margin-bottom: 6px;
         }
+
         .footer .tagline {
             font-family: 'Great Vibes', cursive;
             font-size: 1.1rem;
@@ -923,6 +650,7 @@
             margin-top: 2px;
             letter-spacing: 0.04em;
         }
+
         .footer .founder-credit {
             font-family: 'Great Vibes', cursive;
             font-size: 0.8rem;
@@ -930,12 +658,14 @@
             margin-top: 4px;
             letter-spacing: 0.03em;
         }
+
         .footer p {
             color: #4a4642;
             font-size: 0.45rem;
             letter-spacing: 0.12em;
             margin-top: 6px;
         }
+
         .footer .footer-logo {
             font-family: 'Playfair Display', serif;
             font-size: 0.9rem;
@@ -943,6 +673,7 @@
             letter-spacing: 0.3em;
             color: #e8e2dc;
         }
+
         .footer .signature-tagline {
             font-family: 'Great Vibes', cursive;
             font-size: 0.6rem;
@@ -951,7 +682,9 @@
             letter-spacing: 0.05em;
         }
 
-        /* ===== MODAL ===== */
+        /* ============================================================
+           MODAL
+        ============================================================ */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -966,7 +699,9 @@
             justify-content: center;
             padding: 24px;
         }
+
         .modal-overlay.active { display: flex; }
+
         .modal-content {
             max-width: 460px;
             width: 100%;
@@ -979,10 +714,12 @@
             position: relative;
             animation: modalFadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
         }
+
         @keyframes modalFadeIn {
             0% { opacity: 0; transform: scale(0.95) translateY(20px); }
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
+
         .modal-content .gold-letter {
             font-family: 'Great Vibes', cursive;
             font-size: 2.2rem;
@@ -990,6 +727,7 @@
             letter-spacing: 0.04em;
             margin-bottom: 4px;
         }
+
         .modal-content .gold-letter-sub {
             font-size: 0.55rem;
             font-weight: 400;
@@ -998,6 +736,7 @@
             color: #8a827a;
             margin-bottom: 12px;
         }
+
         .modal-content .divider {
             width: 40px;
             height: 1px;
@@ -1005,6 +744,7 @@
             margin: 10px auto 14px;
             opacity: 0.15;
         }
+
         .modal-content p {
             color: #b0aaa2;
             font-size: 0.85rem;
@@ -1013,7 +753,9 @@
             font-weight: 300;
             letter-spacing: 0.02em;
         }
+
         .modal-content p strong { color: #d4a88c; font-weight: 400; }
+
         .modal-content .bank-name {
             font-family: 'Playfair Display', serif;
             font-size: 0.7rem;
@@ -1023,6 +765,7 @@
             margin-top: 12px;
             opacity: 0.5;
         }
+
         .modal-close {
             position: absolute;
             top: 16px;
@@ -1035,18 +778,140 @@
             transition: color 0.3s ease;
             font-family: 'Inter', sans-serif;
         }
+
         .modal-close:hover { color: #d4a88c; }
 
-        /* ===== SCROLL REVEAL ===== */
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 8px;
+                padding: 12px 0;
+                border-radius: 0 0 14px 14px;
+            }
+
+            .nav-links {
+                gap: 1.2rem;
+                font-size: 0.45rem;
+            }
+
+            .craft-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .exp-step {
+                padding: 14px 16px;
+                gap: 14px;
+            }
+
+            .exp-step .step-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .exp-step .step-text h4 {
+                font-size: 0.8rem;
+            }
+
+            .exp-step .step-text p {
+                font-size: 0.65rem;
+            }
+
+            .box-item {
+                max-width: 320px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 20px 0 20px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .modal-content {
+                padding: 32px 24px 24px;
+            }
+
+            .modal-content .gold-letter {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .box-item {
+                max-width: 260px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                gap: 0.8rem;
+                font-size: 0.4rem;
+            }
+
+            .modal-content {
+                padding: 24px 18px 20px;
+            }
+
+            .modal-content .gold-letter {
+                font-size: 1.5rem;
+            }
+
+            .exp-step {
+                padding: 12px 14px;
+                gap: 10px;
+            }
+
+            .exp-step .step-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+
+            .exp-step .step-num {
+                font-size: 0.5rem;
+                min-width: 24px;
+            }
+
+            .exp-step .step-text h4 {
+                font-size: 0.75rem;
+            }
+
+            .exp-step .step-text p {
+                font-size: 0.6rem;
+            }
+
+            .experience-steps {
+                gap: 14px;
+            }
+        }
+
+        /* ============================================================
+           SCROLL REVEAL
+        ============================================================ */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
         }
+
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         .reveal-delay-1 { transition-delay: 0.05s; }
         .reveal-delay-2 { transition-delay: 0.1s; }
         .reveal-delay-3 { transition-delay: 0.15s; }
@@ -1097,7 +962,9 @@
             </div>
         </section>
 
-        <!-- ===== CRAFT ===== -->
+        <!-- ============================================================
+           CRAFT
+        ============================================================ -->
         <section class="craft-section reveal reveal-delay-1" id="craft">
             <div style="text-align: center; max-width: 550px; margin: 0 auto;">
                 <div style="font-family:'Playfair Display',serif; font-size:clamp(1.4rem,2.5vw,2rem); font-weight:400; letter-spacing:-0.02em; color:#f0ece8;">
@@ -1125,7 +992,7 @@
         </section>
 
         <!-- ============================================================
-           EXPERIENCE — HORIZONTAL SCROLL ON MOBILE
+           EXPERIENCE — VERTICAL LAYOUT (FULLY VISIBLE)
         ============================================================ -->
         <section class="experience-section" id="experience">
             <div class="label">The Movement</div>
@@ -1133,72 +1000,38 @@
                 From Invitation <span class="rose-gold-bg">to</span> Ownership
             </div>
 
-            <div class="movement-wrapper" id="movementWrapper">
-                <div class="movement-steps">
+            <div class="experience-steps">
 
-                    <!-- Step 1: Letter -->
-                    <div class="step" data-step="1">
-                        <div class="step-number">— I —</div>
-                        <div class="step-content left">
-                            <h4>You Receive</h4>
-                            <p>An invitation. Personal. Exclusive. Yours alone.</p>
-                        </div>
-                        <div class="step-graphic">
-                            <div class="graphic-envelope">
-                                <div class="envelope-body">
-                                    <div class="envelope-flap"></div>
-                                    <div class="envelope-seal"></div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Step 1 -->
+                <div class="exp-step">
+                    <span class="step-num">— I —</span>
+                    <div class="step-icon">✉</div>
+                    <div class="step-text">
+                        <h4>You Receive</h4>
+                        <p>An invitation. Personal. Exclusive. Yours alone.</p>
                     </div>
-
-                    <!-- Step 2: Hand + Phone + Ring -->
-                    <div class="step" data-step="2">
-                        <div class="step-number">— II —</div>
-                        <div class="step-content right">
-                            <h4>You Activate</h4>
-                            <p>Tap the ring to your phone. Via your bank's prestige feature.</p>
-                        </div>
-                        <div class="step-graphic">
-                            <div class="graphic-tap">
-                                <div class="tap-hand"></div>
-                                <div class="tap-phone">
-                                    <div class="phone-screen"></div>
-                                    <div class="phone-ring"></div>
-                                </div>
-                                <div class="tap-ring"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 3: Luxury Symbol + Hand with Ring -->
-                    <div class="step" data-step="3">
-                        <div class="step-number">— III —</div>
-                        <div class="step-content left">
-                            <h4>You Wear</h4>
-                            <p>Secure. Seamless. Effortless. Luxury that moves with you.</p>
-                        </div>
-                        <div class="step-graphic">
-                            <div class="graphic-luxury">
-                                <div class="luxury-diamond-left"></div>
-                                <div class="luxury-ring">
-                                    <div class="ring-band"></div>
-                                    <div class="ring-stone"></div>
-                                </div>
-                                <div class="luxury-diamond-right"></div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
-                <!-- Dots Indicator (mobile only) -->
-                <div class="dots-indicator" id="dotsIndicator">
-                    <button class="dot active" data-index="0"></button>
-                    <button class="dot" data-index="1"></button>
-                    <button class="dot" data-index="2"></button>
+                <!-- Step 2 -->
+                <div class="exp-step">
+                    <span class="step-num">— II —</span>
+                    <div class="step-icon">✋</div>
+                    <div class="step-text">
+                        <h4>You Activate</h4>
+                        <p>Tap the ring to your phone via your bank's prestige feature.</p>
+                    </div>
                 </div>
+
+                <!-- Step 3 -->
+                <div class="exp-step">
+                    <span class="step-num">— III —</span>
+                    <div class="step-icon">✦</div>
+                    <div class="step-text">
+                        <h4>You Wear</h4>
+                        <p>Secure. Seamless. Effortless. Luxury that moves with you.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -1274,12 +1107,15 @@
                     this.opacity = Math.random() * 0.15 + 0.02;
                     this.targetOpacity = this.opacity;
                 }
+
                 update() {
                     this.x += this.speedX;
                     this.y += this.speedY;
+
                     const dx = this.x - mouseX;
                     const dy = this.y - mouseY;
                     const dist = Math.sqrt(dx * dx + dy * dy);
+
                     if (dist < 100) {
                         const force = (100 - dist) / 100;
                         this.x += (dx / dist) * force * 0.8;
@@ -1288,17 +1124,21 @@
                     } else {
                         this.targetOpacity = Math.random() * 0.12 + 0.02;
                     }
+
                     if (this.x < 0) this.x = canvas.width;
                     if (this.x > canvas.width) this.x = 0;
                     if (this.y < 0) this.y = canvas.height;
                     if (this.y > canvas.height) this.y = 0;
+
                     this.opacity += (this.targetOpacity - this.opacity) * 0.02;
                 }
+
                 draw() {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity})`;
                     ctx.fill();
+
                     if (this.opacity > 0.12) {
                         ctx.shadowColor = 'rgba(212, 168, 140, 0.02)';
                         ctx.shadowBlur = 10;
@@ -1317,6 +1157,7 @@
                 mouseX = e.clientX;
                 mouseY = e.clientY;
             });
+
             document.addEventListener('touchmove', (e) => {
                 if (e.touches.length > 0) {
                     mouseX = e.touches[0].clientX;
@@ -1326,7 +1167,11 @@
 
             function animateParticles() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => { p.update(); p.draw(); });
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
@@ -1343,6 +1188,7 @@
                         }
                     }
                 }
+
                 requestAnimationFrame(animateParticles);
             }
             animateParticles();
@@ -1364,89 +1210,42 @@
 
             ctaBtn.addEventListener('click', openModal);
             closeBtn.addEventListener('click', closeModal);
+
             modal.addEventListener('click', function(e) {
-                if (e.target === this) { closeModal(); }
+                if (e.target === this) {
+                    closeModal();
+                }
             });
+
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') { closeModal(); }
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
             });
 
-            // ============================================================
-            // HORIZONTAL SCROLL — DOT INDICATOR
-            // ============================================================
-            const wrapper = document.querySelector('.movement-wrapper');
-            const dots = document.querySelectorAll('.dot');
-            const steps = document.querySelectorAll('.step');
-
-            if (wrapper && dots.length) {
-                let isScrolling = false;
-
-                wrapper.addEventListener('scroll', function() {
-                    if (isScrolling) return;
-                    const scrollLeft = this.scrollLeft;
-                    const stepWidth = steps[0]?.offsetWidth || 0;
-                    const gap = 12;
-                    const totalWidth = stepWidth + gap;
-                    const activeIndex = Math.round(scrollLeft / totalWidth);
-
-                    dots.forEach((dot, index) => {
-                        dot.classList.toggle('active', index === activeIndex);
-                    });
-
-                    steps.forEach((step, index) => {
-                        step.classList.toggle('active', index === activeIndex);
-                    });
-                });
-
-                dots.forEach((dot, index) => {
-                    dot.addEventListener('click', function() {
-                        const stepWidth = steps[0]?.offsetWidth || 0;
-                        const gap = 12;
-                        const totalWidth = stepWidth + gap;
-                        wrapper.scrollTo({
-                            left: index * totalWidth,
-                            behavior: 'smooth'
-                        });
-                    });
-                });
-
-                // Update dots on resize
-                let resizeTimeout;
-                window.addEventListener('resize', function() {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(() => {
-                        const scrollLeft = wrapper.scrollLeft;
-                        const stepWidth = steps[0]?.offsetWidth || 0;
-                        const gap = 12;
-                        const totalWidth = stepWidth + gap;
-                        const activeIndex = Math.round(scrollLeft / totalWidth);
-                        dots.forEach((dot, index) => {
-                            dot.classList.toggle('active', index === activeIndex);
-                        });
-                        steps.forEach((step, index) => {
-                            step.classList.toggle('active', index === activeIndex);
-                        });
-                    }, 100);
-                });
-            }
-
-            // ============================================================
-            // SCROLL REVEAL
-            // ============================================================
+            // ===== SCROLL REVEAL =====
             const revealElements = document.querySelectorAll('.reveal');
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
-            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-            revealElements.forEach(el => { observer.observe(el); });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
 
             document.querySelectorAll('.craft-item').forEach((el, index) => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = `all 0.8s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.06}s`;
+
                 const itemObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -1455,7 +1254,26 @@
                         }
                     });
                 }, { threshold: 0.1 });
+
                 itemObserver.observe(el);
+            });
+
+            // Animate experience steps on scroll
+            document.querySelectorAll('.exp-step').forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = `all 0.8s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.1 + 0.2}s`;
+
+                const stepObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                stepObserver.observe(el);
             });
 
         })();

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>HALONEX · Private Collection</title>
 
-    <!-- Google Fonts: Elegant Serif + Clean Sans -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
@@ -54,14 +54,12 @@
             100% { background-position: 100% 50%; }
         }
 
-        /* ===== SIGNATURE FONT ===== */
         .signature {
             font-family: 'Great Vibes', cursive;
             font-weight: 400;
             letter-spacing: 0.02em;
         }
 
-        /* ===== SERIF HEADINGS ===== */
         .serif {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
@@ -162,12 +160,12 @@
 
         /* ===== HERO ===== */
         .hero {
-            padding: 40px 0 50px;
+            padding: 40px 0 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            min-height: 85vh;
+            min-height: 80vh;
             justify-content: center;
         }
 
@@ -200,6 +198,18 @@
 
         .hero h1 .rose-gold-bg {
             font-weight: 500;
+        }
+
+        .hero .sub-line {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(0.8rem, 1vw, 0.95rem);
+            color: #8a827a;
+            margin-top: -6px;
+            margin-bottom: 16px;
+            letter-spacing: 0.04em;
+            animation: fadeIn 1.8s 0.5s ease forwards;
+            opacity: 0;
         }
 
         .hero p {
@@ -249,7 +259,7 @@
            BOX DISPLAY — Rose Gold Shimmer
         ============================================================ */
         .box-display {
-            margin: 35px 0 16px;
+            margin: 30px 0 16px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -272,7 +282,6 @@
             transition: all 0.8s ease;
         }
 
-        /* Rose gold shimmer overlay */
         .box-item::before {
             content: '';
             position: absolute;
@@ -296,7 +305,6 @@
             100% { background-position: 100% 50%; opacity: 0.2; }
         }
 
-        /* Rose gold glow behind */
         .box-item::after {
             content: '';
             position: absolute;
@@ -377,10 +385,40 @@
         }
 
         /* ============================================================
+           NEVER AGAIN — Scarcity Banner
+        ============================================================ */
+        .never-again {
+            text-align: center;
+            padding: 12px 0 8px;
+            animation: fadeIn 2s 1.8s ease forwards;
+            opacity: 0;
+        }
+
+        .never-again .divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(212, 168, 140, 0.08);
+            margin: 0 auto 10px;
+        }
+
+        .never-again p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.7rem;
+            color: #6a645c;
+            letter-spacing: 0.08em;
+        }
+
+        .never-again p strong {
+            color: #d4a88c;
+            font-weight: 400;
+        }
+
+        /* ============================================================
            CRAFT, PRECISION, SILENCE
         ============================================================ */
         .craft-section {
-            padding: 60px 0;
+            padding: 50px 0 40px;
             border-top: 1px solid rgba(212, 168, 140, 0.03);
             border-bottom: 1px solid rgba(212, 168, 140, 0.03);
         }
@@ -389,22 +427,22 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 28px;
-            margin-top: 32px;
+            margin-top: 28px;
         }
 
         .craft-item {
-            padding: 30px 22px;
+            padding: 28px 20px;
             border-radius: 18px;
             border: 1px solid rgba(212, 168, 140, 0.02);
             transition: all 0.6s ease;
-            background: rgba(20, 18, 16, 0.5);
+            background: rgba(20, 18, 16, 0.4);
             backdrop-filter: blur(8px);
             text-align: center;
         }
 
         .craft-item:hover {
             border-color: rgba(212, 168, 140, 0.06);
-            background: rgba(30, 28, 26, 0.6);
+            background: rgba(30, 28, 26, 0.5);
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
@@ -434,10 +472,75 @@
         }
 
         /* ============================================================
+           THE EXPERIENCE — Three Steps
+        ============================================================ */
+        .experience-section {
+            padding: 50px 0 40px;
+            border-bottom: 1px solid rgba(212, 168, 140, 0.03);
+        }
+
+        .experience-section .label {
+            text-align: center;
+            font-size: 0.45rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #6a645c;
+            margin-bottom: 20px;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .experience-step {
+            text-align: center;
+            padding: 16px 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(212, 168, 140, 0.02);
+            transition: all 0.5s ease;
+            background: rgba(20, 18, 16, 0.2);
+        }
+
+        .experience-step:hover {
+            border-color: rgba(212, 168, 140, 0.04);
+            background: rgba(30, 28, 26, 0.3);
+        }
+
+        .experience-step .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.7rem;
+            color: #d4a88c;
+            opacity: 0.3;
+            letter-spacing: 0.15em;
+            margin-bottom: 4px;
+        }
+
+        .experience-step h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #e8e2dc;
+            margin-bottom: 4px;
+            letter-spacing: 0.02em;
+        }
+
+        .experience-step p {
+            font-size: 0.7rem;
+            color: #8a827a;
+            font-weight: 300;
+            line-height: 1.5;
+            letter-spacing: 0.02em;
+        }
+
+        /* ============================================================
            VAULT
         ============================================================ */
         .vault-section {
-            padding: 60px 0;
+            padding: 50px 0 40px;
             border-bottom: 1px solid rgba(212, 168, 140, 0.03);
             background: linear-gradient(160deg, #0a0908 0%, #0f0d0b 100%);
             position: relative;
@@ -476,7 +579,7 @@
             letter-spacing: -0.02em;
             line-height: 1.05;
             color: #f0ece8;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .vault-content .section-title .rose-gold-bg {
@@ -485,9 +588,9 @@
 
         .vault-content p {
             color: #9a928a;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             max-width: 480px;
-            margin: 10px auto 0;
+            margin: 8px auto 0;
             font-weight: 300;
             letter-spacing: 0.02em;
         }
@@ -506,21 +609,57 @@
         }
 
         /* ============================================================
+           TEASER — What's Next
+        ============================================================ */
+        .teaser-section {
+            padding: 30px 0 20px;
+            text-align: center;
+        }
+
+        .teaser-section .divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(212, 168, 140, 0.06);
+            margin: 0 auto 16px;
+        }
+
+        .teaser-section p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(0.8rem, 1vw, 0.95rem);
+            color: #6a645c;
+            letter-spacing: 0.04em;
+        }
+
+        .teaser-section p .rose-gold-bg {
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        /* ============================================================
            FOOTER
         ============================================================ */
         .footer {
-            padding: 40px 0 28px;
+            padding: 30px 0 24px;
             text-align: center;
             border-top: 1px solid rgba(212, 168, 140, 0.02);
             background: rgba(10, 9, 8, 0.3);
             backdrop-filter: blur(20px);
         }
 
+        .footer .private-emblem {
+            font-size: 1.2rem;
+            color: #d4a88c;
+            opacity: 0.15;
+            letter-spacing: 0.2em;
+            margin-bottom: 6px;
+        }
+
         .footer .tagline {
             font-family: 'Great Vibes', cursive;
             font-size: 1.1rem;
             color: #d4a88c;
-            margin-top: 4px;
+            margin-top: 2px;
             letter-spacing: 0.04em;
         }
 
@@ -528,7 +667,7 @@
             font-family: 'Great Vibes', cursive;
             font-size: 0.8rem;
             color: #6a645c;
-            margin-top: 6px;
+            margin-top: 4px;
             letter-spacing: 0.03em;
         }
 
@@ -536,7 +675,7 @@
             color: #4a4642;
             font-size: 0.45rem;
             letter-spacing: 0.12em;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .footer .footer-logo {
@@ -677,7 +816,8 @@
                 font-size: 0.5rem;
             }
 
-            .craft-grid {
+            .craft-grid,
+            .experience-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
@@ -691,7 +831,7 @@
             }
 
             .hero {
-                padding: 20px 0 30px;
+                padding: 20px 0 20px;
                 min-height: auto;
             }
 
@@ -705,6 +845,10 @@
 
             .modal-content .gold-letter {
                 font-size: 1.8rem;
+            }
+
+            .experience-step {
+                padding: 14px 12px;
             }
         }
 
@@ -728,6 +872,10 @@
 
             .modal-content .gold-letter {
                 font-size: 1.5rem;
+            }
+
+            .experience-step h4 {
+                font-size: 0.8rem;
             }
         }
 
@@ -762,10 +910,9 @@
             <div class="logo">HALONEX <span class="rose">·</span></div>
             <div class="nav-links">
                 <a href="about.html">About</a>
-                <a href="#">The Box</a>
-                <a href="#">Craft</a>
-                <a href="#">Security</a>
-                <a href="#">Private</a>
+                <a href="#craft">Craft</a>
+                <a href="#experience">Experience</a>
+                <a href="#security">Security</a>
             </div>
         </header>
 
@@ -773,6 +920,7 @@
         <section class="hero">
             <div class="hero-badge">Founder's Edition · 001/1000</div>
             <h1>THE FUTURE, <span class="rose-gold-bg">REFINED.</span></h1>
+            <div class="sub-line">— by invitation only —</div>
             <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
             <button class="cta-button" id="ctaBtn">Request Private Access</button>
 
@@ -790,10 +938,18 @@
                 <div class="founder-label">Founder</div>
                 <div class="founder-name">Saad Saeed</div>
             </div>
+
+            <!-- ===== NEVER AGAIN ===== -->
+            <div class="never-again">
+                <div class="divider"></div>
+                <p><strong>001 / 1000</strong> — never to be reproduced. ever.</p>
+            </div>
         </section>
 
-        <!-- ===== CRAFT, PRECISION, SILENCE ===== -->
-        <section class="craft-section reveal reveal-delay-1">
+        <!-- ============================================================
+           CRAFT, PRECISION, SILENCE
+        ============================================================ -->
+        <section class="craft-section reveal reveal-delay-1" id="craft">
             <div style="text-align: center; max-width: 550px; margin: 0 auto;">
                 <div style="font-family:'Playfair Display',serif; font-size:clamp(1.4rem,2.5vw,2rem); font-weight:400; letter-spacing:-0.02em; color:#f0ece8;">
                     Craft · <span class="rose-gold-bg">Precision</span> · Silence
@@ -819,17 +975,54 @@
             </div>
         </section>
 
-        <!-- ===== VAULT ===== -->
-        <section class="vault-section reveal reveal-delay-2">
-            <div class="vault-content">
-                <div class="vault-badge">✦ vault-grade security</div>
-                <div class="section-title">Protected <span class="rose-gold-bg">like</span> a vault</div>
-                <p>Advanced payment protection, secure transactions, and financial-grade encryption. Quiet confidence, always.</p>
+        <!-- ============================================================
+           THE EXPERIENCE
+        ============================================================ -->
+        <section class="experience-section reveal reveal-delay-2" id="experience">
+            <div class="label">The Invitation</div>
+            <div class="experience-grid">
+                <div class="experience-step">
+                    <div class="step-number">— I —</div>
+                    <h4>Receive</h4>
+                    <p>An invitation is extended. Exclusive. Personal. Yours alone.</p>
+                </div>
+                <div class="experience-step">
+                    <div class="step-number">— II —</div>
+                    <h4>Activate</h4>
+                    <p>Tap the ring to your phone via your bank's prestige feature.</p>
+                </div>
+                <div class="experience-step">
+                    <div class="step-number">— III —</div>
+                    <h4>Wear</h4>
+                    <p>Secure. Seamless. Effortless. Luxury that moves with you.</p>
+                </div>
             </div>
         </section>
 
-        <!-- ===== FOOTER ===== -->
+        <!-- ============================================================
+           VAULT
+        ============================================================ -->
+        <section class="vault-section reveal reveal-delay-3" id="security">
+            <div class="vault-content">
+                <div class="vault-badge">✦ vault-grade security</div>
+                <div class="section-title">Protected <span class="rose-gold-bg">like</span> a vault</div>
+                <p>Powered by <strong style="color:#d4a88c; font-weight:400;">Digiseq</strong> — a UK-based TSM for Visa and Mastercard. Every transaction, protected.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+           TEASER — What's Next
+        ============================================================ -->
+        <section class="teaser-section reveal">
+            <div class="divider"></div>
+            <p>This is only the beginning. <span class="rose-gold-bg">More will follow.</span></p>
+        </section>
+
+        <!-- ============================================================
+           FOOTER
+        ============================================================ -->
         <footer class="footer">
+            <div class="private-emblem">✦</div>
             <div class="footer-logo">HALONEX <span style="color:#d4a88c;">·</span></div>
             <p class="tagline">Luxury that moves with you.</p>
             <p class="founder-credit">— Saad Saeed —</p>
@@ -1018,7 +1211,7 @@
                 observer.observe(el);
             });
 
-            document.querySelectorAll('.craft-item').forEach((el, index) => {
+            document.querySelectorAll('.craft-item, .experience-step').forEach((el, index) => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = `all 0.8s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.06}s`;

@@ -740,4 +740,248 @@
     </section>
 
     <!-- CRAFT -->
-    <section class="craft-section
+    <section class="craft-section">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto;">
+        <div class="section-title">Masterpiece <span class="gold">of</span> form</div>
+        <p style="font-size: clamp(1rem, 1.3vw, 1.25rem); font-weight: 300; color: #a89c8f; letter-spacing: 0.02em; max-width: 560px; margin: 0 auto 20px;">Seamless ceramic · sculpted surface · precision engineering. Not a gadget. A luxury object powered by advanced technology.</p>
+      </div>
+      <div class="craft-grid">
+        <div class="craft-item"><h4>Seamless ceramic</h4><p>Monolithic surface, warm to the touch. Engineered for a lifetime.</p></div>
+        <div class="craft-item"><h4>Sculpted form</h4><p>Architectural lines, ergonomic perfection. Worn with intent.</p></div>
+        <div class="craft-item"><h4>Invisible payment</h4><p>Financial-grade technology, concealed within timeless design.</p></div>
+      </div>
+    </section>
+
+    <!-- VAULT -->
+    <section class="vault-section">
+      <div class="vault-content">
+        <div class="vault-badge">✦ vault-grade security</div>
+        <div class="section-title">Protected <span class="gold">like</span> a vault</div>
+        <p>Advanced payment protection, secure transactions, and financial-grade encryption. Quiet confidence, always.</p>
+      </div>
+    </section>
+
+    <!-- OWNERSHIP -->
+    <section class="ownership-section">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <div class="section-title">The <span class="gold">ownership</span> journey</div>
+        <p style="font-size: clamp(1rem, 1.3vw, 1.25rem); font-weight: 300; color: #a89c8f; letter-spacing: 0.02em; max-width: 560px; margin: 0 auto 20px;">Exclusive access, premium packaging, private relationship. Each ring arrives in an obsidian box with gold accents — like opening a rare timepiece.</p>
+      </div>
+      <div class="ownership-grid">
+        <div class="ownership-item"><h4>Exclusive access</h4><p>Founder's Edition. One thousand pieces worldwide.</p></div>
+        <div class="ownership-item"><h4>Premium packaging</h4><p>Obsidian presentation box, tactile materials, invitation card.</p></div>
+        <div class="ownership-item"><h4>Personalized experience</h4><p>Dedicated client relationship, concierge service.</p></div>
+        <div class="ownership-item"><h4>Private customer</h4><p>Discreet, white-glove service from first contact.</p></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="logo">HALONEX <span style="font-weight:200;">·</span></div>
+      <p class="tagline">Luxury that moves with you.</p>
+      <p style="margin-top: 28px; font-size: 0.6rem; letter-spacing: 0.12em;">© 2026 HALONEX · Private Collection</p>
+      <p style="font-size: 0.55rem; color: #3d352e; margin-top: 6px;">not something i use · something i own</p>
+    </footer>
+  </div>
+
+  <!-- JAVASCRIPT: Particles + Glass Effects + Interactivity -->
+  <script>
+    (function() {
+      // ----- PARTICLE SYSTEM (Elegant gold/white particles) -----
+      const canvas = document.getElementById('particle-canvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let mouseX = -1000;
+      let mouseY = -1000;
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 1.8 + 0.5;
+          this.speedX = (Math.random() - 0.5) * 0.3;
+          this.speedY = (Math.random() - 0.5) * 0.3;
+          this.opacity = Math.random() * 0.4 + 0.1;
+          this.targetOpacity = this.opacity;
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+
+          // Mouse interaction - repulsion
+          const dx = this.x - mouseX;
+          const dy = this.y - mouseY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            const force = (120 - dist) / 120;
+            this.x += (dx / dist) * force * 1.2;
+            this.y += (dy / dist) * force * 1.2;
+            this.targetOpacity = 0.7;
+          } else {
+            this.targetOpacity = Math.random() * 0.3 + 0.1;
+          }
+
+          // Boundary
+          if (this.x < 0) this.x = canvas.width;
+          if (this.x > canvas.width) this.x = 0;
+          if (this.y < 0) this.y = canvas.height;
+          if (this.y > canvas.height) this.y = 0;
+
+          this.opacity += (this.targetOpacity - this.opacity) * 0.02;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(214, 188, 146, ${this.opacity})`;
+          ctx.fill();
+          // Glow
+          if (this.opacity > 0.3) {
+            ctx.shadowColor = 'rgba(214, 188, 146, 0.15)';
+            ctx.shadowBlur = 12;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+          }
+        }
+      }
+
+      // Create particles
+      const particleCount = Math.min(120, Math.floor(window.innerWidth / 12));
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      // Mouse tracking
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      // Animate particles
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+
+        // Draw connections (subtle lines between nearby particles)
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150) {
+              const opacity = (1 - dist / 150) * 0.06;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(214, 188, 146, ${opacity})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+
+      // ----- RING 3D TILT (Mouse tracking) -----
+      const ring = document.querySelector('.ring-artifact');
+      if (ring) {
+        document.addEventListener('mousemove', (e) => {
+          const rect = ring.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const deltaX = (e.clientX - centerX) / rect.width;
+          const deltaY = (e.clientY - centerY) / rect.height;
+          const rotateY = -4 + deltaX * 8;
+          const rotateX = 6 - deltaY * 8;
+          ring.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+      }
+
+      // ----- CTA BUTTON RIPPLE -----
+      const cta = document.querySelector('.cta-button');
+      if (cta) {
+        cta.addEventListener('click', function(e) {
+          e.preventDefault();
+          this.style.transition = 'all 0.1s';
+          this.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            this.style.transform = 'scale(1.02)';
+            setTimeout(() => {
+              this.style.transform = 'scale(1)';
+            }, 200);
+          }, 100);
+          // Create ripple
+          const ripple = document.createElement('span');
+          ripple.style.position = 'absolute';
+          ripple.style.borderRadius = '50%';
+          ripple.style.background = 'rgba(214, 188, 146, 0.2)';
+          ripple.style.width = '20px';
+          ripple.style.height = '20px';
+          ripple.style.left = '50%';
+          ripple.style.top = '50%';
+          ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+          ripple.style.transition = 'all 0.6s ease';
+          ripple.style.pointerEvents = 'none';
+          this.style.position = 'relative';
+          this.style.overflow = 'hidden';
+          this.appendChild(ripple);
+          requestAnimationFrame(() => {
+            ripple.style.transform = 'translate(-50%, -50%) scale(30)';
+            ripple.style.opacity = '0';
+          });
+          setTimeout(() => ripple.remove(), 700);
+        });
+      }
+
+      // ----- SCROLL REVEAL (Intersection Observer) -----
+      const sections = document.querySelectorAll('.story-section, .craft-section, .vault-section, .ownership-section');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'all 1s cubic-bezier(0.23, 1, 0.32, 1)';
+        observer.observe(section);
+      });
+
+      // Also observe craft items individually
+      document.querySelectorAll('.craft-item, .ownership-item').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        }, { threshold: 0.1 });
+        obs.observe(el);
+      });
+
+    })();
+  </script>
+
+</body>
+</html>

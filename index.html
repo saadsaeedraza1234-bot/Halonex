@@ -1,631 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HALONEX · The future, refined.</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
-    <style>
-        /* ----- RESET & BASE ----- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            background-color: #080706;
-            color: #ece6de;
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
+    <title>HALONEX | Luxury ******* Wearables</title>
 
-        ::selection {
-            background: #b49b70;
-            color: #080706;
-        }
+    <meta name="description"
+        content="HALONEX creates luxury wearable payment experiences where craftsmanship meets invisible technology.">
 
-        .container {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 48px;
-        }
-
-        /* ----- TYPOGRAPHY ----- */
-        .section-title {
-            font-size: clamp(2.6rem, 6vw, 4.8rem);
-            font-weight: 200;
-            letter-spacing: -0.03em;
-            line-height: 1.05;
-            color: #f2ede6;
-        }
-
-        .gold {
-            color: #d6bc92;
-        }
-
-        /* ----- NAVBAR ----- */
-        .navbar {
-            padding: 28px 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(212, 182, 138, 0.06);
-            backdrop-filter: blur(6px);
-            background: rgba(8, 7, 6, 0.4);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 300;
-            letter-spacing: 0.4em;
-            color: #f2ede6;
-            text-transform: uppercase;
-        }
-        .logo span {
-            color: #d6bc92;
-            font-weight: 400;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3.2rem;
-            font-size: 0.7rem;
-            font-weight: 400;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: #a89c8f;
-        }
-        .nav-links a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.3s;
-            border-bottom: 1px solid transparent;
-            padding-bottom: 4px;
-        }
-        .nav-links a:hover {
-            color: #d6bc92;
-            border-bottom-color: #d6bc92;
-        }
-
-        /* ----- HERO SECTION (with your images) ----- */
-        .hero {
-            padding: 40px 0 80px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            border-bottom: 1px solid rgba(212, 182, 138, 0.05);
-            position: relative;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            border: 1px solid rgba(212, 182, 138, 0.15);
-            padding: 6px 28px;
-            border-radius: 60px;
-            font-size: 0.6rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: #b49b70;
-            margin-bottom: 40px;
-            background: rgba(212, 182, 138, 0.02);
-            backdrop-filter: blur(4px);
-        }
-
-        .hero h1 {
-            font-size: clamp(3.8rem, 12vw, 8rem);
-            font-weight: 200;
-            letter-spacing: -0.04em;
-            line-height: 0.95;
-            color: #f7f2ea;
-            margin-bottom: 20px;
-        }
-        .hero h1 .gold {
-            font-weight: 300;
-        }
-
-        .hero p {
-            font-size: clamp(1rem, 1.6vw, 1.5rem);
-            max-width: 640px;
-            margin: 0 auto 44px;
-            color: #b3a79a;
-            font-weight: 300;
-            letter-spacing: 0.02em;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: transparent;
-            border: 1px solid #d6bc92;
-            color: #f2ede6;
-            padding: 16px 60px;
-            border-radius: 80px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            background: rgba(212, 182, 138, 0.02);
-            backdrop-filter: blur(6px);
-        }
-        .cta-button:hover {
-            background: #d6bc92;
-            color: #080706;
-            border-color: #d6bc92;
-            box-shadow: 0 20px 50px rgba(212, 182, 138, 0.12);
-            transform: scale(1.02);
-        }
-
-        /* ----- RING DISPLAY WITH YOUR IMAGES ----- */
-        .ring-display {
-            margin: 50px 0 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            perspective: 1200px;
-        }
-
-        /* Your first image - the main ring artifact */
-        .ring-artifact {
-            width: 100%;
-            max-width: 480px;
-            aspect-ratio: 1/1;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 60px 120px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(212, 182, 138, 0.06);
-            transform: rotateX(6deg) rotateY(-4deg);
-            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative;
-        }
-        .ring-artifact:hover {
-            transform: rotateX(2deg) rotateY(-2deg) scale(1.01);
-        }
-        .ring-artifact img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Your second image - the founder badge */
-        .founder-badge {
-            max-width: 260px;
-            width: 100%;
-            border-radius: 16px;
-            border: 1px solid rgba(212, 182, 138, 0.06);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-            background: #0f0d0b;
-            padding: 4px;
-        }
-        .founder-badge:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
-        }
-        .founder-badge img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 12px;
-        }
-
-        .ring-caption {
-            text-align: center;
-            margin-top: 12px;
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            color: #7a6e5f;
-            font-weight: 300;
-        }
-        .ring-caption span {
-            color: #d6bc92;
-            font-weight: 400;
-        }
-
-        /* ----- STORY SECTION ----- */
-        .story-section {
-            padding: 120px 0;
-            border-top: 1px solid rgba(212, 182, 138, 0.04);
-            border-bottom: 1px solid rgba(212, 182, 138, 0.04);
-        }
-
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 100px;
-            align-items: center;
-        }
-
-        .story-text .section-title {
-            margin-bottom: 16px;
-        }
-        .story-text p {
-            font-size: 1.1rem;
-            color: #b3a79a;
-            max-width: 480px;
-            margin-bottom: 28px;
-            font-weight: 300;
-            letter-spacing: 0.01em;
-        }
-
-        .story-highlight {
-            border-left: 3px solid #d6bc92;
-            padding-left: 28px;
-            font-style: normal;
-            font-weight: 300;
-            color: #e5dcd2;
-            font-size: 1.3rem;
-            margin: 32px 0;
-        }
-
-        .evolution-steps {
-            display: flex;
-            gap: 8px 24px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            color: #7a6e5f;
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-        }
-        .evolution-steps span {
-            background: rgba(212, 182, 138, 0.03);
-            padding: 6px 22px;
-            border-radius: 60px;
-            border: 1px solid rgba(212, 182, 138, 0.05);
-        }
-        .evolution-steps .arrow {
-            color: #d6bc92;
-            font-weight: 200;
-        }
-
-        .story-image {
-            background: #14110e;
-            aspect-ratio: 4/3;
-            border-radius: 20px;
-            background: radial-gradient(ellipse at 30% 30%, #2f2920, #0d0b09);
-            box-shadow: inset 0 0 0 1px rgba(212, 182, 138, 0.04);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #5a4d3a;
-            font-weight: 200;
-            letter-spacing: 0.2em;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .story-image .shimmer {
-            position: absolute;
-            top: -20%;
-            left: -20%;
-            width: 70%;
-            height: 70%;
-            background: radial-gradient(circle, rgba(212, 182, 138, 0.03), transparent 70%);
-            animation: shimmerMove 12s linear infinite alternate;
-        }
-        @keyframes shimmerMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(30%, 20%); }
-        }
-        .story-image .label {
-            z-index: 2;
-            color: #b49b70;
-            opacity: 0.5;
-        }
-
-        /* ----- CRAFT SECTION ----- */
-        .craft-section {
-            padding: 120px 0;
-            border-bottom: 1px solid rgba(212, 182, 138, 0.04);
-        }
-
-        .craft-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 64px;
-        }
-        .craft-item {
-            background: rgba(255, 255, 255, 0.01);
-            padding: 40px 28px 32px;
-            border-radius: 16px;
-            border: 1px solid rgba(212, 182, 138, 0.03);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .craft-item:hover {
-            border-color: rgba(212, 182, 138, 0.12);
-            background: rgba(212, 182, 138, 0.02);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        .craft-item h4 {
-            font-weight: 400;
-            font-size: 1.3rem;
-            letter-spacing: 0.05em;
-            margin-bottom: 12px;
-            color: #e5dcd2;
-        }
-        .craft-item p {
-            font-size: 0.9rem;
-            color: #9a8e7f;
-            font-weight: 300;
-            line-height: 1.7;
-        }
-
-        /* ----- VAULT SECTION ----- */
-        .vault-section {
-            padding: 120px 0;
-            border-bottom: 1px solid rgba(212, 182, 138, 0.04);
-            background: linear-gradient(160deg, #080706 0%, #0f0d0b 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .vault-section::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 60%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(212, 182, 138, 0.02), transparent 70%);
-            pointer-events: none;
-        }
-
-        .vault-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-        .vault-content .section-title {
-            margin-bottom: 12px;
-        }
-        .vault-content p {
-            color: #b3a79a;
-            font-size: 1.1rem;
-            max-width: 560px;
-            margin: 0 auto 44px;
-        }
-        .vault-badge {
-            display: inline-block;
-            border: 1px solid rgba(212, 182, 138, 0.1);
-            padding: 6px 32px;
-            border-radius: 60px;
-            font-size: 0.6rem;
-            letter-spacing: 0.25em;
-            color: #b49b70;
-            background: rgba(212, 182, 138, 0.02);
-            margin-bottom: 16px;
-        }
-
-        /* ----- OWNERSHIP ----- */
-        .ownership-section {
-            padding: 120px 0;
-            border-bottom: 1px solid rgba(212, 182, 138, 0.04);
-        }
-
-        .ownership-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 64px 80px;
-            margin-top: 56px;
-        }
-        .ownership-item {
-            border-left: 2px solid rgba(212, 182, 138, 0.06);
-            padding-left: 32px;
-            transition: border-color 0.4s;
-        }
-        .ownership-item:hover {
-            border-left-color: rgba(212, 182, 138, 0.2);
-        }
-        .ownership-item h4 {
-            font-weight: 400;
-            font-size: 1.25rem;
-            letter-spacing: 0.05em;
-            color: #e5dcd2;
-            margin-bottom: 8px;
-        }
-        .ownership-item p {
-            color: #9a8e7f;
-            font-weight: 300;
-            font-size: 0.95rem;
-        }
-
-        /* ----- FOOTER ----- */
-        .footer {
-            padding: 80px 0 48px;
-            text-align: center;
-            border-top: 1px solid rgba(212, 182, 138, 0.02);
-        }
-        .footer .logo {
-            font-size: 1.2rem;
-            margin-bottom: 16px;
-        }
-        .footer p {
-            color: #5a4d3a;
-            font-size: 0.7rem;
-            letter-spacing: 0.08em;
-            max-width: 320px;
-            margin: 0 auto;
-        }
-        .footer .tagline {
-            color: #7a6e5f;
-            font-size: 0.9rem;
-            margin-top: 12px;
-            font-weight: 200;
-            letter-spacing: 0.15em;
-        }
-
-        /* ----- RESPONSIVE ----- */
-        @media (max-width: 1024px) {
-            .story-grid {
-                gap: 60px;
-            }
-        }
-        @media (max-width: 900px) {
-            .story-grid,
-            .craft-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .ownership-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            .navbar {
-                flex-direction: column;
-                gap: 16px;
-                padding: 20px 0;
-            }
-            .nav-links {
-                gap: 1.8rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .container {
-                padding: 0 28px;
-            }
-            .hero {
-                padding: 20px 0 50px;
-            }
-            .ring-artifact {
-                max-width: 340px;
-            }
-            .founder-badge {
-                max-width: 200px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-links {
-                font-size: 0.55rem;
-                gap: 1rem;
-            }
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .cta-button {
-                padding: 14px 36px;
-                font-size: 0.65rem;
-            }
-            .ring-artifact {
-                max-width: 260px;
-            }
-            .founder-badge {
-                max-width: 160px;
-            }
-            .ring-display {
-                gap: 20px;
-            }
-        }
-
-        /* ----- FADE-IN ANIMATIONS ----- */
-        .fade-in {
-            opacity: 0;
-            animation: fadeUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-        }
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(18px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .delay-1 {
-            animation-delay: 0.15s;
-        }
-        .delay-2 {
-            animation-delay: 0.3s;
-        }
-        .delay-3 {
-            animation-delay: 0.45s;
-        }
-        .delay-4 {
-            animation-delay: 0.6s;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <!-- NAVBAR -->
-        <header class="navbar fade-in">
-            <div class="logo">HALONEX <span>·</span></div>
-            <div class="nav-links">
-                <a href="#">The Ring</a>
-                <a href="#">Craft</a>
-                <a href="#">Security</a>
-                <a href="#">Private</a>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-logo">HALONEX</div>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="background-glow"></div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            HALONEX
+        </div>
+
+        <nav>
+
+            <a href="#manifesto">Philosophy</a>
+
+            <a href="#ring">The Ring</a>
+
+            <a href="#experience">Experience</a>
+
+            <a href="#contact">Access</a>
+
+        </nav>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="eyebrow">
+                PRIVATE COLLECTION
+            </span>
+
+            <h1>
+                *** FUTURE,<br>
+                REFINED.
+            </h1>
+
+            <p>
+                Luxury payment wearables crafted with ******** elegance and
+                ********** for ********** living.
+            </p>
+
+            <a href="#" class="hero-button">
+                ******* ******* Access
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+
+            <!-- Ring Image -->
+
+            <img src="assets/ring.png" alt="HALONEX Ring">
+
+        </div>
+
+    </section>
+
+    <!-- BRAND MANIFESTO -->
+
+    <section id="manifesto" class="manifesto">
+
+        <span>*** PHILOSOPHY</span>
+
+        <h2>
+            Technology should disappear.
+            Craftsmanship should remain.
+        </h2>
+
+        <p>
+
+            ******* exists where timeless materials meet invisible financial
+            technology.
+
+            Every interaction feels effortless.
+
+            ***** detail feels intentional.
+
+        </p>
+
+    </section>
+
+    <!-- PRODUCT -->
+
+    <section id="ring" class="product">
+
+        <div class="product-image">
+
+            <img src="assets/ring-side.png"
+                alt="HALONEX Ceramic Payment Ring">
+
+        </div>
+
+        <div class="product-content">
+
+            <span>*** RING</span>
+
+            <h2>
+                Crafted to be admired.
+                Engineered to perform.
+            </h2>
+
+            <p>
+
+                Precision ceramic.
+
+                Seamless design.
+
+                Invisible payment technology.
+
+                Luxury ******* compromise.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- MATERIALS -->
+
+    <section class="materials">
+
+        <span>MATERIALS</span>
+
+        <h2>
+            Precision begins with *********** materials.
+        </h2>
+
+        <div class="material-grid">
+
+            <div class="material-card">
+                Zirconia Ceramic
             </div>
-        </header>
 
-        <!-- HERO SECTION -->
-        <section class="hero fade-in delay-1">
-            <div class="hero-badge">Founder's Edition · 001/1000</div>
-            <h1>THE FUTURE, <span class="gold">REFINED.</span></h1>
-            <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
-            <a href="#" class="cta-button">Request Private Access</a>
-
-            <!-- RING DISPLAY WITH YOUR TWO IMAGES -->
-            <div class="ring-display">
-                <!-- First image: The ring artifact (your main ring image) -->
-                <div class="ring-artifact">
-                    <img src="24876_5318787403260137384.webp" alt="HALONEX Ring" />
-                </div>
-
-                <!-- Second image: Founder badge (your text/image badge) -->
-                <div class="founder-badge">
-                    <img src="24874_661393905590657705.webp" alt="Founder's Edition Badge" />
-                </div>
+            <div class="material-card">
+                Scratch Resistant
             </div>
 
-            <div class="ring-caption">HALONEX <span>·</span> sculpted ceramic · invisible payment</div>
-        </section>
-
-        <!-- STORY SECTION -->
-        <section class="story-section fade-in delay-2">
-            <div class="story-grid">
-                <div class="story-text">
-                    <div class="section-title">Technology <br />that <span class="gold">becomes</span> part of you.</div>
-                    <p>Technology should not demand attention. It should become part of you. HALONEX is the next evolution—from wallet to card to phone to wearable.</p>
-                    <div class="story-highlight">"Luxury that moves with you."</div>
-                    <div class="evolution-steps">
-                        <span>Wallet</span> <span class="arrow">→</span> <span>Card</span> <span class="arrow">→</span> <span>Phone</span> <span class="arrow">→</span> <span style="color:#d6bc92; border-color:#d6bc92;">Wearable</span>
-                    </div>
-                </div>
-                <div class="story-image">
-                    <div class="shimmer"></div>
-                    <span class="label">Craft · Precision · Silence</span>
-                </div>
+            <div class="material-card">
+                Precision Engineered
             </div>
-        </section>
 
-        <!-- CRAFT SECTION -->
-        <section class="craft-section fade-in delay-3">
-            <div style="text-align: center; max-width: 720px; margin: 0 auto;">
-                <div class="section-title">Masterpiece <span class="gold">of</span> form</div>
-                <p style="font-size: clamp(1rem, 1.3vw, 1.25rem); font-weight: 300; color: #a89c8f; letter-spacing: 0.02em; max-width: 560px; margin: 0 auto 20px;">Seamless ceramic · sculpted surface · precision engineering. Not a gadget. A luxury object powered by advanced technology.</p>
+            <div class="material-card">
+                ******** Finish
             </div>
-            <div class="craft-grid">
-                <div class="craft-item"><h4>Seamless ceramic</h4><p>Monolithic surface, warm to the touch. Engineered for a lifetime.</p></div>
-                <div class="craft-item"><h4>Sculpted form</h4><p>Architectural lines, ergonomic perfection. Worn with intent.</p></div>
-                <div class="craft-item"><h4>Invisible payment</h4><p>Financial-grade technology, concealed within timeless design.</p></div>
-            </div>
-        </section>
 
-        <!-- VAULT SECTION -->
-        <section class="vault-section fade-in delay-4">
-            <div class="vault-content">
-                <div class="vault-badge">✦ vault-grade security</div>
-                <div class="section-title">Protected <span class="gold">like</span> a vault</div>
-                <p
+        </div>
+
+    </section>
+
+    <!-- EXPERIENCE -->
+
+    <section id="experience" class="experience">
+
+        <span>OWNERSHIP</span>
+
+        <h2>
+            **** than ownership.
+            Membership.
+        </h2>
+
+        <p>
+
+            From presentation to ***** use,
+
+            every moment ** designed to feel
+            deliberate, ***** and exceptional.
+
+        </p>
+
+    </section>
+
+    <!-- PACKAGING -->
+
+    <section class="packaging">
+
+        <div class="package-image">
+
+            <img src="assets/box.png"
+                alt="Luxury HALONEX Packaging">
+
+        </div>
+
+        <div class="package-content">
+
+            <span>PACKAGING</span>
+
+            <h2>
+                The first impression
+                ****** **** unforgettable.
+            </h2>
+
+        </div>
+
+    </section>
+
+    <!-- FINAL CTA -->
+
+    <section id="contact" class="cta">
+
+        <h2>
+
+            Luxury,
+
+            uninterrupted.
+
+        </h2>
+
+        <a href="#" class="cta-button">
+
+            **** the HALONEX Circle
+
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+
+            HALONEX
+
+        </div>
+
+        <p>
+
+            © 2026 HALONEX
+
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+
+<div style="color: red">Word to HTML trial - please <a href="https://wordtohtml.net/site/payment">Go PRO</a> to get whole HTML.</div>
+</body>
+
+</html>

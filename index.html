@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>HALONEX · The future, refined.</title>
+    <title>HALONEX · Private Collection</title>
 
-    <!-- Google Fonts: Orbitron for Tech-Luxury Headline -->
+    <!-- Google Fonts: Elegant Serif + Clean Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100;14..32,200;14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Orbitron:wght@400;500;600;700;800;900&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
 
     <style>
         /* ============================================================
-           RESET & BASE — Pitch Black & Platinum
+           RESET & BASE — Pitch Black + Rose Gold
         ============================================================ */
         * {
             margin: 0;
@@ -21,8 +21,8 @@
         }
 
         body {
-            background: #050505;
-            color: #e8e4de;
+            background: #0a0908;
+            color: #e8e2dc;
             font-family: 'Inter', sans-serif;
             font-weight: 300;
             -webkit-font-smoothing: antialiased;
@@ -31,8 +31,27 @@
         }
 
         ::selection {
-            background: #b8b0a0;
-            color: #050505;
+            background: #d4a88c;
+            color: #0a0908;
+        }
+
+        /* ===== ROSE GOLD ACCENT ===== */
+        .rose-gold {
+            color: #d4a88c;
+        }
+
+        .rose-gold-bg {
+            background: linear-gradient(135deg, #d4a88c, #e8c4a8, #d4a88c);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: roseShimmer 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes roseShimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         /* ===== SIGNATURE FONT ===== */
@@ -40,6 +59,19 @@
             font-family: 'Great Vibes', cursive;
             font-weight: 400;
             letter-spacing: 0.02em;
+        }
+
+        /* ===== SERIF HEADINGS ===== */
+        .serif {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        .serif-bold {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
         /* ===== PARTICLES ===== */
@@ -61,30 +93,15 @@
             z-index: 2;
         }
 
-        /* ===== PLATINUM TEXT ===== */
-        .platinum {
-            background: linear-gradient(135deg, #d4d0c8, #f0ede8, #d4d0c8);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: platinumShimmer 6s ease-in-out infinite alternate;
-        }
-
-        @keyframes platinumShimmer {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-
         /* ===== NAVBAR ===== */
         .navbar {
-            padding: 16px 0;
+            padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(5, 5, 5, 0.6);
+            background: rgba(10, 9, 8, 0.6);
             backdrop-filter: blur(40px);
-            border-bottom: 1px solid rgba(200, 190, 180, 0.04);
+            border-bottom: 1px solid rgba(212, 168, 140, 0.06);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -94,28 +111,32 @@
         }
 
         .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
             font-weight: 500;
-            letter-spacing: 0.4em;
-            color: #e8e4de;
+            letter-spacing: 0.35em;
+            color: #e8e2dc;
             text-transform: uppercase;
+        }
+
+        .logo .rose {
+            color: #d4a88c;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
-            font-size: 0.55rem;
+            gap: 2.2rem;
+            font-size: 0.6rem;
             font-weight: 400;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: #8a847c;
+            color: #8a827a;
         }
 
         .nav-links a {
             color: inherit;
             text-decoration: none;
-            transition: color 0.4s ease;
+            transition: color 0.5s ease;
             position: relative;
             padding-bottom: 4px;
         }
@@ -127,8 +148,8 @@
             left: 0;
             width: 0;
             height: 1px;
-            background: #d4d0c8;
-            transition: width 0.5s ease;
+            background: #d4a88c;
+            transition: width 0.6s ease;
         }
 
         .nav-links a:hover::after {
@@ -136,56 +157,56 @@
         }
 
         .nav-links a:hover {
-            color: #d4d0c8;
+            color: #d4a88c;
         }
 
         /* ===== HERO ===== */
         .hero {
-            padding: 30px 0 40px;
+            padding: 40px 0 50px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            min-height: 80vh;
+            min-height: 85vh;
             justify-content: center;
         }
 
         .hero-badge {
-            border: 1px solid rgba(200, 190, 180, 0.08);
-            padding: 4px 20px;
+            border: 1px solid rgba(212, 168, 140, 0.08);
+            padding: 5px 22px;
             border-radius: 60px;
-            font-size: 0.45rem;
-            letter-spacing: 0.35em;
+            font-size: 0.5rem;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: #8a847c;
-            margin-bottom: 24px;
-            background: rgba(200, 190, 180, 0.02);
+            color: #8a827a;
+            margin-bottom: 28px;
+            background: rgba(212, 168, 140, 0.02);
             backdrop-filter: blur(8px);
             animation: fadeIn 1.8s 0.2s ease forwards;
             opacity: 0;
         }
 
         .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.8rem, 10vw, 5.5rem);
-            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 9vw, 5.5rem);
+            font-weight: 400;
             letter-spacing: -0.02em;
             line-height: 0.95;
-            color: #f5f2ee;
-            margin-bottom: 12px;
+            color: #f0ece8;
+            margin-bottom: 14px;
             animation: fadeIn 2s 0.4s ease forwards;
             opacity: 0;
         }
 
-        .hero h1 .platinum {
-            font-weight: 800;
+        .hero h1 .rose-gold-bg {
+            font-weight: 500;
         }
 
         .hero p {
-            font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
             max-width: 480px;
-            margin: 0 auto 24px;
-            color: #9a948c;
+            margin: 0 auto 28px;
+            color: #9a928a;
             font-weight: 300;
             letter-spacing: 0.06em;
             animation: fadeIn 1.8s 0.6s ease forwards;
@@ -195,16 +216,16 @@
         .cta-button {
             display: inline-block;
             background: transparent;
-            border: 1px solid rgba(200, 190, 180, 0.15);
-            color: #f5f2ee;
-            padding: 12px 40px;
+            border: 1px solid rgba(212, 168, 140, 0.2);
+            color: #f0ece8;
+            padding: 14px 44px;
             border-radius: 80px;
             font-size: 0.6rem;
-            font-weight: 500;
+            font-weight: 400;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             transition: all 0.6s ease;
-            background: rgba(200, 190, 180, 0.02);
+            background: rgba(212, 168, 140, 0.02);
             backdrop-filter: blur(8px);
             cursor: pointer;
             animation: fadeIn 1.8s 0.8s ease forwards;
@@ -212,10 +233,10 @@
         }
 
         .cta-button:hover {
-            background: #d4d0c8;
-            color: #050505;
-            border-color: #d4d0c8;
-            box-shadow: 0 20px 60px rgba(200, 190, 180, 0.06);
+            background: #d4a88c;
+            color: #0a0908;
+            border-color: #d4a88c;
+            box-shadow: 0 20px 60px rgba(212, 168, 140, 0.08);
             transform: scale(1.02) translateY(-2px);
         }
 
@@ -225,10 +246,10 @@
         }
 
         /* ============================================================
-           BOX DISPLAY — Rectangle, No BG, Platinum Shimmer
+           BOX DISPLAY — Rose Gold Shimmer
         ============================================================ */
         .box-display {
-            margin: 30px 0 16px;
+            margin: 35px 0 16px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -238,7 +259,7 @@
         }
 
         .box-item {
-            max-width: 420px;
+            max-width: 400px;
             width: 100%;
             aspect-ratio: 1.3 / 1;
             border-radius: 16px;
@@ -248,21 +269,21 @@
             justify-content: center;
             position: relative;
             background: transparent;
-            transition: all 0.6s ease;
+            transition: all 0.8s ease;
         }
 
-        /* Platinum shimmer overlay on the box */
+        /* Rose gold shimmer overlay */
         .box-item::before {
             content: '';
             position: absolute;
             inset: -2px;
             border-radius: 18px;
             background: linear-gradient(135deg, 
-                rgba(212, 208, 200, 0.0) 0%, 
-                rgba(212, 208, 200, 0.04) 30%, 
-                rgba(240, 237, 232, 0.08) 50%, 
-                rgba(212, 208, 200, 0.04) 70%, 
-                rgba(212, 208, 200, 0.0) 100%);
+                rgba(212, 168, 140, 0.0) 0%, 
+                rgba(212, 168, 140, 0.04) 30%, 
+                rgba(232, 196, 168, 0.08) 50%, 
+                rgba(212, 168, 140, 0.04) 70%, 
+                rgba(212, 168, 140, 0.0) 100%);
             background-size: 300% 300%;
             z-index: 2;
             pointer-events: none;
@@ -270,21 +291,21 @@
         }
 
         @keyframes shimmerSlide {
-            0% { background-position: 0% 50%; opacity: 0.3; }
-            50% { opacity: 0.8; }
-            100% { background-position: 100% 50%; opacity: 0.3; }
+            0% { background-position: 0% 50%; opacity: 0.2; }
+            50% { opacity: 0.7; }
+            100% { background-position: 100% 50%; opacity: 0.2; }
         }
 
-        /* Subtle platinum glow behind */
+        /* Rose gold glow behind */
         .box-item::after {
             content: '';
             position: absolute;
             inset: -30px;
             border-radius: 24px;
-            background: radial-gradient(circle at 30% 25%, rgba(212, 208, 200, 0.03), transparent 70%);
-            filter: blur(25px);
+            background: radial-gradient(circle at 30% 25%, rgba(212, 168, 140, 0.04), transparent 70%);
+            filter: blur(30px);
             z-index: 0;
-            animation: glowPulse 6s ease-in-out infinite alternate;
+            animation: glowPulse 7s ease-in-out infinite alternate;
         }
 
         @keyframes glowPulse {
@@ -299,16 +320,15 @@
             display: block;
             position: relative;
             z-index: 1;
-            /* Remove white background */
             mix-blend-mode: multiply;
-            filter: brightness(1.1) contrast(1.02) saturate(1.0);
+            filter: brightness(1.08) contrast(1.02) saturate(1.0);
             transition: all 0.6s ease;
             border-radius: 16px;
         }
 
         .box-item:hover img {
             transform: scale(1.01);
-            filter: brightness(1.15) contrast(1.04) saturate(1.0);
+            filter: brightness(1.12) contrast(1.04) saturate(1.0);
         }
 
         .box-item:hover::before {
@@ -327,7 +347,7 @@
         }
 
         .ring-caption span {
-            color: #d4d0c8;
+            color: #d4a88c;
         }
 
         /* ============================================================
@@ -351,109 +371,18 @@
         .founder-name {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            color: #d4d0c8;
+            color: #d4a88c;
             letter-spacing: 0.04em;
-            text-shadow: 0 0 40px rgba(212, 208, 200, 0.03);
+            text-shadow: 0 0 40px rgba(212, 168, 140, 0.03);
         }
 
         /* ============================================================
-           ABOUT US — Project HALO
-        ============================================================ */
-        .about-section {
-            padding: 50px 0;
-            border-top: 1px solid rgba(200, 190, 180, 0.02);
-            border-bottom: 1px solid rgba(200, 190, 180, 0.02);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-text .section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.8rem, 3.5vw, 3rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            line-height: 1.05;
-            color: #f5f2ee;
-            margin-bottom: 12px;
-        }
-
-        .about-text .section-title .platinum {
-            font-weight: 700;
-        }
-
-        .about-text p {
-            font-size: 0.9rem;
-            color: #9a948c;
-            max-width: 440px;
-            margin: 12px 0 0;
-            font-weight: 300;
-            line-height: 1.7;
-            letter-spacing: 0.02em;
-        }
-
-        .about-text .highlight {
-            border-left: 2px solid #d4d0c8;
-            padding-left: 18px;
-            color: #e8e4de;
-            font-size: 0.95rem;
-            margin: 16px 0 0;
-            font-weight: 300;
-            background: linear-gradient(135deg, rgba(212, 208, 200, 0.02), transparent);
-            padding: 12px 18px;
-            border-radius: 0 8px 8px 0;
-            letter-spacing: 0.02em;
-        }
-
-        .about-image {
-            background: radial-gradient(ellipse at 30% 30%, #1a1816, #0a0a09);
-            aspect-ratio: 4/3;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6a645c;
-            opacity: 0.3;
-            font-size: 0.6rem;
-            letter-spacing: 0.4em;
-            border: 1px solid rgba(200, 190, 180, 0.02);
-            text-align: center;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.6s ease;
-        }
-
-        .about-image:hover {
-            opacity: 0.4;
-            border-color: rgba(200, 190, 180, 0.04);
-        }
-
-        .about-image .shimmer-bg {
-            position: absolute;
-            top: -30%;
-            left: -30%;
-            width: 80%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(212, 208, 200, 0.015), transparent 70%);
-            animation: shimmerMove 15s linear infinite alternate;
-        }
-
-        @keyframes shimmerMove {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30%, 20%) scale(1.2); }
-        }
-
-        /* ============================================================
-           CRAFT, PRECISION, SILENCE — More Opaque
+           CRAFT, PRECISION, SILENCE
         ============================================================ */
         .craft-section {
-            padding: 50px 0;
-            border-bottom: 1px solid rgba(200, 190, 180, 0.02);
+            padding: 60px 0;
+            border-top: 1px solid rgba(212, 168, 140, 0.03);
+            border-bottom: 1px solid rgba(212, 168, 140, 0.03);
         }
 
         .craft-grid {
@@ -464,41 +393,41 @@
         }
 
         .craft-item {
-            padding: 28px 20px;
+            padding: 30px 22px;
             border-radius: 18px;
-            border: 1px solid rgba(200, 190, 180, 0.03);
+            border: 1px solid rgba(212, 168, 140, 0.02);
             transition: all 0.6s ease;
-            background: rgba(20, 18, 16, 0.6);
+            background: rgba(20, 18, 16, 0.5);
             backdrop-filter: blur(8px);
             text-align: center;
         }
 
         .craft-item:hover {
-            border-color: rgba(200, 190, 180, 0.06);
-            background: rgba(30, 28, 26, 0.7);
+            border-color: rgba(212, 168, 140, 0.06);
+            background: rgba(30, 28, 26, 0.6);
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .craft-item .icon {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 10px;
-            opacity: 0.4;
-            color: #d4d0c8;
+            opacity: 0.3;
+            color: #d4a88c;
         }
 
         .craft-item h4 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-weight: 500;
-            font-size: 0.9rem;
-            color: #e8e4de;
+            font-size: 1rem;
+            color: #e8e2dc;
             margin-bottom: 4px;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.04em;
         }
 
         .craft-item p {
             font-size: 0.75rem;
-            color: #8a847c;
+            color: #8a827a;
             font-weight: 300;
             line-height: 1.6;
             letter-spacing: 0.02em;
@@ -508,9 +437,9 @@
            VAULT
         ============================================================ */
         .vault-section {
-            padding: 50px 0;
-            border-bottom: 1px solid rgba(200, 190, 180, 0.02);
-            background: linear-gradient(160deg, #050505 0%, #0a0a09 100%);
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(212, 168, 140, 0.03);
+            background: linear-gradient(160deg, #0a0908 0%, #0f0d0b 100%);
             position: relative;
             overflow: hidden;
         }
@@ -522,7 +451,7 @@
             right: -10%;
             width: 60%;
             height: 80%;
-            background: radial-gradient(circle, rgba(212, 208, 200, 0.01), transparent 70%);
+            background: radial-gradient(circle, rgba(212, 168, 140, 0.015), transparent 70%);
             pointer-events: none;
             animation: vaultGlow 10s ease-in-out infinite alternate;
         }
@@ -541,21 +470,21 @@
         }
 
         .vault-content .section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 400;
             letter-spacing: -0.02em;
             line-height: 1.05;
-            color: #f5f2ee;
+            color: #f0ece8;
             margin-bottom: 8px;
         }
 
-        .vault-content .section-title .platinum {
-            font-weight: 700;
+        .vault-content .section-title .rose-gold-bg {
+            font-weight: 500;
         }
 
         .vault-content p {
-            color: #9a948c;
+            color: #9a928a;
             font-size: 0.9rem;
             max-width: 480px;
             margin: 10px auto 0;
@@ -564,77 +493,33 @@
         }
 
         .vault-badge {
-            border: 1px solid rgba(200, 190, 180, 0.04);
+            border: 1px solid rgba(212, 168, 140, 0.04);
             padding: 4px 20px;
             border-radius: 60px;
             font-size: 0.45rem;
             letter-spacing: 0.3em;
-            color: #8a847c;
+            color: #8a827a;
             display: inline-block;
-            background: rgba(200, 190, 180, 0.01);
+            background: rgba(212, 168, 140, 0.01);
             backdrop-filter: blur(8px);
             margin-bottom: 10px;
-        }
-
-        /* ============================================================
-           OWNERSHIP
-        ============================================================ */
-        .ownership-section {
-            padding: 50px 0;
-            border-bottom: 1px solid rgba(200, 190, 180, 0.02);
-        }
-
-        .ownership-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px 40px;
-            margin-top: 30px;
-        }
-
-        .ownership-item {
-            border-left: 2px solid rgba(200, 190, 180, 0.03);
-            padding-left: 18px;
-            transition: all 0.5s ease;
-            padding: 12px 12px 12px 18px;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .ownership-item:hover {
-            border-left-color: rgba(200, 190, 180, 0.08);
-            background: rgba(200, 190, 180, 0.01);
-            transform: translateX(4px);
-        }
-
-        .ownership-item h4 {
-            font-weight: 400;
-            font-size: 0.9rem;
-            color: #e8e4de;
-            margin-bottom: 2px;
-            letter-spacing: 0.04em;
-        }
-
-        .ownership-item p {
-            color: #8a847c;
-            font-size: 0.75rem;
-            font-weight: 300;
-            letter-spacing: 0.02em;
         }
 
         /* ============================================================
            FOOTER
         ============================================================ */
         .footer {
-            padding: 30px 0 20px;
+            padding: 40px 0 28px;
             text-align: center;
-            border-top: 1px solid rgba(200, 190, 180, 0.02);
-            background: rgba(5, 5, 5, 0.3);
+            border-top: 1px solid rgba(212, 168, 140, 0.02);
+            background: rgba(10, 9, 8, 0.3);
             backdrop-filter: blur(20px);
         }
 
         .footer .tagline {
             font-family: 'Great Vibes', cursive;
             font-size: 1.1rem;
-            color: #d4d0c8;
+            color: #d4a88c;
             margin-top: 4px;
             letter-spacing: 0.04em;
         }
@@ -655,11 +540,11 @@
         }
 
         .footer .footer-logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
             font-weight: 500;
             letter-spacing: 0.3em;
-            color: #e8e4de;
+            color: #e8e2dc;
         }
 
         .footer .signature-tagline {
@@ -671,7 +556,7 @@
         }
 
         /* ============================================================
-           MODAL / POPUP — Gold Letter for Private Access
+           MODAL — Private Access
         ============================================================ */
         .modal-overlay {
             position: fixed;
@@ -679,8 +564,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(5, 5, 5, 0.7);
-            backdrop-filter: blur(12px);
+            background: rgba(10, 9, 8, 0.8);
+            backdrop-filter: blur(16px);
             z-index: 1000;
             display: none;
             align-items: center;
@@ -693,12 +578,12 @@
         }
 
         .modal-content {
-            max-width: 480px;
+            max-width: 460px;
             width: 100%;
-            background: #0a0a09;
-            border: 1px solid rgba(200, 190, 180, 0.04);
+            background: #0f0d0b;
+            border: 1px solid rgba(212, 168, 140, 0.04);
             border-radius: 24px;
-            padding: 40px 36px 32px;
+            padding: 44px 36px 32px;
             text-align: center;
             box-shadow: 0 60px 120px rgba(0, 0, 0, 0.8);
             position: relative;
@@ -712,52 +597,51 @@
 
         .modal-content .gold-letter {
             font-family: 'Great Vibes', cursive;
-            font-size: 2rem;
-            color: #d4d0c8;
+            font-size: 2.2rem;
+            color: #d4a88c;
             letter-spacing: 0.04em;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .modal-content .gold-letter-sub {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             font-weight: 400;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: #8a847c;
-            margin-bottom: 16px;
+            color: #8a827a;
+            margin-bottom: 12px;
         }
 
         .modal-content .divider {
             width: 40px;
             height: 1px;
-            background: #d4d0c8;
-            margin: 12px auto 16px;
-            opacity: 0.2;
+            background: #d4a88c;
+            margin: 10px auto 14px;
+            opacity: 0.15;
         }
 
         .modal-content p {
             color: #b0aaa2;
             font-size: 0.85rem;
             line-height: 1.7;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 300;
             letter-spacing: 0.02em;
         }
 
         .modal-content p strong {
-            color: #d4d0c8;
+            color: #d4a88c;
             font-weight: 400;
         }
 
         .modal-content .bank-name {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 0.7rem;
-            font-weight: 500;
+            font-weight: 400;
             letter-spacing: 0.15em;
-            color: #d4d0c8;
+            color: #d4a88c;
             margin-top: 12px;
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
         .modal-close {
@@ -774,7 +658,7 @@
         }
 
         .modal-close:hover {
-            color: #d4d0c8;
+            color: #d4a88c;
         }
 
         /* ============================================================
@@ -784,20 +668,18 @@
             .navbar {
                 flex-direction: column;
                 gap: 8px;
-                padding: 12px 0;
+                padding: 14px 0;
                 border-radius: 0 0 14px 14px;
             }
 
             .nav-links {
                 gap: 1.2rem;
-                font-size: 0.45rem;
+                font-size: 0.5rem;
             }
 
-            .about-grid,
-            .craft-grid,
-            .ownership-grid {
+            .craft-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 16px;
             }
 
             .box-item {
@@ -814,7 +696,7 @@
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .modal-content {
@@ -822,7 +704,7 @@
             }
 
             .modal-content .gold-letter {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
         }
 
@@ -832,7 +714,7 @@
             }
 
             .hero h1 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
 
             .nav-links {
@@ -845,11 +727,7 @@
             }
 
             .modal-content .gold-letter {
-                font-size: 1.3rem;
-            }
-
-            .modal-content p {
-                font-size: 0.75rem;
+                font-size: 1.5rem;
             }
         }
 
@@ -881,8 +759,9 @@
 
         <!-- ===== NAVBAR ===== -->
         <header class="navbar">
-            <div class="logo">HALONEX</div>
+            <div class="logo">HALONEX <span class="rose">·</span></div>
             <div class="nav-links">
+                <a href="about.html">About</a>
                 <a href="#">The Box</a>
                 <a href="#">Craft</a>
                 <a href="#">Security</a>
@@ -893,11 +772,11 @@
         <!-- ===== HERO ===== -->
         <section class="hero">
             <div class="hero-badge">Founder's Edition · 001/1000</div>
-            <h1>THE FUTURE, <span class="platinum">REFINED.</span></h1>
+            <h1>THE FUTURE, <span class="rose-gold-bg">REFINED.</span></h1>
             <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
             <button class="cta-button" id="ctaBtn">Request Private Access</button>
 
-            <!-- ===== BOX DISPLAY — Rectangle, No BG, Platinum Shimmer ===== -->
+            <!-- ===== BOX DISPLAY ===== -->
             <div class="box-display">
                 <div class="box-item">
                     <img src="https://halonex.vercel.app/packaging.webp" alt="HALONEX Packaging" />
@@ -906,35 +785,20 @@
 
             <div class="ring-caption">HALONEX <span>·</span> sculpted ceramic · invisible payment</div>
 
-            <!-- ===== FOUNDER NAME ===== -->
+            <!-- ===== FOUNDER ===== -->
             <div class="founder-section">
                 <div class="founder-label">Founder</div>
                 <div class="founder-name">Saad Saeed</div>
             </div>
         </section>
 
-        <!-- ===== ABOUT US — Project HALO ===== -->
-        <section class="about-section reveal reveal-delay-1">
-            <div class="about-grid">
-                <div class="about-text">
-                    <div class="section-title">Project <span class="platinum">HALO</span></div>
-                    <p>A Fintech initiative by <strong style="color:#d4d0c8; font-weight:400;">RFtronics UK Ltd</strong>.</p>
-                    <div class="highlight">"Luxury that moves with you."</div>
-                </div>
-                <div class="about-image">
-                    <div class="shimmer-bg"></div>
-                    ✦ RFTRONICS · UK ✦
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== CRAFT, PRECISION, SILENCE (More Opaque) ===== -->
-        <section class="craft-section reveal reveal-delay-2">
+        <!-- ===== CRAFT, PRECISION, SILENCE ===== -->
+        <section class="craft-section reveal reveal-delay-1">
             <div style="text-align: center; max-width: 550px; margin: 0 auto;">
-                <div class="section-title" style="font-family:'Orbitron',sans-serif; font-size:clamp(1.4rem,2.5vw,2rem); font-weight:500; letter-spacing:-0.02em; color:#f5f2ee;">
-                    Craft · <span class="platinum">Precision</span> · Silence
+                <div style="font-family:'Playfair Display',serif; font-size:clamp(1.4rem,2.5vw,2rem); font-weight:400; letter-spacing:-0.02em; color:#f0ece8;">
+                    Craft · <span class="rose-gold-bg">Precision</span> · Silence
                 </div>
-                <p style="color: #8a847c; margin-top: 6px; font-size: 0.75rem; font-weight: 300; letter-spacing: 0.08em;">Seamless ceramic · sculpted surface · precision engineering.</p>
+                <p style="color: #8a827a; margin-top: 6px; font-size: 0.75rem; font-weight: 300; letter-spacing: 0.08em;">Seamless ceramic · sculpted surface · precision engineering.</p>
             </div>
             <div class="craft-grid">
                 <div class="craft-item">
@@ -956,33 +820,17 @@
         </section>
 
         <!-- ===== VAULT ===== -->
-        <section class="vault-section reveal reveal-delay-3">
+        <section class="vault-section reveal reveal-delay-2">
             <div class="vault-content">
                 <div class="vault-badge">✦ vault-grade security</div>
-                <div class="section-title">Protected <span class="platinum">like</span> a vault</div>
+                <div class="section-title">Protected <span class="rose-gold-bg">like</span> a vault</div>
                 <p>Advanced payment protection, secure transactions, and financial-grade encryption. Quiet confidence, always.</p>
-            </div>
-        </section>
-
-        <!-- ===== OWNERSHIP ===== -->
-        <section class="ownership-section reveal">
-            <div style="max-width: 650px; margin: 0 auto; text-align: center;">
-                <div class="section-title" style="font-family:'Orbitron',sans-serif; font-size:clamp(1.4rem,2.5vw,2rem); font-weight:500; letter-spacing:-0.02em; color:#f5f2ee;">
-                    The <span class="platinum">Ownership</span> Journey
-                </div>
-                <p style="color: #8a847c; margin-top: 6px; font-size: 0.75rem; font-weight: 300; letter-spacing: 0.06em;">Exclusive access, premium packaging, private relationship.</p>
-            </div>
-            <div class="ownership-grid">
-                <div class="ownership-item"><h4>Exclusive Access</h4><p>Founder's Edition. One thousand pieces worldwide.</p></div>
-                <div class="ownership-item"><h4>Premium Packaging</h4><p>Obsidian presentation box with platinum accents — like opening a rare timepiece.</p></div>
-                <div class="ownership-item"><h4>Personalized Experience</h4><p>Dedicated client relationship, concierge service from first contact.</p></div>
-                <div class="ownership-item"><h4>Private Customer</h4><p>Discreet, white-glove service. Your privacy is paramount.</p></div>
             </div>
         </section>
 
         <!-- ===== FOOTER ===== -->
         <footer class="footer">
-            <div class="footer-logo">HALONEX</div>
+            <div class="footer-logo">HALONEX <span style="color:#d4a88c;">·</span></div>
             <p class="tagline">Luxury that moves with you.</p>
             <p class="founder-credit">— Saad Saeed —</p>
             <p>© 2026 HALONEX · Private Collection</p>
@@ -992,7 +840,7 @@
     </div>
 
     <!-- ============================================================
-    MODAL — Private Access Gold Letter
+    MODAL
     ============================================================ -->
     <div class="modal-overlay" id="accessModal">
         <div class="modal-content">
@@ -1000,9 +848,9 @@
             <div class="gold-letter">Thank You</div>
             <div class="gold-letter-sub">for your interest</div>
             <div class="divider"></div>
-            <p>This is an <strong>invite-only program</strong> by <strong>RFtronics UK Ltd</strong>.</p>
-            <p style="font-size:0.8rem; color:#8a847c; margin-top:4px;">Please feel free to contact the bank to acquire this payment wearable.</p>
-            <div class="bank-name">✦ RFTRONICS UK LTD ✦</div>
+            <p>This is an <strong>invite-only program</strong>.</p>
+            <p style="font-size:0.8rem; color:#8a827a; margin-top:4px;">Please feel free to contact the bank to acquire this payment wearable.</p>
+            <div class="bank-name">✦ Private Collection ✦</div>
         </div>
     </div>
 
@@ -1031,9 +879,9 @@
                     this.x = Math.random() * canvas.width;
                     this.y = Math.random() * canvas.height;
                     this.size = Math.random() * 1.8 + 0.3;
-                    this.speedX = (Math.random() - 0.5) * 0.15;
-                    this.speedY = (Math.random() - 0.5) * 0.15;
-                    this.opacity = Math.random() * 0.2 + 0.03;
+                    this.speedX = (Math.random() - 0.5) * 0.12;
+                    this.speedY = (Math.random() - 0.5) * 0.12;
+                    this.opacity = Math.random() * 0.15 + 0.02;
                     this.targetOpacity = this.opacity;
                 }
 
@@ -1049,9 +897,9 @@
                         const force = (100 - dist) / 100;
                         this.x += (dx / dist) * force * 0.8;
                         this.y += (dy / dist) * force * 0.8;
-                        this.targetOpacity = 0.3;
+                        this.targetOpacity = 0.25;
                     } else {
-                        this.targetOpacity = Math.random() * 0.15 + 0.03;
+                        this.targetOpacity = Math.random() * 0.12 + 0.02;
                     }
 
                     if (this.x < 0) this.x = canvas.width;
@@ -1065,11 +913,11 @@
                 draw() {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(212, 208, 200, ${this.opacity})`;
+                    ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity})`;
                     ctx.fill();
 
-                    if (this.opacity > 0.15) {
-                        ctx.shadowColor = 'rgba(212, 208, 200, 0.02)';
+                    if (this.opacity > 0.12) {
+                        ctx.shadowColor = 'rgba(212, 168, 140, 0.02)';
                         ctx.shadowBlur = 10;
                         ctx.fill();
                         ctx.shadowBlur = 0;
@@ -1077,7 +925,7 @@
                 }
             }
 
-            const particleCount = Math.min(60, Math.floor(window.innerWidth / 16));
+            const particleCount = Math.min(50, Math.floor(window.innerWidth / 18));
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
             }
@@ -1107,11 +955,11 @@
                         const dy = particles[i].y - particles[j].y;
                         const dist = Math.sqrt(dx * dx + dy * dy);
                         if (dist < 120) {
-                            const opacity = (1 - dist / 120) * 0.025;
+                            const opacity = (1 - dist / 120) * 0.02;
                             ctx.beginPath();
                             ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.strokeStyle = `rgba(212, 208, 200, ${opacity})`;
+                            ctx.strokeStyle = `rgba(212, 168, 140, ${opacity})`;
                             ctx.lineWidth = 0.3;
                             ctx.stroke();
                         }
@@ -1122,9 +970,7 @@
             }
             animateParticles();
 
-            // ============================================================
-            // MODAL CONTROLS
-            // ============================================================
+            // ===== MODAL =====
             const modal = document.getElementById('accessModal');
             const ctaBtn = document.getElementById('ctaBtn');
             const closeBtn = document.getElementById('modalClose');
@@ -1154,9 +1000,7 @@
                 }
             });
 
-            // ============================================================
-            // SCROLL REVEAL
-            // ============================================================
+            // ===== SCROLL REVEAL =====
             const revealElements = document.querySelectorAll('.reveal');
 
             const observer = new IntersectionObserver((entries) => {
@@ -1174,7 +1018,7 @@
                 observer.observe(el);
             });
 
-            document.querySelectorAll('.craft-item, .ownership-item').forEach((el, index) => {
+            document.querySelectorAll('.craft-item').forEach((el, index) => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = `all 0.8s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.06}s`;

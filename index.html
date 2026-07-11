@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>HALONEX · The future, refined.</title>
   
-  <!-- Google Fonts: Inter + Great Vibes (Signature) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100;14..32,200;14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Great+Vibes&display=swap" rel="stylesheet" />
@@ -32,7 +32,7 @@
       color: #0a0908;
     }
 
-    /* ===== SIGNATURE FONT STYLES ===== */
+    /* ===== SIGNATURE FONT ===== */
     .signature {
       font-family: 'Great Vibes', cursive;
       font-weight: 400;
@@ -220,7 +220,7 @@
     }
 
     /* ============================================================
-       RING DISPLAY
+       RING DISPLAY — UNIFIED LOOK FOR BOTH IMAGES
     ============================================================ */
     .ring-display {
       margin: 40px 0 16px;
@@ -233,6 +233,7 @@
       opacity: 0;
     }
 
+    /* ===== BOTH IMAGES GET IDENTICAL STYLING ===== */
     .ring-item {
       width: 260px;
       height: 260px;
@@ -244,38 +245,11 @@
       position: relative;
       transition: all 0.6s ease;
       background: transparent;
+      flex-shrink: 0;
     }
 
-    .ring-item.ring-main {
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(214, 188, 146, 0.04);
-      transform: rotateX(4deg) rotateY(-4deg);
-    }
-
-    .ring-item.ring-main:hover {
-      transform: rotateX(0deg) rotateY(0deg) scale(1.02);
-    }
-
-    .ring-item.box-main {
-      border-radius: 24px;
-      background: rgba(15, 13, 11, 0.3);
-      backdrop-filter: blur(32px);
-      border: 1px solid rgba(214, 188, 146, 0.04);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-      padding: 8px;
-      height: auto;
-      width: 100%;
-      max-width: 260px;
-      aspect-ratio: 1/1;
-      transform: rotateY(2deg) rotateX(2deg);
-    }
-
-    .ring-item.box-main:hover {
-      transform: translateY(-6px) rotateY(0deg) rotateX(0deg);
-      border-color: rgba(214, 188, 146, 0.08);
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
-    }
-
-    .ring-item.ring-main::before {
+    /* ===== SAME GLOW BEHIND BOTH ===== */
+    .ring-item::before {
       content: '';
       position: absolute;
       inset: -40px;
@@ -291,32 +265,42 @@
       100% { opacity: 0.7; transform: scale(1.1); }
     }
 
+    /* ===== SAME SHADOW + BORDER ON BOTH ===== */
+    .ring-item .image-wrapper {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(214, 188, 146, 0.04);
+      background: transparent;
+      transform: rotateX(4deg) rotateY(-4deg);
+      transition: transform 0.8s ease;
+    }
+
+    .ring-item:hover .image-wrapper {
+      transform: rotateX(0deg) rotateY(0deg) scale(1.02);
+    }
+
+    /* ===== SAME IMAGE STYLES ===== */
     .ring-item img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       display: block;
       transition: all 0.6s ease;
-    }
-
-    .ring-main img {
-      border-radius: 50%;
+      /* REMOVE WHITE BACKGROUND - SAME FOR BOTH */
       mix-blend-mode: multiply;
       -webkit-mask-image: radial-gradient(circle at center, black 55%, transparent 72%);
       mask-image: radial-gradient(circle at center, black 55%, transparent 72%);
+      /* UNIFY BRIGHTNESS & CONTRAST */
+      filter: brightness(1.1) contrast(1.05) saturate(1.0);
     }
 
-    .box-main img {
-      border-radius: 18px;
-      mix-blend-mode: multiply;
-      opacity: 0.92;
-    }
-
-    .box-main:hover img {
-      opacity: 1;
-    }
-
-    .ring-main::after {
+    /* ===== SAME SHINE OVERLAY ON BOTH ===== */
+    .ring-item::after {
       content: '';
       position: absolute;
       inset: 0;
@@ -325,24 +309,10 @@
       pointer-events: none;
     }
 
-    .box-main::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 24px;
-      background: radial-gradient(circle at 20% 20%, rgba(214, 188, 146, 0.04), transparent 60%);
-      pointer-events: none;
-    }
-
-    .box-main::before {
-      content: '';
-      position: absolute;
-      inset: -30px;
-      border-radius: 32px;
-      background: radial-gradient(circle at 30% 25%, rgba(214, 188, 146, 0.03), transparent 70%);
-      filter: blur(25px);
-      z-index: -1;
-      animation: glowPulse 6s ease-in-out infinite alternate;
+    /* ===== HOVER EFFECT - SAME FOR BOTH ===== */
+    .ring-item:hover img {
+      transform: scale(1.03);
+      filter: brightness(1.15) contrast(1.08) saturate(1.0);
     }
 
     .ring-caption {
@@ -725,10 +695,6 @@
         height: 200px;
       }
 
-      .ring-item.box-main {
-        max-width: 200px;
-      }
-
       .container {
         padding: 0 16px;
       }
@@ -757,11 +723,6 @@
         height: 150px;
       }
 
-      .ring-item.box-main {
-        max-width: 150px;
-        padding: 6px;
-      }
-
       .hero h1 {
         font-size: 1.8rem;
       }
@@ -775,7 +736,7 @@
         font-size: 0.4rem;
       }
 
-      .ring-item.ring-main::before {
+      .ring-item::before {
         inset: -20px;
         filter: blur(15px);
       }
@@ -827,19 +788,26 @@
       <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
       <button class="cta-button" id="ctaBtn">Request Private Access</button>
 
-      <!-- ===== RING + BOX DISPLAY ===== -->
+      <!-- ===== RING DISPLAY — BOTH IMAGES NOW UNIFIED ===== -->
       <div class="ring-display">
-        <div class="ring-item ring-main">
-          <img src="https://halonex.vercel.app/ring.webp" alt="HALONEX Ring" />
+        <!-- Ring Image -->
+        <div class="ring-item">
+          <div class="image-wrapper">
+            <img src="https://halonex.vercel.app/ring.webp" alt="HALONEX Ring" />
+          </div>
         </div>
-        <div class="ring-item box-main">
-          <img src="https://halonex.vercel.app/packaging.webp" alt="Founder's Edition Packaging" />
+
+        <!-- Box Image — SAME STYLING AS RING -->
+        <div class="ring-item">
+          <div class="image-wrapper">
+            <img src="https://halonex.vercel.app/packaging.webp" alt="Founder's Edition Packaging" />
+          </div>
         </div>
       </div>
 
       <div class="ring-caption">HALONEX <span>·</span> sculpted ceramic · invisible payment</div>
 
-      <!-- ===== FOUNDER NAME — SAAD SAEED ===== -->
+      <!-- ===== FOUNDER NAME ===== -->
       <div class="founder-section">
         <div class="founder-label">Founder</div>
         <div class="founder-name">Saad Saeed</div>

@@ -1,989 +1,658 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HALONEX · The future, refined.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100;14..32,200;14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
-  <style>
-    /* ----- RESET & BASE ----- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HALONEX · The future, refined.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100;14..32,200;14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background-color: #080706;
-      color: #ece6de;
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-      cursor: default;
-    }
+        body {
+            background-color: #080706;
+            color: #ece6de;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
 
-    ::selection {
-      background: #b49b70;
-      color: #080706;
-    }
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
 
-    /* ----- GLASS MORPHISM & PARTICLE CANVAS ----- */
-    #particle-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
 
-    .glass-panel {
-      background: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(24px) saturate(1.2);
-      -webkit-backdrop-filter: blur(24px) saturate(1.2);
-      border: 1px solid rgba(212, 182, 138, 0.04);
-      border-radius: 32px;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.02);
-    }
+        .gold {
+            background: linear-gradient(135deg, #d6bc92, #f0dbb8, #d6bc92);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: goldShimmer 4s ease-in-out infinite alternate;
+        }
 
-    .container {
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 0 48px;
-      position: relative;
-      z-index: 2;
-    }
+        @keyframes goldShimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
 
-    /* ----- TYPOGRAPHY ----- */
-    .section-title {
-      font-size: clamp(2.8rem, 6vw, 5.2rem);
-      font-weight: 200;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      color: #f2ede6;
-    }
+        .navbar {
+            padding: 16px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(8, 7, 6, 0.3);
+            backdrop-filter: blur(32px);
+            border-bottom: 1px solid rgba(212, 182, 138, 0.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-radius: 0 0 20px 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
 
-    .gold {
-      background: linear-gradient(135deg, #d6bc92, #f0dbb8, #d6bc92);
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: goldShimmer 4s ease-in-out infinite alternate;
-      font-weight: 300;
-    }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: #f2ede6;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #f2ede6, #d6bc92);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    @keyframes goldShimmer {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #a89c8f;
+        }
+        .nav-links a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #d6bc92;
+        }
 
-    .section-sub {
-      font-size: clamp(1rem, 1.3vw, 1.25rem);
-      font-weight: 300;
-      color: #a89c8f;
-      letter-spacing: 0.02em;
-      max-width: 560px;
-    }
+        .hero {
+            padding: 40px 0 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 80vh;
+            justify-content: center;
+        }
 
-    /* ----- NAVBAR (Apple-style glass) ----- */
-    .navbar {
-      padding: 20px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(8, 7, 6, 0.3);
-      backdrop-filter: blur(32px) saturate(1.4);
-      -webkit-backdrop-filter: blur(32px) saturate(1.4);
-      border-bottom: 1px solid rgba(212, 182, 138, 0.04);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-radius: 0 0 24px 24px;
-      margin-bottom: 8px;
-      transition: all 0.3s ease;
-    }
+        .hero-badge {
+            border: 1px solid rgba(212, 182, 138, 0.12);
+            padding: 6px 24px;
+            border-radius: 60px;
+            font-size: 0.55rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #b49b70;
+            margin-bottom: 30px;
+            background: rgba(212, 182, 138, 0.02);
+        }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 300;
-      letter-spacing: 0.4em;
-      color: #f2ede6;
-      text-transform: uppercase;
-      background: linear-gradient(135deg, #f2ede6, #d6bc92);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+        .hero h1 {
+            font-size: clamp(2.8rem, 10vw, 6rem);
+            font-weight: 100;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+            color: #f7f2ea;
+            margin-bottom: 16px;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 3.2rem;
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #a89c8f;
-    }
-    .nav-links a {
-      color: inherit;
-      text-decoration: none;
-      transition: all 0.4s ease;
-      position: relative;
-      padding-bottom: 4px;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: #d6bc92;
-      transition: width 0.4s ease;
-    }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-    .nav-links a:hover {
-      color: #d6bc92;
-    }
+        .hero p {
+            font-size: clamp(0.9rem, 1.4vw, 1.3rem);
+            max-width: 560px;
+            margin: 0 auto 30px;
+            color: #b3a79a;
+        }
 
-    /* ----- HERO (Cinematic) ----- */
-    .hero {
-      padding: 60px 0 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      min-height: 90vh;
-      justify-content: center;
-    }
+        .cta-button {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid rgba(214, 188, 146, 0.3);
+            color: #f2ede6;
+            padding: 14px 40px;
+            border-radius: 80px;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            background: rgba(214, 188, 146, 0.02);
+        }
+        .cta-button:hover {
+            background: #d6bc92;
+            color: #080706;
+            border-color: #d6bc92;
+            transform: scale(1.02);
+        }
 
-    .hero-badge {
-      display: inline-block;
-      border: 1px solid rgba(212, 182, 138, 0.12);
-      padding: 6px 32px;
-      border-radius: 60px;
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: #b49b70;
-      margin-bottom: 40px;
-      background: rgba(212, 182, 138, 0.02);
-      backdrop-filter: blur(8px);
-      animation: floatBadge 6s ease-in-out infinite;
-    }
+        /* ----- RING DISPLAY (Pure CSS Ring - No Image Needed!) ----- */
+        .ring-display {
+            margin: 40px 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
 
-    @keyframes floatBadge {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
+        .ring-artifact {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #3a3228, #080706 80%);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(212, 182, 138, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: transform 0.6s ease;
+        }
+        .ring-artifact:hover {
+            transform: scale(1.02);
+        }
 
-    .hero h1 {
-      font-size: clamp(4rem, 12vw, 8.5rem);
-      font-weight: 100;
-      letter-spacing: -0.05em;
-      line-height: 0.92;
-      color: #f7f2ea;
-      margin-bottom: 20px;
-      animation: heroReveal 1.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-      opacity: 0;
-      transform: translateY(40px) scale(0.98);
-    }
+        /* The ring itself */
+        .ring-object {
+            width: 65%;
+            height: 65%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 25% 25%, #6a5b44, #1e1914 85%);
+            box-shadow: inset 0 -8px 30px rgba(0, 0, 0, 0.9), 0 20px 50px rgba(0, 0, 0, 0.6);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    @keyframes heroReveal {
-      0% { opacity: 0; transform: translateY(40px) scale(0.98); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
+        /* HALONEX "H" on the ring */
+        .ring-object::after {
+            content: 'H';
+            font-size: 3rem;
+            font-weight: 200;
+            color: rgba(214, 188, 146, 0.15);
+            letter-spacing: 0.1em;
+        }
 
-    .hero p {
-      font-size: clamp(1.1rem, 1.6vw, 1.5rem);
-      max-width: 640px;
-      margin: 0 auto 44px;
-      color: #b3a79a;
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      animation: fadeUp 1.4s 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
+        /* Shiny reflection on ring */
+        .ring-object::before {
+            content: '';
+            position: absolute;
+            top: 8%;
+            left: 15%;
+            width: 40%;
+            height: 18%;
+            background: radial-gradient(circle, rgba(212, 182, 138, 0.15), transparent 70%);
+            border-radius: 50%;
+            filter: blur(8px);
+        }
 
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+        /* Glow effect */
+        .ring-artifact::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 25% 20%, rgba(212, 182, 138, 0.03), transparent 70%);
+            animation: pulseGlow 6s ease-in-out infinite alternate;
+        }
 
-    .cta-button {
-      display: inline-block;
-      background: transparent;
-      border: 1px solid rgba(214, 188, 146, 0.3);
-      color: #f2ede6;
-      padding: 18px 64px;
-      border-radius: 80px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-      background: rgba(214, 188, 146, 0.02);
-      backdrop-filter: blur(8px);
-      position: relative;
-      overflow: hidden;
-      animation: fadeUp 1.4s 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
+        @keyframes pulseGlow {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.05); }
+        }
 
-    .cta-button::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(214, 188, 146, 0.08), transparent);
-      transition: left 0.8s ease;
-    }
-    .cta-button:hover::before {
-      left: 100%;
-    }
-    .cta-button:hover {
-      background: #d6bc92;
-      color: #080706;
-      border-color: #d6bc92;
-      box-shadow: 0 20px 60px rgba(214, 188, 146, 0.15);
-      transform: scale(1.02) translateY(-2px);
-    }
+        /* Founder Badge (Pure CSS) */
+        .founder-badge {
+            max-width: 200px;
+            width: 100%;
+            padding: 20px 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 182, 138, 0.06);
+            background: rgba(15, 13, 11, 0.4);
+            backdrop-filter: blur(24px);
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        .founder-badge:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 182, 138, 0.15);
+        }
+        .founder-badge .number {
+            font-size: 1.4rem;
+            font-weight: 200;
+            color: #d6bc92;
+            letter-spacing: 0.1em;
+        }
+        .founder-badge .label {
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            color: #7a6e5f;
+            margin-top: 4px;
+        }
+        .founder-badge .brand {
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            color: #f2ede6;
+            margin-top: 8px;
+        }
+        .founder-badge .divider {
+            width: 30px;
+            height: 1px;
+            background: #d6bc92;
+            margin: 8px auto;
+        }
 
-    /* ----- RING DISPLAY (Glass + 3D) ----- */
-    .ring-display {
-      margin: 60px 0 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 50px;
-      flex-wrap: wrap;
-      perspective: 1400px;
-      animation: fadeUp 1.4s 0.9s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-      opacity: 0;
-      transform: translateY(30px);
-    }
+        .ring-caption {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: #7a6e5f;
+        }
+        .ring-caption span {
+            color: #d6bc92;
+        }
 
-    .ring-artifact {
-      width: 100%;
-      max-width: 480px;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 60px 120px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(212, 182, 138, 0.06);
-      transform: rotateX(6deg) rotateY(-4deg);
-      transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-      position: relative;
-      background: radial-gradient(circle at 30% 30%, #1a1612, #080706);
-    }
-    .ring-artifact:hover {
-      transform: rotateX(2deg) rotateY(-2deg) scale(1.01);
-    }
-    .ring-artifact img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      mix-blend-mode: screen;
-      opacity: 0.95;
-    }
-    .ring-artifact::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: radial-gradient(circle at 20% 20%, rgba(214, 188, 146, 0.05), transparent 60%);
-      pointer-events: none;
-    }
+        /* ----- Other Sections (Simplified) ----- */
+        .story-section, .craft-section, .vault-section, .ownership-section {
+            padding: 60px 0;
+            border-top: 1px solid rgba(212, 182, 138, 0.03);
+        }
 
-    /* Glass badge for packaging image */
-    .founder-badge {
-      max-width: 280px;
-      width: 100%;
-      border-radius: 24px;
-      border: 1px solid rgba(212, 182, 138, 0.06);
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
-      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-      background: rgba(15, 13, 11, 0.4);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      padding: 8px;
-      transform: rotateY(4deg) rotateX(2deg);
-    }
-    .founder-badge:hover {
-      transform: translateY(-8px) scale(1.02) rotateY(2deg) rotateX(0deg);
-      box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(212, 182, 138, 0.1);
-    }
-    .founder-badge img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 16px;
-    }
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 200;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            color: #f2ede6;
+        }
 
-    .ring-caption {
-      text-align: center;
-      margin-top: 16px;
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      color: #7a6e5f;
-      font-weight: 300;
-      animation: fadeUp 1.4s 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .ring-caption span {
-      color: #d6bc92;
-      font-weight: 400;
-    }
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
 
-    /* ----- STORY (Glass panels) ----- */
-    .story-section {
-      padding: 120px 0;
-      border-top: 1px solid rgba(212, 182, 138, 0.03);
-      border-bottom: 1px solid rgba(212, 182, 138, 0.03);
-    }
+        .story-text p {
+            font-size: 1rem;
+            color: #b3a79a;
+            max-width: 480px;
+            margin: 16px 0 20px;
+        }
 
-    .story-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 100px;
-      align-items: center;
-    }
+        .story-highlight {
+            border-left: 3px solid #d6bc92;
+            padding-left: 20px;
+            color: #e5dcd2;
+            font-size: 1.1rem;
+            margin: 20px 0;
+        }
 
-    .story-text .section-title {
-      margin-bottom: 16px;
-    }
-    .story-text p {
-      font-size: 1.1rem;
-      color: #b3a79a;
-      max-width: 480px;
-      margin-bottom: 28px;
-      font-weight: 300;
-      letter-spacing: 0.01em;
-    }
+        .evolution-steps {
+            display: flex;
+            gap: 8px 16px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+            color: #7a6e5f;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+        }
+        .evolution-steps span {
+            background: rgba(212, 182, 138, 0.03);
+            padding: 4px 16px;
+            border-radius: 60px;
+            border: 1px solid rgba(212, 182, 138, 0.05);
+        }
+        .evolution-steps .arrow {
+            color: #d6bc92;
+        }
 
-    .story-highlight {
-      border-left: 3px solid #d6bc92;
-      padding-left: 28px;
-      font-style: normal;
-      font-weight: 300;
-      color: #e5dcd2;
-      font-size: 1.3rem;
-      margin: 32px 0;
-      background: linear-gradient(135deg, rgba(214, 188, 146, 0.05), transparent);
-      padding: 20px 28px;
-      border-radius: 0 12px 12px 0;
-    }
+        .story-image {
+            background: radial-gradient(ellipse at 30% 30%, #2f2920, #0d0b09);
+            aspect-ratio: 4/3;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b49b70;
+            opacity: 0.4;
+            font-size: 0.8rem;
+            letter-spacing: 0.3em;
+            border: 1px solid rgba(212, 182, 138, 0.03);
+        }
 
-    .evolution-steps {
-      display: flex;
-      gap: 8px 24px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-      color: #7a6e5f;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-    }
-    .evolution-steps span {
-      background: rgba(212, 182, 138, 0.03);
-      padding: 6px 22px;
-      border-radius: 60px;
-      border: 1px solid rgba(212, 182, 138, 0.05);
-      backdrop-filter: blur(4px);
-      transition: all 0.3s ease;
-    }
-    .evolution-steps span:hover {
-      border-color: rgba(212, 182, 138, 0.2);
-      background: rgba(212, 182, 138, 0.06);
-    }
-    .evolution-steps .arrow {
-      color: #d6bc92;
-      font-weight: 200;
-    }
+        .craft-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .craft-item {
+            padding: 30px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(212, 182, 138, 0.03);
+            transition: all 0.4s ease;
+            background: rgba(10, 9, 8, 0.3);
+        }
+        .craft-item:hover {
+            border-color: rgba(212, 182, 138, 0.1);
+            transform: translateY(-4px);
+        }
+        .craft-item h4 {
+            font-weight: 400;
+            font-size: 1.1rem;
+            color: #e5dcd2;
+            margin-bottom: 8px;
+        }
+        .craft-item p {
+            font-size: 0.85rem;
+            color: #9a8e7f;
+        }
 
-    .story-image {
-      background: radial-gradient(ellipse at 30% 30%, #2f2920, #0d0b09);
-      aspect-ratio: 4/3;
-      border-radius: 24px;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.02);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #5a4d3a;
-      font-weight: 200;
-      letter-spacing: 0.2em;
-      font-size: 0.9rem;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.6s ease;
-    }
-    .story-image:hover {
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(214, 188, 146, 0.04);
-    }
-    .story-image .shimmer {
-      position: absolute;
-      top: -30%;
-      left: -30%;
-      width: 80%;
-      height: 80%;
-      background: radial-gradient(circle, rgba(212, 182, 138, 0.04), transparent 70%);
-      animation: shimmerMove 15s linear infinite alternate;
-    }
-    @keyframes shimmerMove {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(40%, 30%) scale(1.2); }
-    }
-    .story-image .label {
-      z-index: 2;
-      color: #b49b70;
-      opacity: 0.4;
-      font-size: 1.2rem;
-      letter-spacing: 0.4em;
-    }
+        .vault-section {
+            background: linear-gradient(160deg, #080706 0%, #0f0d0b 100%);
+        }
+        .vault-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .vault-content p {
+            color: #b3a79a;
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 12px auto 30px;
+        }
+        .vault-badge {
+            border: 1px solid rgba(212, 182, 138, 0.08);
+            padding: 4px 24px;
+            border-radius: 60px;
+            font-size: 0.55rem;
+            letter-spacing: 0.2em;
+            color: #b49b70;
+            display: inline-block;
+        }
 
-    /* ----- CRAFT (Glass cards) ----- */
-    .craft-section {
-      padding: 120px 0;
-      border-bottom: 1px solid rgba(212, 182, 138, 0.03);
-    }
+        .ownership-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .ownership-item {
+            border-left: 2px solid rgba(212, 182, 138, 0.04);
+            padding-left: 20px;
+            transition: all 0.4s ease;
+        }
+        .ownership-item:hover {
+            border-left-color: rgba(212, 182, 138, 0.2);
+        }
+        .ownership-item h4 {
+            font-weight: 400;
+            font-size: 1.1rem;
+            color: #e5dcd2;
+            margin-bottom: 4px;
+        }
+        .ownership-item p {
+            color: #9a8e7f;
+            font-size: 0.85rem;
+        }
 
-    .craft-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      margin-top: 64px;
-    }
+        .footer {
+            padding: 50px 0 30px;
+            text-align: center;
+            border-top: 1px solid rgba(212, 182, 138, 0.02);
+        }
+        .footer .tagline {
+            color: #7a6e5f;
+            font-size: 0.8rem;
+            margin-top: 8px;
+            letter-spacing: 0.1em;
+        }
+        .footer p {
+            color: #5a4d3a;
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            margin-top: 12px;
+        }
 
-    .craft-item {
-      background: rgba(255, 255, 255, 0.01);
-      padding: 44px 32px 36px;
-      border-radius: 24px;
-      border: 1px solid rgba(212, 182, 138, 0.03);
-      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-      backdrop-filter: blur(4px);
-      background: rgba(10, 9, 8, 0.3);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    }
-    .craft-item:hover {
-      border-color: rgba(212, 182, 138, 0.1);
-      background: rgba(212, 182, 138, 0.02);
-      transform: translateY(-6px);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(214, 188, 146, 0.02);
-    }
-    .craft-item h4 {
-      font-weight: 400;
-      font-size: 1.3rem;
-      letter-spacing: 0.05em;
-      margin-bottom: 12px;
-      color: #e5dcd2;
-    }
-    .craft-item p {
-      font-size: 0.9rem;
-      color: #9a8e7f;
-      font-weight: 300;
-      line-height: 1.7;
-    }
-
-    /* ----- VAULT (Immersive glass) ----- */
-    .vault-section {
-      padding: 120px 0;
-      border-bottom: 1px solid rgba(212, 182, 138, 0.03);
-      background: linear-gradient(160deg, #080706 0%, #0f0d0b 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .vault-section::before {
-      content: '';
-      position: absolute;
-      top: -30%;
-      right: -10%;
-      width: 60%;
-      height: 80%;
-      background: radial-gradient(circle, rgba(212, 182, 138, 0.02), transparent 70%);
-      pointer-events: none;
-      animation: pulseGlow 8s ease-in-out infinite alternate;
-    }
-    @keyframes pulseGlow {
-      0% { opacity: 0.3; transform: scale(1); }
-      100% { opacity: 0.7; transform: scale(1.1); }
-    }
-
-    .vault-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-    .vault-content .section-title {
-      margin-bottom: 12px;
-    }
-    .vault-content p {
-      color: #b3a79a;
-      font-size: 1.1rem;
-      max-width: 560px;
-      margin: 0 auto 44px;
-    }
-    .vault-badge {
-      display: inline-block;
-      border: 1px solid rgba(212, 182, 138, 0.08);
-      padding: 6px 32px;
-      border-radius: 60px;
-      font-size: 0.6rem;
-      letter-spacing: 0.25em;
-      color: #b49b70;
-      background: rgba(212, 182, 138, 0.02);
-      backdrop-filter: blur(8px);
-      margin-bottom: 16px;
-    }
-
-    /* ----- OWNERSHIP ----- */
-    .ownership-section {
-      padding: 120px 0;
-      border-bottom: 1px solid rgba(212, 182, 138, 0.03);
-    }
-
-    .ownership-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 64px 80px;
-      margin-top: 56px;
-    }
-    .ownership-item {
-      border-left: 2px solid rgba(212, 182, 138, 0.04);
-      padding-left: 32px;
-      transition: all 0.4s ease;
-      padding: 20px 20px 20px 32px;
-      border-radius: 0 16px 16px 0;
-      background: rgba(255, 255, 255, 0.005);
-    }
-    .ownership-item:hover {
-      border-left-color: rgba(212, 182, 138, 0.2);
-      background: rgba(212, 182, 138, 0.02);
-      transform: translateX(4px);
-    }
-    .ownership-item h4 {
-      font-weight: 400;
-      font-size: 1.25rem;
-      letter-spacing: 0.05em;
-      color: #e5dcd2;
-      margin-bottom: 8px;
-    }
-    .ownership-item p {
-      color: #9a8e7f;
-      font-weight: 300;
-      font-size: 0.95rem;
-    }
-
-    /* ----- FOOTER ----- */
-    .footer {
-      padding: 80px 0 48px;
-      text-align: center;
-      border-top: 1px solid rgba(212, 182, 138, 0.02);
-      background: rgba(8, 7, 6, 0.3);
-      backdrop-filter: blur(20px);
-    }
-    .footer .logo {
-      font-size: 1.2rem;
-      margin-bottom: 16px;
-    }
-    .footer p {
-      color: #5a4d3a;
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      max-width: 320px;
-      margin: 0 auto;
-    }
-    .footer .tagline {
-      color: #7a6e5f;
-      font-size: 0.9rem;
-      margin-top: 12px;
-      font-weight: 200;
-      letter-spacing: 0.15em;
-    }
-
-    /* ----- RESPONSIVE ----- */
-    @media (max-width: 1024px) {
-      .story-grid {
-        gap: 60px;
-      }
-    }
-    @media (max-width: 900px) {
-      .story-grid,
-      .craft-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .ownership-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .navbar {
-        flex-direction: column;
-        gap: 16px;
-        padding: 16px 0;
-        border-radius: 0 0 16px 16px;
-      }
-      .nav-links {
-        gap: 1.8rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .container {
-        padding: 0 28px;
-      }
-      .hero {
-        padding: 30px 0 50px;
-        min-height: auto;
-      }
-      .ring-artifact {
-        max-width: 340px;
-      }
-      .founder-badge {
-        max-width: 200px;
-      }
-      .ring-display {
-        gap: 30px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .nav-links {
-        font-size: 0.55rem;
-        gap: 1rem;
-      }
-      .hero h1 {
-        font-size: 2.8rem;
-      }
-      .cta-button {
-        padding: 14px 36px;
-        font-size: 0.65rem;
-      }
-      .ring-artifact {
-        max-width: 260px;
-      }
-      .founder-badge {
-        max-width: 160px;
-      }
-      .ring-display {
-        gap: 20px;
-      }
-    }
-  </style>
+        /* ----- Responsive ----- */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 8px;
+                padding: 12px 0;
+            }
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.5rem;
+            }
+            .story-grid, .craft-grid, .ownership-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .ring-artifact {
+                width: 200px;
+                height: 200px;
+            }
+            .founder-badge {
+                max-width: 160px;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .hero {
+                padding: 20px 0 40px;
+                min-height: auto;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- PARTICLE CANVAS (Background) -->
-  <canvas id="particle-canvas"></canvas>
+    <canvas id="particle-canvas"></canvas>
 
-  <div class="container">
-    <!-- NAVBAR -->
-    <header class="navbar">
-      <div class="logo">HALONEX <span style="font-weight:200;">·</span></div>
-      <div class="nav-links">
-        <a href="#">The Ring</a>
-        <a href="#">Craft</a>
-        <a href="#">Security</a>
-        <a href="#">Private</a>
-      </div>
-    </header>
+    <div class="container">
+        <header class="navbar">
+            <div class="logo">HALONEX ·</div>
+            <div class="nav-links">
+                <a href="#">The Ring</a>
+                <a href="#">Craft</a>
+                <a href="#">Security</a>
+                <a href="#">Private</a>
+            </div>
+        </header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-badge">Founder's Edition · 001/1000</div>
-      <h1>THE FUTURE, <span class="gold">REFINED.</span></h1>
-      <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
-      <a href="#" class="cta-button">Request Private Access</a>
+        <section class="hero">
+            <div class="hero-badge">Founder's Edition · 001/1000</div>
+            <h1>THE FUTURE, <span class="gold">REFINED.</span></h1>
+            <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
+            <a href="#" class="cta-button">Request Private Access</a>
 
-      <!-- RING DISPLAY WITH YOUR IMAGES -->
-      <div class="ring-display">
-        <!-- Your ring image -->
-        <div class="ring-artifact">
-          <img src="ring.webp" alt="HALONEX Ring" />
-        </div>
-        <!-- Your packaging image -->
-        <div class="founder-badge">
-          <img src="packaging.webp" alt="Founder's Edition Badge" />
-        </div>
-      </div>
-      <div class="ring-caption">HALONEX <span>·</span> sculpted ceramic · invisible payment</div>
-    </section>
+            <div class="ring-display">
+                <div class="ring-artifact">
+                    <div class="ring-object"></div>
+                </div>
+                <div class="founder-badge">
+                    <div class="number">001/1000</div>
+                    <div class="label">founder's edition</div>
+                    <div class="divider"></div>
+                    <div class="brand">HALONEX</div>
+                </div>
+            </div>
+            <div class="ring-caption">HALONEX <span>·</span> sculpted ceramic · invisible payment</div>
+        </section>
 
-    <!-- STORY -->
-    <section class="story-section">
-      <div class="story-grid">
-        <div class="story-text">
-          <div class="section-title">Technology <br />that <span class="gold">becomes</span> part of you.</div>
-          <p>Technology should not demand attention. It should become part of you. HALONEX is the next evolution—from wallet to card to phone to wearable.</p>
-          <div class="story-highlight">"Luxury that moves with you."</div>
-          <div class="evolution-steps">
-            <span>Wallet</span> <span class="arrow">→</span> <span>Card</span> <span class="arrow">→</span> <span>Phone</span> <span class="arrow">→</span> <span style="color:#d6bc92; border-color:#d6bc92;">Wearable</span>
-          </div>
-        </div>
-        <div class="story-image">
-          <div class="shimmer"></div>
-          <span class="label">Craft · Precision · Silence</span>
-        </div>
-      </div>
-    </section>
+        <section class="story-section">
+            <div class="story-grid">
+                <div class="story-text">
+                    <div class="section-title">Technology <br />that <span class="gold">becomes</span> part of you.</div>
+                    <p>Technology should not demand attention. It should become part of you. HALONEX is the next evolution—from wallet to card to phone to wearable.</p>
+                    <div class="story-highlight">"Luxury that moves with you."</div>
+                    <div class="evolution-steps">
+                        <span>Wallet</span> <span class="arrow">→</span> <span>Card</span> <span class="arrow">→</span> <span>Phone</span> <span class="arrow">→</span> <span style="color:#d6bc92;">Wearable</span>
+                    </div>
+                </div>
+                <div class="story-image">CRAFT · PRECISION · SILENCE</div>
+            </div>
+        </section>
 
-    <!-- CRAFT -->
-    <section class="craft-section">
-      <div style="text-align: center; max-width: 720px; margin: 0 auto;">
-        <div class="section-title">Masterpiece <span class="gold">of</span> form</div>
-        <p style="font-size: clamp(1rem, 1.3vw, 1.25rem); font-weight: 300; color: #a89c8f; letter-spacing: 0.02em; max-width: 560px; margin: 0 auto 20px;">Seamless ceramic · sculpted surface · precision engineering. Not a gadget. A luxury object powered by advanced technology.</p>
-      </div>
-      <div class="craft-grid">
-        <div class="craft-item"><h4>Seamless ceramic</h4><p>Monolithic surface, warm to the touch. Engineered for a lifetime.</p></div>
-        <div class="craft-item"><h4>Sculpted form</h4><p>Architectural lines, ergonomic perfection. Worn with intent.</p></div>
-        <div class="craft-item"><h4>Invisible payment</h4><p>Financial-grade technology, concealed within timeless design.</p></div>
-      </div>
-    </section>
+        <section class="craft-section">
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <div class="section-title">Masterpiece <span class="gold">of</span> form</div>
+                <p style="color: #a89c8f; margin-top: 12px;">Seamless ceramic · sculpted surface · precision engineering.</p>
+            </div>
+            <div class="craft-grid">
+                <div class="craft-item"><h4>Seamless ceramic</h4><p>Monolithic surface, warm to the touch.</p></div>
+                <div class="craft-item"><h4>Sculpted form</h4><p>Architectural lines, ergonomic perfection.</p></div>
+                <div class="craft-item"><h4>Invisible payment</h4><p>Financial-grade technology, concealed within timeless design.</p></div>
+            </div>
+        </section>
 
-    <!-- VAULT -->
-    <section class="vault-section">
-      <div class="vault-content">
-        <div class="vault-badge">✦ vault-grade security</div>
-        <div class="section-title">Protected <span class="gold">like</span> a vault</div>
-        <p>Advanced payment protection, secure transactions, and financial-grade encryption. Quiet confidence, always.</p>
-      </div>
-    </section>
+        <section class="vault-section">
+            <div class="vault-content">
+                <div class="vault-badge">✦ vault-grade security</div>
+                <div class="section-title">Protected <span class="gold">like</span> a vault</div>
+                <p>Advanced payment protection, secure transactions, and financial-grade encryption.</p>
+            </div>
+        </section>
 
-    <!-- OWNERSHIP -->
-    <section class="ownership-section">
-      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <div class="section-title">The <span class="gold">ownership</span> journey</div>
-        <p style="font-size: clamp(1rem, 1.3vw, 1.25rem); font-weight: 300; color: #a89c8f; letter-spacing: 0.02em; max-width: 560px; margin: 0 auto 20px;">Exclusive access, premium packaging, private relationship. Each ring arrives in an obsidian box with gold accents — like opening a rare timepiece.</p>
-      </div>
-      <div class="ownership-grid">
-        <div class="ownership-item"><h4>Exclusive access</h4><p>Founder's Edition. One thousand pieces worldwide.</p></div>
-        <div class="ownership-item"><h4>Premium packaging</h4><p>Obsidian presentation box, tactile materials, invitation card.</p></div>
-        <div class="ownership-item"><h4>Personalized experience</h4><p>Dedicated client relationship, concierge service.</p></div>
-        <div class="ownership-item"><h4>Private customer</h4><p>Discreet, white-glove service from first contact.</p></div>
-      </div>
-    </section>
+        <section class="ownership-section">
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <div class="section-title">The <span class="gold">ownership</span> journey</div>
+                <p style="color: #a89c8f; margin-top: 12px;">Exclusive access, premium packaging, private relationship.</p>
+            </div>
+            <div class="ownership-grid">
+                <div class="ownership-item"><h4>Exclusive access</h4><p>Founder's Edition. One thousand pieces worldwide.</p></div>
+                <div class="ownership-item"><h4>Premium packaging</h4><p>Obsidian presentation box with gold accents.</p></div>
+                <div class="ownership-item"><h4>Personalized experience</h4><p>Dedicated client relationship, concierge service.</p></div>
+                <div class="ownership-item"><h4>Private customer</h4><p>Discreet, white-glove service from first contact.</p></div>
+            </div>
+        </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="logo">HALONEX <span style="font-weight:200;">·</span></div>
-      <p class="tagline">Luxury that moves with you.</p>
-      <p style="margin-top: 28px; font-size: 0.6rem; letter-spacing: 0.12em;">© 2026 HALONEX · Private Collection</p>
-      <p style="font-size: 0.55rem; color: #3d352e; margin-top: 6px;">not something i use · something i own</p>
-    </footer>
-  </div>
+        <footer class="footer">
+            <div class="logo" style="font-size:1rem;">HALONEX ·</div>
+            <p class="tagline">Luxury that moves with you.</p>
+            <p>© 2026 HALONEX · Private Collection</p>
+        </footer>
+    </div>
 
-  <!-- JAVASCRIPT: Particles + Glass Effects + Interactivity -->
-  <script>
-    (function() {
-      // ----- PARTICLE SYSTEM (Elegant gold/white particles) -----
-      const canvas = document.getElementById('particle-canvas');
-      const ctx = canvas.getContext('2d');
-      let particles = [];
-      let mouseX = -1000;
-      let mouseY = -1000;
+    <script>
+        (function() {
+            // PARTICLES
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let mouseX = -1000, mouseY = -1000;
 
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas();
-
-      class Particle {
-        constructor() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.size = Math.random() * 1.8 + 0.5;
-          this.speedX = (Math.random() - 0.5) * 0.3;
-          this.speedY = (Math.random() - 0.5) * 0.3;
-          this.opacity = Math.random() * 0.4 + 0.1;
-          this.targetOpacity = this.opacity;
-        }
-
-        update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-
-          // Mouse interaction - repulsion
-          const dx = this.x - mouseX;
-          const dy = this.y - mouseY;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            const force = (120 - dist) / 120;
-            this.x += (dx / dist) * force * 1.2;
-            this.y += (dy / dist) * force * 1.2;
-            this.targetOpacity = 0.7;
-          } else {
-            this.targetOpacity = Math.random() * 0.3 + 0.1;
-          }
-
-          // Boundary
-          if (this.x < 0) this.x = canvas.width;
-          if (this.x > canvas.width) this.x = 0;
-          if (this.y < 0) this.y = canvas.height;
-          if (this.y > canvas.height) this.y = 0;
-
-          this.opacity += (this.targetOpacity - this.opacity) * 0.02;
-        }
-
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(214, 188, 146, ${this.opacity})`;
-          ctx.fill();
-          // Glow
-          if (this.opacity > 0.3) {
-            ctx.shadowColor = 'rgba(214, 188, 146, 0.15)';
-            ctx.shadowBlur = 12;
-            ctx.fill();
-            ctx.shadowBlur = 0;
-          }
-        }
-      }
-
-      // Create particles
-      const particleCount = Math.min(120, Math.floor(window.innerWidth / 12));
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-
-      // Mouse tracking
-      document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      });
-
-      // Animate particles
-      function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-          p.update();
-          p.draw();
-        });
-
-        // Draw connections (subtle lines between nearby particles)
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 150) {
-              const opacity = (1 - dist / 150) * 0.06;
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(214, 188, 146, ${opacity})`;
-              ctx.lineWidth = 0.5;
-              ctx.stroke();
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
             }
-          }
-        }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
 
-        requestAnimationFrame(animateParticles);
-      }
-      animateParticles();
-
-      // ----- RING 3D TILT (Mouse tracking) -----
-      const ring = document.querySelector('.ring-artifact');
-      if (ring) {
-        document.addEventListener('mousemove', (e) => {
-          const rect = ring.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-          const deltaX = (e.clientX - centerX) / rect.width;
-          const deltaY = (e.clientY - centerY) / rect.height;
-          const rotateY = -4 + deltaX * 8;
-          const rotateX = 6 - deltaY * 8;
-          ring.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-      }
-
-      // ----- CTA BUTTON RIPPLE -----
-      const cta = document.querySelector('.cta-button');
-      if (cta) {
-        cta.addEventListener('click', function(e) {
-          e.preventDefault();
-          this.style.transition = 'all 0.1s';
-          this.style.transform = 'scale(0.95)';
-          setTimeout(() => {
-            this.style.transform = 'scale(1.02)';
-            setTimeout(() => {
-              this.style.transform = 'scale(1)';
-            }, 200);
-          }, 100);
-          // Create ripple
-          const ripple = document.createElement('span');
-          ripple.style.position = 'absolute';
-          ripple.style.borderRadius = '50%';
-          ripple.style.background = 'rgba(214, 188, 146, 0.2)';
-          ripple.style.width = '20px';
-          ripple.style.height = '20px';
-          ripple.style.left = '50%';
-          ripple.style.top = '50%';
-          ripple.style.transform = 'translate(-50%, -50%) scale(0)';
-          ripple.style.transition = 'all 0.6s ease';
-          ripple.style.pointerEvents = 'none';
-          this.style.position = 'relative';
-          this.style.overflow = 'hidden';
-          this.appendChild(ripple);
-          requestAnimationFrame(() => {
-            ripple.style.transform = 'translate(-50%, -50%) scale(30)';
-            ripple.style.opacity = '0';
-          });
-          setTimeout(() => ripple.remove(), 700);
-        });
-      }
-
-      // ----- SCROLL REVEAL (Intersection Observer) -----
-      const sections = document.querySelectorAll('.story-section, .craft-section, .vault-section, .ownership-section');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, { threshold: 0.1 });
-
-      sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'all 1s cubic-bezier(0.23, 1, 0.32, 1)';
-        observer.observe(section);
-      });
-
-      // Also observe craft items individually
-      document.querySelectorAll('.craft-item, .ownership-item').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
-        const obs = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0)';
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 1.8 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.speedY = (Math.random() - 0.5) * 0.3;
+                    this.opacity = Math.random() * 0.4 + 0.1;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    const dx = this.x - mouseX;
+                    const dy = this.y - mouseY;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        const force = (120 - dist) / 120;
+                        this.x += (dx / dist) * force * 1.2;
+                        this.y += (dy / dist) * force * 1.2;
+                    }
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                    if (this.y > canvas.height) this.y = 0;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(214, 188, 146, ${this.opacity})`;
+                    ctx.fill();
+                }
             }
-          });
-        }, { threshold: 0.1 });
-        obs.observe(el);
-      });
 
-    })();
-  </script>
+            for (let i = 0; i < 80; i++) {
+                particles.push(new Particle());
+            }
 
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => { p.update(); p.draw(); });
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+
+            // Ring tilt
+            const ring = document.querySelector('.ring-artifact');
+            if (ring) {
+                document.addEventListener('mousemove', (e) => {
+                    const rect = ring.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+                    const deltaX = (e.clientX - centerX) / rect.width;
+                    const deltaY = (e.clientY - centerY) / rect.height;
+                    ring.style.transform = `rotateX(${6 - deltaY * 8}deg) rotateY(${-4 + deltaX * 8}deg)`;
+                });
+            }
+        })();
+    </script>
 </body>
 </html>

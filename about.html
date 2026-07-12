@@ -7,9 +7,12 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
 
     <style>
+        /* ============================================================
+           RESET & BASE — Same as Index
+        ============================================================ */
         * {
             margin: 0;
             padding: 0;
@@ -22,22 +25,27 @@
             font-family: 'Inter', sans-serif;
             font-weight: 300;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
             min-height: 100vh;
         }
 
         ::selection {
-            background: #d4a88c;
-            color: #0a0908;
+            background: rgba(212, 168, 140, 0.15);
+            color: #e8e2dc;
+        }
+
+        .rose-gold {
+            color: #d4a88c;
         }
 
         .rose-gold-bg {
-            background: linear-gradient(135deg, #d4a88c, #e8c4a8, #d4a88c);
+            background: linear-gradient(135deg, #cfa088, #dbb8a0, #cfa088);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: roseShimmer 6s ease-in-out infinite alternate;
+            animation: roseShimmer 8s ease-in-out infinite alternate;
         }
 
         @keyframes roseShimmer {
@@ -57,6 +65,9 @@
             letter-spacing: -0.01em;
         }
 
+        /* ============================================================
+           PARTICLES — Same Gold Dust as Index
+        ============================================================ */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -67,23 +78,45 @@
             pointer-events: none;
         }
 
+        /* ============================================================
+           ARCHITECTURAL GLOW — Same as Index
+        ============================================================ */
+        .glow-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse at 50% 30%, rgba(212, 168, 140, 0.00), transparent 70%);
+            transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 0;
+        }
+
+        .glow-overlay.visible {
+            opacity: 1;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 40px;
             position: relative;
             z-index: 2;
         }
 
-        /* ===== NAVBAR ===== */
+        /* ============================================================
+           NAVBAR — Same as Index
+        ============================================================ */
         .navbar {
-            padding: 20px 0;
+            padding: 20px 0 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 9, 8, 0.6);
+            background: rgba(10, 9, 8, 0.3);
             backdrop-filter: blur(40px);
-            border-bottom: 1px solid rgba(212, 168, 140, 0.06);
+            border-bottom: 1px solid rgba(212, 168, 140, 0.02);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -94,33 +127,41 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 0.35em;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.4em;
             color: #e8e2dc;
             text-transform: uppercase;
+            opacity: 0;
+            animation: logoFade 3s ease forwards;
+        }
+
+        @keyframes logoFade {
+            0% { opacity: 0; }
+            100% { opacity: 0.85; }
         }
 
         .logo .rose {
             color: #d4a88c;
+            opacity: 0.5;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.2rem;
-            font-size: 0.6rem;
+            gap: 2.8rem;
+            font-size: 0.5rem;
             font-weight: 400;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: #8a827a;
+            color: #7a726a;
         }
 
         .nav-links a {
             color: inherit;
             text-decoration: none;
-            transition: color 0.5s ease;
+            transition: color 0.8s ease;
             position: relative;
-            padding-bottom: 4px;
+            padding-bottom: 3px;
         }
 
         .nav-links a::after {
@@ -131,7 +172,8 @@
             width: 0;
             height: 1px;
             background: #d4a88c;
-            transition: width 0.6s ease;
+            transition: width 0.8s ease;
+            opacity: 0.3;
         }
 
         .nav-links a:hover::after {
@@ -150,10 +192,19 @@
             width: 100%;
         }
 
-        /* ===== ABOUT HERO ===== */
+        /* ============================================================
+           ABOUT HERO
+        ============================================================ */
         .about-hero {
             padding: 50px 0 30px;
             text-align: center;
+            animation: fadeIn 2.8s 0.3s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .about-hero h1 {
@@ -162,7 +213,7 @@
             font-weight: 400;
             letter-spacing: -0.02em;
             color: #f0ece8;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .about-hero h1 .rose-gold-bg {
@@ -171,207 +222,261 @@
 
         .about-hero .subtitle {
             font-size: clamp(0.8rem, 1vw, 0.95rem);
-            color: #9a928a;
+            color: #8a827a;
             font-weight: 300;
             letter-spacing: 0.06em;
             max-width: 500px;
             margin: 0 auto;
+            opacity: 0.6;
         }
 
-        /* ===== ABOUT CONTENT ===== */
+        /* ============================================================
+           ABOUT CONTENT — Refined Spacing
+        ============================================================ */
         .about-content {
-            padding: 10px 0 50px;
+            padding: 8px 0 50px;
             max-width: 720px;
             margin: 0 auto;
         }
 
         .about-content .section {
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
         .about-content .section p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #b0aaa2;
             line-height: 1.8;
             margin-bottom: 10px;
             font-weight: 300;
             letter-spacing: 0.02em;
+            opacity: 0.7;
         }
 
         .about-content .section .highlight {
-            border-left: 2px solid #d4a88c;
+            border-left: 2px solid rgba(212, 168, 140, 0.08);
             padding-left: 20px;
             color: #e8e2dc;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 300;
-            background: linear-gradient(135deg, rgba(212, 168, 140, 0.02), transparent);
+            background: linear-gradient(135deg, rgba(212, 168, 140, 0.01), transparent);
             padding: 14px 20px;
             border-radius: 0 8px 8px 0;
             margin: 12px 0;
             font-style: italic;
+            opacity: 0.5;
         }
 
         .about-content .section .highlight strong {
             color: #d4a88c;
             font-weight: 400;
+            opacity: 0.6;
         }
 
-        /* ===== FOUNDER'S EDITION BOX ===== */
+        /* ============================================================
+           FOUNDER'S EDITION BOX
+        ============================================================ */
         .edition-box {
-            background: rgba(20, 18, 16, 0.4);
-            border: 1px solid rgba(212, 168, 140, 0.04);
+            background: rgba(20, 18, 16, 0.15);
+            border: 1px solid rgba(212, 168, 140, 0.01);
             border-radius: 16px;
-            padding: 28px 30px;
-            margin: 24px 0 16px;
+            padding: 24px 28px;
+            margin: 20px 0 16px;
             text-align: center;
-            backdrop-filter: blur(8px);
-            transition: all 0.5s ease;
+            backdrop-filter: blur(4px);
+            transition: all 0.8s ease;
         }
 
         .edition-box:hover {
-            border-color: rgba(212, 168, 140, 0.08);
-            background: rgba(30, 28, 26, 0.5);
+            border-color: rgba(212, 168, 140, 0.02);
+            background: rgba(30, 28, 26, 0.08);
         }
 
         .edition-box .badge {
-            font-size: 0.45rem;
-            letter-spacing: 0.3em;
+            font-size: 0.4rem;
+            letter-spacing: 0.35em;
             text-transform: uppercase;
-            color: #8a827a;
-            margin-bottom: 6px;
+            color: #6a645c;
+            margin-bottom: 4px;
+            opacity: 0.3;
         }
 
         .edition-box h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 500;
+            font-size: 1.2rem;
+            font-weight: 400;
             color: #d4a88c;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
+            opacity: 0.5;
         }
 
         .edition-box p {
-            font-size: 0.8rem;
-            color: #9a928a;
+            font-size: 0.75rem;
+            color: #8a827a;
             line-height: 1.6;
-            max-width: 480px;
+            max-width: 440px;
             margin: 0 auto;
+            opacity: 0.5;
         }
 
         .edition-box .limited {
-            margin-top: 8px;
-            font-size: 0.55rem;
+            margin-top: 6px;
+            font-size: 0.5rem;
             letter-spacing: 0.2em;
-            color: #6a645c;
+            color: #5a544c;
             text-transform: uppercase;
+            opacity: 0.3;
         }
 
-        /* ===== SECURITY NOTE ===== */
+        /* ============================================================
+           SECURITY NOTE
+        ============================================================ */
         .security-note {
-            background: rgba(20, 18, 16, 0.3);
-            border: 1px solid rgba(212, 168, 140, 0.02);
+            background: rgba(20, 18, 16, 0.08);
+            border: 1px solid rgba(212, 168, 140, 0.01);
             border-radius: 12px;
-            padding: 20px 24px;
-            margin: 20px 0 16px;
+            padding: 16px 22px;
+            margin: 16px 0 12px;
             text-align: center;
         }
 
         .security-note p {
-            font-size: 0.75rem;
-            color: #8a827a;
+            font-size: 0.7rem;
+            color: #7a726a;
             line-height: 1.6;
             margin: 0;
             letter-spacing: 0.02em;
+            opacity: 0.5;
         }
 
         .security-note strong {
             color: #d4a88c;
             font-weight: 400;
+            opacity: 0.4;
         }
 
-        /* ===== LOOK FORWARD ===== */
+        /* ============================================================
+           LOOK FORWARD
+        ============================================================ */
         .look-forward {
             text-align: center;
-            margin-top: 24px;
-            padding: 20px 0 10px;
-            border-top: 1px solid rgba(212, 168, 140, 0.02);
+            margin-top: 20px;
+            padding: 16px 0 10px;
+            border-top: 1px solid rgba(212, 168, 140, 0.01);
         }
 
         .look-forward p {
             font-family: 'Playfair Display', serif;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #d4a88c;
             font-weight: 400;
             letter-spacing: 0.04em;
-            opacity: 0.6;
+            opacity: 0.2;
         }
 
-        /* ===== FOOTER ===== */
-        .footer {
-            padding: 30px 0 24px;
-            text-align: center;
-            border-top: 1px solid rgba(212, 168, 140, 0.02);
-            background: rgba(10, 9, 8, 0.3);
-            backdrop-filter: blur(20px);
-        }
-
-        .footer .tagline {
-            font-family: 'Great Vibes', cursive;
-            font-size: 1rem;
-            color: #d4a88c;
-            margin-top: 4px;
-            letter-spacing: 0.04em;
-        }
-
-        .footer p {
-            color: #4a4642;
-            font-size: 0.45rem;
-            letter-spacing: 0.12em;
-            margin-top: 6px;
-        }
-
-        .footer .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.3em;
-            color: #e8e2dc;
-        }
-
-        /* ===== BACK LINK ===== */
+        /* ============================================================
+           BACK LINK
+        ============================================================ */
         .back-link {
             display: inline-block;
-            margin-top: 12px;
-            color: #8a827a;
+            margin-top: 10px;
+            color: #6a645c;
             text-decoration: none;
-            font-size: 0.55rem;
+            font-size: 0.5rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            transition: color 0.4s ease;
+            transition: color 0.6s ease;
             border-bottom: 1px solid transparent;
             padding-bottom: 4px;
+            opacity: 0.3;
         }
 
         .back-link:hover {
             color: #d4a88c;
-            border-bottom-color: #d4a88c;
+            border-bottom-color: rgba(212, 168, 140, 0.1);
+            opacity: 0.6;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ============================================================
+           FOOTER — Same as Index
+        ============================================================ */
+        .footer {
+            padding: 32px 0 24px;
+            text-align: center;
+            border-top: 1px solid rgba(212, 168, 140, 0.01);
+            background: rgba(10, 9, 8, 0.1);
+        }
+
+        .footer .emblem {
+            font-size: 1rem;
+            color: #d4a88c;
+            opacity: 0.03;
+            letter-spacing: 0.3em;
+            margin-bottom: 6px;
+        }
+
+        .footer .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.35em;
+            color: #e8e2dc;
+            opacity: 0.15;
+        }
+
+        .footer .tagline {
+            font-family: 'Great Vibes', cursive;
+            font-size: 0.9rem;
+            color: #d4a88c;
+            margin-top: 2px;
+            letter-spacing: 0.04em;
+            opacity: 0.2;
+        }
+
+        .footer .credit {
+            font-family: 'Great Vibes', cursive;
+            font-size: 0.55rem;
+            color: #5a544c;
+            margin-top: 2px;
+            letter-spacing: 0.04em;
+            opacity: 0.1;
+        }
+
+        .footer p {
+            color: #3a3632;
+            font-size: 0.35rem;
+            letter-spacing: 0.15em;
+            margin-top: 6px;
+            opacity: 0.3;
+        }
+
+        .footer .signature-line {
+            font-family: 'Great Vibes', cursive;
+            font-size: 0.45rem;
+            color: #2a2622;
+            margin-top: 4px;
+            letter-spacing: 0.06em;
+            opacity: 0.3;
+        }
+
+        /* ============================================================
+           RESPONSIVE — Same as Index
+        ============================================================ */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
             .navbar {
                 flex-direction: column;
                 gap: 8px;
                 padding: 14px 0;
-                border-radius: 0 0 14px 14px;
+                border-radius: 0 0 16px 16px;
             }
 
             .nav-links {
-                gap: 1.2rem;
-                font-size: 0.5rem;
-            }
-
-            .container {
-                padding: 0 16px;
+                gap: 1.6rem;
+                font-size: 0.4rem;
             }
 
             .about-hero {
@@ -383,18 +488,22 @@
             }
 
             .edition-box {
-                padding: 20px 18px;
+                padding: 18px 20px;
             }
 
             .edition-box h3 {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
         }
 
         @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
             .nav-links {
-                gap: 0.8rem;
-                font-size: 0.4rem;
+                gap: 1rem;
+                font-size: 0.35rem;
             }
 
             .about-hero h1 {
@@ -402,27 +511,56 @@
             }
 
             .edition-box {
-                padding: 16px 14px;
-            }
-
-            .edition-box h3 {
-                font-size: 1rem;
-            }
-
-            .security-note {
                 padding: 14px 16px;
             }
 
-            .security-note p {
+            .edition-box h3 {
+                font-size: 0.9rem;
+            }
+
+            .edition-box p {
                 font-size: 0.65rem;
             }
+
+            .security-note {
+                padding: 12px 14px;
+            }
+
+            .security-note p {
+                font-size: 0.6rem;
+            }
+
+            .about-content .section p {
+                font-size: 0.75rem;
+            }
         }
+
+        /* ============================================================
+           SCROLL REVEAL — Same as Index
+        ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: all 1.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.05s; }
+        .reveal-delay-2 { transition-delay: 0.1s; }
+        .reveal-delay-3 { transition-delay: 0.15s; }
     </style>
 </head>
 <body>
 
-    <!-- ===== PARTICLES ===== -->
+    <!-- ===== PARTICLES — Same Gold Dust as Index ===== -->
     <canvas id="particle-canvas"></canvas>
+
+    <!-- ===== ARCHITECTURAL GLOW — Same as Index ===== -->
+    <div class="glow-overlay" id="glowOverlay"></div>
 
     <div class="container">
 
@@ -433,8 +571,8 @@
                 <a href="index.html">Home</a>
                 <a href="#" class="active">About</a>
                 <a href="index.html#craft">Craft</a>
+                <a href="index.html#experience">Experience</a>
                 <a href="index.html#security">Security</a>
-                <a href="index.html#private">Private</a>
             </div>
         </header>
 
@@ -447,37 +585,37 @@
         <!-- ===== ABOUT CONTENT ===== -->
         <section class="about-content">
 
-            <div class="section">
-                <p>HALONEX is a <strong style="color:#d4a88c; font-weight:400;">payment wearable</strong> brand — where fine jewelry meets invisible technology. The <strong style="color:#d4a88c; font-weight:400;">Founder's Edition</strong> is our first step into the world. Limited to one thousand pieces. Never reproduced. Ever.</p>
+            <div class="section reveal reveal-delay-1">
+                <p>HALONEX is a <strong style="color:#d4a88c; font-weight:400; opacity:0.5;">payment wearable</strong> brand — where fine jewelry meets invisible technology. The <strong style="color:#d4a88c; font-weight:400; opacity:0.5;">Founder's Edition</strong> is our first step into the world. Limited to one thousand pieces. Never reproduced. Ever.</p>
                 <p>Each piece is a statement. A symbol of access. Those who wear it will be the first to experience everything HALONEX creates in the years ahead.</p>
                 <div class="highlight">"Not something I use. Something I own."</div>
             </div>
 
             <!-- ===== FOUNDER'S EDITION ===== -->
-            <div class="edition-box">
+            <div class="edition-box reveal reveal-delay-2">
                 <div class="badge">✦ first &amp; final</div>
                 <h3>Founder's Edition</h3>
                 <p>One thousand pieces. Never to be reproduced. A singular moment in time.</p>
                 <div class="limited">001 / 1000</div>
             </div>
 
-            <div class="section">
+            <div class="section reveal reveal-delay-3">
                 <p>To activate, invitees tap the ring to the back of their phone — via the dedicated prestige feature within their bank's app. Secure, seamless, and effortless.</p>
-                <p>Powered by <strong style="color:#d4a88c; font-weight:400;">Digiseq</strong> — a UK-based TSM for Visa and Mastercard — ensuring every transaction is protected at the highest level.</p>
+                <p>Powered by <strong style="color:#d4a88c; font-weight:400; opacity:0.5;">Digiseq</strong> — a UK-based TSM for Visa and Mastercard — ensuring every transaction is protected at the highest level.</p>
             </div>
 
             <!-- ===== SECURITY ===== -->
-            <div class="security-note">
+            <div class="security-note reveal reveal-delay-3">
                 <p>Secure transactions, protected by <strong>Digiseq</strong> — a UK-based TSM for Visa and Mastercard.</p>
             </div>
 
             <!-- ===== LOOK FORWARD ===== -->
-            <div class="look-forward">
+            <div class="look-forward reveal">
                 <p>✦ we look forward to welcoming you ✦</p>
             </div>
 
             <!-- ===== BACK LINK ===== -->
-            <div style="text-align:center; margin-top:8px;">
+            <div style="text-align:center; margin-top:6px;">
                 <a href="index.html" class="back-link">← Return to HALONEX</a>
             </div>
 
@@ -485,17 +623,25 @@
 
         <!-- ===== FOOTER ===== -->
         <footer class="footer">
-            <div class="footer-logo">HALONEX <span style="color:#d4a88c;">·</span></div>
+            <div class="emblem">✦</div>
+            <div class="footer-logo">HALONEX <span style="color:#d4a88c; opacity:0.15;">·</span></div>
             <p class="tagline">Luxury that moves with you.</p>
+            <p class="credit">— Saad Saeed —</p>
             <p>© 2026 HALONEX · Private Collection</p>
+            <p class="signature-line">not something i use · something i own</p>
         </footer>
 
     </div>
 
-    <!-- ===== JAVASCRIPT ===== -->
+    <!-- ============================================================
+       JAVASCRIPT — Same Gold Dust + Glow as Index
+    ============================================================ -->
     <script>
         (function() {
 
+            // ============================================================
+            // 1. GOLD DUST PARTICLES — Same as Index
+            // ============================================================
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
@@ -513,54 +659,63 @@
                 constructor() {
                     this.x = Math.random() * canvas.width;
                     this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 1.8 + 0.3;
-                    this.speedX = (Math.random() - 0.5) * 0.12;
-                    this.speedY = (Math.random() - 0.5) * 0.12;
-                    this.opacity = Math.random() * 0.15 + 0.02;
+                    this.size = Math.random() * 2.2 + 0.4;
+                    this.speedX = (Math.random() - 0.5) * 0.03;
+                    this.speedY = (Math.random() - 0.5) * 0.03;
+                    this.opacity = Math.random() * 0.12 + 0.02;
                     this.targetOpacity = this.opacity;
+                    this.wobble = Math.random() * Math.PI * 2;
+                    this.wobbleSpeed = 0.005 + Math.random() * 0.005;
                 }
 
                 update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
+                    this.wobble += this.wobbleSpeed;
+                    this.x += this.speedX + Math.sin(this.wobble) * 0.08;
+                    this.y += this.speedY + Math.cos(this.wobble * 0.7) * 0.08;
 
                     const dx = this.x - mouseX;
                     const dy = this.y - mouseY;
                     const dist = Math.sqrt(dx * dx + dy * dy);
 
-                    if (dist < 100) {
-                        const force = (100 - dist) / 100;
-                        this.x += (dx / dist) * force * 0.8;
-                        this.y += (dy / dist) * force * 0.8;
+                    if (dist < 120) {
+                        const force = (120 - dist) / 120;
+                        this.x += (dx / dist) * force * 0.2;
+                        this.y += (dy / dist) * force * 0.2;
                         this.targetOpacity = 0.25;
                     } else {
-                        this.targetOpacity = Math.random() * 0.12 + 0.02;
+                        this.targetOpacity = Math.random() * 0.08 + 0.02;
                     }
 
-                    if (this.x < 0) this.x = canvas.width;
-                    if (this.x > canvas.width) this.x = 0;
-                    if (this.y < 0) this.y = canvas.height;
-                    if (this.y > canvas.height) this.y = 0;
+                    if (this.x < -10) this.x = canvas.width + 10;
+                    if (this.x > canvas.width + 10) this.x = -10;
+                    if (this.y < -10) this.y = canvas.height + 10;
+                    if (this.y > canvas.height + 10) this.y = -10;
 
-                    this.opacity += (this.targetOpacity - this.opacity) * 0.02;
+                    this.opacity += (this.targetOpacity - this.opacity) * 0.008;
                 }
 
                 draw() {
+                    const gradient = ctx.createRadialGradient(
+                        this.x, this.y, 0,
+                        this.x, this.y, this.size * 3
+                    );
+                    gradient.addColorStop(0, `rgba(212, 168, 140, ${this.opacity * 0.6})`);
+                    gradient.addColorStop(0.5, `rgba(212, 168, 140, ${this.opacity * 0.15})`);
+                    gradient.addColorStop(1, `rgba(212, 168, 140, 0)`);
+
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity})`;
+                    ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+                    ctx.fillStyle = gradient;
                     ctx.fill();
 
-                    if (this.opacity > 0.12) {
-                        ctx.shadowColor = 'rgba(212, 168, 140, 0.02)';
-                        ctx.shadowBlur = 10;
-                        ctx.fill();
-                        ctx.shadowBlur = 0;
-                    }
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * 0.5, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity * 0.8})`;
+                    ctx.fill();
                 }
             }
 
-            const particleCount = Math.min(50, Math.floor(window.innerWidth / 18));
+            const particleCount = Math.min(60, Math.floor(window.innerWidth / 12));
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
             }
@@ -590,9 +745,9 @@
                         const dy = particles[i].y - particles[j].y;
                         const dist = Math.sqrt(dx * dx + dy * dy);
                         if (dist < 120) {
-                            const opacity = (1 - dist / 120) * 0.02;
+                            const opacity = (1 - dist / 120) * 0.015;
                             ctx.beginPath();
-                            ctx.moveTo(patients[i].x, particles[j].x);
+                            ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(particles[j].x, particles[j].y);
                             ctx.strokeStyle = `rgba(212, 168, 140, ${opacity})`;
                             ctx.lineWidth = 0.3;
@@ -604,6 +759,63 @@
                 requestAnimationFrame(animateParticles);
             }
             animateParticles();
+
+            // ============================================================
+            // 2. ARCHITECTURAL GLOW — Same as Index
+            // ============================================================
+            const glow = document.getElementById('glowOverlay');
+
+            const glowObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        glow.classList.add('visible');
+                    } else {
+                        glow.classList.remove('visible');
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: '0px 0px -200px 0px'
+            });
+
+            const heroSection = document.querySelector('.about-hero');
+            if (heroSection) {
+                glowObserver.observe(heroSection);
+            }
+
+            // ============================================================
+            // 3. SCROLL REVEAL — Same as Index
+            // ============================================================
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Edition box — slower reveal
+            const editionBox = document.querySelector('.edition-box');
+            if (editionBox) {
+                const boxObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.transition = 'all 1.8s cubic-bezier(0.23, 1, 0.32, 1)';
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                boxObserver.observe(editionBox);
+            }
 
         })();
     </script>

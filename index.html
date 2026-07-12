@@ -66,7 +66,7 @@
             letter-spacing: -0.01em;
         }
 
-        /* ===== PARTICLES ===== */
+        /* ===== PARTICLES — Drift Slowly ===== */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -86,7 +86,7 @@
         }
 
         /* ============================================================
-           NAVBAR
+           NAVBAR — Logo Fades In
         ============================================================ */
         .navbar {
             padding: 20px 0 16px;
@@ -111,7 +111,13 @@
             letter-spacing: 0.4em;
             color: #e8e2dc;
             text-transform: uppercase;
-            opacity: 0.85;
+            opacity: 0;
+            animation: logoFade 3s ease forwards;
+        }
+
+        @keyframes logoFade {
+            0% { opacity: 0; }
+            100% { opacity: 0.85; }
         }
 
         .logo .rose {
@@ -158,7 +164,7 @@
         }
 
         /* ============================================================
-           HERO — Product as Anchor
+           HERO
         ============================================================ */
         .hero {
             padding: 40px 0 20px;
@@ -180,7 +186,7 @@
             color: #6a645c;
             margin-bottom: 32px;
             background: rgba(212, 168, 140, 0.005);
-            animation: fadeIn 2s 0.3s ease forwards;
+            animation: fadeIn 2.8s 0.3s ease forwards;
             opacity: 0;
         }
 
@@ -192,7 +198,7 @@
             line-height: 0.92;
             color: #f0ece8;
             margin-bottom: 8px;
-            animation: fadeIn 2.4s 0.5s ease forwards;
+            animation: fadeIn 3.2s 0.5s ease forwards;
             opacity: 0;
         }
 
@@ -207,7 +213,7 @@
             color: #6a645c;
             margin-bottom: 16px;
             letter-spacing: 0.06em;
-            animation: fadeIn 2s 0.7s ease forwards;
+            animation: fadeIn 2.8s 0.7s ease forwards;
             opacity: 0;
         }
 
@@ -219,7 +225,7 @@
             font-weight: 300;
             letter-spacing: 0.08em;
             line-height: 1.7;
-            animation: fadeIn 2s 0.9s ease forwards;
+            animation: fadeIn 2.8s 0.9s ease forwards;
             opacity: 0;
         }
 
@@ -237,7 +243,7 @@
             transition: all 0.8s ease;
             background: rgba(212, 168, 140, 0.005);
             cursor: pointer;
-            animation: fadeIn 2s 1.1s ease forwards;
+            animation: fadeIn 2.8s 1.1s ease forwards;
             opacity: 0;
         }
 
@@ -253,14 +259,14 @@
         }
 
         /* ============================================================
-           PRODUCT — Immediate, Museum-Quality
+           PRODUCT — Ring Rotates Slowly + Copper Glow
         ============================================================ */
         .product-display {
             margin: 28px 0 8px;
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: fadeIn 2.6s 1.3s ease forwards;
+            animation: fadeIn 3s 1.3s ease forwards;
             opacity: 0;
             width: 100%;
         }
@@ -279,29 +285,7 @@
             transition: all 1s ease;
         }
 
-        .product-item::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 13px;
-            background: linear-gradient(135deg,
-                    rgba(212, 168, 140, 0.0) 0%,
-                    rgba(212, 168, 140, 0.015) 30%,
-                    rgba(232, 196, 168, 0.03) 50%,
-                    rgba(212, 168, 140, 0.015) 70%,
-                    rgba(212, 168, 140, 0.0) 100%);
-            background-size: 300% 300%;
-            z-index: 2;
-            pointer-events: none;
-            animation: shimmerSlide 10s ease-in-out infinite alternate;
-        }
-
-        @keyframes shimmerSlide {
-            0% { background-position: 0% 50%; opacity: 0.1; }
-            50% { opacity: 0.25; }
-            100% { background-position: 100% 50%; opacity: 0.1; }
-        }
-
+        /* Copper glow that breathes */
         .product-item::after {
             content: '';
             position: absolute;
@@ -310,12 +294,13 @@
             background: radial-gradient(circle at 30% 25%, rgba(212, 168, 140, 0.015), transparent 70%);
             filter: blur(40px);
             z-index: 0;
-            animation: glowPulse 10s ease-in-out infinite alternate;
+            animation: copperGlow 6s ease-in-out infinite alternate;
         }
 
-        @keyframes glowPulse {
-            0% { opacity: 0.1; transform: scale(0.98); }
-            100% { opacity: 0.2; transform: scale(1.02); }
+        @keyframes copperGlow {
+            0% { opacity: 0.08; transform: scale(0.98); }
+            50% { opacity: 0.18; transform: scale(1); }
+            100% { opacity: 0.08; transform: scale(1.02); }
         }
 
         .product-item img {
@@ -329,10 +314,18 @@
             filter: brightness(1.02) contrast(1.01) saturate(0.95);
             transition: all 1.2s ease;
             border-radius: 12px;
+            /* Ring rotates slowly */
+            animation: ringRotate 20s linear infinite;
+        }
+
+        @keyframes ringRotate {
+            0% { transform: rotate(0deg) scale(1.005); }
+            100% { transform: rotate(360deg) scale(1.005); }
         }
 
         .product-item:hover img {
-            transform: scale(1.005);
+            transform: scale(1.008);
+            animation-play-state: paused;
         }
 
         .product-caption {
@@ -342,7 +335,7 @@
             letter-spacing: 0.35em;
             color: #5a544c;
             font-weight: 300;
-            animation: fadeIn 2s 1.6s ease forwards;
+            animation: fadeIn 2.8s 1.6s ease forwards;
             opacity: 0;
         }
 
@@ -352,13 +345,29 @@
         }
 
         /* ============================================================
-           FOUNDER — Reduced by ~70%, Brand-First
+           FOUNDER — Vision-First, Pakistan/World
         ============================================================ */
         .founder-section {
-            margin: 12px 0 6px;
+            margin: 14px 0 6px;
             text-align: center;
-            animation: fadeIn 2.4s 1.8s ease forwards;
+            animation: fadeIn 3s 1.8s ease forwards;
             opacity: 0;
+        }
+
+        .founder-vision {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(0.8rem, 1.1vw, 1rem);
+            color: #8a827a;
+            letter-spacing: 0.04em;
+            opacity: 0.3;
+            margin-bottom: 4px;
+            line-height: 1.5;
+        }
+
+        .founder-vision span {
+            color: #d4a88c;
+            opacity: 0.2;
         }
 
         .founder-label {
@@ -366,24 +375,25 @@
             letter-spacing: 0.4em;
             text-transform: uppercase;
             color: #5a544c;
-            opacity: 0.2;
+            opacity: 0.15;
+            margin-top: 2px;
         }
 
         .founder-name {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
             color: #d4a88c;
             letter-spacing: 0.04em;
-            opacity: 0.2;
+            opacity: 0.15;
         }
 
         /* ============================================================
-           SCARCITY — Ceremonial, Not Promotional
+           SCARCITY — Ceremonial
         ============================================================ */
         .scarcity-mark {
             text-align: center;
             padding: 8px 0 4px;
-            animation: fadeIn 2.4s 2s ease forwards;
+            animation: fadeIn 3s 2s ease forwards;
             opacity: 0;
         }
 
@@ -400,17 +410,17 @@
             font-size: 0.55rem;
             color: #5a544c;
             letter-spacing: 0.1em;
-            opacity: 0.4;
+            opacity: 0.35;
         }
 
         .scarcity-mark p strong {
             color: #d4a88c;
             font-weight: 400;
-            opacity: 0.3;
+            opacity: 0.25;
         }
 
         /* ============================================================
-           CRAFT — Refined Cards, Connected
+           CRAFT — Each Card Has Its Own Identity
         ============================================================ */
         .craft-section {
             padding: 40px 0 36px;
@@ -425,26 +435,37 @@
             margin-top: 24px;
         }
 
+        /* ---- Base Card ---- */
         .craft-item {
-            padding: 24px 18px;
+            padding: 24px 18px 20px;
             border-radius: 12px;
             border: 1px solid rgba(212, 168, 140, 0.01);
             transition: all 0.8s ease;
-            background: rgba(20, 18, 16, 0.08);
+            background: rgba(20, 18, 16, 0.06);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .craft-item.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .craft-item:hover {
             border-color: rgba(212, 168, 140, 0.015);
             background: rgba(30, 28, 26, 0.08);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
         .craft-item .icon {
-            font-size: 1.1rem;
+            font-size: 1.8rem;
             margin-bottom: 8px;
-            opacity: 0.1;
+            opacity: 0.08;
             color: #d4a88c;
+            display: block;
         }
 
         .craft-item h4 {
@@ -466,8 +487,67 @@
             opacity: 0.7;
         }
 
+        /* ---- Card 1: Seamless Ceramic (Ceramic Macro) ---- */
+        .craft-item:nth-child(1) .icon {
+            font-size: 2.2rem;
+            opacity: 0.06;
+            letter-spacing: 0.2em;
+        }
+
+        .craft-item:nth-child(1)::before {
+            content: '◈';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 4rem;
+            color: #d4a88c;
+            opacity: 0.015;
+            transform: rotate(15deg);
+        }
+
+        /* ---- Card 2: Sculpted Form (Architectural Wireframe) ---- */
+        .craft-item:nth-child(2) .icon {
+            font-size: 1.6rem;
+            opacity: 0.06;
+            letter-spacing: 0.1em;
+        }
+
+        .craft-item:nth-child(2)::before {
+            content: '◇';
+            position: absolute;
+            bottom: -5px;
+            left: -5px;
+            font-size: 3.5rem;
+            color: #d4a88c;
+            opacity: 0.012;
+        }
+
+        /* ---- Card 3: Invisible Payment (Glowing Chip) ---- */
+        .craft-item:nth-child(3) .icon {
+            font-size: 1.6rem;
+            opacity: 0.08;
+            animation: chipGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes chipGlow {
+            0% { opacity: 0.04; filter: blur(0px); }
+            50% { opacity: 0.12; filter: blur(1px); }
+            100% { opacity: 0.04; filter: blur(0px); }
+        }
+
+        .craft-item:nth-child(3)::before {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5rem;
+            color: #d4a88c;
+            opacity: 0.01;
+        }
+
         /* ============================================================
-           EXPERIENCE — Connected, Natural Flow
+           EXPERIENCE
         ============================================================ */
         .experience-section {
             padding: 40px 0 36px;
@@ -492,6 +572,13 @@
             border: 1px solid rgba(212, 168, 140, 0.01);
             transition: all 0.8s ease;
             background: rgba(20, 18, 16, 0.04);
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        .exp-step.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .exp-step:hover {
@@ -546,7 +633,7 @@
         }
 
         /* ============================================================
-           SECURITY — Emotional First, Technical Second
+           SECURITY
         ============================================================ */
         .security-section {
             padding: 40px 0 36px;
@@ -600,7 +687,7 @@
         }
 
         /* ============================================================
-           TEASER — Anticipation, Not Marketing
+           TEASER
         ============================================================ */
         .teaser-section {
             padding: 28px 0 20px;
@@ -629,7 +716,7 @@
         }
 
         /* ============================================================
-           FOOTER — Luxury Letter Signature
+           FOOTER
         ============================================================ */
         .footer {
             padding: 32px 0 24px;
@@ -691,7 +778,7 @@
         }
 
         /* ============================================================
-           MODAL — Private Lounge Entry
+           MODAL — Anticipation, Not Instruction
         ============================================================ */
         .modal-overlay {
             position: fixed;
@@ -759,18 +846,27 @@
 
         .modal-content p {
             color: #9a928a;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             line-height: 1.7;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             font-weight: 300;
             letter-spacing: 0.03em;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
         .modal-content p strong {
             color: #d4a88c;
             font-weight: 400;
+            opacity: 0.5;
+        }
+
+        .modal-content .anticipation {
+            font-size: 0.65rem;
+            color: #6a645c;
+            letter-spacing: 0.05em;
+            margin-top: 8px;
             opacity: 0.4;
+            font-style: italic;
         }
 
         .modal-content .bank-name {
@@ -803,7 +899,7 @@
         }
 
         /* ============================================================
-           RESPONSIVE — Composed, Not Sparse
+           RESPONSIVE
         ============================================================ */
         @media (max-width: 768px) {
             .container {
@@ -903,12 +999,12 @@
         }
 
         /* ============================================================
-           SCROLL REVEAL — Cinematic Gallery Flow
+           SCROLL REVEAL — Slow, Cinematic
         ============================================================ */
         .reveal {
             opacity: 0;
             transform: translateY(32px);
-            transition: all 1.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: all 1.8s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .reveal.visible {
@@ -947,7 +1043,7 @@
             <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
             <button class="cta-button" id="ctaBtn">Request Private Access</button>
 
-            <!-- PRODUCT — Immediately After CTA -->
+            <!-- PRODUCT — Ring Rotates Slowly + Copper Glow -->
             <div class="product-display">
                 <div class="product-item">
                     <img src="https://halonex.vercel.app/packaging.webp" alt="HALONEX Packaging" />
@@ -956,8 +1052,12 @@
 
             <div class="product-caption">HALONEX <span>·</span> sculpted ceramic · invisible payment</div>
 
-            <!-- FOUNDER — Reduced by ~70% -->
+            <!-- FOUNDER — Vision-First -->
             <div class="founder-section">
+                <div class="founder-vision">
+                    Conceived in <span>Pakistan</span>.<br />
+                    Engineered for the <span>world</span>.
+                </div>
                 <div class="founder-label">Founder</div>
                 <div class="founder-name">Saad Saeed</div>
             </div>
@@ -970,7 +1070,7 @@
         </section>
 
         <!-- ============================================================
-           CRAFT
+           CRAFT — Each Card Has Its Own Identity
         ============================================================ -->
         <section class="craft-section reveal reveal-delay-1" id="craft">
             <div style="text-align: center; max-width: 500px; margin: 0 auto;">
@@ -980,18 +1080,21 @@
                 <p style="color: #6a645c; margin-top: 4px; font-size: 0.6rem; font-weight: 300; letter-spacing: 0.1em; opacity:0.4;">Seamless ceramic · sculpted surface · precision engineering</p>
             </div>
             <div class="craft-grid">
+                <!-- Card 1: Seamless Ceramic — Ceramic Macro -->
                 <div class="craft-item">
-                    <div class="icon">✦</div>
+                    <div class="icon">◈</div>
                     <h4>Seamless Ceramic</h4>
                     <p>Monolithic surface, warm to the touch. Engineered for a lifetime.</p>
                 </div>
+                <!-- Card 2: Sculpted Form — Architectural Wireframe -->
                 <div class="craft-item">
-                    <div class="icon">◈</div>
+                    <div class="icon">◇</div>
                     <h4>Sculpted Form</h4>
                     <p>Architectural lines, ergonomic perfection. Worn with intent.</p>
                 </div>
+                <!-- Card 3: Invisible Payment — Glowing Chip -->
                 <div class="craft-item">
-                    <div class="icon">◇</div>
+                    <div class="icon">✦</div>
                     <h4>Invisible Payment</h4>
                     <p>Financial-grade technology, concealed within timeless design.</p>
                 </div>
@@ -1038,7 +1141,7 @@
         </section>
 
         <!-- ============================================================
-           SECURITY — Emotional First, Technical Second
+           SECURITY
         ============================================================ -->
         <section class="security-section reveal reveal-delay-3" id="security">
             <div class="security-content">
@@ -1067,7 +1170,7 @@
     </div>
 
     <!-- ============================================================
-       MODAL — Private Lounge Entry
+       MODAL — Anticipation, Not Instruction
     ============================================================ -->
     <div class="modal-overlay" id="accessModal">
         <div class="modal-content">
@@ -1075,19 +1178,20 @@
             <div class="gold-letter">Thank You</div>
             <div class="gold-letter-sub">for your interest</div>
             <div class="divider"></div>
-            <p>This is an <strong>invite-only program</strong>.</p>
-            <p style="font-size:0.7rem; color:#7a726a; margin-top:2px;">Contact the bank to acquire this payment wearable.</p>
+            <p>HALONEX is released exclusively through <strong>selected banking partners</strong>.</p>
+            <p style="font-size:0.75rem; opacity:0.5; margin-top:2px;">Availability is determined by participating banks.</p>
+            <p class="anticipation">More details will be announced soon.</p>
             <div class="bank-name">✦ Private Collection ✦</div>
         </div>
     </div>
 
     <!-- ============================================================
-       JAVASCRIPT — Slow, Cinematic
+       JAVASCRIPT — Slow, Cinematic, Calm
     ============================================================ -->
     <script>
         (function() {
 
-            // ===== PARTICLES — Atmospheric =====
+            // ===== PARTICLES — Drift Slowly =====
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
@@ -1106,9 +1210,9 @@
                     this.x = Math.random() * canvas.width;
                     this.y = Math.random() * canvas.height;
                     this.size = Math.random() * 1.4 + 0.2;
-                    this.speedX = (Math.random() - 0.5) * 0.06;
-                    this.speedY = (Math.random() - 0.5) * 0.06;
-                    this.opacity = Math.random() * 0.06 + 0.01;
+                    this.speedX = (Math.random() - 0.5) * 0.04;
+                    this.speedY = (Math.random() - 0.5) * 0.04;
+                    this.opacity = Math.random() * 0.06 + 0.005;
                     this.targetOpacity = this.opacity;
                 }
 
@@ -1122,11 +1226,11 @@
 
                     if (dist < 120) {
                         const force = (120 - dist) / 120;
-                        this.x += (dx / dist) * force * 0.4;
-                        this.y += (dy / dist) * force * 0.4;
-                        this.targetOpacity = 0.12;
+                        this.x += (dx / dist) * force * 0.3;
+                        this.y += (dy / dist) * force * 0.3;
+                        this.targetOpacity = 0.1;
                     } else {
-                        this.targetOpacity = Math.random() * 0.04 + 0.01;
+                        this.targetOpacity = Math.random() * 0.04 + 0.005;
                     }
 
                     if (this.x < 0) this.x = canvas.width;
@@ -1134,7 +1238,7 @@
                     if (this.y < 0) this.y = canvas.height;
                     if (this.y > canvas.height) this.y = 0;
 
-                    this.opacity += (this.targetOpacity - this.opacity) * 0.01;
+                    this.opacity += (this.targetOpacity - this.opacity) * 0.005;
                 }
 
                 draw() {
@@ -1145,7 +1249,7 @@
                 }
             }
 
-            const particleCount = Math.min(35, Math.floor(window.innerWidth / 22));
+            const particleCount = Math.min(30, Math.floor(window.innerWidth / 24));
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
             }
@@ -1169,18 +1273,19 @@
                     p.draw();
                 });
 
+                // Subtle connections — almost invisible
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
                         const dy = particles[i].y - particles[j].y;
                         const dist = Math.sqrt(dx * dx + dy * dy);
                         if (dist < 140) {
-                            const opacity = (1 - dist / 140) * 0.008;
+                            const opacity = (1 - dist / 140) * 0.006;
                             ctx.beginPath();
                             ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(particles[j].x, particles[j].y);
                             ctx.strokeStyle = `rgba(212, 168, 140, ${opacity})`;
-                            ctx.lineWidth = 0.15;
+                            ctx.lineWidth = 0.1;
                             ctx.stroke();
                         }
                     }
@@ -1223,7 +1328,7 @@
             });
 
             // ============================================================
-            // SCROLL REVEAL — Gallery Flow
+            // SCROLL REVEAL — Slow, Cinematic Gallery
             // ============================================================
             const revealElements = document.querySelectorAll('.reveal');
 
@@ -1242,17 +1347,14 @@
                 observer.observe(el);
             });
 
-            // Individual craft items
+            // Craft cards — each rises 10px with its own identity
             document.querySelectorAll('.craft-item').forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = `all 1.4s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.06 + 0.15}s`;
+                el.style.transition = `all 1.6s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.08 + 0.2}s`;
 
                 const itemObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
+                            el.classList.add('visible');
                         }
                     });
                 }, { threshold: 0.1 });
@@ -1262,15 +1364,12 @@
 
             // Experience steps — sequential, graceful
             document.querySelectorAll('.exp-step').forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(16px)';
-                el.style.transition = `all 1.4s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.1 + 0.2}s`;
+                el.style.transition = `all 1.6s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.12 + 0.25}s`;
 
                 const stepObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
+                            el.classList.add('visible');
                         }
                     });
                 }, { threshold: 0.1 });

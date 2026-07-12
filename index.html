@@ -66,7 +66,9 @@
             letter-spacing: -0.01em;
         }
 
-        /* ===== PARTICLES — Drift Slowly ===== */
+        /* ============================================================
+           PARTICLES — Gold Dust, Subtle Drift
+        ============================================================ */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -75,6 +77,26 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
+        }
+
+        /* ============================================================
+           ARCHITECTURAL GLOW — Appears on Scroll
+        ============================================================ */
+        .glow-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse at 50% 30%, rgba(212, 168, 140, 0.00), transparent 70%);
+            transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 0;
+        }
+
+        .glow-overlay.visible {
+            opacity: 1;
         }
 
         .container {
@@ -259,7 +281,7 @@
         }
 
         /* ============================================================
-           PRODUCT — Ring Rotates Slowly + Copper Glow
+           PRODUCT — No Spinning. Only Copper Glow.
         ============================================================ */
         .product-display {
             margin: 28px 0 8px;
@@ -285,7 +307,7 @@
             transition: all 1s ease;
         }
 
-        /* Copper glow that breathes */
+        /* Copper glow that breathes — only motion on the box */
         .product-item::after {
             content: '';
             position: absolute;
@@ -298,9 +320,9 @@
         }
 
         @keyframes copperGlow {
-            0% { opacity: 0.08; transform: scale(0.98); }
-            50% { opacity: 0.18; transform: scale(1); }
-            100% { opacity: 0.08; transform: scale(1.02); }
+            0% { opacity: 0.06; transform: scale(0.98); }
+            50% { opacity: 0.16; transform: scale(1); }
+            100% { opacity: 0.06; transform: scale(1.02); }
         }
 
         .product-item img {
@@ -314,18 +336,11 @@
             filter: brightness(1.02) contrast(1.01) saturate(0.95);
             transition: all 1.2s ease;
             border-radius: 12px;
-            /* Ring rotates slowly */
-            animation: ringRotate 20s linear infinite;
-        }
-
-        @keyframes ringRotate {
-            0% { transform: rotate(0deg) scale(1.005); }
-            100% { transform: rotate(360deg) scale(1.005); }
+            /* NO SPINNING — removed animation */
         }
 
         .product-item:hover img {
-            transform: scale(1.008);
-            animation-play-state: paused;
+            transform: scale(1.005);
         }
 
         .product-caption {
@@ -345,7 +360,7 @@
         }
 
         /* ============================================================
-           FOUNDER — Vision-First, Pakistan/World
+           FOUNDER — Vision-First
         ============================================================ */
         .founder-section {
             margin: 14px 0 6px;
@@ -435,7 +450,6 @@
             margin-top: 24px;
         }
 
-        /* ---- Base Card ---- */
         .craft-item {
             padding: 24px 18px 20px;
             border-radius: 12px;
@@ -487,13 +501,11 @@
             opacity: 0.7;
         }
 
-        /* ---- Card 1: Seamless Ceramic (Ceramic Macro) ---- */
+        /* Card 1: Seamless Ceramic */
         .craft-item:nth-child(1) .icon {
             font-size: 2.2rem;
             opacity: 0.06;
-            letter-spacing: 0.2em;
         }
-
         .craft-item:nth-child(1)::before {
             content: '◈';
             position: absolute;
@@ -505,13 +517,11 @@
             transform: rotate(15deg);
         }
 
-        /* ---- Card 2: Sculpted Form (Architectural Wireframe) ---- */
+        /* Card 2: Sculpted Form */
         .craft-item:nth-child(2) .icon {
             font-size: 1.6rem;
             opacity: 0.06;
-            letter-spacing: 0.1em;
         }
-
         .craft-item:nth-child(2)::before {
             content: '◇';
             position: absolute;
@@ -522,7 +532,7 @@
             opacity: 0.012;
         }
 
-        /* ---- Card 3: Invisible Payment (Glowing Chip) ---- */
+        /* Card 3: Invisible Payment — Glowing Chip */
         .craft-item:nth-child(3) .icon {
             font-size: 1.6rem;
             opacity: 0.08;
@@ -534,7 +544,6 @@
             50% { opacity: 0.12; filter: blur(1px); }
             100% { opacity: 0.04; filter: blur(0px); }
         }
-
         .craft-item:nth-child(3)::before {
             content: '✦';
             position: absolute;
@@ -778,7 +787,7 @@
         }
 
         /* ============================================================
-           MODAL — Anticipation, Not Instruction
+           MODAL — Anticipation
         ============================================================ */
         .modal-overlay {
             position: fixed;
@@ -999,7 +1008,7 @@
         }
 
         /* ============================================================
-           SCROLL REVEAL — Slow, Cinematic
+           SCROLL REVEAL
         ============================================================ */
         .reveal {
             opacity: 0;
@@ -1022,6 +1031,9 @@
     <!-- ===== PARTICLES ===== -->
     <canvas id="particle-canvas"></canvas>
 
+    <!-- ===== ARCHITECTURAL GLOW ===== -->
+    <div class="glow-overlay" id="glowOverlay"></div>
+
     <div class="container">
 
         <!-- ===== NAVBAR ===== -->
@@ -1043,7 +1055,7 @@
             <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
             <button class="cta-button" id="ctaBtn">Request Private Access</button>
 
-            <!-- PRODUCT — Ring Rotates Slowly + Copper Glow -->
+            <!-- PRODUCT — No Spinning, Only Copper Glow -->
             <div class="product-display">
                 <div class="product-item">
                     <img src="https://halonex.vercel.app/packaging.webp" alt="HALONEX Packaging" />
@@ -1062,7 +1074,7 @@
                 <div class="founder-name">Saad Saeed</div>
             </div>
 
-            <!-- SCARCITY — Ceremonial -->
+            <!-- SCARCITY -->
             <div class="scarcity-mark">
                 <div class="divider"></div>
                 <p><strong>001 / 1000</strong> — never to be reproduced</p>
@@ -1070,7 +1082,7 @@
         </section>
 
         <!-- ============================================================
-           CRAFT — Each Card Has Its Own Identity
+           CRAFT
         ============================================================ -->
         <section class="craft-section reveal reveal-delay-1" id="craft">
             <div style="text-align: center; max-width: 500px; margin: 0 auto;">
@@ -1080,19 +1092,16 @@
                 <p style="color: #6a645c; margin-top: 4px; font-size: 0.6rem; font-weight: 300; letter-spacing: 0.1em; opacity:0.4;">Seamless ceramic · sculpted surface · precision engineering</p>
             </div>
             <div class="craft-grid">
-                <!-- Card 1: Seamless Ceramic — Ceramic Macro -->
                 <div class="craft-item">
                     <div class="icon">◈</div>
                     <h4>Seamless Ceramic</h4>
                     <p>Monolithic surface, warm to the touch. Engineered for a lifetime.</p>
                 </div>
-                <!-- Card 2: Sculpted Form — Architectural Wireframe -->
                 <div class="craft-item">
                     <div class="icon">◇</div>
                     <h4>Sculpted Form</h4>
                     <p>Architectural lines, ergonomic perfection. Worn with intent.</p>
                 </div>
-                <!-- Card 3: Invisible Payment — Glowing Chip -->
                 <div class="craft-item">
                     <div class="icon">✦</div>
                     <h4>Invisible Payment</h4>
@@ -1170,7 +1179,7 @@
     </div>
 
     <!-- ============================================================
-       MODAL — Anticipation, Not Instruction
+       MODAL
     ============================================================ -->
     <div class="modal-overlay" id="accessModal">
         <div class="modal-content">
@@ -1186,12 +1195,14 @@
     </div>
 
     <!-- ============================================================
-       JAVASCRIPT — Slow, Cinematic, Calm
+       JAVASCRIPT — Gold Dust Particles + Architectural Glow
     ============================================================ -->
     <script>
         (function() {
 
-            // ===== PARTICLES — Drift Slowly =====
+            // ============================================================
+            // 1. GOLD DUST PARTICLES — Drift Gracefully
+            // ============================================================
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
@@ -1209,16 +1220,19 @@
                 constructor() {
                     this.x = Math.random() * canvas.width;
                     this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 1.4 + 0.2;
-                    this.speedX = (Math.random() - 0.5) * 0.04;
-                    this.speedY = (Math.random() - 0.5) * 0.04;
-                    this.opacity = Math.random() * 0.06 + 0.005;
+                    this.size = Math.random() * 2.2 + 0.4;
+                    this.speedX = (Math.random() - 0.5) * 0.03;
+                    this.speedY = (Math.random() - 0.5) * 0.03;
+                    this.opacity = Math.random() * 0.12 + 0.02;
                     this.targetOpacity = this.opacity;
+                    this.wobble = Math.random() * Math.PI * 2;
+                    this.wobbleSpeed = 0.005 + Math.random() * 0.005;
                 }
 
                 update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
+                    this.wobble += this.wobbleSpeed;
+                    this.x += this.speedX + Math.sin(this.wobble) * 0.08;
+                    this.y += this.speedY + Math.cos(this.wobble * 0.7) * 0.08;
 
                     const dx = this.x - mouseX;
                     const dy = this.y - mouseY;
@@ -1226,30 +1240,45 @@
 
                     if (dist < 120) {
                         const force = (120 - dist) / 120;
-                        this.x += (dx / dist) * force * 0.3;
-                        this.y += (dy / dist) * force * 0.3;
-                        this.targetOpacity = 0.1;
+                        this.x += (dx / dist) * force * 0.2;
+                        this.y += (dy / dist) * force * 0.2;
+                        this.targetOpacity = 0.25;
                     } else {
-                        this.targetOpacity = Math.random() * 0.04 + 0.005;
+                        this.targetOpacity = Math.random() * 0.08 + 0.02;
                     }
 
-                    if (this.x < 0) this.x = canvas.width;
-                    if (this.x > canvas.width) this.x = 0;
-                    if (this.y < 0) this.y = canvas.height;
-                    if (this.y > canvas.height) this.y = 0;
+                    if (this.x < -10) this.x = canvas.width + 10;
+                    if (this.x > canvas.width + 10) this.x = -10;
+                    if (this.y < -10) this.y = canvas.height + 10;
+                    if (this.y > canvas.height + 10) this.y = -10;
 
-                    this.opacity += (this.targetOpacity - this.opacity) * 0.005;
+                    this.opacity += (this.targetOpacity - this.opacity) * 0.008;
                 }
 
                 draw() {
+                    // Glow effect for gold dust
+                    const gradient = ctx.createRadialGradient(
+                        this.x, this.y, 0,
+                        this.x, this.y, this.size * 3
+                    );
+                    gradient.addColorStop(0, `rgba(212, 168, 140, ${this.opacity * 0.6})`);
+                    gradient.addColorStop(0.5, `rgba(212, 168, 140, ${this.opacity * 0.15})`);
+                    gradient.addColorStop(1, `rgba(212, 168, 140, 0)`);
+
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity})`;
+                    ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+                    ctx.fillStyle = gradient;
+                    ctx.fill();
+
+                    // Core particle
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * 0.5, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity * 0.8})`;
                     ctx.fill();
                 }
             }
 
-            const particleCount = Math.min(30, Math.floor(window.innerWidth / 24));
+            const particleCount = Math.min(60, Math.floor(window.innerWidth / 12));
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
             }
@@ -1273,19 +1302,19 @@
                     p.draw();
                 });
 
-                // Subtle connections — almost invisible
+                // Subtle connections
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
                         const dy = particles[i].y - particles[j].y;
                         const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 140) {
-                            const opacity = (1 - dist / 140) * 0.006;
+                        if (dist < 120) {
+                            const opacity = (1 - dist / 120) * 0.015;
                             ctx.beginPath();
                             ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(particles[j].x, particles[j].y);
                             ctx.strokeStyle = `rgba(212, 168, 140, ${opacity})`;
-                            ctx.lineWidth = 0.1;
+                            ctx.lineWidth = 0.3;
                             ctx.stroke();
                         }
                     }
@@ -1296,7 +1325,49 @@
             animateParticles();
 
             // ============================================================
-            // MODAL
+            // 2. ARCHITECTURAL GLOW — Appears on Scroll
+            // ============================================================
+            const glow = document.getElementById('glowOverlay');
+            let glowVisible = false;
+
+            const glowObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        glowVisible = true;
+                        glow.classList.add('visible');
+                    } else {
+                        glowVisible = false;
+                        glow.classList.remove('visible');
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: '0px 0px -200px 0px'
+            });
+
+            // Observe the craft section to trigger glow
+            const craftSection = document.querySelector('.craft-section');
+            if (craftSection) {
+                glowObserver.observe(craftSection);
+            }
+
+            // Also observe hero to fade glow out
+            const heroSection = document.querySelector('.hero');
+            if (heroSection) {
+                const heroGlowObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            glow.classList.remove('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.3
+                });
+                heroGlowObserver.observe(heroSection);
+            }
+
+            // ============================================================
+            // 3. MODAL
             // ============================================================
             const modal = document.getElementById('accessModal');
             const ctaBtn = document.getElementById('ctaBtn');
@@ -1328,7 +1399,7 @@
             });
 
             // ============================================================
-            // SCROLL REVEAL — Slow, Cinematic Gallery
+            // 4. SCROLL REVEAL — Slow, Cinematic
             // ============================================================
             const revealElements = document.querySelectorAll('.reveal');
 
@@ -1347,7 +1418,7 @@
                 observer.observe(el);
             });
 
-            // Craft cards — each rises 10px with its own identity
+            // Craft cards — each rises 10px
             document.querySelectorAll('.craft-item').forEach((el, index) => {
                 el.style.transition = `all 1.6s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.08 + 0.2}s`;
 
@@ -1362,7 +1433,7 @@
                 itemObserver.observe(el);
             });
 
-            // Experience steps — sequential, graceful
+            // Experience steps
             document.querySelectorAll('.exp-step').forEach((el, index) => {
                 el.style.transition = `all 1.6s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.12 + 0.25}s`;
 

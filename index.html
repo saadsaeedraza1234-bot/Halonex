@@ -31,17 +31,17 @@
         }
 
         ::selection {
-            background: rgba(212, 168, 140, 0.15);
+            background: rgba(212, 168, 140, 0.2);
             color: #e8e2dc;
         }
 
-        /* ===== ROSE GOLD ===== */
+        /* ===== ROSE GOLD — Brighter for Visibility ===== */
         .rose-gold {
             color: #d4a88c;
         }
 
         .rose-gold-bg {
-            background: linear-gradient(135deg, #cfa088, #dbb8a0, #cfa088);
+            background: linear-gradient(135deg, #dbb8a0, #e8c8b0, #dbb8a0);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -52,6 +52,19 @@
         @keyframes roseShimmer {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
+        }
+
+        /* ===== LIGHTER TEXT COLORS FOR READABILITY ===== */
+        .text-light {
+            color: #c8c0b8;
+        }
+
+        .text-muted-visible {
+            color: #b0a89e;
+        }
+
+        .text-soft {
+            color: #a0988e;
         }
 
         .signature {
@@ -67,7 +80,7 @@
         }
 
         /* ============================================================
-           PARTICLES — Gold Dust, Subtle Drift
+           PARTICLES — Gold Dust
         ============================================================ */
         #particle-canvas {
             position: fixed;
@@ -80,7 +93,7 @@
         }
 
         /* ============================================================
-           ARCHITECTURAL GLOW — Appears on Scroll
+           ARCHITECTURAL GLOW
         ============================================================ */
         .glow-overlay {
             position: fixed;
@@ -108,7 +121,7 @@
         }
 
         /* ============================================================
-           NAVBAR — Logo Fades In
+           NAVBAR
         ============================================================ */
         .navbar {
             padding: 20px 0 16px;
@@ -144,7 +157,7 @@
 
         .logo .rose {
             color: #d4a88c;
-            opacity: 0.5;
+            opacity: 0.6;
         }
 
         .nav-links {
@@ -154,7 +167,7 @@
             font-weight: 400;
             letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: #7a726a;
+            color: #a0988e;
         }
 
         .nav-links a {
@@ -174,7 +187,7 @@
             height: 1px;
             background: #d4a88c;
             transition: width 0.8s ease;
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
         .nav-links a:hover::after {
@@ -199,13 +212,13 @@
         }
 
         .hero-badge {
-            border: 1px solid rgba(212, 168, 140, 0.03);
+            border: 1px solid rgba(212, 168, 140, 0.04);
             padding: 4px 24px;
             border-radius: 60px;
             font-size: 0.4rem;
             letter-spacing: 0.4em;
             text-transform: uppercase;
-            color: #6a645c;
+            color: #b0a89e;
             margin-bottom: 32px;
             background: rgba(212, 168, 140, 0.005);
             animation: fadeIn 2.8s 0.3s ease forwards;
@@ -232,7 +245,7 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-size: clamp(0.8rem, 1vw, 0.95rem);
-            color: #6a645c;
+            color: #b0a89e;
             margin-bottom: 16px;
             letter-spacing: 0.06em;
             animation: fadeIn 2.8s 0.7s ease forwards;
@@ -243,7 +256,7 @@
             font-size: clamp(0.85rem, 1.1vw, 1.05rem);
             max-width: 440px;
             margin: 0 auto 28px;
-            color: #8a827a;
+            color: #b0a89e;
             font-weight: 300;
             letter-spacing: 0.08em;
             line-height: 1.7;
@@ -281,7 +294,7 @@
         }
 
         /* ============================================================
-           PRODUCT — No Spinning. Only Copper Glow.
+           PRODUCT
         ============================================================ */
         .product-display {
             margin: 28px 0 8px;
@@ -307,7 +320,6 @@
             transition: all 1s ease;
         }
 
-        /* Copper glow that breathes — only motion on the box */
         .product-item::after {
             content: '';
             position: absolute;
@@ -336,7 +348,6 @@
             filter: brightness(1.02) contrast(1.01) saturate(0.95);
             transition: all 1.2s ease;
             border-radius: 12px;
-            /* NO SPINNING — removed animation */
         }
 
         .product-item:hover img {
@@ -348,7 +359,7 @@
             margin-top: 8px;
             font-size: 0.4rem;
             letter-spacing: 0.35em;
-            color: #5a544c;
+            color: #a0988e;
             font-weight: 300;
             animation: fadeIn 2.8s 1.6s ease forwards;
             opacity: 0;
@@ -356,11 +367,11 @@
 
         .product-caption span {
             color: #d4a88c;
-            opacity: 0.4;
+            opacity: 0.5;
         }
 
         /* ============================================================
-           FOUNDER — Vision-First
+           FOUNDER — Now Visible
         ============================================================ */
         .founder-section {
             margin: 14px 0 6px;
@@ -373,24 +384,24 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-size: clamp(0.8rem, 1.1vw, 1rem);
-            color: #8a827a;
+            color: #c8c0b8;
             letter-spacing: 0.04em;
-            opacity: 0.3;
+            opacity: 0.5;
             margin-bottom: 4px;
             line-height: 1.5;
         }
 
         .founder-vision span {
             color: #d4a88c;
-            opacity: 0.2;
+            opacity: 0.5;
         }
 
         .founder-label {
             font-size: 0.35rem;
             letter-spacing: 0.4em;
             text-transform: uppercase;
-            color: #5a544c;
-            opacity: 0.15;
+            color: #a0988e;
+            opacity: 0.3;
             margin-top: 2px;
         }
 
@@ -399,11 +410,11 @@
             font-size: clamp(0.9rem, 1.2vw, 1.1rem);
             color: #d4a88c;
             letter-spacing: 0.04em;
-            opacity: 0.15;
+            opacity: 0.4;
         }
 
         /* ============================================================
-           SCARCITY — Ceremonial
+           SCARCITY
         ============================================================ */
         .scarcity-mark {
             text-align: center;
@@ -415,7 +426,7 @@
         .scarcity-mark .divider {
             width: 32px;
             height: 1px;
-            background: rgba(212, 168, 140, 0.03);
+            background: rgba(212, 168, 140, 0.04);
             margin: 0 auto 8px;
         }
 
@@ -423,19 +434,19 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-size: 0.55rem;
-            color: #5a544c;
+            color: #b0a89e;
             letter-spacing: 0.1em;
-            opacity: 0.35;
+            opacity: 0.5;
         }
 
         .scarcity-mark p strong {
             color: #d4a88c;
             font-weight: 400;
-            opacity: 0.25;
+            opacity: 0.4;
         }
 
         /* ============================================================
-           CRAFT — Each Card Has Its Own Identity
+           CRAFT
         ============================================================ */
         .craft-section {
             padding: 40px 0 36px;
@@ -477,7 +488,7 @@
         .craft-item .icon {
             font-size: 1.8rem;
             margin-bottom: 8px;
-            opacity: 0.08;
+            opacity: 0.1;
             color: #d4a88c;
             display: block;
         }
@@ -489,22 +500,22 @@
             color: #e8e2dc;
             margin-bottom: 4px;
             letter-spacing: 0.06em;
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
         .craft-item p {
             font-size: 0.6rem;
-            color: #7a726a;
+            color: #b0a89e;
             font-weight: 300;
             line-height: 1.7;
             letter-spacing: 0.04em;
-            opacity: 0.7;
+            opacity: 0.6;
         }
 
         /* Card 1: Seamless Ceramic */
         .craft-item:nth-child(1) .icon {
             font-size: 2.2rem;
-            opacity: 0.06;
+            opacity: 0.08;
         }
         .craft-item:nth-child(1)::before {
             content: '◈';
@@ -520,7 +531,7 @@
         /* Card 2: Sculpted Form */
         .craft-item:nth-child(2) .icon {
             font-size: 1.6rem;
-            opacity: 0.06;
+            opacity: 0.08;
         }
         .craft-item:nth-child(2)::before {
             content: '◇';
@@ -532,17 +543,17 @@
             opacity: 0.012;
         }
 
-        /* Card 3: Invisible Payment — Glowing Chip */
+        /* Card 3: Invisible Payment */
         .craft-item:nth-child(3) .icon {
             font-size: 1.6rem;
-            opacity: 0.08;
+            opacity: 0.1;
             animation: chipGlow 4s ease-in-out infinite alternate;
         }
 
         @keyframes chipGlow {
-            0% { opacity: 0.04; filter: blur(0px); }
-            50% { opacity: 0.12; filter: blur(1px); }
-            100% { opacity: 0.04; filter: blur(0px); }
+            0% { opacity: 0.05; filter: blur(0px); }
+            50% { opacity: 0.15; filter: blur(1px); }
+            100% { opacity: 0.05; filter: blur(0px); }
         }
         .craft-item:nth-child(3)::before {
             content: '✦';
@@ -598,10 +609,10 @@
         .exp-step .step-num {
             font-family: 'Playfair Display', serif;
             font-size: 0.5rem;
-            color: #5a544c;
+            color: #a0988e;
             letter-spacing: 0.15em;
             min-width: 28px;
-            opacity: 0.2;
+            opacity: 0.3;
         }
 
         .exp-step .step-icon {
@@ -615,7 +626,7 @@
             border: 1px solid rgba(212, 168, 140, 0.015);
             font-size: 0.9rem;
             color: #d4a88c;
-            opacity: 0.15;
+            opacity: 0.2;
         }
 
         .exp-step .step-text {
@@ -629,16 +640,16 @@
             color: #e8e2dc;
             letter-spacing: 0.04em;
             margin-bottom: 1px;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
         .exp-step .step-text p {
             font-size: 0.6rem;
-            color: #7a726a;
+            color: #b0a89e;
             font-weight: 300;
             line-height: 1.5;
             letter-spacing: 0.03em;
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
         /* ============================================================
@@ -672,7 +683,7 @@
         }
 
         .security-content p {
-            color: #8a827a;
+            color: #b0a89e;
             font-size: 0.75rem;
             max-width: 420px;
             margin: 6px auto 0;
@@ -688,7 +699,7 @@
             border-radius: 60px;
             font-size: 0.35rem;
             letter-spacing: 0.35em;
-            color: #6a645c;
+            color: #b0a89e;
             display: inline-block;
             background: rgba(212, 168, 140, 0.005);
             margin-bottom: 10px;
@@ -714,9 +725,9 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-size: 0.75rem;
-            color: #5a544c;
+            color: #b0a89e;
             letter-spacing: 0.06em;
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
         .teaser-section p .rose-gold-bg {
@@ -725,7 +736,7 @@
         }
 
         /* ============================================================
-           FOOTER
+           FOOTER — Now Visible
         ============================================================ */
         .footer {
             padding: 32px 0 24px;
@@ -737,7 +748,7 @@
         .footer .emblem {
             font-size: 1rem;
             color: #d4a88c;
-            opacity: 0.03;
+            opacity: 0.05;
             letter-spacing: 0.3em;
             margin-bottom: 6px;
         }
@@ -747,8 +758,8 @@
             font-size: 0.7rem;
             font-weight: 400;
             letter-spacing: 0.35em;
-            color: #e8e2dc;
-            opacity: 0.15;
+            color: #c8c0b8;
+            opacity: 0.3;
         }
 
         .footer .tagline {
@@ -757,20 +768,20 @@
             color: #d4a88c;
             margin-top: 2px;
             letter-spacing: 0.04em;
-            opacity: 0.2;
+            opacity: 0.3;
         }
 
         .footer .credit {
             font-family: 'Great Vibes', cursive;
             font-size: 0.55rem;
-            color: #5a544c;
+            color: #b0a89e;
             margin-top: 2px;
             letter-spacing: 0.04em;
-            opacity: 0.1;
+            opacity: 0.2;
         }
 
         .footer p {
-            color: #3a3632;
+            color: #8a827a;
             font-size: 0.35rem;
             letter-spacing: 0.15em;
             margin-top: 6px;
@@ -780,14 +791,14 @@
         .footer .signature-line {
             font-family: 'Great Vibes', cursive;
             font-size: 0.45rem;
-            color: #2a2622;
+            color: #8a827a;
             margin-top: 4px;
             letter-spacing: 0.06em;
-            opacity: 0.3;
+            opacity: 0.2;
         }
 
         /* ============================================================
-           MODAL — Anticipation
+           MODAL
         ============================================================ */
         .modal-overlay {
             position: fixed;
@@ -840,7 +851,7 @@
             font-weight: 400;
             letter-spacing: 0.35em;
             text-transform: uppercase;
-            color: #6a645c;
+            color: #b0a89e;
             margin-bottom: 10px;
             opacity: 0.3;
         }
@@ -854,7 +865,7 @@
         }
 
         .modal-content p {
-            color: #9a928a;
+            color: #c8c0b8;
             font-size: 0.8rem;
             line-height: 1.7;
             margin-bottom: 6px;
@@ -871,7 +882,7 @@
 
         .modal-content .anticipation {
             font-size: 0.65rem;
-            color: #6a645c;
+            color: #b0a89e;
             letter-spacing: 0.05em;
             margin-top: 8px;
             opacity: 0.4;
@@ -894,17 +905,17 @@
             right: 18px;
             background: none;
             border: none;
-            color: #5a544c;
+            color: #a0988e;
             font-size: 1rem;
             cursor: pointer;
             transition: color 0.6s ease;
             font-family: 'Inter', sans-serif;
-            opacity: 0.15;
+            opacity: 0.2;
         }
 
         .modal-close:hover {
             color: #d4a88c;
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
         /* ============================================================
@@ -1055,7 +1066,7 @@
             <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
             <button class="cta-button" id="ctaBtn">Request Private Access</button>
 
-            <!-- PRODUCT — No Spinning, Only Copper Glow -->
+            <!-- PRODUCT -->
             <div class="product-display">
                 <div class="product-item">
                     <img src="https://halonex.vercel.app/packaging.webp" alt="HALONEX Packaging" />
@@ -1064,7 +1075,7 @@
 
             <div class="product-caption">HALONEX <span>·</span> sculpted ceramic · invisible payment</div>
 
-            <!-- FOUNDER — Vision-First -->
+            <!-- FOUNDER — Now Visible -->
             <div class="founder-section">
                 <div class="founder-vision">
                     Conceived in <span>Pakistan</span>.<br />
@@ -1089,7 +1100,7 @@
                 <div style="font-family:'Playfair Display',serif; font-size:clamp(1.2rem,2vw,1.6rem); font-weight:400; letter-spacing:-0.02em; color:#f0ece8; opacity:0.7;">
                     Craft · <span class="rose-gold-bg">Precision</span> · Silence
                 </div>
-                <p style="color: #6a645c; margin-top: 4px; font-size: 0.6rem; font-weight: 300; letter-spacing: 0.1em; opacity:0.4;">Seamless ceramic · sculpted surface · precision engineering</p>
+                <p style="color: #b0a89e; margin-top: 4px; font-size: 0.6rem; font-weight: 300; letter-spacing: 0.1em; opacity:0.5;">Seamless ceramic · sculpted surface · precision engineering</p>
             </div>
             <div class="craft-grid">
                 <div class="craft-item">
@@ -1115,7 +1126,7 @@
         ============================================================ -->
         <section class="experience-section" id="experience">
             <div style="text-align:center; margin-bottom:20px;">
-                <div style="font-size:0.35rem; letter-spacing:0.4em; text-transform:uppercase; color:#5a544c; opacity:0.2; margin-bottom:4px;">The Movement</div>
+                <div style="font-size:0.35rem; letter-spacing:0.4em; text-transform:uppercase; color:#b0a89e; opacity:0.2; margin-bottom:4px;">The Movement</div>
                 <div style="font-family:'Playfair Display',serif; font-size:clamp(1.4rem,2.5vw,2rem); font-weight:400; color:#f0ece8; letter-spacing:-0.02em; opacity:0.6;">
                     From Invitation <span class="rose-gold-bg">to</span> Ownership
                 </div>
@@ -1166,10 +1177,10 @@
             <p>This is only the beginning. <span class="rose-gold-bg">More will follow.</span></p>
         </section>
 
-        <!-- ===== FOOTER ===== -->
+        <!-- ===== FOOTER — Now Visible ===== -->
         <footer class="footer">
             <div class="emblem">✦</div>
-            <div class="footer-logo">HALONEX <span style="color:#d4a88c; opacity:0.15;">·</span></div>
+            <div class="footer-logo">HALONEX <span style="color:#d4a88c; opacity:0.2;">·</span></div>
             <p class="tagline">Luxury that moves with you.</p>
             <p class="credit">— Saad Saeed —</p>
             <p>© 2026 HALONEX · Private Collection</p>
@@ -1195,13 +1206,13 @@
     </div>
 
     <!-- ============================================================
-       JAVASCRIPT — Gold Dust Particles + Architectural Glow
+       JAVASCRIPT
     ============================================================ -->
     <script>
         (function() {
 
             // ============================================================
-            // 1. GOLD DUST PARTICLES — Drift Gracefully
+            // 1. GOLD DUST PARTICLES
             // ============================================================
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
@@ -1256,7 +1267,6 @@
                 }
 
                 draw() {
-                    // Glow effect for gold dust
                     const gradient = ctx.createRadialGradient(
                         this.x, this.y, 0,
                         this.x, this.y, this.size * 3
@@ -1270,7 +1280,6 @@
                     ctx.fillStyle = gradient;
                     ctx.fill();
 
-                    // Core particle
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size * 0.5, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity * 0.8})`;
@@ -1302,7 +1311,6 @@
                     p.draw();
                 });
 
-                // Subtle connections
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
@@ -1325,7 +1333,7 @@
             animateParticles();
 
             // ============================================================
-            // 2. ARCHITECTURAL GLOW — Appears on Scroll
+            // 2. ARCHITECTURAL GLOW
             // ============================================================
             const glow = document.getElementById('glowOverlay');
             let glowVisible = false;
@@ -1345,13 +1353,11 @@
                 rootMargin: '0px 0px -200px 0px'
             });
 
-            // Observe the craft section to trigger glow
             const craftSection = document.querySelector('.craft-section');
             if (craftSection) {
                 glowObserver.observe(craftSection);
             }
 
-            // Also observe hero to fade glow out
             const heroSection = document.querySelector('.hero');
             if (heroSection) {
                 const heroGlowObserver = new IntersectionObserver((entries) => {
@@ -1399,7 +1405,7 @@
             });
 
             // ============================================================
-            // 4. SCROLL REVEAL — Slow, Cinematic
+            // 4. SCROLL REVEAL
             // ============================================================
             const revealElements = document.querySelectorAll('.reveal');
 
@@ -1418,7 +1424,6 @@
                 observer.observe(el);
             });
 
-            // Craft cards — each rises 10px
             document.querySelectorAll('.craft-item').forEach((el, index) => {
                 el.style.transition = `all 1.6s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.08 + 0.2}s`;
 
@@ -1433,7 +1438,6 @@
                 itemObserver.observe(el);
             });
 
-            // Experience steps
             document.querySelectorAll('.exp-step').forEach((el, index) => {
                 el.style.transition = `all 1.6s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.12 + 0.25}s`;
 

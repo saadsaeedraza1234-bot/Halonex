@@ -10,9 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
 
     <style>
-        /* ============================================================
-           RESET & BASE — Professional, Not Luxury
-        ============================================================ */
         * {
             margin: 0;
             padding: 0;
@@ -35,29 +32,11 @@
             color: #e8e2dc;
         }
 
-        .text-light {
-            color: #d4c8bc;
-        }
-        .text-muted-visible {
-            color: #b8b0a6;
-        }
-        .text-soft {
-            color: #a8a098;
-        }
         .accent {
             color: #c8b8a8;
             font-weight: 400;
         }
 
-        .signature {
-            font-family: 'Great Vibes', cursive;
-            font-weight: 400;
-            letter-spacing: 0.02em;
-        }
-
-        /* ============================================================
-           PARTICLES
-        ============================================================ */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -76,9 +55,7 @@
             z-index: 2;
         }
 
-        /* ============================================================
-           NAVBAR — With Founder's Edition Tab
-        ============================================================ */
+        /* ===== NAVBAR ===== */
         .navbar {
             padding: 20px 0 16px;
             display: flex;
@@ -155,7 +132,6 @@
             color: #c8b8a8;
         }
 
-        /* Founder's Edition link — slightly distinguished */
         .nav-links a.founders-link {
             color: #c8b8a8;
             letter-spacing: 0.25em;
@@ -170,9 +146,7 @@
             color: #dbb8a0;
         }
 
-        /* ============================================================
-           HERO
-        ============================================================ */
+        /* ===== HERO ===== */
         .hero {
             padding: 40px 0 20px;
             display: flex;
@@ -265,9 +239,7 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ============================================================
-           PRODUCT
-        ============================================================ */
+        /* ===== PRODUCT — Using ring-generic.webp ===== */
         .product-display {
             margin: 28px 0 8px;
             display: flex;
@@ -341,9 +313,7 @@
             opacity: 0.4;
         }
 
-        /* ============================================================
-           SEAMLESS
-        ============================================================ */
+        /* ===== SEAMLESS ===== */
         .seamless-section {
             padding: 40px 0 36px;
             border-top: 1px solid rgba(200, 190, 180, 0.015);
@@ -406,9 +376,7 @@
             opacity: 0.6;
         }
 
-        /* ============================================================
-           TECHNOLOGY
-        ============================================================ */
+        /* ===== TECHNOLOGY ===== */
         .tech-section {
             padding: 40px 0 36px;
             border-bottom: 1px solid rgba(200, 190, 180, 0.015);
@@ -478,9 +446,7 @@
             opacity: 0.4;
         }
 
-        /* ============================================================
-           INTEGRATION FLOW
-        ============================================================ */
+        /* ===== INTEGRATION ===== */
         .integration-section {
             padding: 40px 0 36px;
             border-bottom: 1px solid rgba(200, 190, 180, 0.015);
@@ -555,9 +521,7 @@
             opacity: 0.5;
         }
 
-        /* ============================================================
-           FOOTER
-        ============================================================ */
+        /* ===== FOOTER ===== */
         .footer {
             padding: 32px 0 24px;
             text-align: center;
@@ -599,49 +563,39 @@
             opacity: 0.3;
         }
 
-        /* ============================================================
-           RESPONSIVE
-        ============================================================ */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .container {
                 padding: 0 24px;
             }
-
             .navbar {
                 flex-direction: column;
                 gap: 8px;
                 padding: 14px 0;
                 border-radius: 0 0 16px 16px;
             }
-
             .nav-links {
                 gap: 1.2rem;
                 font-size: 0.4rem;
                 justify-content: center;
             }
-
             .hero {
                 padding: 30px 0 16px;
                 min-height: auto;
             }
-
             .hero h1 {
                 font-size: 2.2rem;
             }
-
             .seamless-grid {
                 grid-template-columns: 1fr;
                 gap: 14px;
             }
-
             .product-item {
                 max-width: 320px;
             }
-
             .tech-stack {
                 gap: 12px;
             }
-
             .tech-stack span {
                 font-size: 0.4rem;
                 padding: 3px 12px;
@@ -652,24 +606,18 @@
             .container {
                 padding: 0 16px;
             }
-
             .hero h1 {
                 font-size: 1.8rem;
             }
-
             .nav-links {
                 gap: 0.8rem;
                 font-size: 0.35rem;
             }
-
             .product-item {
                 max-width: 260px;
             }
         }
 
-        /* ============================================================
-           SCROLL REVEAL
-        ============================================================ */
         .reveal {
             opacity: 0;
             transform: translateY(32px);
@@ -681,19 +629,23 @@
             transform: translateY(0);
         }
 
-        .reveal-delay-1 { transition-delay: 0.05s; }
-        .reveal-delay-2 { transition-delay: 0.1s; }
-        .reveal-delay-3 { transition-delay: 0.15s; }
+        .reveal-delay-1 {
+            transition-delay: 0.05s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.1s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.15s;
+        }
     </style>
 </head>
 <body>
 
-    <!-- ===== PARTICLES ===== -->
     <canvas id="particle-canvas"></canvas>
 
     <div class="container">
 
-        <!-- ===== NAVBAR — With Founder's Edition Tab ===== -->
         <header class="navbar">
             <div class="logo">HALONEX <span class="dot">·</span></div>
             <div class="nav-links">
@@ -705,7 +657,6 @@
             </div>
         </header>
 
-        <!-- ===== HERO ===== -->
         <section class="hero">
             <div class="hero-badge">Wearable Payment · Ceramic</div>
             <h1>Open. <span class="accent">Integrate.</span> Ready.</h1>
@@ -715,16 +666,13 @@
 
             <div class="product-display">
                 <div class="product-item">
-                    <img src="https://halonex.vercel.app/packaging.webp" alt="HALONEX Ceramic Ring" />
+                    <img src="https://halonex.vercel.app/ring-generic.webp" alt="HALONEX Ceramic Ring" />
                 </div>
             </div>
 
             <div class="product-caption">HALONEX <span>·</span> ceramic · invisible payment</div>
         </section>
 
-        <!-- ============================================================
-           SEAMLESS
-        ============================================================ -->
         <section class="seamless-section reveal reveal-delay-1" id="seamless">
             <div style="text-align: center; max-width: 500px; margin: 0 auto;">
                 <div style="font-family:'Inter',sans-serif; font-size:clamp(1.2rem,2vw,1.6rem); font-weight:300; letter-spacing:-0.02em; color:#f0ece6; opacity:0.7;">
@@ -751,9 +699,6 @@
             </div>
         </section>
 
-        <!-- ============================================================
-           TECHNOLOGY
-        ============================================================ -->
         <section class="tech-section reveal reveal-delay-3" id="technology">
             <div class="tech-content">
                 <div class="tech-badge">✦ payment technology</div>
@@ -768,9 +713,6 @@
             </div>
         </section>
 
-        <!-- ============================================================
-           INTEGRATION
-        ============================================================ -->
         <section class="integration-section reveal reveal-delay-2" id="integration">
             <div style="text-align:center; margin-bottom:20px;">
                 <div style="font-size:0.35rem; letter-spacing:0.4em; text-transform:uppercase; color:#b8b0a6; opacity:0.2; margin-bottom:4px;">How It Works</div>
@@ -807,7 +749,6 @@
             </div>
         </section>
 
-        <!-- ===== FOOTER ===== -->
         <footer class="footer">
             <div class="emblem">✦</div>
             <div class="footer-logo">HALONEX <span style="color:#c8b8a8; opacity:0.2;">·</span></div>
@@ -817,15 +758,10 @@
 
     </div>
 
-    <!-- ============================================================
-       JAVASCRIPT
-    ============================================================ -->
     <script>
         (function() {
 
-            // ============================================================
-            // 1. PARTICLES
-            // ============================================================
+            // ===== PARTICLES =====
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
@@ -944,9 +880,7 @@
             }
             animateParticles();
 
-            // ============================================================
-            // 2. CTA BUTTON
-            // ============================================================
+            // ===== CTA =====
             const ctaBtn = document.getElementById('ctaBtn');
             if (ctaBtn) {
                 ctaBtn.addEventListener('click', function(e) {
@@ -955,9 +889,7 @@
                 });
             }
 
-            // ============================================================
-            // 3. SCROLL REVEAL
-            // ============================================================
+            // ===== SCROLL REVEAL =====
             const revealElements = document.querySelectorAll('.reveal');
 
             const observer = new IntersectionObserver((entries) => {

@@ -11,7 +11,7 @@
 
     <style>
         /* ============================================================
-           RESET & BASE — Same as Index
+           RESET & BASE — Uniform with Index
         ============================================================ */
         * {
             margin: 0;
@@ -21,7 +21,7 @@
 
         body {
             background: #0a0908;
-            color: #e8e2dc;
+            color: #ece6de;
             font-family: 'Inter', sans-serif;
             font-weight: 300;
             -webkit-font-smoothing: antialiased;
@@ -31,16 +31,16 @@
         }
 
         ::selection {
-            background: rgba(212, 168, 140, 0.15);
-            color: #e8e2dc;
+            background: rgba(212, 168, 140, 0.25);
+            color: #ece6de;
         }
 
         .rose-gold {
-            color: #d4a88c;
+            color: #dbb8a0;
         }
 
         .rose-gold-bg {
-            background: linear-gradient(135deg, #cfa088, #dbb8a0, #cfa088);
+            background: linear-gradient(135deg, #dbb8a0, #e8c8b0, #dbb8a0);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -66,7 +66,7 @@
         }
 
         /* ============================================================
-           PARTICLES — Same Gold Dust as Index
+           PARTICLES — Same Brighter Gold Dust as Index
         ============================================================ */
         #particle-canvas {
             position: fixed;
@@ -107,7 +107,7 @@
         }
 
         /* ============================================================
-           NAVBAR — Same as Index
+           NAVBAR — Uniform with Index
         ============================================================ */
         .navbar {
             padding: 20px 0 16px;
@@ -130,7 +130,7 @@
             font-size: 1rem;
             font-weight: 400;
             letter-spacing: 0.4em;
-            color: #e8e2dc;
+            color: #ece6de;
             text-transform: uppercase;
             opacity: 0;
             animation: logoFade 3s ease forwards;
@@ -142,8 +142,8 @@
         }
 
         .logo .rose {
-            color: #d4a88c;
-            opacity: 0.5;
+            color: #dbb8a0;
+            opacity: 0.7;
         }
 
         .nav-links {
@@ -153,7 +153,7 @@
             font-weight: 400;
             letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: #7a726a;
+            color: #b0a89e;
         }
 
         .nav-links a {
@@ -171,9 +171,9 @@
             left: 0;
             width: 0;
             height: 1px;
-            background: #d4a88c;
+            background: #dbb8a0;
             transition: width 0.8s ease;
-            opacity: 0.3;
+            opacity: 0.5;
         }
 
         .nav-links a:hover::after {
@@ -181,11 +181,11 @@
         }
 
         .nav-links a:hover {
-            color: #d4a88c;
+            color: #dbb8a0;
         }
 
         .nav-links a.active {
-            color: #d4a88c;
+            color: #dbb8a0;
         }
 
         .nav-links a.active::after {
@@ -193,7 +193,7 @@
         }
 
         /* ============================================================
-           ABOUT HERO
+           ABOUT HERO — Brighter
         ============================================================ */
         .about-hero {
             padding: 50px 0 30px;
@@ -212,7 +212,7 @@
             font-size: clamp(2.4rem, 5vw, 4rem);
             font-weight: 400;
             letter-spacing: -0.02em;
-            color: #f0ece8;
+            color: #f5f0ea;
             margin-bottom: 8px;
         }
 
@@ -222,7 +222,7 @@
 
         .about-hero .subtitle {
             font-size: clamp(0.8rem, 1vw, 0.95rem);
-            color: #8a827a;
+            color: #c8c0b8;
             font-weight: 300;
             letter-spacing: 0.06em;
             max-width: 500px;
@@ -231,7 +231,7 @@
         }
 
         /* ============================================================
-           ABOUT CONTENT — Refined Spacing
+           ABOUT CONTENT — Brighter Text
         ============================================================ */
         .about-content {
             padding: 8px 0 50px;
@@ -245,7 +245,7 @@
 
         .about-content .section p {
             font-size: 0.85rem;
-            color: #b0aaa2;
+            color: #c8c0b8;
             line-height: 1.8;
             margin-bottom: 10px;
             font-weight: 300;
@@ -254,9 +254,9 @@
         }
 
         .about-content .section .highlight {
-            border-left: 2px solid rgba(212, 168, 140, 0.08);
+            border-left: 2px solid rgba(212, 168, 140, 0.1);
             padding-left: 20px;
-            color: #e8e2dc;
+            color: #ece6de;
             font-size: 0.9rem;
             font-weight: 300;
             background: linear-gradient(135deg, rgba(212, 168, 140, 0.01), transparent);
@@ -264,21 +264,21 @@
             border-radius: 0 8px 8px 0;
             margin: 12px 0;
             font-style: italic;
-            opacity: 0.5;
+            opacity: 0.6;
         }
 
         .about-content .section .highlight strong {
-            color: #d4a88c;
+            color: #dbb8a0;
             font-weight: 400;
             opacity: 0.6;
         }
 
         /* ============================================================
-           FOUNDER'S EDITION BOX
+           FOUNDER'S EDITION BOX — Brighter
         ============================================================ */
         .edition-box {
             background: rgba(20, 18, 16, 0.15);
-            border: 1px solid rgba(212, 168, 140, 0.01);
+            border: 1px solid rgba(212, 168, 140, 0.015);
             border-radius: 16px;
             padding: 24px 28px;
             margin: 20px 0 16px;
@@ -288,7 +288,7 @@
         }
 
         .edition-box:hover {
-            border-color: rgba(212, 168, 140, 0.02);
+            border-color: rgba(212, 168, 140, 0.03);
             background: rgba(30, 28, 26, 0.08);
         }
 
@@ -296,23 +296,23 @@
             font-size: 0.4rem;
             letter-spacing: 0.35em;
             text-transform: uppercase;
-            color: #6a645c;
+            color: #b0a89e;
             margin-bottom: 4px;
-            opacity: 0.3;
+            opacity: 0.35;
         }
 
         .edition-box h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.2rem;
             font-weight: 400;
-            color: #d4a88c;
+            color: #dbb8a0;
             margin-bottom: 4px;
-            opacity: 0.5;
+            opacity: 0.6;
         }
 
         .edition-box p {
             font-size: 0.75rem;
-            color: #8a827a;
+            color: #c8c0b8;
             line-height: 1.6;
             max-width: 440px;
             margin: 0 auto;
@@ -323,13 +323,13 @@
             margin-top: 6px;
             font-size: 0.5rem;
             letter-spacing: 0.2em;
-            color: #5a544c;
+            color: #b0a89e;
             text-transform: uppercase;
-            opacity: 0.3;
+            opacity: 0.35;
         }
 
         /* ============================================================
-           SECURITY NOTE
+           SECURITY NOTE — Brighter
         ============================================================ */
         .security-note {
             background: rgba(20, 18, 16, 0.08);
@@ -342,7 +342,7 @@
 
         .security-note p {
             font-size: 0.7rem;
-            color: #7a726a;
+            color: #c8c0b8;
             line-height: 1.6;
             margin: 0;
             letter-spacing: 0.02em;
@@ -350,13 +350,13 @@
         }
 
         .security-note strong {
-            color: #d4a88c;
+            color: #dbb8a0;
             font-weight: 400;
-            opacity: 0.4;
+            opacity: 0.5;
         }
 
         /* ============================================================
-           LOOK FORWARD
+           LOOK FORWARD — Brighter
         ============================================================ */
         .look-forward {
             text-align: center;
@@ -368,19 +368,19 @@
         .look-forward p {
             font-family: 'Playfair Display', serif;
             font-size: 0.9rem;
-            color: #d4a88c;
+            color: #dbb8a0;
             font-weight: 400;
             letter-spacing: 0.04em;
-            opacity: 0.2;
+            opacity: 0.25;
         }
 
         /* ============================================================
-           BACK LINK
+           BACK LINK — Brighter
         ============================================================ */
         .back-link {
             display: inline-block;
             margin-top: 10px;
-            color: #6a645c;
+            color: #b0a89e;
             text-decoration: none;
             font-size: 0.5rem;
             letter-spacing: 0.2em;
@@ -388,17 +388,17 @@
             transition: color 0.6s ease;
             border-bottom: 1px solid transparent;
             padding-bottom: 4px;
-            opacity: 0.3;
+            opacity: 0.35;
         }
 
         .back-link:hover {
-            color: #d4a88c;
+            color: #dbb8a0;
             border-bottom-color: rgba(212, 168, 140, 0.1);
             opacity: 0.6;
         }
 
         /* ============================================================
-           FOOTER — Same as Index
+           FOOTER — Uniform with Index (Brighter)
         ============================================================ */
         .footer {
             padding: 32px 0 24px;
@@ -409,8 +409,8 @@
 
         .footer .emblem {
             font-size: 1rem;
-            color: #d4a88c;
-            opacity: 0.03;
+            color: #dbb8a0;
+            opacity: 0.06;
             letter-spacing: 0.3em;
             margin-bottom: 6px;
         }
@@ -420,30 +420,30 @@
             font-size: 0.7rem;
             font-weight: 400;
             letter-spacing: 0.35em;
-            color: #e8e2dc;
-            opacity: 0.15;
+            color: #d4c8bc;
+            opacity: 0.35;
         }
 
         .footer .tagline {
             font-family: 'Great Vibes', cursive;
             font-size: 0.9rem;
-            color: #d4a88c;
+            color: #dbb8a0;
             margin-top: 2px;
             letter-spacing: 0.04em;
-            opacity: 0.2;
+            opacity: 0.35;
         }
 
         .footer .credit {
             font-family: 'Great Vibes', cursive;
             font-size: 0.55rem;
-            color: #5a544c;
+            color: #c8c0b8;
             margin-top: 2px;
             letter-spacing: 0.04em;
-            opacity: 0.1;
+            opacity: 0.25;
         }
 
         .footer p {
-            color: #3a3632;
+            color: #b0a89e;
             font-size: 0.35rem;
             letter-spacing: 0.15em;
             margin-top: 6px;
@@ -453,14 +453,14 @@
         .footer .signature-line {
             font-family: 'Great Vibes', cursive;
             font-size: 0.45rem;
-            color: #2a2622;
+            color: #b0a89e;
             margin-top: 4px;
             letter-spacing: 0.06em;
-            opacity: 0.3;
+            opacity: 0.25;
         }
 
         /* ============================================================
-           RESPONSIVE — Same as Index
+           RESPONSIVE — Uniform with Index
         ============================================================ */
         @media (max-width: 768px) {
             .container {
@@ -536,7 +536,7 @@
         }
 
         /* ============================================================
-           SCROLL REVEAL — Same as Index
+           SCROLL REVEAL — Uniform with Index
         ============================================================ */
         .reveal {
             opacity: 0;
@@ -556,7 +556,7 @@
 </head>
 <body>
 
-    <!-- ===== PARTICLES — Same Gold Dust as Index ===== -->
+    <!-- ===== PARTICLES — Same Brighter Gold Dust as Index ===== -->
     <canvas id="particle-canvas"></canvas>
 
     <!-- ===== ARCHITECTURAL GLOW — Same as Index ===== -->
@@ -586,7 +586,7 @@
         <section class="about-content">
 
             <div class="section reveal reveal-delay-1">
-                <p>HALONEX is a <strong style="color:#d4a88c; font-weight:400; opacity:0.5;">payment wearable</strong> brand — where fine jewelry meets invisible technology. The <strong style="color:#d4a88c; font-weight:400; opacity:0.5;">Founder's Edition</strong> is our first step into the world. Limited to one thousand pieces. Never reproduced. Ever.</p>
+                <p>HALONEX is a <strong style="color:#dbb8a0; font-weight:400; opacity:0.5;">payment wearable</strong> brand — where fine jewelry meets invisible technology. The <strong style="color:#dbb8a0; font-weight:400; opacity:0.5;">Founder's Edition</strong> is our first step into the world. Limited to one thousand pieces. Never reproduced. Ever.</p>
                 <p>Each piece is a statement. A symbol of access. Those who wear it will be the first to experience everything HALONEX creates in the years ahead.</p>
                 <div class="highlight">"Not something I use. Something I own."</div>
             </div>
@@ -601,7 +601,7 @@
 
             <div class="section reveal reveal-delay-3">
                 <p>To activate, invitees tap the ring to the back of their phone — via the dedicated prestige feature within their bank's app. Secure, seamless, and effortless.</p>
-                <p>Powered by <strong style="color:#d4a88c; font-weight:400; opacity:0.5;">Digiseq</strong> — a UK-based TSM for Visa and Mastercard — ensuring every transaction is protected at the highest level.</p>
+                <p>Powered by <strong style="color:#dbb8a0; font-weight:400; opacity:0.5;">Digiseq</strong> — a UK-based TSM for Visa and Mastercard — ensuring every transaction is protected at the highest level.</p>
             </div>
 
             <!-- ===== SECURITY ===== -->
@@ -624,7 +624,7 @@
         <!-- ===== FOOTER ===== -->
         <footer class="footer">
             <div class="emblem">✦</div>
-            <div class="footer-logo">HALONEX <span style="color:#d4a88c; opacity:0.15;">·</span></div>
+            <div class="footer-logo">HALONEX <span style="color:#dbb8a0; opacity:0.25;">·</span></div>
             <p class="tagline">Luxury that moves with you.</p>
             <p class="credit">— Saad Saeed —</p>
             <p>© 2026 HALONEX · Private Collection</p>
@@ -634,13 +634,13 @@
     </div>
 
     <!-- ============================================================
-       JAVASCRIPT — Same Gold Dust + Glow as Index
+       JAVASCRIPT — Same Brighter Particles + Glow as Index
     ============================================================ -->
     <script>
         (function() {
 
             // ============================================================
-            // 1. GOLD DUST PARTICLES — Same as Index
+            // 1. GOLD DUST PARTICLES — Brighter & More Alive (Same as Index)
             // ============================================================
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
@@ -659,19 +659,19 @@
                 constructor() {
                     this.x = Math.random() * canvas.width;
                     this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2.2 + 0.4;
-                    this.speedX = (Math.random() - 0.5) * 0.03;
-                    this.speedY = (Math.random() - 0.5) * 0.03;
-                    this.opacity = Math.random() * 0.12 + 0.02;
+                    this.size = Math.random() * 2.8 + 0.6;
+                    this.speedX = (Math.random() - 0.5) * 0.04;
+                    this.speedY = (Math.random() - 0.5) * 0.04;
+                    this.opacity = Math.random() * 0.2 + 0.06;
                     this.targetOpacity = this.opacity;
                     this.wobble = Math.random() * Math.PI * 2;
-                    this.wobbleSpeed = 0.005 + Math.random() * 0.005;
+                    this.wobbleSpeed = 0.005 + Math.random() * 0.008;
                 }
 
                 update() {
                     this.wobble += this.wobbleSpeed;
-                    this.x += this.speedX + Math.sin(this.wobble) * 0.08;
-                    this.y += this.speedY + Math.cos(this.wobble * 0.7) * 0.08;
+                    this.x += this.speedX + Math.sin(this.wobble) * 0.1;
+                    this.y += this.speedY + Math.cos(this.wobble * 0.7) * 0.1;
 
                     const dx = this.x - mouseX;
                     const dy = this.y - mouseY;
@@ -679,11 +679,11 @@
 
                     if (dist < 120) {
                         const force = (120 - dist) / 120;
-                        this.x += (dx / dist) * force * 0.2;
-                        this.y += (dy / dist) * force * 0.2;
-                        this.targetOpacity = 0.25;
+                        this.x += (dx / dist) * force * 0.3;
+                        this.y += (dy / dist) * force * 0.3;
+                        this.targetOpacity = 0.45;
                     } else {
-                        this.targetOpacity = Math.random() * 0.08 + 0.02;
+                        this.targetOpacity = Math.random() * 0.15 + 0.06;
                     }
 
                     if (this.x < -10) this.x = canvas.width + 10;
@@ -691,31 +691,41 @@
                     if (this.y < -10) this.y = canvas.height + 10;
                     if (this.y > canvas.height + 10) this.y = -10;
 
-                    this.opacity += (this.targetOpacity - this.opacity) * 0.008;
+                    this.opacity += (this.targetOpacity - this.opacity) * 0.01;
                 }
 
                 draw() {
+                    // Brighter glow
                     const gradient = ctx.createRadialGradient(
                         this.x, this.y, 0,
-                        this.x, this.y, this.size * 3
+                        this.x, this.y, this.size * 4
                     );
-                    gradient.addColorStop(0, `rgba(212, 168, 140, ${this.opacity * 0.6})`);
-                    gradient.addColorStop(0.5, `rgba(212, 168, 140, ${this.opacity * 0.15})`);
+                    gradient.addColorStop(0, `rgba(212, 168, 140, ${this.opacity * 0.7})`);
+                    gradient.addColorStop(0.3, `rgba(212, 168, 140, ${this.opacity * 0.3})`);
+                    gradient.addColorStop(0.7, `rgba(212, 168, 140, ${this.opacity * 0.08})`);
                     gradient.addColorStop(1, `rgba(212, 168, 140, 0)`);
 
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+                    ctx.arc(this.x, this.y, this.size * 4, 0, Math.PI * 2);
                     ctx.fillStyle = gradient;
                     ctx.fill();
 
+                    // Core particle — brighter
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size * 0.5, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity * 0.8})`;
+                    ctx.arc(this.x, this.y, this.size * 0.7, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity * 0.9})`;
                     ctx.fill();
+
+                    if (this.size > 1.8) {
+                        ctx.shadowColor = `rgba(212, 168, 140, ${this.opacity * 0.3})`;
+                        ctx.shadowBlur = 20;
+                        ctx.fill();
+                        ctx.shadowBlur = 0;
+                    }
                 }
             }
 
-            const particleCount = Math.min(60, Math.floor(window.innerWidth / 12));
+            const particleCount = Math.min(70, Math.floor(window.innerWidth / 10));
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
             }
@@ -739,18 +749,19 @@
                     p.draw();
                 });
 
+                // Brighter connections
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
                         const dy = particles[i].y - particles[j].y;
                         const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 120) {
-                            const opacity = (1 - dist / 120) * 0.015;
+                        if (dist < 130) {
+                            const opacity = (1 - dist / 130) * 0.035;
                             ctx.beginPath();
                             ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(particles[j].x, particles[j].y);
                             ctx.strokeStyle = `rgba(212, 168, 140, ${opacity})`;
-                            ctx.lineWidth = 0.3;
+                            ctx.lineWidth = 0.5;
                             ctx.stroke();
                         }
                     }
@@ -784,7 +795,7 @@
             }
 
             // ============================================================
-            // 3. SCROLL REVEAL — Same as Index
+            // 3. SCROLL REVEAL — Uniform with Index
             // ============================================================
             const revealElements = document.querySelectorAll('.reveal');
 

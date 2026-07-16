@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>HALONEX · Private Collection</title>
+    <title>HALONEX · Founder's Edition</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
 
     <style>
         /* ============================================================
-           RESET & BASE
+           LUXURY BOX — Founder's Edition
         ============================================================ */
         * {
             margin: 0;
@@ -35,7 +35,6 @@
             color: #ece6de;
         }
 
-        /* ===== ROSE GOLD — Brighter ===== */
         .rose-gold {
             color: #dbb8a0;
         }
@@ -60,15 +59,7 @@
             letter-spacing: 0.02em;
         }
 
-        .serif {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-        }
-
-        /* ============================================================
-           PARTICLES — Brighter Gold Dust
-        ============================================================ */
+        /* ===== PARTICLES — Brighter Gold Dust ===== */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -79,9 +70,7 @@
             pointer-events: none;
         }
 
-        /* ============================================================
-           ARCHITECTURAL GLOW
-        ============================================================ */
+        /* ===== ARCHITECTURAL GLOW ===== */
         .glow-overlay {
             position: fixed;
             top: 0;
@@ -108,7 +97,7 @@
         }
 
         /* ============================================================
-           NAVBAR — Lighter
+           NAVBAR — With Home Icon + Back Link
         ============================================================ */
         .navbar {
             padding: 20px 0 16px;
@@ -155,6 +144,8 @@
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: #b0a89e;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -174,7 +165,7 @@
             height: 1px;
             background: #dbb8a0;
             transition: width 0.8s ease;
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
         .nav-links a:hover::after {
@@ -185,8 +176,42 @@
             color: #dbb8a0;
         }
 
+        .nav-links a.active {
+            color: #dbb8a0;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* ===== HOME ICON + BACK LINK ===== */
+        .nav-links .home-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.45rem;
+            letter-spacing: 0.15em;
+            color: #b0a89e;
+            opacity: 0.5;
+            transition: all 0.6s ease;
+        }
+
+        .nav-links .home-link:hover {
+            color: #dbb8a0;
+            opacity: 1;
+        }
+
+        .nav-links .home-link .home-icon {
+            font-size: 0.9rem;
+            line-height: 1;
+        }
+
+        .nav-links .home-link::after {
+            display: none;
+        }
+
         /* ============================================================
-           HERO — Brighter Text
+           HERO — The Box, The Ceremony
         ============================================================ */
         .hero {
             padding: 40px 0 20px;
@@ -199,7 +224,7 @@
         }
 
         .hero-badge {
-            border: 1px solid rgba(212, 168, 140, 0.06);
+            border: 1px solid rgba(212, 168, 140, 0.04);
             padding: 4px 24px;
             border-radius: 60px;
             font-size: 0.4rem;
@@ -214,10 +239,10 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 6rem);
+            font-size: clamp(2.8rem, 9vw, 5.5rem);
             font-weight: 400;
             letter-spacing: -0.03em;
-            line-height: 0.92;
+            line-height: 0.95;
             color: #f5f0ea;
             margin-bottom: 8px;
             animation: fadeIn 3.2s 0.5s ease forwards;
@@ -245,7 +270,7 @@
             margin: 0 auto 28px;
             color: #c8c0b8;
             font-weight: 300;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
             line-height: 1.7;
             animation: fadeIn 2.8s 0.9s ease forwards;
             opacity: 0;
@@ -254,7 +279,7 @@
         .cta-button {
             display: inline-block;
             background: transparent;
-            border: 1px solid rgba(212, 168, 140, 0.12);
+            border: 1px solid rgba(212, 168, 140, 0.1);
             color: #f5f0ea;
             padding: 12px 44px;
             border-radius: 80px;
@@ -270,8 +295,8 @@
         }
 
         .cta-button:hover {
-            background: rgba(212, 168, 140, 0.04);
-            border-color: rgba(212, 168, 140, 0.2);
+            background: rgba(212, 168, 140, 0.03);
+            border-color: rgba(212, 168, 140, 0.15);
             transform: scale(1.005);
         }
 
@@ -281,9 +306,9 @@
         }
 
         /* ============================================================
-           PRODUCT
+           THE BOX — Museum-Quality Presentation
         ============================================================ */
-        .product-display {
+        .box-display {
             margin: 28px 0 8px;
             display: flex;
             justify-content: center;
@@ -293,7 +318,7 @@
             width: 100%;
         }
 
-        .product-item {
+        .box-item {
             max-width: 440px;
             width: 100%;
             aspect-ratio: 1.3 / 1;
@@ -307,7 +332,8 @@
             transition: all 1s ease;
         }
 
-        .product-item::after {
+        /* Copper glow that breathes */
+        .box-item::after {
             content: '';
             position: absolute;
             inset: -20px;
@@ -319,12 +345,12 @@
         }
 
         @keyframes copperGlow {
-            0% { opacity: 0.08; transform: scale(0.98); }
-            50% { opacity: 0.2; transform: scale(1); }
-            100% { opacity: 0.08; transform: scale(1.02); }
+            0% { opacity: 0.06; transform: scale(0.98); }
+            50% { opacity: 0.16; transform: scale(1); }
+            100% { opacity: 0.06; transform: scale(1.02); }
         }
 
-        .product-item img {
+        .box-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -337,11 +363,11 @@
             border-radius: 12px;
         }
 
-        .product-item:hover img {
+        .box-item:hover img {
             transform: scale(1.005);
         }
 
-        .product-caption {
+        .box-caption {
             text-align: center;
             margin-top: 8px;
             font-size: 0.4rem;
@@ -352,13 +378,13 @@
             opacity: 0;
         }
 
-        .product-caption span {
+        .box-caption span {
             color: #dbb8a0;
             opacity: 0.5;
         }
 
         /* ============================================================
-           FOUNDER — Brighter & Visible
+           FOUNDER — Vision-First
         ============================================================ */
         .founder-section {
             margin: 14px 0 6px;
@@ -401,7 +427,7 @@
         }
 
         /* ============================================================
-           SCARCITY
+           SCARCITY — Ceremonial
         ============================================================ */
         .scarcity-mark {
             text-align: center;
@@ -433,7 +459,7 @@
         }
 
         /* ============================================================
-           CRAFT — Brighter Text
+           CRAFT — Each Card Has Its Own Identity
         ============================================================ */
         .craft-section {
             padding: 40px 0 36px;
@@ -475,7 +501,7 @@
         .craft-item .icon {
             font-size: 1.8rem;
             margin-bottom: 8px;
-            opacity: 0.12;
+            opacity: 0.1;
             color: #dbb8a0;
             display: block;
         }
@@ -487,7 +513,7 @@
             color: #ece6de;
             margin-bottom: 4px;
             letter-spacing: 0.06em;
-            opacity: 0.85;
+            opacity: 0.8;
         }
 
         .craft-item p {
@@ -499,10 +525,9 @@
             opacity: 0.6;
         }
 
-        /* Card 1 */
         .craft-item:nth-child(1) .icon {
             font-size: 2.2rem;
-            opacity: 0.1;
+            opacity: 0.08;
         }
         .craft-item:nth-child(1)::before {
             content: '◈';
@@ -515,10 +540,9 @@
             transform: rotate(15deg);
         }
 
-        /* Card 2 */
         .craft-item:nth-child(2) .icon {
             font-size: 1.6rem;
-            opacity: 0.1;
+            opacity: 0.08;
         }
         .craft-item:nth-child(2)::before {
             content: '◇';
@@ -530,17 +554,16 @@
             opacity: 0.012;
         }
 
-        /* Card 3 */
         .craft-item:nth-child(3) .icon {
             font-size: 1.6rem;
-            opacity: 0.12;
+            opacity: 0.1;
             animation: chipGlow 4s ease-in-out infinite alternate;
         }
 
         @keyframes chipGlow {
-            0% { opacity: 0.06; filter: blur(0px); }
-            50% { opacity: 0.18; filter: blur(1px); }
-            100% { opacity: 0.06; filter: blur(0px); }
+            0% { opacity: 0.05; filter: blur(0px); }
+            50% { opacity: 0.15; filter: blur(1px); }
+            100% { opacity: 0.05; filter: blur(0px); }
         }
         .craft-item:nth-child(3)::before {
             content: '✦';
@@ -554,7 +577,7 @@
         }
 
         /* ============================================================
-           EXPERIENCE
+           EXPERIENCE — The Movement
         ============================================================ */
         .experience-section {
             padding: 40px 0 36px;
@@ -723,7 +746,7 @@
         }
 
         /* ============================================================
-           FOOTER — Brighter
+           FOOTER
         ============================================================ */
         .footer {
             padding: 32px 0 24px;
@@ -785,7 +808,7 @@
         }
 
         /* ============================================================
-           MODAL
+           MODAL — Anticipation
         ============================================================ */
         .modal-overlay {
             position: fixed;
@@ -912,48 +935,43 @@
             .container {
                 padding: 0 24px;
             }
-
             .navbar {
                 flex-direction: column;
                 gap: 8px;
                 padding: 14px 0;
                 border-radius: 0 0 16px 16px;
             }
-
             .nav-links {
-                gap: 1.6rem;
+                gap: 1.2rem;
+                font-size: 0.4rem;
+                justify-content: center;
+            }
+            .nav-links .home-link {
                 font-size: 0.4rem;
             }
-
             .hero {
                 padding: 30px 0 16px;
                 min-height: auto;
             }
-
             .hero h1 {
                 font-size: 2.4rem;
             }
-
             .craft-grid {
                 grid-template-columns: 1fr;
                 gap: 14px;
             }
-
             .exp-step {
                 padding: 12px 14px;
                 gap: 14px;
             }
-
             .exp-step .step-icon {
                 width: 32px;
                 height: 32px;
                 font-size: 0.8rem;
             }
-
-            .product-item {
+            .box-item {
                 max-width: 340px;
             }
-
             .modal-content {
                 padding: 32px 24px 20px;
             }
@@ -963,43 +981,40 @@
             .container {
                 padding: 0 16px;
             }
-
             .hero h1 {
                 font-size: 2rem;
             }
-
             .nav-links {
-                gap: 1rem;
+                gap: 0.8rem;
                 font-size: 0.35rem;
             }
-
-            .product-item {
+            .nav-links .home-link {
+                font-size: 0.35rem;
+            }
+            .nav-links .home-link .home-icon {
+                font-size: 0.7rem;
+            }
+            .box-item {
                 max-width: 280px;
             }
-
             .exp-step {
                 padding: 10px 12px;
                 gap: 10px;
             }
-
             .exp-step .step-icon {
                 width: 28px;
                 height: 28px;
                 font-size: 0.7rem;
             }
-
             .exp-step .step-text h4 {
                 font-size: 0.7rem;
             }
-
             .exp-step .step-text p {
                 font-size: 0.55rem;
             }
-
             .modal-content {
                 padding: 24px 16px 16px;
             }
-
             .modal-content .gold-letter {
                 font-size: 1.6rem;
             }
@@ -1019,9 +1034,15 @@
             transform: translateY(0);
         }
 
-        .reveal-delay-1 { transition-delay: 0.05s; }
-        .reveal-delay-2 { transition-delay: 0.1s; }
-        .reveal-delay-3 { transition-delay: 0.15s; }
+        .reveal-delay-1 {
+            transition-delay: 0.05s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.1s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.15s;
+        }
     </style>
 </head>
 <body>
@@ -1034,14 +1055,17 @@
 
     <div class="container">
 
-        <!-- ===== NAVBAR ===== -->
+        <!-- ===== NAVBAR — With Home Icon + Back Link ===== -->
         <header class="navbar">
             <div class="logo">HALONEX <span class="rose">·</span></div>
             <div class="nav-links">
+                <!-- HOME ICON + BACK TO HOME -->
+                <a href="index.html" class="home-link">
+                    <span class="home-icon">⌂</span>
+                    <span>Back to Home</span>
+                </a>
                 <a href="about.html">About</a>
-                <a href="#craft">Craft</a>
-                <a href="#experience">Experience</a>
-                <a href="#security">Security</a>
+                <a href="#" class="active">Founder's Edition</a>
             </div>
         </header>
 
@@ -1053,16 +1077,16 @@
             <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
             <button class="cta-button" id="ctaBtn">Request Private Access</button>
 
-            <!-- PRODUCT -->
-            <div class="product-display">
-                <div class="product-item">
-                    <img src="https://halonex.vercel.app/packaging.webp" alt="HALONEX Packaging" />
+            <!-- ===== THE BOX ===== -->
+            <div class="box-display">
+                <div class="box-item">
+                    <img src="https://halonex.vercel.app/packaging.webp" alt="HALONEX Founder's Edition Box" />
                 </div>
             </div>
 
-            <div class="product-caption">HALONEX <span>·</span> sculpted ceramic · invisible payment</div>
+            <div class="box-caption">HALONEX <span>·</span> Founder's Edition · ceramic · invisible payment</div>
 
-            <!-- FOUNDER — Brighter & Visible -->
+            <!-- ===== FOUNDER ===== -->
             <div class="founder-section">
                 <div class="founder-vision">
                     Conceived in <span>Pakistan</span>.<br />
@@ -1072,7 +1096,7 @@
                 <div class="founder-name">Saad Saeed</div>
             </div>
 
-            <!-- SCARCITY -->
+            <!-- ===== SCARCITY ===== -->
             <div class="scarcity-mark">
                 <div class="divider"></div>
                 <p><strong>001 / 1000</strong> — never to be reproduced</p>
@@ -1164,7 +1188,7 @@
             <p>This is only the beginning. <span class="rose-gold-bg">More will follow.</span></p>
         </section>
 
-        <!-- ===== FOOTER — Brighter ===== -->
+        <!-- ===== FOOTER ===== -->
         <footer class="footer">
             <div class="emblem">✦</div>
             <div class="footer-logo">HALONEX <span style="color:#dbb8a0; opacity:0.25;">·</span></div>
@@ -1193,13 +1217,13 @@
     </div>
 
     <!-- ============================================================
-       JAVASCRIPT — Brighter Particles
+       JAVASCRIPT — Luxury Particles + Glow
     ============================================================ -->
     <script>
         (function() {
 
             // ============================================================
-            // 1. GOLD DUST PARTICLES — Brighter & More Alive
+            // 1. GOLD DUST PARTICLES — Brighter, Luxury
             // ============================================================
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
@@ -1254,7 +1278,6 @@
                 }
 
                 draw() {
-                    // Brighter glow
                     const gradient = ctx.createRadialGradient(
                         this.x, this.y, 0,
                         this.x, this.y, this.size * 4
@@ -1269,13 +1292,11 @@
                     ctx.fillStyle = gradient;
                     ctx.fill();
 
-                    // Core particle — brighter
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size * 0.7, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity * 0.9})`;
                     ctx.fill();
 
-                    // Extra glow for larger particles
                     if (this.size > 1.8) {
                         ctx.shadowColor = `rgba(212, 168, 140, ${this.opacity * 0.3})`;
                         ctx.shadowBlur = 20;
@@ -1309,7 +1330,6 @@
                     p.draw();
                 });
 
-                // Brighter connections
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;

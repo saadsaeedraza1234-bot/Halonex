@@ -34,6 +34,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
 
     <style>
+        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -104,6 +105,8 @@
             position: relative;
             z-index: 2;
         }
+
+        /* ===== NAVBAR ===== */
         .navbar {
             padding: 20px 0 16px;
             display: flex;
@@ -199,6 +202,8 @@
         .nav-links .home-link::after {
             display: none;
         }
+
+        /* ===== HERO ===== */
         .hero {
             padding: 40px 0 20px;
             display: flex;
@@ -282,6 +287,8 @@
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
+
+        /* ===== BOX DISPLAY — Using ring.webp ===== */
         .box-display {
             margin: 28px 0 8px;
             display: flex;
@@ -348,6 +355,8 @@
             color: #dbb8a0;
             opacity: 0.5;
         }
+
+        /* ===== FOUNDER ===== */
         .founder-section {
             margin: 14px 0 6px;
             text-align: center;
@@ -383,6 +392,8 @@
             letter-spacing: 0.04em;
             opacity: 0.5;
         }
+
+        /* ===== SCARCITY ===== */
         .scarcity-mark {
             text-align: center;
             padding: 8px 0 4px;
@@ -408,6 +419,8 @@
             font-weight: 400;
             opacity: 0.5;
         }
+
+        /* ===== CRAFT ===== */
         .craft-section {
             padding: 40px 0 36px;
             border-top: 1px solid rgba(212, 168, 140, 0.015);
@@ -511,6 +524,8 @@
             color: #dbb8a0;
             opacity: 0.01;
         }
+
+        /* ===== EXPERIENCE ===== */
         .experience-section {
             padding: 40px 0 36px;
             border-bottom: 1px solid rgba(212, 168, 140, 0.015);
@@ -584,6 +599,8 @@
             letter-spacing: 0.03em;
             opacity: 0.5;
         }
+
+        /* ===== SECURITY ===== */
         .security-section {
             padding: 40px 0 36px;
             border-bottom: 1px solid rgba(212, 168, 140, 0.015);
@@ -629,6 +646,8 @@
             margin-bottom: 10px;
             opacity: 0.4;
         }
+
+        /* ===== TEASER ===== */
         .teaser-section {
             padding: 28px 0 20px;
             text-align: center;
@@ -651,6 +670,8 @@
             font-style: normal;
             font-weight: 400;
         }
+
+        /* ===== FOOTER ===== */
         .footer {
             padding: 32px 0 24px;
             text-align: center;
@@ -723,6 +744,8 @@
             letter-spacing: 0.06em;
             opacity: 0.25;
         }
+
+        /* ===== MODAL ===== */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -829,6 +852,7 @@
             opacity: 0.4;
         }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .container {
                 padding: 0 24px;
@@ -916,6 +940,8 @@
                 font-size: 0.35rem;
             }
         }
+
+        /* ===== SCROLL REVEAL ===== */
         .reveal {
             opacity: 0;
             transform: translateY(32px);
@@ -963,9 +989,10 @@
             <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
             <button class="cta-button" id="ctaBtn">Request Private Access</button>
 
+            <!-- ===== BOX DISPLAY — Using ring.webp ===== -->
             <div class="box-display">
                 <div class="box-item">
-                    <img src="https://halonex.vercel.app/packaging.webp" alt="HALONEX Founder's Edition Box" />
+                    <img src="ring.webp" alt="HALONEX Founder's Edition Ring" />
                 </div>
             </div>
 
@@ -986,6 +1013,7 @@
             </div>
         </section>
 
+        <!-- ===== CRAFT ===== -->
         <section class="craft-section reveal reveal-delay-1" id="craft">
             <div style="text-align: center; max-width: 500px; margin: 0 auto;">
                 <div style="font-family:'Playfair Display',serif; font-size:clamp(1.2rem,2vw,1.6rem); font-weight:400; letter-spacing:-0.02em; color:#f5f0ea; opacity:0.75;">
@@ -1012,6 +1040,7 @@
             </div>
         </section>
 
+        <!-- ===== EXPERIENCE ===== -->
         <section class="experience-section" id="experience">
             <div style="text-align:center; margin-bottom:20px;">
                 <div style="font-size:0.35rem; letter-spacing:0.4em; text-transform:uppercase; color:#c8c0b8; opacity:0.25; margin-bottom:4px;">The Movement</div>
@@ -1048,6 +1077,7 @@
             </div>
         </section>
 
+        <!-- ===== SECURITY ===== -->
         <section class="security-section reveal reveal-delay-3" id="security">
             <div class="security-content">
                 <div class="security-badge">✦ vault-grade security</div>
@@ -1056,11 +1086,13 @@
             </div>
         </section>
 
+        <!-- ===== TEASER ===== -->
         <section class="teaser-section reveal">
             <div class="divider"></div>
             <p>This is only the beginning. <span class="rose-gold-bg">More will follow.</span></p>
         </section>
 
+        <!-- ===== FOOTER ===== -->
         <footer class="footer">
             <div class="emblem">✦</div>
             <div class="footer-logo">HALONEX <span style="color:#dbb8a0; opacity:0.25;">·</span></div>
@@ -1076,6 +1108,7 @@
 
     </div>
 
+    <!-- ===== MODAL ===== -->
     <div class="modal-overlay" id="accessModal">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">✕</button>

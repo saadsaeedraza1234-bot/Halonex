@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>HALONEX · About</title>
+
+    <!-- ===== SEO ===== -->
+    <title>HALONEX · About — The Wearable Payment Brand</title>
+    <meta name="description" content="HALONEX is a payment wearable brand — where fine jewelry meets invisible technology. The Founder's Edition is limited to one thousand pieces." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://halonex.uk/about.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://halonex.uk/about.html" />
+    <meta property="og:title" content="HALONEX · About" />
+    <meta property="og:description" content="HALONEX is a payment wearable brand — where fine jewelry meets invisible technology." />
+    <meta property="og:image" content="https://halonex.vercel.app/og-image.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,7 +27,7 @@
 
     <style>
         /* ============================================================
-           RESET & BASE — Uniform with Index
+           RESET & BASE
         ============================================================ */
         * {
             margin: 0;
@@ -59,15 +75,7 @@
             letter-spacing: 0.02em;
         }
 
-        .serif {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-        }
-
-        /* ============================================================
-           PARTICLES — Same Brighter Gold Dust as Index
-        ============================================================ */
+        /* ===== PARTICLES ===== */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -78,9 +86,6 @@
             pointer-events: none;
         }
 
-        /* ============================================================
-           ARCHITECTURAL GLOW — Same as Index
-        ============================================================ */
         .glow-overlay {
             position: fixed;
             top: 0;
@@ -107,7 +112,7 @@
         }
 
         /* ============================================================
-           NAVBAR — Uniform with Index
+           NAVBAR — With Home Link
         ============================================================ */
         .navbar {
             padding: 20px 0 16px;
@@ -154,6 +159,8 @@
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: #b0a89e;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -173,7 +180,7 @@
             height: 1px;
             background: #dbb8a0;
             transition: width 0.8s ease;
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
         .nav-links a:hover::after {
@@ -192,8 +199,33 @@
             width: 100%;
         }
 
+        .nav-links .home-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.45rem;
+            letter-spacing: 0.15em;
+            color: #b0a89e;
+            opacity: 0.5;
+            transition: all 0.6s ease;
+        }
+
+        .nav-links .home-link:hover {
+            color: #dbb8a0;
+            opacity: 1;
+        }
+
+        .nav-links .home-link .home-icon {
+            font-size: 0.9rem;
+            line-height: 1;
+        }
+
+        .nav-links .home-link::after {
+            display: none;
+        }
+
         /* ============================================================
-           ABOUT HERO — Brighter
+           ABOUT HERO
         ============================================================ */
         .about-hero {
             padding: 50px 0 30px;
@@ -231,7 +263,7 @@
         }
 
         /* ============================================================
-           ABOUT CONTENT — Brighter Text
+           ABOUT CONTENT
         ============================================================ */
         .about-content {
             padding: 8px 0 50px;
@@ -274,7 +306,7 @@
         }
 
         /* ============================================================
-           FOUNDER'S EDITION BOX — Brighter
+           FOUNDER'S EDITION BOX
         ============================================================ */
         .edition-box {
             background: rgba(20, 18, 16, 0.15);
@@ -329,7 +361,7 @@
         }
 
         /* ============================================================
-           SECURITY NOTE — Brighter
+           SECURITY NOTE
         ============================================================ */
         .security-note {
             background: rgba(20, 18, 16, 0.08);
@@ -355,9 +387,6 @@
             opacity: 0.5;
         }
 
-        /* ============================================================
-           LOOK FORWARD — Brighter
-        ============================================================ */
         .look-forward {
             text-align: center;
             margin-top: 20px;
@@ -375,7 +404,7 @@
         }
 
         /* ============================================================
-           BACK LINK — Brighter
+           BACK LINK
         ============================================================ */
         .back-link {
             display: inline-block;
@@ -398,7 +427,7 @@
         }
 
         /* ============================================================
-           FOOTER — Uniform with Index (Brighter)
+           FOOTER
         ============================================================ */
         .footer {
             padding: 32px 0 24px;
@@ -450,6 +479,29 @@
             opacity: 0.3;
         }
 
+        .footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .footer .footer-links a {
+            color: #8a827a;
+            text-decoration: none;
+            font-size: 0.4rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.6s ease;
+            opacity: 0.3;
+        }
+
+        .footer .footer-links a:hover {
+            color: #c8b8a8;
+            opacity: 0.6;
+        }
+
         .footer .signature-line {
             font-family: 'Great Vibes', cursive;
             font-size: 0.45rem;
@@ -460,39 +512,37 @@
         }
 
         /* ============================================================
-           RESPONSIVE — Uniform with Index
+           RESPONSIVE
         ============================================================ */
         @media (max-width: 768px) {
             .container {
                 padding: 0 24px;
             }
-
             .navbar {
                 flex-direction: column;
                 gap: 8px;
                 padding: 14px 0;
                 border-radius: 0 0 16px 16px;
             }
-
             .nav-links {
-                gap: 1.6rem;
+                gap: 1.2rem;
                 font-size: 0.4rem;
+                justify-content: center;
             }
-
             .about-hero {
                 padding: 30px 0 20px;
             }
-
             .about-hero h1 {
                 font-size: 2rem;
             }
-
             .edition-box {
                 padding: 18px 20px;
             }
-
             .edition-box h3 {
                 font-size: 1rem;
+            }
+            .footer .footer-links {
+                gap: 1.2rem;
             }
         }
 
@@ -500,44 +550,39 @@
             .container {
                 padding: 0 16px;
             }
-
             .nav-links {
-                gap: 1rem;
+                gap: 0.8rem;
                 font-size: 0.35rem;
             }
-
             .about-hero h1 {
                 font-size: 1.6rem;
             }
-
             .edition-box {
                 padding: 14px 16px;
             }
-
             .edition-box h3 {
                 font-size: 0.9rem;
             }
-
             .edition-box p {
                 font-size: 0.65rem;
             }
-
             .security-note {
                 padding: 12px 14px;
             }
-
             .security-note p {
                 font-size: 0.6rem;
             }
-
             .about-content .section p {
                 font-size: 0.75rem;
             }
+            .footer .footer-links {
+                gap: 0.8rem;
+            }
+            .footer .footer-links a {
+                font-size: 0.35rem;
+            }
         }
 
-        /* ============================================================
-           SCROLL REVEAL — Uniform with Index
-        ============================================================ */
         .reveal {
             opacity: 0;
             transform: translateY(32px);
@@ -556,23 +601,25 @@
 </head>
 <body>
 
-    <!-- ===== PARTICLES — Same Brighter Gold Dust as Index ===== -->
+    <!-- ===== PARTICLES ===== -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- ===== ARCHITECTURAL GLOW — Same as Index ===== -->
+    <!-- ===== GLOW ===== -->
     <div class="glow-overlay" id="glowOverlay"></div>
 
     <div class="container">
 
-        <!-- ===== NAVBAR ===== -->
+        <!-- ===== NAVBAR — With Home Link ===== -->
         <header class="navbar">
             <div class="logo">HALONEX <span class="rose">·</span></div>
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.html" class="home-link">
+                    <span class="home-icon">⌂</span>
+                    <span>Home</span>
+                </a>
                 <a href="#" class="active">About</a>
-                <a href="index.html#craft">Craft</a>
-                <a href="index.html#experience">Experience</a>
-                <a href="index.html#security">Security</a>
+                <a href="founders.html" class="founders-link">Founder's Edition</a>
+                <a href="specs.html">Specs</a>
             </div>
         </header>
 
@@ -616,7 +663,7 @@
 
             <!-- ===== BACK LINK ===== -->
             <div style="text-align:center; margin-top:6px;">
-                <a href="index.html" class="back-link">← Return to HALONEX</a>
+                <a href="index.html" class="back-link">← Return to Home</a>
             </div>
 
         </section>
@@ -627,6 +674,10 @@
             <div class="footer-logo">HALONEX <span style="color:#dbb8a0; opacity:0.25;">·</span></div>
             <p class="tagline">Luxury that moves with you.</p>
             <p class="credit">— Saad Saeed —</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="mailto:info@halonex.uk">Contact</a>
+            </div>
             <p>© 2026 HALONEX · Private Collection</p>
             <p class="signature-line">not something i use · something i own</p>
         </footer>
@@ -634,14 +685,12 @@
     </div>
 
     <!-- ============================================================
-       JAVASCRIPT — Same Brighter Particles + Glow as Index
+       JAVASCRIPT
     ============================================================ -->
     <script>
         (function() {
 
-            // ============================================================
-            // 1. GOLD DUST PARTICLES — Brighter & More Alive (Same as Index)
-            // ============================================================
+            // ===== PARTICLES =====
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
@@ -695,7 +744,6 @@
                 }
 
                 draw() {
-                    // Brighter glow
                     const gradient = ctx.createRadialGradient(
                         this.x, this.y, 0,
                         this.x, this.y, this.size * 4
@@ -710,7 +758,6 @@
                     ctx.fillStyle = gradient;
                     ctx.fill();
 
-                    // Core particle — brighter
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size * 0.7, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity * 0.9})`;
@@ -749,7 +796,6 @@
                     p.draw();
                 });
 
-                // Brighter connections
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
@@ -771,9 +817,7 @@
             }
             animateParticles();
 
-            // ============================================================
-            // 2. ARCHITECTURAL GLOW — Same as Index
-            // ============================================================
+            // ===== GLOW =====
             const glow = document.getElementById('glowOverlay');
 
             const glowObserver = new IntersectionObserver((entries) => {
@@ -794,9 +838,7 @@
                 glowObserver.observe(heroSection);
             }
 
-            // ============================================================
-            // 3. SCROLL REVEAL — Uniform with Index
-            // ============================================================
+            // ===== SCROLL REVEAL =====
             const revealElements = document.querySelectorAll('.reveal');
 
             const observer = new IntersectionObserver((entries) => {
@@ -814,7 +856,6 @@
                 observer.observe(el);
             });
 
-            // Edition box — slower reveal
             const editionBox = document.querySelector('.edition-box');
             if (editionBox) {
                 const boxObserver = new IntersectionObserver((entries) => {

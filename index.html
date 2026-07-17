@@ -239,7 +239,7 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== PRODUCT — Using ring-generic.webp ===== */
+        /* ===== PRODUCT ===== */
         .product-display {
             margin: 28px 0 8px;
             display: flex;
@@ -313,9 +313,9 @@
             opacity: 0.4;
         }
 
-        /* ===== SEAMLESS ===== */
+        /* ===== SEAMLESS — Technology Focus ===== */
         .seamless-section {
-            padding: 40px 0 36px;
+            padding: 50px 0 40px;
             border-top: 1px solid rgba(200, 190, 180, 0.015);
             border-bottom: 1px solid rgba(200, 190, 180, 0.015);
         }
@@ -323,12 +323,12 @@
         .seamless-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-            margin-top: 24px;
+            gap: 32px;
+            margin-top: 28px;
         }
 
         .seamless-item {
-            padding: 24px 18px 20px;
+            padding: 28px 20px 24px;
             border-radius: 12px;
             border: 1px solid rgba(200, 190, 180, 0.01);
             transition: all 0.8s ease;
@@ -350,9 +350,9 @@
         }
 
         .seamless-item .icon {
-            font-size: 1.6rem;
-            margin-bottom: 8px;
-            opacity: 0.12;
+            font-size: 2rem;
+            margin-bottom: 12px;
+            opacity: 0.1;
             color: #c8b8a8;
             display: block;
         }
@@ -360,15 +360,15 @@
         .seamless-item h4 {
             font-family: 'Inter', sans-serif;
             font-weight: 400;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: #e8e2dc;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             letter-spacing: 0.04em;
-            opacity: 0.8;
+            opacity: 0.85;
         }
 
         .seamless-item p {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             color: #b8b0a6;
             font-weight: 300;
             line-height: 1.7;
@@ -376,149 +376,115 @@
             opacity: 0.6;
         }
 
-        /* ===== TECHNOLOGY ===== */
-        .tech-section {
-            padding: 40px 0 36px;
+        /* ===== TECHNOLOGY DEEP DIVE ===== */
+        .tech-deep-section {
+            padding: 50px 0 40px;
             border-bottom: 1px solid rgba(200, 190, 180, 0.015);
-            background: rgba(13, 12, 10, 0.1);
+            background: rgba(13, 12, 10, 0.08);
         }
 
-        .tech-content {
-            max-width: 560px;
+        .tech-deep-content {
+            max-width: 700px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .tech-content .section-title {
+        .tech-deep-content .section-title {
             font-family: 'Inter', sans-serif;
             font-size: clamp(1.6rem, 2.5vw, 2.2rem);
             font-weight: 300;
             letter-spacing: -0.02em;
-            line-height: 1.05;
+            line-height: 1.1;
             color: #f0ece6;
-            margin-bottom: 6px;
-            opacity: 0.8;
+            margin-bottom: 12px;
+            opacity: 0.85;
         }
 
-        .tech-content .section-title .accent {
+        .tech-deep-content .section-title .accent {
             font-weight: 400;
         }
 
-        .tech-content p {
+        .tech-deep-content p {
             color: #b8b0a6;
-            font-size: 0.75rem;
-            max-width: 440px;
-            margin: 6px auto 0;
+            font-size: 0.8rem;
+            max-width: 520px;
+            margin: 0 auto 16px;
             font-weight: 300;
             letter-spacing: 0.04em;
-            line-height: 1.7;
+            line-height: 1.8;
             opacity: 0.6;
         }
 
-        .tech-badge {
-            border: 1px solid rgba(200, 190, 180, 0.015);
-            padding: 3px 20px;
-            border-radius: 60px;
-            font-size: 0.35rem;
-            letter-spacing: 0.3em;
-            color: #b8b0a6;
-            display: inline-block;
-            background: rgba(200, 190, 180, 0.005);
-            margin-bottom: 10px;
-            opacity: 0.4;
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .tech-stack {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 14px;
-            flex-wrap: wrap;
-        }
-
-        .tech-stack span {
+        .tech-stack-grid span {
             font-size: 0.5rem;
-            letter-spacing: 0.1em;
-            color: #a8a098;
-            padding: 4px 14px;
-            border: 1px solid rgba(200, 190, 180, 0.02);
+            letter-spacing: 0.08em;
+            color: #b8b0a6;
+            padding: 8px 14px;
+            border: 1px solid rgba(200, 190, 180, 0.03);
             border-radius: 40px;
-            opacity: 0.4;
+            opacity: 0.5;
+            text-align: center;
         }
 
-        /* ===== INTEGRATION ===== */
-        .integration-section {
-            padding: 40px 0 36px;
+        /* ===== EXPLORE THE RING ===== */
+        .explore-section {
+            padding: 50px 0 40px;
             border-bottom: 1px solid rgba(200, 190, 180, 0.015);
+            text-align: center;
         }
 
-        .integration-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 560px;
-            margin: 0 auto;
-        }
-
-        .integration-step {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 14px 18px;
-            border-radius: 12px;
-            border: 1px solid rgba(200, 190, 180, 0.01);
-            transition: all 0.8s ease;
-            background: rgba(20, 18, 16, 0.04);
-            opacity: 0;
-            transform: translateY(16px);
-        }
-
-        .integration-step.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .integration-step:hover {
-            border-color: rgba(200, 190, 180, 0.015);
-            background: rgba(30, 28, 26, 0.04);
-        }
-
-        .integration-step .step-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.5rem;
-            color: #b8b0a6;
-            letter-spacing: 0.15em;
-            min-width: 28px;
-            opacity: 0.3;
-        }
-
-        .integration-step .step-icon {
-            font-size: 0.9rem;
-            color: #c8b8a8;
-            opacity: 0.2;
-        }
-
-        .integration-step .step-text {
-            flex: 1;
-        }
-
-        .integration-step .step-text h4 {
+        .explore-section .explore-title {
             font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 400;
-            color: #e8e2dc;
-            letter-spacing: 0.04em;
-            margin-bottom: 1px;
+            font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+            font-weight: 300;
+            color: #f0ece6;
+            margin-bottom: 8px;
             opacity: 0.7;
         }
 
-        .integration-step .step-text p {
-            font-size: 0.6rem;
+        .explore-section .explore-title .accent {
+            font-weight: 400;
+        }
+
+        .explore-section p {
             color: #b8b0a6;
-            font-weight: 300;
-            line-height: 1.5;
-            letter-spacing: 0.03em;
+            font-size: 0.75rem;
+            max-width: 440px;
+            margin: 0 auto 20px;
             opacity: 0.5;
+        }
+
+        .explore-button {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid rgba(200, 190, 180, 0.08);
+            color: #f0ece6;
+            padding: 12px 44px;
+            border-radius: 80px;
+            font-size: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.8s ease;
+            background: rgba(200, 190, 180, 0.01);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .explore-button:hover {
+            background: rgba(200, 190, 180, 0.03);
+            border-color: rgba(200, 190, 180, 0.12);
+            transform: scale(1.005);
         }
 
         /* ===== FOOTER ===== */
@@ -548,11 +514,34 @@
 
         .footer .tagline {
             font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #c8b8a8;
             margin-top: 2px;
             letter-spacing: 0.04em;
             opacity: 0.25;
+        }
+
+        .footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer .footer-links a {
+            color: #8a827a;
+            text-decoration: none;
+            font-size: 0.4rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.6s ease;
+            opacity: 0.3;
+        }
+
+        .footer .footer-links a:hover {
+            color: #c8b8a8;
+            opacity: 0.6;
         }
 
         .footer p {
@@ -588,17 +577,17 @@
             }
             .seamless-grid {
                 grid-template-columns: 1fr;
-                gap: 14px;
+                gap: 16px;
+            }
+            .tech-stack-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
             .product-item {
                 max-width: 320px;
             }
-            .tech-stack {
-                gap: 12px;
-            }
-            .tech-stack span {
-                font-size: 0.4rem;
-                padding: 3px 12px;
+            .footer .footer-links {
+                gap: 1.2rem;
             }
         }
 
@@ -615,6 +604,16 @@
             }
             .product-item {
                 max-width: 260px;
+            }
+            .tech-stack-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .footer .footer-links {
+                gap: 0.8rem;
+            }
+            .footer .footer-links a {
+                font-size: 0.35rem;
             }
         }
 
@@ -651,17 +650,16 @@
             <div class="nav-links">
                 <a href="about.html">About</a>
                 <a href="founders.html" class="founders-link">Founder's Edition</a>
-                <a href="#seamless">Seamless</a>
-                <a href="#technology">Technology</a>
-                <a href="#integration">Integration</a>
+                <a href="#seamless">Technology</a>
+                <a href="#specs">Specs</a>
             </div>
         </header>
 
         <section class="hero">
             <div class="hero-badge">Wearable Payment · Ceramic</div>
-            <h1>Open. <span class="accent">Integrate.</span> Ready.</h1>
-            <div class="sub-line">— seamless payment, on your finger —</div>
-            <p>The ceramic ring that makes payments invisible. No charging. No pairing. Just tap and go.</p>
+            <h1>Payment, <span class="accent">Invisible.</span></h1>
+            <div class="sub-line">— the ceramic ring that redefines how you pay —</div>
+            <p>No charging. No pairing. No complexity. Just a tap. The future of payment is on your finger.</p>
             <button class="cta-button" id="ctaBtn">Explore the Ring</button>
 
             <div class="product-display">
@@ -673,86 +671,64 @@
             <div class="product-caption">HALONEX <span>·</span> ceramic · invisible payment</div>
         </section>
 
+        <!-- ===== SEAMLESS — Technology Focus ===== -->
         <section class="seamless-section reveal reveal-delay-1" id="seamless">
-            <div style="text-align: center; max-width: 500px; margin: 0 auto;">
-                <div style="font-family:'Inter',sans-serif; font-size:clamp(1.2rem,2vw,1.6rem); font-weight:300; letter-spacing:-0.02em; color:#f0ece6; opacity:0.7;">
-                    Open · <span class="accent">Integrate</span> · Ready
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <div style="font-family:'Inter',sans-serif; font-size:clamp(1.2rem,2vw,1.6rem); font-weight:300; letter-spacing:-0.02em; color:#f0ece6; opacity:0.75;">
+                    The Technology Behind <span class="accent">HALONEX</span>
                 </div>
-                <p style="color: #b8b0a6; margin-top: 4px; font-size: 0.6rem; font-weight: 300; letter-spacing: 0.08em; opacity:0.5;">The ceramic ring that works with your bank. Instantly.</p>
+                <p style="color: #b8b0a6; margin-top: 6px; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.06em; opacity:0.5;">Built for seamlessness. Engineered for reliability.</p>
             </div>
             <div class="seamless-grid">
                 <div class="seamless-item">
                     <div class="icon">◯</div>
-                    <h4>Open</h4>
-                    <p>Works with participating banks. No proprietary lock-in.</p>
+                    <h4>Payment-Grade Chip</h4>
+                    <p>Infineon secure element. Certified for Visa and Mastercard. Every transaction, protected.</p>
                 </div>
                 <div class="seamless-item">
                     <div class="icon">⟷</div>
-                    <h4>Integrate</h4>
-                    <p>Tap to your phone. Activate via your bank's prestige feature.</p>
+                    <h4>Instant Activation</h4>
+                    <p>Tap to your phone. Activate via your bank's prestige feature. No setup. No pairing.</p>
                 </div>
                 <div class="seamless-item">
                     <div class="icon">✓</div>
-                    <h4>Ready</h4>
-                    <p>Secure. Seamless. Effortless. Payment that moves with you.</p>
+                    <h4>Ready to Pay</h4>
+                    <p>No charging. No pairing. Just tap. The most seamless payment experience, anywhere.</p>
                 </div>
             </div>
         </section>
 
-        <section class="tech-section reveal reveal-delay-3" id="technology">
-            <div class="tech-content">
-                <div class="tech-badge">✦ payment technology</div>
-                <div class="section-title">Powered by <span class="accent">Digiseq</span></div>
-                <p>A UK-based TSM for Visa and Mastercard. Every transaction, protected.</p>
-                <div class="tech-stack">
-                    <span>Visa</span>
-                    <span>Mastercard</span>
-                    <span>NFC</span>
-                    <span>Digiseq</span>
+        <!-- ===== TECHNOLOGY DEEP DIVE ===== -->
+        <section class="tech-deep-section reveal reveal-delay-2" id="technology">
+            <div class="tech-deep-content">
+                <div class="section-title">Built for <span class="accent">Everyday</span> Use</div>
+                <p>HALONEX is designed to be worn 24/7. Water-resistant. Durable. Always ready. The technology is invisible — the experience is effortless.</p>
+                <div class="tech-stack-grid">
+                    <span>Infineon Secure Element</span>
+                    <span>Visa Ready</span>
+                    <span>Mastercard Certified</span>
+                    <span>IP68 Water Resistant</span>
+                    <span>NFC Powered</span>
+                    <span>Digiseq TSM</span>
                 </div>
             </div>
         </section>
 
-        <section class="integration-section reveal reveal-delay-2" id="integration">
-            <div style="text-align:center; margin-bottom:20px;">
-                <div style="font-size:0.35rem; letter-spacing:0.4em; text-transform:uppercase; color:#b8b0a6; opacity:0.2; margin-bottom:4px;">How It Works</div>
-                <div style="font-family:'Inter',sans-serif; font-size:clamp(1.4rem,2.5vw,2rem); font-weight:300; color:#f0ece6; letter-spacing:-0.02em; opacity:0.6;">
-                    From <span class="accent">Invitation</span> to <span class="accent">Activation</span>
-                </div>
-            </div>
-
-            <div class="integration-steps">
-                <div class="integration-step">
-                    <span class="step-num">— I —</span>
-                    <span class="step-icon">✉</span>
-                    <div class="step-text">
-                        <h4>Receive</h4>
-                        <p>An invitation from your bank. Personal. Exclusive.</p>
-                    </div>
-                </div>
-                <div class="integration-step">
-                    <span class="step-num">— II —</span>
-                    <span class="step-icon">✋</span>
-                    <div class="step-text">
-                        <h4>Activate</h4>
-                        <p>Tap the ring to your phone. Instantly activated.</p>
-                    </div>
-                </div>
-                <div class="integration-step">
-                    <span class="step-num">— III —</span>
-                    <span class="step-icon">✦</span>
-                    <div class="step-text">
-                        <h4>Pay</h4>
-                        <p>Tap and go. Secure. Seamless. Effortless.</p>
-                    </div>
-                </div>
-            </div>
+        <!-- ===== EXPLORE THE RING ===== -->
+        <section class="explore-section reveal reveal-delay-3" id="specs">
+            <div class="explore-title">Explore the <span class="accent">Ring</span></div>
+            <p>Discover the craftsmanship, technology, and precision behind every HALONEX ring.</p>
+            <a href="specs.html" class="explore-button">Explore the Ring</a>
         </section>
 
         <footer class="footer">
             <div class="emblem">✦</div>
             <div class="footer-logo">HALONEX <span style="color:#c8b8a8; opacity:0.2;">·</span></div>
             <p class="tagline">Wearable payment. Invisible technology.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="mailto:info@halonex.uk">Contact</a>
+            </div>
             <p>© 2026 HALONEX · Wearable Payment</p>
         </footer>
 
@@ -885,7 +861,7 @@
             if (ctaBtn) {
                 ctaBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    alert('🔗 Explore HALONEX — The ceramic payment ring.\n\nOpen. Integrate. Ready.\n\nVisit halonex.com to learn more.');
+                    window.location.href = 'specs.html';
                 });
             }
 
@@ -907,7 +883,7 @@
                 observer.observe(el);
             });
 
-            document.querySelectorAll('.seamless-item, .integration-step').forEach((el, index) => {
+            document.querySelectorAll('.seamless-item').forEach((el, index) => {
                 el.style.transition = `all 1.6s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.08 + 0.2}s`;
 
                 const itemObserver = new IntersectionObserver((entries) => {

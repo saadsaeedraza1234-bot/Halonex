@@ -4,20 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <!-- ===== SEO ===== -->
-    <title>HALONEX · About — The Wearable Payment Brand</title>
-    <meta name="description" content="HALONEX is a payment wearable brand — where fine jewelry meets invisible technology. The Founder's Edition is limited to one thousand pieces." />
+    <!-- ===== PRIMARY SEO ===== -->
+    <title>HALONEX · About — The Future of Wearable Payment</title>
+    <meta name="description" content="HALONEX is introducing the wearable payment market. The Founder's Edition is the first step — a ceramic payment ring, limited to 1000 pieces." />
+    <meta name="keywords" content="HALONEX, wearable payment, ceramic ring, contactless payment, Founder's Edition, Digiseq, Visa, Mastercard" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://halonex.uk/about.html" />
 
-    <!-- Open Graph -->
+    <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://halonex.uk/about.html" />
-    <meta property="og:title" content="HALONEX · About" />
-    <meta property="og:description" content="HALONEX is a payment wearable brand — where fine jewelry meets invisible technology." />
+    <meta property="og:title" content="HALONEX · About — The Future of Wearable Payment" />
+    <meta property="og:description" content="HALONEX is introducing the wearable payment market. The Founder's Edition is the first step." />
     <meta property="og:image" content="https://halonex.vercel.app/og-image.jpg" />
 
-    <!-- Favicon -->
+    <!-- ===== TWITTER ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://halonex.uk/about.html" />
+    <meta name="twitter:title" content="HALONEX · About — The Future of Wearable Payment" />
+    <meta name="twitter:description" content="HALONEX is introducing the wearable payment market. The Founder's Edition is the first step." />
+    <meta name="twitter:image" content="https://halonex.vercel.app/og-image.jpg" />
+
+    <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
 
@@ -263,7 +271,7 @@
         }
 
         /* ============================================================
-           ABOUT CONTENT
+           ABOUT CONTENT — Wearable Market Introduction
         ============================================================ */
         .about-content {
             padding: 8px 0 50px;
@@ -306,7 +314,7 @@
         }
 
         /* ============================================================
-           FOUNDER'S EDITION BOX
+           FOUNDER'S EDITION — First Step
         ============================================================ */
         .edition-box {
             background: rgba(20, 18, 16, 0.15);
@@ -361,18 +369,18 @@
         }
 
         /* ============================================================
-           SECURITY NOTE
+           WEARABLE MARKET — What's Coming
         ============================================================ */
-        .security-note {
+        .market-box {
             background: rgba(20, 18, 16, 0.08);
             border: 1px solid rgba(212, 168, 140, 0.01);
             border-radius: 12px;
-            padding: 16px 22px;
+            padding: 20px 24px;
             margin: 16px 0 12px;
             text-align: center;
         }
 
-        .security-note p {
+        .market-box p {
             font-size: 0.7rem;
             color: #c8c0b8;
             line-height: 1.6;
@@ -381,12 +389,15 @@
             opacity: 0.5;
         }
 
-        .security-note strong {
+        .market-box strong {
             color: #dbb8a0;
             font-weight: 400;
             opacity: 0.5;
         }
 
+        /* ============================================================
+           LOOK FORWARD
+        ============================================================ */
         .look-forward {
             text-align: center;
             margin-top: 20px;
@@ -471,14 +482,6 @@
             opacity: 0.25;
         }
 
-        .footer p {
-            color: #b0a89e;
-            font-size: 0.35rem;
-            letter-spacing: 0.15em;
-            margin-top: 6px;
-            opacity: 0.3;
-        }
-
         .footer .footer-links {
             display: flex;
             justify-content: center;
@@ -500,6 +503,14 @@
         .footer .footer-links a:hover {
             color: #c8b8a8;
             opacity: 0.6;
+        }
+
+        .footer p {
+            color: #b0a89e;
+            font-size: 0.35rem;
+            letter-spacing: 0.15em;
+            margin-top: 6px;
+            opacity: 0.3;
         }
 
         .footer .signature-line {
@@ -566,10 +577,10 @@
             .edition-box p {
                 font-size: 0.65rem;
             }
-            .security-note {
+            .market-box {
                 padding: 12px 14px;
             }
-            .security-note p {
+            .market-box p {
                 font-size: 0.6rem;
             }
             .about-content .section p {
@@ -583,6 +594,9 @@
             }
         }
 
+        /* ============================================================
+           SCROLL REVEAL
+        ============================================================ */
         .reveal {
             opacity: 0;
             transform: translateY(32px);
@@ -594,9 +608,15 @@
             transform: translateY(0);
         }
 
-        .reveal-delay-1 { transition-delay: 0.05s; }
-        .reveal-delay-2 { transition-delay: 0.1s; }
-        .reveal-delay-3 { transition-delay: 0.15s; }
+        .reveal-delay-1 {
+            transition-delay: 0.05s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.1s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.15s;
+        }
     </style>
 </head>
 <body>
@@ -626,23 +646,23 @@
         <!-- ===== ABOUT HERO ===== -->
         <section class="about-hero">
             <h1>About <span class="rose-gold-bg">HALONEX</span></h1>
-            <p class="subtitle">A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
+            <p class="subtitle">Introducing the wearable payment market. One ring at a time.</p>
         </section>
 
         <!-- ===== ABOUT CONTENT ===== -->
         <section class="about-content">
 
             <div class="section reveal reveal-delay-1">
-                <p>HALONEX is a <strong style="color:#dbb8a0; font-weight:400; opacity:0.5;">payment wearable</strong> brand — where fine jewelry meets invisible technology. The <strong style="color:#dbb8a0; font-weight:400; opacity:0.5;">Founder's Edition</strong> is our first step into the world. Limited to one thousand pieces. Never reproduced. Ever.</p>
-                <p>Each piece is a statement. A symbol of access. Those who wear it will be the first to experience everything HALONEX creates in the years ahead.</p>
+                <p>HALONEX is a <strong style="color:#dbb8a0; font-weight:400; opacity:0.5;">wearable payment</strong> brand — where fine jewelry meets invisible technology. We are introducing a new market: payment wearables that are as elegant as they are secure.</p>
+                <p>The <strong style="color:#dbb8a0; font-weight:400; opacity:0.5;">Founder's Edition</strong> is our first step. Limited to one thousand pieces. Never reproduced. Ever. It is a statement of what's to come.</p>
                 <div class="highlight">"Not something I use. Something I own."</div>
             </div>
 
-            <!-- ===== FOUNDER'S EDITION ===== -->
+            <!-- ===== FOUNDER'S EDITION — First Step ===== -->
             <div class="edition-box reveal reveal-delay-2">
                 <div class="badge">✦ first &amp; final</div>
                 <h3>Founder's Edition</h3>
-                <p>One thousand pieces. Never to be reproduced. A singular moment in time.</p>
+                <p>The first step into the wearable payment market. One thousand pieces. Never to be reproduced. A singular moment in time.</p>
                 <div class="limited">001 / 1000</div>
             </div>
 
@@ -651,9 +671,9 @@
                 <p>Powered by <strong style="color:#dbb8a0; font-weight:400; opacity:0.5;">Digiseq</strong> — a UK-based TSM for Visa and Mastercard — ensuring every transaction is protected at the highest level.</p>
             </div>
 
-            <!-- ===== SECURITY ===== -->
-            <div class="security-note reveal reveal-delay-3">
-                <p>Secure transactions, protected by <strong>Digiseq</strong> — a UK-based TSM for Visa and Mastercard.</p>
+            <!-- ===== WEARABLE MARKET — What's Coming ===== -->
+            <div class="market-box reveal reveal-delay-3">
+                <p><strong>More will follow.</strong> The Founder's Edition is just the beginning. HALONEX is building a future where payment wearables are as natural as a watch or a ring.</p>
             </div>
 
             <!-- ===== LOOK FORWARD ===== -->

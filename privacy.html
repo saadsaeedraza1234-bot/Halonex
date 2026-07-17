@@ -3,7 +3,31 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>HALONEX · Privacy Policy</title>
+
+    <!-- ===== PRIMARY SEO ===== -->
+    <title>HALONEX · Privacy Policy — No Data Storage</title>
+    <meta name="description" content="HALONEX does not store, collect, or process personal or financial data. Your payment credentials are securely managed by your bank." />
+    <meta name="keywords" content="HALONEX, privacy policy, no data storage, payment tokenization, Digiseq, secure payments" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://halonex.uk/privacy.html" />
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://halonex.uk/privacy.html" />
+    <meta property="og:title" content="HALONEX · Privacy Policy" />
+    <meta property="og:description" content="HALONEX does not store, collect, or process personal or financial data." />
+    <meta property="og:image" content="https://halonex.vercel.app/og-image.jpg" />
+
+    <!-- ===== TWITTER ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://halonex.uk/privacy.html" />
+    <meta name="twitter:title" content="HALONEX · Privacy Policy" />
+    <meta name="twitter:description" content="HALONEX does not store, collect, or process personal or financial data." />
+    <meta name="twitter:image" content="https://halonex.vercel.app/og-image.jpg" />
+
+    <!-- ===== FAVICON ===== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,7 +39,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             background: #0d0c0a;
             color: #e8e2dc;
@@ -26,17 +49,14 @@
             overflow-x: hidden;
             min-height: 100vh;
         }
-
         ::selection {
             background: rgba(200, 190, 180, 0.2);
             color: #e8e2dc;
         }
-
         .accent {
             color: #c8b8a8;
             font-weight: 400;
         }
-
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -46,7 +66,6 @@
             z-index: 0;
             pointer-events: none;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -54,7 +73,6 @@
             position: relative;
             z-index: 2;
         }
-
         .navbar {
             padding: 20px 0 16px;
             display: flex;
@@ -70,7 +88,6 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-
         .logo {
             font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
@@ -81,17 +98,14 @@
             opacity: 0;
             animation: logoFade 2.5s ease forwards;
         }
-
         @keyframes logoFade {
             0% { opacity: 0; }
             100% { opacity: 0.85; }
         }
-
         .logo .dot {
             color: #c8b8a8;
             opacity: 0.5;
         }
-
         .nav-links {
             display: flex;
             gap: 2.8rem;
@@ -102,7 +116,6 @@
             color: #b8b0a6;
             flex-wrap: wrap;
         }
-
         .nav-links a {
             color: inherit;
             text-decoration: none;
@@ -110,7 +123,6 @@
             position: relative;
             padding-bottom: 3px;
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -122,28 +134,22 @@
             transition: width 0.6s ease;
             opacity: 0.4;
         }
-
         .nav-links a:hover::after {
             width: 100%;
         }
-
         .nav-links a:hover {
             color: #c8b8a8;
         }
-
         .nav-links a.active {
             color: #c8b8a8;
         }
-
         .nav-links a.active::after {
             width: 100%;
         }
-
         .privacy-hero {
             padding: 40px 0 30px;
             text-align: center;
         }
-
         .privacy-hero h1 {
             font-family: 'Inter', sans-serif;
             font-size: clamp(2rem, 4vw, 3rem);
@@ -153,11 +159,9 @@
             margin-bottom: 8px;
             opacity: 0.85;
         }
-
         .privacy-hero h1 .accent {
             font-weight: 400;
         }
-
         .privacy-hero p {
             color: #b8b0a6;
             font-size: 0.8rem;
@@ -166,12 +170,10 @@
             opacity: 0.5;
             letter-spacing: 0.04em;
         }
-
         .privacy-content {
             max-width: 720px;
             margin: 0 auto 50px;
         }
-
         .privacy-content .section {
             margin-bottom: 28px;
             padding: 20px 24px;
@@ -180,12 +182,10 @@
             background: rgba(20, 18, 16, 0.03);
             transition: all 0.6s ease;
         }
-
         .privacy-content .section:hover {
             border-color: rgba(200, 190, 180, 0.015);
             background: rgba(30, 28, 26, 0.03);
         }
-
         .privacy-content .section h4 {
             font-family: 'Inter', sans-serif;
             font-size: 0.85rem;
@@ -195,7 +195,6 @@
             letter-spacing: 0.02em;
             opacity: 0.85;
         }
-
         .privacy-content .section p {
             font-size: 0.7rem;
             color: #b8b0a6;
@@ -203,13 +202,11 @@
             opacity: 0.6;
             letter-spacing: 0.02em;
         }
-
         .privacy-content .section p strong {
             color: #c8b8a8;
             font-weight: 400;
             opacity: 0.7;
         }
-
         .back-link {
             display: inline-block;
             margin-top: 12px;
@@ -223,20 +220,17 @@
             padding-bottom: 4px;
             opacity: 0.3;
         }
-
         .back-link:hover {
             color: #c8b8a8;
             border-bottom-color: rgba(200, 190, 180, 0.1);
             opacity: 0.6;
         }
-
         .footer {
             padding: 32px 0 24px;
             text-align: center;
             border-top: 1px solid rgba(200, 190, 180, 0.01);
             background: rgba(13, 12, 10, 0.05);
         }
-
         .footer .footer-logo {
             font-family: 'Inter', sans-serif;
             font-size: 0.6rem;
@@ -245,7 +239,6 @@
             color: #d4c8bc;
             opacity: 0.3;
         }
-
         .footer .footer-links {
             display: flex;
             justify-content: center;
@@ -253,7 +246,6 @@
             margin-top: 8px;
             flex-wrap: wrap;
         }
-
         .footer .footer-links a {
             color: #8a827a;
             text-decoration: none;
@@ -263,12 +255,10 @@
             transition: color 0.6s ease;
             opacity: 0.3;
         }
-
         .footer .footer-links a:hover {
             color: #c8b8a8;
             opacity: 0.6;
         }
-
         .footer p {
             color: #a8a098;
             font-size: 0.35rem;
@@ -295,8 +285,10 @@
             .privacy-content .section {
                 padding: 16px 18px;
             }
+            .footer .footer-links {
+                gap: 1.2rem;
+            }
         }
-
         @media (max-width: 480px) {
             .container {
                 padding: 0 16px;
@@ -315,13 +307,11 @@
                 font-size: 0.35rem;
             }
         }
-
         .reveal {
             opacity: 0;
             transform: translateY(32px);
             transition: all 1.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
-
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
@@ -400,7 +390,6 @@
 
     <script>
         (function() {
-
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
@@ -426,16 +415,13 @@
                     this.wobble = Math.random() * Math.PI * 2;
                     this.wobbleSpeed = 0.005 + Math.random() * 0.006;
                 }
-
                 update() {
                     this.wobble += this.wobbleSpeed;
                     this.x += this.speedX + Math.sin(this.wobble) * 0.06;
                     this.y += this.speedY + Math.cos(this.wobble * 0.7) * 0.06;
-
                     const dx = this.x - mouseX;
                     const dy = this.y - mouseY;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-
                     if (dist < 120) {
                         const force = (120 - dist) / 120;
                         this.x += (dx / dist) * force * 0.2;
@@ -444,46 +430,35 @@
                     } else {
                         this.targetOpacity = Math.random() * 0.08 + 0.03;
                     }
-
                     if (this.x < -10) this.x = canvas.width + 10;
                     if (this.x > canvas.width + 10) this.x = -10;
                     if (this.y < -10) this.y = canvas.height + 10;
                     if (this.y > canvas.height + 10) this.y = -10;
-
                     this.opacity += (this.targetOpacity - this.opacity) * 0.008;
                 }
-
                 draw() {
-                    const gradient = ctx.createRadialGradient(
-                        this.x, this.y, 0,
-                        this.x, this.y, this.size * 3
-                    );
+                    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 3);
                     gradient.addColorStop(0, `rgba(200, 190, 180, ${this.opacity * 0.5})`);
                     gradient.addColorStop(0.5, `rgba(200, 190, 180, ${this.opacity * 0.12})`);
                     gradient.addColorStop(1, `rgba(200, 190, 180, 0)`);
-
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
                     ctx.fillStyle = gradient;
                     ctx.fill();
-
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size * 0.5, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(200, 190, 180, ${this.opacity * 0.7})`;
                     ctx.fill();
                 }
             }
-
             const particleCount = Math.min(55, Math.floor(window.innerWidth / 12));
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
             }
-
             document.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
             });
-
             document.addEventListener('touchmove', (e) => {
                 if (e.touches.length > 0) {
                     mouseX = e.touches[0].clientX;
@@ -493,11 +468,8 @@
 
             function animateParticles() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
-
+                particles.forEach(p => { p.update();
+                    p.draw(); });
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
@@ -514,27 +486,19 @@
                         }
                     }
                 }
-
                 requestAnimationFrame(animateParticles);
             }
             animateParticles();
 
             const revealElements = document.querySelectorAll('.reveal');
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -40px 0px'
-            });
-
-            revealElements.forEach(el => {
-                observer.observe(el);
-            });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            revealElements.forEach(el => { observer.observe(el); });
 
         })();
     </script>

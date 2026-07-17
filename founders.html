@@ -8,7 +8,7 @@
     <title>HALONEX · Founder's Edition — Limited to 1000 Pieces</title>
     <meta name="description" content="The HALONEX Founder's Edition — limited to 1000 pieces. A ceramic payment wearable crafted as jewelry. Never to be reproduced." />
     <meta name="keywords" content="HALONEX, Founder's Edition, limited edition, ceramic ring, payment ring, luxury wearable, Digiseq, Visa, Mastercard" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="https://halonex.uk/founders.html" />
 
     <!-- ===== OPEN GRAPH ===== -->
@@ -356,26 +356,12 @@
             opacity: 0.5;
         }
 
-        /* ===== FOUNDER ===== */
+        /* ===== FOUNDER — Updated (Removed Pakistan/World) ===== */
         .founder-section {
             margin: 14px 0 6px;
             text-align: center;
             animation: fadeIn 3s 1.8s ease forwards;
             opacity: 0;
-        }
-        .founder-vision {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: clamp(0.8rem, 1.1vw, 1rem);
-            color: #d4c8bc;
-            letter-spacing: 0.04em;
-            opacity: 0.6;
-            margin-bottom: 4px;
-            line-height: 1.5;
-        }
-        .founder-vision span {
-            color: #dbb8a0;
-            opacity: 0.6;
         }
         .founder-label {
             font-size: 0.35rem;
@@ -964,11 +950,35 @@
 </head>
 <body>
 
+    <!-- ===== PASSWORD PROTECTION ===== -->
+    <script>
+        (function() {
+            var password = "halonex2026";
+            var userInput = prompt("This page is private. Please enter the password:");
+            
+            if (userInput !== password) {
+                document.body.innerHTML = `
+                    <div style="display:flex; align-items:center; justify-content:center; height:100vh; background:#0a0908; color:#d4a88c; font-family:'Playfair Display',serif; text-align:center; padding:20px;">
+                        <div>
+                            <div style="font-size:2.5rem; margin-bottom:12px;">✦</div>
+                            <div style="font-size:1.5rem; color:#d4a88c; margin-bottom:6px;">Private Access</div>
+                            <p style="color:#8a827a; font-size:0.8rem; max-width:320px; margin:0 auto;">This page is restricted. Please contact the founder for access.</p>
+                        </div>
+                    </div>
+                `;
+                document.body.style.background = "#0a0908";
+                document.body.style.margin = "0";
+            }
+        })();
+    </script>
+
+    <!-- ===== PARTICLES ===== -->
     <canvas id="particle-canvas"></canvas>
     <div class="glow-overlay" id="glowOverlay"></div>
 
     <div class="container">
 
+        <!-- ===== NAVBAR ===== -->
         <header class="navbar">
             <div class="logo">HALONEX <span class="rose">·</span></div>
             <div class="nav-links">
@@ -982,6 +992,7 @@
             </div>
         </header>
 
+        <!-- ===== HERO ===== -->
         <section class="hero">
             <div class="hero-badge">Founder's Edition · 001/1000</div>
             <h1>THE FUTURE, <span class="rose-gold-bg">REFINED.</span></h1>
@@ -998,15 +1009,13 @@
 
             <div class="box-caption">HALONEX <span>·</span> Founder's Edition · ceramic · invisible payment</div>
 
+            <!-- ===== FOUNDER — Updated (Removed Pakistan/World) ===== -->
             <div class="founder-section">
-                <div class="founder-vision">
-                    Conceived in <span>Pakistan</span>.<br />
-                    Engineered for the <span>world</span>.
-                </div>
                 <div class="founder-label">Founder</div>
                 <div class="founder-name">Saad Saeed</div>
             </div>
 
+            <!-- ===== SCARCITY ===== -->
             <div class="scarcity-mark">
                 <div class="divider"></div>
                 <p><strong>001 / 1000</strong> — never to be reproduced</p>
@@ -1122,6 +1131,9 @@
         </div>
     </div>
 
+    <!-- ============================================================
+       JAVASCRIPT — Particles + Glow + Scroll Reveal
+    ============================================================ -->
     <script>
         (function() {
             const canvas = document.getElementById('particle-canvas');
@@ -1231,6 +1243,7 @@
             }
             animateParticles();
 
+            // ===== GLOW =====
             const glow = document.getElementById('glowOverlay');
             const glowObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1255,6 +1268,7 @@
                 heroGlowObserver.observe(heroSection);
             }
 
+            // ===== MODAL =====
             const modal = document.getElementById('accessModal');
             const ctaBtn = document.getElementById('ctaBtn');
             const closeBtn = document.getElementById('modalClose');
@@ -1277,6 +1291,7 @@
                 if (e.key === 'Escape') { closeModal(); }
             });
 
+            // ===== SCROLL REVEAL =====
             const revealElements = document.querySelectorAll('.reveal');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {

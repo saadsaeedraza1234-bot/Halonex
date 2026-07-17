@@ -3,22 +3,42 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>HALONEX · Founder's Edition</title>
+
+    <!-- ===== PRIMARY SEO ===== -->
+    <title>HALONEX · Founder's Edition — Limited to 1000 Pieces</title>
+    <meta name="description" content="The HALONEX Founder's Edition — limited to 1000 pieces. A ceramic payment wearable crafted as jewelry. Never to be reproduced." />
+    <meta name="keywords" content="HALONEX, Founder's Edition, limited edition, ceramic ring, payment ring, luxury wearable, Digiseq, Visa, Mastercard" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://halonex.uk/founders.html" />
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://halonex.uk/founders.html" />
+    <meta property="og:title" content="HALONEX · Founder's Edition — Limited to 1000" />
+    <meta property="og:description" content="The HALONEX Founder's Edition — limited to 1000 pieces. A ceramic payment wearable crafted as jewelry." />
+    <meta property="og:image" content="https://halonex.vercel.app/og-image.jpg" />
+
+    <!-- ===== TWITTER ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://halonex.uk/founders.html" />
+    <meta name="twitter:title" content="HALONEX · Founder's Edition" />
+    <meta name="twitter:description" content="The HALONEX Founder's Edition — limited to 1000 pieces. Never to be reproduced." />
+    <meta name="twitter:image" content="https://halonex.vercel.app/og-image.jpg" />
+
+    <!-- ===== FAVICON ===== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
 
     <style>
-        /* ============================================================
-           LUXURY BOX — Founder's Edition
-        ============================================================ */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             background: #0a0908;
             color: #ece6de;
@@ -29,16 +49,13 @@
             overflow-x: hidden;
             min-height: 100vh;
         }
-
         ::selection {
             background: rgba(212, 168, 140, 0.25);
             color: #ece6de;
         }
-
         .rose-gold {
             color: #dbb8a0;
         }
-
         .rose-gold-bg {
             background: linear-gradient(135deg, #dbb8a0, #e8c8b0, #dbb8a0);
             background-size: 200% 200%;
@@ -47,19 +64,15 @@
             background-clip: text;
             animation: roseShimmer 8s ease-in-out infinite alternate;
         }
-
         @keyframes roseShimmer {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
-
         .signature {
             font-family: 'Great Vibes', cursive;
             font-weight: 400;
             letter-spacing: 0.02em;
         }
-
-        /* ===== PARTICLES — Brighter Gold Dust ===== */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -69,8 +82,6 @@
             z-index: 0;
             pointer-events: none;
         }
-
-        /* ===== ARCHITECTURAL GLOW ===== */
         .glow-overlay {
             position: fixed;
             top: 0;
@@ -83,11 +94,9 @@
             transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
             opacity: 0;
         }
-
         .glow-overlay.visible {
             opacity: 1;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -95,10 +104,6 @@
             position: relative;
             z-index: 2;
         }
-
-        /* ============================================================
-           NAVBAR — With Home Icon + Back Link
-        ============================================================ */
         .navbar {
             padding: 20px 0 16px;
             display: flex;
@@ -114,7 +119,6 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 1rem;
@@ -125,17 +129,14 @@
             opacity: 0;
             animation: logoFade 3s ease forwards;
         }
-
         @keyframes logoFade {
             0% { opacity: 0; }
             100% { opacity: 0.85; }
         }
-
         .logo .rose {
             color: #dbb8a0;
             opacity: 0.7;
         }
-
         .nav-links {
             display: flex;
             gap: 2.8rem;
@@ -147,7 +148,6 @@
             align-items: center;
             flex-wrap: wrap;
         }
-
         .nav-links a {
             color: inherit;
             text-decoration: none;
@@ -155,7 +155,6 @@
             position: relative;
             padding-bottom: 3px;
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -167,23 +166,18 @@
             transition: width 0.8s ease;
             opacity: 0.4;
         }
-
         .nav-links a:hover::after {
             width: 100%;
         }
-
         .nav-links a:hover {
             color: #dbb8a0;
         }
-
         .nav-links a.active {
             color: #dbb8a0;
         }
-
         .nav-links a.active::after {
             width: 100%;
         }
-
         .nav-links .home-link {
             display: flex;
             align-items: center;
@@ -194,24 +188,17 @@
             opacity: 0.5;
             transition: all 0.6s ease;
         }
-
         .nav-links .home-link:hover {
             color: #dbb8a0;
             opacity: 1;
         }
-
         .nav-links .home-link .home-icon {
             font-size: 0.9rem;
             line-height: 1;
         }
-
         .nav-links .home-link::after {
             display: none;
         }
-
-        /* ============================================================
-           HERO — The Box, The Ceremony
-        ============================================================ */
         .hero {
             padding: 40px 0 20px;
             display: flex;
@@ -221,7 +208,6 @@
             min-height: 80vh;
             justify-content: center;
         }
-
         .hero-badge {
             border: 1px solid rgba(212, 168, 140, 0.04);
             padding: 4px 24px;
@@ -235,7 +221,6 @@
             animation: fadeIn 2.8s 0.3s ease forwards;
             opacity: 0;
         }
-
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(2.8rem, 9vw, 5.5rem);
@@ -247,11 +232,9 @@
             animation: fadeIn 3.2s 0.5s ease forwards;
             opacity: 0;
         }
-
         .hero h1 .rose-gold-bg {
             font-weight: 500;
         }
-
         .hero .sub-line {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -262,7 +245,6 @@
             animation: fadeIn 2.8s 0.7s ease forwards;
             opacity: 0;
         }
-
         .hero p {
             font-size: clamp(0.85rem, 1.1vw, 1.05rem);
             max-width: 440px;
@@ -274,7 +256,6 @@
             animation: fadeIn 2.8s 0.9s ease forwards;
             opacity: 0;
         }
-
         .cta-button {
             display: inline-block;
             background: transparent;
@@ -292,21 +273,15 @@
             animation: fadeIn 2.8s 1.1s ease forwards;
             opacity: 0;
         }
-
         .cta-button:hover {
             background: rgba(212, 168, 140, 0.03);
             border-color: rgba(212, 168, 140, 0.15);
             transform: scale(1.005);
         }
-
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-
-        /* ============================================================
-           THE BOX — Museum-Quality Presentation
-        ============================================================ */
         .box-display {
             margin: 28px 0 8px;
             display: flex;
@@ -316,7 +291,6 @@
             opacity: 0;
             width: 100%;
         }
-
         .box-item {
             max-width: 440px;
             width: 100%;
@@ -330,8 +304,6 @@
             background: transparent;
             transition: all 1s ease;
         }
-
-        /* Copper glow that breathes */
         .box-item::after {
             content: '';
             position: absolute;
@@ -342,13 +314,11 @@
             z-index: 0;
             animation: copperGlow 6s ease-in-out infinite alternate;
         }
-
         @keyframes copperGlow {
             0% { opacity: 0.06; transform: scale(0.98); }
             50% { opacity: 0.16; transform: scale(1); }
             100% { opacity: 0.06; transform: scale(1.02); }
         }
-
         .box-item img {
             width: 100%;
             height: 100%;
@@ -361,11 +331,9 @@
             transition: all 1.2s ease;
             border-radius: 12px;
         }
-
         .box-item:hover img {
             transform: scale(1.005);
         }
-
         .box-caption {
             text-align: center;
             margin-top: 8px;
@@ -376,22 +344,16 @@
             animation: fadeIn 2.8s 1.6s ease forwards;
             opacity: 0;
         }
-
         .box-caption span {
             color: #dbb8a0;
             opacity: 0.5;
         }
-
-        /* ============================================================
-           FOUNDER — Vision-First
-        ============================================================ */
         .founder-section {
             margin: 14px 0 6px;
             text-align: center;
             animation: fadeIn 3s 1.8s ease forwards;
             opacity: 0;
         }
-
         .founder-vision {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -402,12 +364,10 @@
             margin-bottom: 4px;
             line-height: 1.5;
         }
-
         .founder-vision span {
             color: #dbb8a0;
             opacity: 0.6;
         }
-
         .founder-label {
             font-size: 0.35rem;
             letter-spacing: 0.4em;
@@ -416,7 +376,6 @@
             opacity: 0.4;
             margin-top: 2px;
         }
-
         .founder-name {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(0.9rem, 1.2vw, 1.1rem);
@@ -424,24 +383,18 @@
             letter-spacing: 0.04em;
             opacity: 0.5;
         }
-
-        /* ============================================================
-           SCARCITY — Ceremonial
-        ============================================================ */
         .scarcity-mark {
             text-align: center;
             padding: 8px 0 4px;
             animation: fadeIn 3s 2s ease forwards;
             opacity: 0;
         }
-
         .scarcity-mark .divider {
             width: 32px;
             height: 1px;
             background: rgba(212, 168, 140, 0.06);
             margin: 0 auto 8px;
         }
-
         .scarcity-mark p {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -450,29 +403,22 @@
             letter-spacing: 0.1em;
             opacity: 0.5;
         }
-
         .scarcity-mark p strong {
             color: #dbb8a0;
             font-weight: 400;
             opacity: 0.5;
         }
-
-        /* ============================================================
-           CRAFT — Each Card Has Its Own Identity
-        ============================================================ */
         .craft-section {
             padding: 40px 0 36px;
             border-top: 1px solid rgba(212, 168, 140, 0.015);
             border-bottom: 1px solid rgba(212, 168, 140, 0.015);
         }
-
         .craft-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 28px;
             margin-top: 24px;
         }
-
         .craft-item {
             padding: 24px 18px 20px;
             border-radius: 12px;
@@ -485,18 +431,15 @@
             opacity: 0;
             transform: translateY(20px);
         }
-
         .craft-item.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
         .craft-item:hover {
             border-color: rgba(212, 168, 140, 0.015);
             background: rgba(30, 28, 26, 0.08);
             transform: translateY(-2px);
         }
-
         .craft-item .icon {
             font-size: 1.8rem;
             margin-bottom: 8px;
@@ -504,7 +447,6 @@
             color: #dbb8a0;
             display: block;
         }
-
         .craft-item h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
@@ -514,7 +456,6 @@
             letter-spacing: 0.06em;
             opacity: 0.8;
         }
-
         .craft-item p {
             font-size: 0.6rem;
             color: #c8c0b8;
@@ -523,7 +464,6 @@
             letter-spacing: 0.04em;
             opacity: 0.6;
         }
-
         .craft-item:nth-child(1) .icon {
             font-size: 2.2rem;
             opacity: 0.08;
@@ -538,7 +478,6 @@
             opacity: 0.015;
             transform: rotate(15deg);
         }
-
         .craft-item:nth-child(2) .icon {
             font-size: 1.6rem;
             opacity: 0.08;
@@ -552,13 +491,11 @@
             color: #dbb8a0;
             opacity: 0.012;
         }
-
         .craft-item:nth-child(3) .icon {
             font-size: 1.6rem;
             opacity: 0.1;
             animation: chipGlow 4s ease-in-out infinite alternate;
         }
-
         @keyframes chipGlow {
             0% { opacity: 0.05; filter: blur(0px); }
             50% { opacity: 0.15; filter: blur(1px); }
@@ -574,16 +511,11 @@
             color: #dbb8a0;
             opacity: 0.01;
         }
-
-        /* ============================================================
-           EXPERIENCE — The Movement
-        ============================================================ */
         .experience-section {
             padding: 40px 0 36px;
             border-bottom: 1px solid rgba(212, 168, 140, 0.015);
             background: rgba(10, 9, 8, 0.15);
         }
-
         .experience-steps {
             display: flex;
             flex-direction: column;
@@ -591,7 +523,6 @@
             max-width: 560px;
             margin: 0 auto;
         }
-
         .exp-step {
             display: flex;
             align-items: center;
@@ -604,17 +535,14 @@
             opacity: 0;
             transform: translateY(16px);
         }
-
         .exp-step.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
         .exp-step:hover {
             border-color: rgba(212, 168, 140, 0.015);
             background: rgba(30, 28, 26, 0.04);
         }
-
         .exp-step .step-num {
             font-family: 'Playfair Display', serif;
             font-size: 0.5rem;
@@ -623,7 +551,6 @@
             min-width: 28px;
             opacity: 0.35;
         }
-
         .exp-step .step-icon {
             width: 36px;
             height: 36px;
@@ -637,11 +564,9 @@
             color: #dbb8a0;
             opacity: 0.25;
         }
-
         .exp-step .step-text {
             flex: 1;
         }
-
         .exp-step .step-text h4 {
             font-family: 'Playfair Display', serif;
             font-size: 0.8rem;
@@ -651,7 +576,6 @@
             margin-bottom: 1px;
             opacity: 0.75;
         }
-
         .exp-step .step-text p {
             font-size: 0.6rem;
             color: #c8c0b8;
@@ -660,22 +584,16 @@
             letter-spacing: 0.03em;
             opacity: 0.5;
         }
-
-        /* ============================================================
-           SECURITY
-        ============================================================ */
         .security-section {
             padding: 40px 0 36px;
             border-bottom: 1px solid rgba(212, 168, 140, 0.015);
             background: rgba(10, 9, 8, 0.1);
         }
-
         .security-content {
             max-width: 560px;
             margin: 0 auto;
             text-align: center;
         }
-
         .security-content .section-title {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.8rem, 3vw, 2.4rem);
@@ -686,11 +604,9 @@
             margin-bottom: 6px;
             opacity: 0.85;
         }
-
         .security-content .section-title .rose-gold-bg {
             font-weight: 500;
         }
-
         .security-content p {
             color: #c8c0b8;
             font-size: 0.75rem;
@@ -701,7 +617,6 @@
             line-height: 1.7;
             opacity: 0.6;
         }
-
         .security-badge {
             border: 1px solid rgba(212, 168, 140, 0.015);
             padding: 3px 20px;
@@ -714,22 +629,16 @@
             margin-bottom: 10px;
             opacity: 0.4;
         }
-
-        /* ============================================================
-           TEASER
-        ============================================================ */
         .teaser-section {
             padding: 28px 0 20px;
             text-align: center;
         }
-
         .teaser-section .divider {
             width: 32px;
             height: 1px;
             background: rgba(212, 168, 140, 0.02);
             margin: 0 auto 12px;
         }
-
         .teaser-section p {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -738,22 +647,16 @@
             letter-spacing: 0.06em;
             opacity: 0.4;
         }
-
         .teaser-section p .rose-gold-bg {
             font-style: normal;
             font-weight: 400;
         }
-
-        /* ============================================================
-           FOOTER
-        ============================================================ */
         .footer {
             padding: 32px 0 24px;
             text-align: center;
             border-top: 1px solid rgba(212, 168, 140, 0.01);
             background: rgba(10, 9, 8, 0.1);
         }
-
         .footer .emblem {
             font-size: 1rem;
             color: #dbb8a0;
@@ -761,7 +664,6 @@
             letter-spacing: 0.3em;
             margin-bottom: 6px;
         }
-
         .footer .footer-logo {
             font-family: 'Playfair Display', serif;
             font-size: 0.7rem;
@@ -770,7 +672,6 @@
             color: #d4c8bc;
             opacity: 0.35;
         }
-
         .footer .tagline {
             font-family: 'Great Vibes', cursive;
             font-size: 0.9rem;
@@ -779,7 +680,6 @@
             letter-spacing: 0.04em;
             opacity: 0.35;
         }
-
         .footer .credit {
             font-family: 'Great Vibes', cursive;
             font-size: 0.55rem;
@@ -788,7 +688,26 @@
             letter-spacing: 0.04em;
             opacity: 0.25;
         }
-
+        .footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .footer .footer-links a {
+            color: #8a827a;
+            text-decoration: none;
+            font-size: 0.4rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.6s ease;
+            opacity: 0.3;
+        }
+        .footer .footer-links a:hover {
+            color: #c8b8a8;
+            opacity: 0.6;
+        }
         .footer p {
             color: #b0a89e;
             font-size: 0.35rem;
@@ -796,7 +715,6 @@
             margin-top: 6px;
             opacity: 0.3;
         }
-
         .footer .signature-line {
             font-family: 'Great Vibes', cursive;
             font-size: 0.45rem;
@@ -805,10 +723,6 @@
             letter-spacing: 0.06em;
             opacity: 0.25;
         }
-
-        /* ============================================================
-           MODAL — Anticipation
-        ============================================================ */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -823,11 +737,9 @@
             justify-content: center;
             padding: 24px;
         }
-
         .modal-overlay.active {
             display: flex;
         }
-
         .modal-content {
             max-width: 420px;
             width: 100%;
@@ -840,12 +752,10 @@
             position: relative;
             animation: modalAppear 1.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
         }
-
         @keyframes modalAppear {
             0% { opacity: 0; transform: scale(0.96) translateY(12px); }
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
-
         .modal-content .gold-letter {
             font-family: 'Great Vibes', cursive;
             font-size: 2rem;
@@ -854,7 +764,6 @@
             margin-bottom: 2px;
             opacity: 0.5;
         }
-
         .modal-content .gold-letter-sub {
             font-size: 0.45rem;
             font-weight: 400;
@@ -864,7 +773,6 @@
             margin-bottom: 10px;
             opacity: 0.3;
         }
-
         .modal-content .divider {
             width: 32px;
             height: 1px;
@@ -872,7 +780,6 @@
             margin: 8px auto 12px;
             opacity: 0.06;
         }
-
         .modal-content p {
             color: #d4c8bc;
             font-size: 0.8rem;
@@ -882,13 +789,11 @@
             letter-spacing: 0.03em;
             opacity: 0.7;
         }
-
         .modal-content p strong {
             color: #dbb8a0;
             font-weight: 400;
             opacity: 0.5;
         }
-
         .modal-content .anticipation {
             font-size: 0.65rem;
             color: #c8c0b8;
@@ -897,7 +802,6 @@
             opacity: 0.4;
             font-style: italic;
         }
-
         .modal-content .bank-name {
             font-family: 'Playfair Display', serif;
             font-size: 0.55rem;
@@ -907,7 +811,6 @@
             margin-top: 12px;
             opacity: 0.1;
         }
-
         .modal-close {
             position: absolute;
             top: 14px;
@@ -921,15 +824,11 @@
             font-family: 'Inter', sans-serif;
             opacity: 0.2;
         }
-
         .modal-close:hover {
             color: #dbb8a0;
             opacity: 0.4;
         }
 
-        /* ============================================================
-           RESPONSIVE
-        ============================================================ */
         @media (max-width: 768px) {
             .container {
                 padding: 0 24px;
@@ -944,9 +843,6 @@
                 gap: 1.2rem;
                 font-size: 0.4rem;
                 justify-content: center;
-            }
-            .nav-links .home-link {
-                font-size: 0.4rem;
             }
             .hero {
                 padding: 30px 0 16px;
@@ -974,8 +870,10 @@
             .modal-content {
                 padding: 32px 24px 20px;
             }
+            .footer .footer-links {
+                gap: 1.2rem;
+            }
         }
-
         @media (max-width: 480px) {
             .container {
                 padding: 0 16px;
@@ -986,12 +884,6 @@
             .nav-links {
                 gap: 0.8rem;
                 font-size: 0.35rem;
-            }
-            .nav-links .home-link {
-                font-size: 0.35rem;
-            }
-            .nav-links .home-link .home-icon {
-                font-size: 0.7rem;
             }
             .box-item {
                 max-width: 280px;
@@ -1017,22 +909,22 @@
             .modal-content .gold-letter {
                 font-size: 1.6rem;
             }
+            .footer .footer-links {
+                gap: 0.8rem;
+            }
+            .footer .footer-links a {
+                font-size: 0.35rem;
+            }
         }
-
-        /* ============================================================
-           SCROLL REVEAL
-        ============================================================ */
         .reveal {
             opacity: 0;
             transform: translateY(32px);
             transition: all 1.8s cubic-bezier(0.23, 1, 0.32, 1);
         }
-
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
         .reveal-delay-1 {
             transition-delay: 0.05s;
         }
@@ -1046,28 +938,24 @@
 </head>
 <body>
 
-    <!-- ===== PARTICLES ===== -->
     <canvas id="particle-canvas"></canvas>
-
-    <!-- ===== ARCHITECTURAL GLOW ===== -->
     <div class="glow-overlay" id="glowOverlay"></div>
 
     <div class="container">
 
-        <!-- ===== NAVBAR — With Home Icon + Back Link ===== -->
         <header class="navbar">
             <div class="logo">HALONEX <span class="rose">·</span></div>
             <div class="nav-links">
                 <a href="index.html" class="home-link">
                     <span class="home-icon">⌂</span>
-                    <span>Back to Home</span>
+                    <span>Home</span>
                 </a>
                 <a href="about.html">About</a>
                 <a href="#" class="active">Founder's Edition</a>
+                <a href="specs.html">Specs</a>
             </div>
         </header>
 
-        <!-- ===== HERO ===== -->
         <section class="hero">
             <div class="hero-badge">Founder's Edition · 001/1000</div>
             <h1>THE FUTURE, <span class="rose-gold-bg">REFINED.</span></h1>
@@ -1075,16 +963,14 @@
             <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
             <button class="cta-button" id="ctaBtn">Request Private Access</button>
 
-            <!-- ===== THE BOX — packaging.webp from Vercel ===== -->
             <div class="box-display">
                 <div class="box-item">
-                    <img src="ring.webp" alt="HALONEX Founder's Edition Box" />
+                    <img src="https://halonex.vercel.app/packaging.webp" alt="HALONEX Founder's Edition Box" />
                 </div>
             </div>
 
             <div class="box-caption">HALONEX <span>·</span> Founder's Edition · ceramic · invisible payment</div>
 
-            <!-- ===== FOUNDER ===== -->
             <div class="founder-section">
                 <div class="founder-vision">
                     Conceived in <span>Pakistan</span>.<br />
@@ -1094,16 +980,12 @@
                 <div class="founder-name">Saad Saeed</div>
             </div>
 
-            <!-- ===== SCARCITY ===== -->
             <div class="scarcity-mark">
                 <div class="divider"></div>
                 <p><strong>001 / 1000</strong> — never to be reproduced</p>
             </div>
         </section>
 
-        <!-- ============================================================
-           CRAFT
-        ============================================================ -->
         <section class="craft-section reveal reveal-delay-1" id="craft">
             <div style="text-align: center; max-width: 500px; margin: 0 auto;">
                 <div style="font-family:'Playfair Display',serif; font-size:clamp(1.2rem,2vw,1.6rem); font-weight:400; letter-spacing:-0.02em; color:#f5f0ea; opacity:0.75;">
@@ -1130,9 +1012,6 @@
             </div>
         </section>
 
-        <!-- ============================================================
-           EXPERIENCE
-        ============================================================ -->
         <section class="experience-section" id="experience">
             <div style="text-align:center; margin-bottom:20px;">
                 <div style="font-size:0.35rem; letter-spacing:0.4em; text-transform:uppercase; color:#c8c0b8; opacity:0.25; margin-bottom:4px;">The Movement</div>
@@ -1169,9 +1048,6 @@
             </div>
         </section>
 
-        <!-- ============================================================
-           SECURITY
-        ============================================================ -->
         <section class="security-section reveal reveal-delay-3" id="security">
             <div class="security-content">
                 <div class="security-badge">✦ vault-grade security</div>
@@ -1180,27 +1056,26 @@
             </div>
         </section>
 
-        <!-- ===== TEASER ===== -->
         <section class="teaser-section reveal">
             <div class="divider"></div>
             <p>This is only the beginning. <span class="rose-gold-bg">More will follow.</span></p>
         </section>
 
-        <!-- ===== FOOTER ===== -->
         <footer class="footer">
             <div class="emblem">✦</div>
             <div class="footer-logo">HALONEX <span style="color:#dbb8a0; opacity:0.25;">·</span></div>
             <p class="tagline">Luxury that moves with you.</p>
             <p class="credit">— Saad Saeed —</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="mailto:info@halonex.uk">Contact</a>
+            </div>
             <p>© 2026 HALONEX · Private Collection</p>
             <p class="signature-line">not something i use · something i own</p>
         </footer>
 
     </div>
 
-    <!-- ============================================================
-       MODAL
-    ============================================================ -->
     <div class="modal-overlay" id="accessModal">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">✕</button>
@@ -1214,15 +1089,8 @@
         </div>
     </div>
 
-    <!-- ============================================================
-       JAVASCRIPT — Luxury Particles + Glow
-    ============================================================ -->
     <script>
         (function() {
-
-            // ============================================================
-            // 1. GOLD DUST PARTICLES — Brighter, Luxury
-            // ============================================================
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
@@ -1248,16 +1116,13 @@
                     this.wobble = Math.random() * Math.PI * 2;
                     this.wobbleSpeed = 0.005 + Math.random() * 0.008;
                 }
-
                 update() {
                     this.wobble += this.wobbleSpeed;
                     this.x += this.speedX + Math.sin(this.wobble) * 0.1;
                     this.y += this.speedY + Math.cos(this.wobble * 0.7) * 0.1;
-
                     const dx = this.x - mouseX;
                     const dy = this.y - mouseY;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-
                     if (dist < 120) {
                         const force = (120 - dist) / 120;
                         this.x += (dx / dist) * force * 0.3;
@@ -1266,35 +1131,26 @@
                     } else {
                         this.targetOpacity = Math.random() * 0.15 + 0.06;
                     }
-
                     if (this.x < -10) this.x = canvas.width + 10;
                     if (this.x > canvas.width + 10) this.x = -10;
                     if (this.y < -10) this.y = canvas.height + 10;
                     if (this.y > canvas.height + 10) this.y = -10;
-
                     this.opacity += (this.targetOpacity - this.opacity) * 0.01;
                 }
-
                 draw() {
-                    const gradient = ctx.createRadialGradient(
-                        this.x, this.y, 0,
-                        this.x, this.y, this.size * 4
-                    );
+                    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 4);
                     gradient.addColorStop(0, `rgba(212, 168, 140, ${this.opacity * 0.7})`);
                     gradient.addColorStop(0.3, `rgba(212, 168, 140, ${this.opacity * 0.3})`);
                     gradient.addColorStop(0.7, `rgba(212, 168, 140, ${this.opacity * 0.08})`);
                     gradient.addColorStop(1, `rgba(212, 168, 140, 0)`);
-
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size * 4, 0, Math.PI * 2);
                     ctx.fillStyle = gradient;
                     ctx.fill();
-
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size * 0.7, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(212, 168, 140, ${this.opacity * 0.9})`;
                     ctx.fill();
-
                     if (this.size > 1.8) {
                         ctx.shadowColor = `rgba(212, 168, 140, ${this.opacity * 0.3})`;
                         ctx.shadowBlur = 20;
@@ -1303,17 +1159,14 @@
                     }
                 }
             }
-
             const particleCount = Math.min(70, Math.floor(window.innerWidth / 10));
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
             }
-
             document.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
             });
-
             document.addEventListener('touchmove', (e) => {
                 if (e.touches.length > 0) {
                     mouseX = e.touches[0].clientX;
@@ -1323,11 +1176,8 @@
 
             function animateParticles() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
-
+                particles.forEach(p => { p.update();
+                    p.draw(); });
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
@@ -1344,16 +1194,11 @@
                         }
                     }
                 }
-
                 requestAnimationFrame(animateParticles);
             }
             animateParticles();
 
-            // ============================================================
-            // 2. ARCHITECTURAL GLOW
-            // ============================================================
             const glow = document.getElementById('glowOverlay');
-
             const glowObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1362,16 +1207,9 @@
                         glow.classList.remove('visible');
                     }
                 });
-            }, {
-                threshold: 0.05,
-                rootMargin: '0px 0px -200px 0px'
-            });
-
+            }, { threshold: 0.05, rootMargin: '0px 0px -200px 0px' });
             const craftSection = document.querySelector('.craft-section');
-            if (craftSection) {
-                glowObserver.observe(craftSection);
-            }
-
+            if (craftSection) { glowObserver.observe(craftSection); }
             const heroSection = document.querySelector('.hero');
             if (heroSection) {
                 const heroGlowObserver = new IntersectionObserver((entries) => {
@@ -1380,15 +1218,10 @@
                             glow.classList.remove('visible');
                         }
                     });
-                }, {
-                    threshold: 0.3
-                });
+                }, { threshold: 0.3 });
                 heroGlowObserver.observe(heroSection);
             }
 
-            // ============================================================
-            // 3. MODAL
-            // ============================================================
             const modal = document.getElementById('accessModal');
             const ctaBtn = document.getElementById('ctaBtn');
             const closeBtn = document.getElementById('modalClose');
@@ -1402,45 +1235,27 @@
                 modal.classList.remove('active');
                 document.body.style.overflow = '';
             }
-
             ctaBtn.addEventListener('click', openModal);
             closeBtn.addEventListener('click', closeModal);
-
             modal.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeModal();
-                }
+                if (e.target === this) { closeModal(); }
             });
-
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeModal();
-                }
+                if (e.key === 'Escape') { closeModal(); }
             });
 
-            // ============================================================
-            // 4. SCROLL REVEAL
-            // ============================================================
             const revealElements = document.querySelectorAll('.reveal');
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -40px 0px'
-            });
-
-            revealElements.forEach(el => {
-                observer.observe(el);
-            });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            revealElements.forEach(el => { observer.observe(el); });
 
             document.querySelectorAll('.craft-item').forEach((el, index) => {
                 el.style.transition = `all 1.6s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.08 + 0.2}s`;
-
                 const itemObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -1448,13 +1263,11 @@
                         }
                     });
                 }, { threshold: 0.1 });
-
                 itemObserver.observe(el);
             });
 
             document.querySelectorAll('.exp-step').forEach((el, index) => {
                 el.style.transition = `all 1.6s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.12 + 0.25}s`;
-
                 const stepObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -1462,7 +1275,6 @@
                         }
                     });
                 }, { threshold: 0.1 });
-
                 stepObserver.observe(el);
             });
 

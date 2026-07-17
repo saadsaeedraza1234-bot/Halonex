@@ -3,7 +3,31 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>HALONEX · Wearable Payment</title>
+
+    <!-- ===== PRIMARY SEO ===== -->
+    <title>HALONEX · Wearable Payment Ring — Tap & Go</title>
+    <meta name="description" content="The ceramic payment ring that makes transactions invisible. No charging. No pairing. Just tap and go. Built for seamlessness." />
+    <meta name="keywords" content="HALONEX, wearable payment, ceramic ring, contactless payment, NFC ring, payment ring, Digiseq, Visa, Mastercard, tap to pay" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://halonex.uk/" />
+
+    <!-- ===== OPEN GRAPH / SOCIAL ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://halonex.uk/" />
+    <meta property="og:title" content="HALONEX · Wearable Payment Ring" />
+    <meta property="og:description" content="The ceramic ring that makes payments invisible. No charging. No pairing. Just tap and go." />
+    <meta property="og:image" content="https://halonex.vercel.app/og-image.jpg" />
+
+    <!-- ===== TWITTER ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://halonex.uk/" />
+    <meta name="twitter:title" content="HALONEX · Wearable Payment Ring" />
+    <meta name="twitter:description" content="The ceramic ring that makes payments invisible. No charging. No pairing. Just tap and go." />
+    <meta name="twitter:image" content="https://halonex.vercel.app/og-image.jpg" />
+
+    <!-- ===== FAVICON ===== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,7 +39,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             background: #0d0c0a;
             color: #e8e2dc;
@@ -26,17 +49,14 @@
             overflow-x: hidden;
             min-height: 100vh;
         }
-
         ::selection {
             background: rgba(200, 190, 180, 0.2);
             color: #e8e2dc;
         }
-
         .accent {
             color: #c8b8a8;
             font-weight: 400;
         }
-
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -46,7 +66,6 @@
             z-index: 0;
             pointer-events: none;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -54,8 +73,6 @@
             position: relative;
             z-index: 2;
         }
-
-        /* ===== NAVBAR ===== */
         .navbar {
             padding: 20px 0 16px;
             display: flex;
@@ -71,7 +88,6 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-
         .logo {
             font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
@@ -82,17 +98,14 @@
             opacity: 0;
             animation: logoFade 2.5s ease forwards;
         }
-
         @keyframes logoFade {
             0% { opacity: 0; }
             100% { opacity: 0.85; }
         }
-
         .logo .dot {
             color: #c8b8a8;
             opacity: 0.5;
         }
-
         .nav-links {
             display: flex;
             gap: 2.8rem;
@@ -103,7 +116,6 @@
             color: #b8b0a6;
             flex-wrap: wrap;
         }
-
         .nav-links a {
             color: inherit;
             text-decoration: none;
@@ -111,7 +123,6 @@
             position: relative;
             padding-bottom: 3px;
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -123,30 +134,23 @@
             transition: width 0.6s ease;
             opacity: 0.4;
         }
-
         .nav-links a:hover::after {
             width: 100%;
         }
-
         .nav-links a:hover {
             color: #c8b8a8;
         }
-
         .nav-links a.founders-link {
             color: #c8b8a8;
             letter-spacing: 0.25em;
         }
-
         .nav-links a.founders-link::after {
             background: #c8b8a8;
             opacity: 0.6;
         }
-
         .nav-links a.founders-link:hover {
             color: #dbb8a0;
         }
-
-        /* ===== HERO ===== */
         .hero {
             padding: 40px 0 20px;
             display: flex;
@@ -156,7 +160,6 @@
             min-height: 80vh;
             justify-content: center;
         }
-
         .hero-badge {
             border: 1px solid rgba(200, 190, 180, 0.05);
             padding: 4px 20px;
@@ -170,7 +173,6 @@
             animation: fadeIn 2.5s 0.2s ease forwards;
             opacity: 0;
         }
-
         .hero h1 {
             font-family: 'Inter', sans-serif;
             font-size: clamp(2.6rem, 8vw, 4.8rem);
@@ -182,12 +184,10 @@
             animation: fadeIn 3s 0.4s ease forwards;
             opacity: 0;
         }
-
         .hero h1 .accent {
             font-weight: 400;
             color: #c8b8a8;
         }
-
         .hero .sub-line {
             font-family: 'Inter', sans-serif;
             font-size: clamp(0.8rem, 1vw, 0.95rem);
@@ -197,7 +197,6 @@
             animation: fadeIn 2.5s 0.6s ease forwards;
             opacity: 0;
         }
-
         .hero p {
             font-size: clamp(0.85rem, 1.1vw, 1.05rem);
             max-width: 480px;
@@ -209,7 +208,6 @@
             animation: fadeIn 2.5s 0.8s ease forwards;
             opacity: 0;
         }
-
         .cta-button {
             display: inline-block;
             background: transparent;
@@ -227,19 +225,15 @@
             animation: fadeIn 2.5s 1s ease forwards;
             opacity: 0;
         }
-
         .cta-button:hover {
             background: rgba(200, 190, 180, 0.03);
             border-color: rgba(200, 190, 180, 0.12);
             transform: scale(1.005);
         }
-
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-
-        /* ===== PRODUCT ===== */
         .product-display {
             margin: 28px 0 8px;
             display: flex;
@@ -249,7 +243,6 @@
             opacity: 0;
             width: 100%;
         }
-
         .product-item {
             max-width: 400px;
             width: 100%;
@@ -263,7 +256,6 @@
             background: transparent;
             transition: all 1s ease;
         }
-
         .product-item::after {
             content: '';
             position: absolute;
@@ -274,12 +266,10 @@
             z-index: 0;
             animation: softGlow 8s ease-in-out infinite alternate;
         }
-
         @keyframes softGlow {
             0% { opacity: 0.05; transform: scale(0.98); }
             100% { opacity: 0.12; transform: scale(1.02); }
         }
-
         .product-item img {
             width: 100%;
             height: 100%;
@@ -292,11 +282,9 @@
             transition: all 1.2s ease;
             border-radius: 12px;
         }
-
         .product-item:hover img {
             transform: scale(1.005);
         }
-
         .product-caption {
             text-align: center;
             margin-top: 8px;
@@ -307,26 +295,21 @@
             animation: fadeIn 2.5s 1.6s ease forwards;
             opacity: 0;
         }
-
         .product-caption span {
             color: #c8b8a8;
             opacity: 0.4;
         }
-
-        /* ===== SEAMLESS — Technology Focus ===== */
         .seamless-section {
             padding: 50px 0 40px;
             border-top: 1px solid rgba(200, 190, 180, 0.015);
             border-bottom: 1px solid rgba(200, 190, 180, 0.015);
         }
-
         .seamless-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
             margin-top: 28px;
         }
-
         .seamless-item {
             padding: 28px 20px 24px;
             border-radius: 12px;
@@ -337,18 +320,15 @@
             opacity: 0;
             transform: translateY(20px);
         }
-
         .seamless-item.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
         .seamless-item:hover {
             border-color: rgba(200, 190, 180, 0.015);
             background: rgba(30, 28, 26, 0.04);
             transform: translateY(-2px);
         }
-
         .seamless-item .icon {
             font-size: 2rem;
             margin-bottom: 12px;
@@ -356,7 +336,6 @@
             color: #c8b8a8;
             display: block;
         }
-
         .seamless-item h4 {
             font-family: 'Inter', sans-serif;
             font-weight: 400;
@@ -366,7 +345,6 @@
             letter-spacing: 0.04em;
             opacity: 0.85;
         }
-
         .seamless-item p {
             font-size: 0.65rem;
             color: #b8b0a6;
@@ -375,20 +353,16 @@
             letter-spacing: 0.03em;
             opacity: 0.6;
         }
-
-        /* ===== TECHNOLOGY DEEP DIVE ===== */
         .tech-deep-section {
             padding: 50px 0 40px;
             border-bottom: 1px solid rgba(200, 190, 180, 0.015);
             background: rgba(13, 12, 10, 0.08);
         }
-
         .tech-deep-content {
             max-width: 700px;
             margin: 0 auto;
             text-align: center;
         }
-
         .tech-deep-content .section-title {
             font-family: 'Inter', sans-serif;
             font-size: clamp(1.6rem, 2.5vw, 2.2rem);
@@ -399,11 +373,9 @@
             margin-bottom: 12px;
             opacity: 0.85;
         }
-
         .tech-deep-content .section-title .accent {
             font-weight: 400;
         }
-
         .tech-deep-content p {
             color: #b8b0a6;
             font-size: 0.8rem;
@@ -414,7 +386,6 @@
             line-height: 1.8;
             opacity: 0.6;
         }
-
         .tech-stack-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -424,7 +395,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .tech-stack-grid span {
             font-size: 0.5rem;
             letter-spacing: 0.08em;
@@ -435,14 +405,11 @@
             opacity: 0.5;
             text-align: center;
         }
-
-        /* ===== EXPLORE THE RING ===== */
         .explore-section {
             padding: 50px 0 40px;
             border-bottom: 1px solid rgba(200, 190, 180, 0.015);
             text-align: center;
         }
-
         .explore-section .explore-title {
             font-family: 'Inter', sans-serif;
             font-size: clamp(1.4rem, 2.2vw, 1.8rem);
@@ -451,11 +418,9 @@
             margin-bottom: 8px;
             opacity: 0.7;
         }
-
         .explore-section .explore-title .accent {
             font-weight: 400;
         }
-
         .explore-section p {
             color: #b8b0a6;
             font-size: 0.75rem;
@@ -463,7 +428,6 @@
             margin: 0 auto 20px;
             opacity: 0.5;
         }
-
         .explore-button {
             display: inline-block;
             background: transparent;
@@ -480,21 +444,17 @@
             cursor: pointer;
             text-decoration: none;
         }
-
         .explore-button:hover {
             background: rgba(200, 190, 180, 0.03);
             border-color: rgba(200, 190, 180, 0.12);
             transform: scale(1.005);
         }
-
-        /* ===== FOOTER ===== */
         .footer {
             padding: 32px 0 24px;
             text-align: center;
             border-top: 1px solid rgba(200, 190, 180, 0.01);
             background: rgba(13, 12, 10, 0.05);
         }
-
         .footer .emblem {
             font-size: 1rem;
             color: #c8b8a8;
@@ -502,7 +462,6 @@
             letter-spacing: 0.3em;
             margin-bottom: 6px;
         }
-
         .footer .footer-logo {
             font-family: 'Inter', sans-serif;
             font-size: 0.6rem;
@@ -511,7 +470,6 @@
             color: #d4c8bc;
             opacity: 0.3;
         }
-
         .footer .tagline {
             font-family: 'Inter', sans-serif;
             font-size: 0.7rem;
@@ -520,7 +478,6 @@
             letter-spacing: 0.04em;
             opacity: 0.25;
         }
-
         .footer .footer-links {
             display: flex;
             justify-content: center;
@@ -528,7 +485,6 @@
             margin-top: 12px;
             flex-wrap: wrap;
         }
-
         .footer .footer-links a {
             color: #8a827a;
             text-decoration: none;
@@ -538,12 +494,10 @@
             transition: color 0.6s ease;
             opacity: 0.3;
         }
-
         .footer .footer-links a:hover {
             color: #c8b8a8;
             opacity: 0.6;
         }
-
         .footer p {
             color: #a8a098;
             font-size: 0.35rem;
@@ -552,7 +506,6 @@
             opacity: 0.3;
         }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .container {
                 padding: 0 24px;
@@ -590,7 +543,6 @@
                 gap: 1.2rem;
             }
         }
-
         @media (max-width: 480px) {
             .container {
                 padding: 0 16px;
@@ -616,18 +568,15 @@
                 font-size: 0.35rem;
             }
         }
-
         .reveal {
             opacity: 0;
             transform: translateY(32px);
             transition: all 1.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
-
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
         .reveal-delay-1 {
             transition-delay: 0.05s;
         }
@@ -651,7 +600,7 @@
                 <a href="about.html">About</a>
                 <a href="founders.html" class="founders-link">Founder's Edition</a>
                 <a href="#seamless">Technology</a>
-                <a href="#specs">Specs</a>
+                <a href="specs.html">Specs</a>
             </div>
         </header>
 
@@ -660,18 +609,17 @@
             <h1>Payment, <span class="accent">Invisible.</span></h1>
             <div class="sub-line">— the ceramic ring that redefines how you pay —</div>
             <p>No charging. No pairing. No complexity. Just a tap. The future of payment is on your finger.</p>
-            <button class="cta-button" id="ctaBtn">Explore the Ring</button>
+            <a href="specs.html" class="cta-button">Explore the Ring</a>
 
             <div class="product-display">
                 <div class="product-item">
-                    <img src="https://halonex.vercel.app/ring-generic.webp" alt="HALONEX Ceramic Ring" />
+                    <img src="https://halonex.vercel.app/ring-generic.webp" alt="HALONEX Ceramic Payment Ring" />
                 </div>
             </div>
 
             <div class="product-caption">HALONEX <span>·</span> ceramic · invisible payment</div>
         </section>
 
-        <!-- ===== SEAMLESS — Technology Focus ===== -->
         <section class="seamless-section reveal reveal-delay-1" id="seamless">
             <div style="text-align: center; max-width: 600px; margin: 0 auto;">
                 <div style="font-family:'Inter',sans-serif; font-size:clamp(1.2rem,2vw,1.6rem); font-weight:300; letter-spacing:-0.02em; color:#f0ece6; opacity:0.75;">
@@ -698,7 +646,6 @@
             </div>
         </section>
 
-        <!-- ===== TECHNOLOGY DEEP DIVE ===== -->
         <section class="tech-deep-section reveal reveal-delay-2" id="technology">
             <div class="tech-deep-content">
                 <div class="section-title">Built for <span class="accent">Everyday</span> Use</div>
@@ -714,7 +661,6 @@
             </div>
         </section>
 
-        <!-- ===== EXPLORE THE RING ===== -->
         <section class="explore-section reveal reveal-delay-3" id="specs">
             <div class="explore-title">Explore the <span class="accent">Ring</span></div>
             <p>Discover the craftsmanship, technology, and precision behind every HALONEX ring.</p>
@@ -736,8 +682,6 @@
 
     <script>
         (function() {
-
-            // ===== PARTICLES =====
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
@@ -763,16 +707,13 @@
                     this.wobble = Math.random() * Math.PI * 2;
                     this.wobbleSpeed = 0.005 + Math.random() * 0.006;
                 }
-
                 update() {
                     this.wobble += this.wobbleSpeed;
                     this.x += this.speedX + Math.sin(this.wobble) * 0.06;
                     this.y += this.speedY + Math.cos(this.wobble * 0.7) * 0.06;
-
                     const dx = this.x - mouseX;
                     const dy = this.y - mouseY;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-
                     if (dist < 120) {
                         const force = (120 - dist) / 120;
                         this.x += (dx / dist) * force * 0.2;
@@ -781,46 +722,35 @@
                     } else {
                         this.targetOpacity = Math.random() * 0.08 + 0.03;
                     }
-
                     if (this.x < -10) this.x = canvas.width + 10;
                     if (this.x > canvas.width + 10) this.x = -10;
                     if (this.y < -10) this.y = canvas.height + 10;
                     if (this.y > canvas.height + 10) this.y = -10;
-
                     this.opacity += (this.targetOpacity - this.opacity) * 0.008;
                 }
-
                 draw() {
-                    const gradient = ctx.createRadialGradient(
-                        this.x, this.y, 0,
-                        this.x, this.y, this.size * 3
-                    );
+                    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 3);
                     gradient.addColorStop(0, `rgba(200, 190, 180, ${this.opacity * 0.5})`);
                     gradient.addColorStop(0.5, `rgba(200, 190, 180, ${this.opacity * 0.12})`);
                     gradient.addColorStop(1, `rgba(200, 190, 180, 0)`);
-
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
                     ctx.fillStyle = gradient;
                     ctx.fill();
-
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size * 0.5, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(200, 190, 180, ${this.opacity * 0.7})`;
                     ctx.fill();
                 }
             }
-
             const particleCount = Math.min(55, Math.floor(window.innerWidth / 12));
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
             }
-
             document.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
             });
-
             document.addEventListener('touchmove', (e) => {
                 if (e.touches.length > 0) {
                     mouseX = e.touches[0].clientX;
@@ -830,11 +760,8 @@
 
             function animateParticles() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
-
+                particles.forEach(p => { p.update();
+                    p.draw(); });
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
@@ -851,41 +778,22 @@
                         }
                     }
                 }
-
                 requestAnimationFrame(animateParticles);
             }
             animateParticles();
 
-            // ===== CTA =====
-            const ctaBtn = document.getElementById('ctaBtn');
-            if (ctaBtn) {
-                ctaBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.location.href = 'specs.html';
-                });
-            }
-
-            // ===== SCROLL REVEAL =====
             const revealElements = document.querySelectorAll('.reveal');
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -40px 0px'
-            });
-
-            revealElements.forEach(el => {
-                observer.observe(el);
-            });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            revealElements.forEach(el => { observer.observe(el); });
 
             document.querySelectorAll('.seamless-item').forEach((el, index) => {
                 el.style.transition = `all 1.6s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.08 + 0.2}s`;
-
                 const itemObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -893,7 +801,6 @@
                         }
                     });
                 }, { threshold: 0.1 });
-
                 itemObserver.observe(el);
             });
 

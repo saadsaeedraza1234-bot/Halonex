@@ -30,7 +30,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Great+Vibes&display=swap" rel="stylesheet" />
 
     <style>
         /* ============================================================
@@ -87,20 +87,61 @@
             pointer-events: none;
         }
 
-        /* ===== LOGO ===== */
-        .brand-logo {
-            display: flex;
-            align-items: center;
+        /* ===== BRAND WORDMARK — Playfair Display Stylized ===== */
+        .brand-wordmark {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-style: italic;
+            letter-spacing: 0.05em;
+            color: #f5f0ea;
             text-decoration: none;
             opacity: 0;
             animation: logoFade 2.5s ease forwards;
+            transition: color 0.4s ease;
+            display: inline-block;
         }
 
-        .brand-logo img {
-            height: 28px;
-            width: auto;
-            display: block;
-            filter: brightness(1.02) saturate(1.05);
+        .brand-wordmark .x-stylized {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-style: italic;
+            color: #dbb8a0;
+            display: inline-block;
+            transform: scaleX(1.1);
+            letter-spacing: 0.02em;
+        }
+
+        .brand-wordmark:hover {
+            color: #dbb8a0;
+        }
+
+        .brand-wordmark:hover .x-stylized {
+            color: #f5f0ea;
+        }
+
+        /* Hero size wordmark */
+        .hero-wordmark {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 12vw, 6.5rem);
+            font-weight: 700;
+            font-style: italic;
+            letter-spacing: 0.04em;
+            color: #f5f0ea;
+            margin-bottom: 6px;
+            animation: fadeIn 3s 0.3s ease forwards;
+            opacity: 0;
+            line-height: 1;
+        }
+
+        .hero-wordmark .x-stylized {
+            font-size: clamp(4rem, 13vw, 7rem);
+            font-weight: 700;
+            font-style: italic;
+            color: #dbb8a0;
+            display: inline-block;
+            transform: scaleX(1.1);
+            letter-spacing: 0.02em;
         }
 
         @keyframes logoFade {
@@ -110,11 +151,6 @@
 
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(12px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInSlow {
-            0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
@@ -214,17 +250,6 @@
             opacity: 0;
         }
 
-        .hero-brand {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 5.5rem);
-            font-weight: 400;
-            letter-spacing: 0.05em;
-            color: #f5f0ea;
-            margin-bottom: 6px;
-            animation: fadeIn 3s 0.3s ease forwards;
-            opacity: 0;
-        }
-
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(2.2rem, 8vw, 4.5rem);
@@ -292,7 +317,7 @@
         }
 
         /* ============================================================
-           PRODUCT — Using ring-generic.webp
+           PRODUCT
         ============================================================ */
         .product-display {
             margin: 28px 0 8px;
@@ -391,7 +416,7 @@
         }
 
         /* ============================================================
-           SEAMLESS — Technology Section (Added)
+           SEAMLESS
         ============================================================ */
         .seamless-section {
             padding: 50px 0 40px;
@@ -468,7 +493,7 @@
         }
 
         /* ============================================================
-           SPECS PREVIEW — Added
+           SPECS PREVIEW
         ============================================================ */
         .specs-preview {
             padding: 40px 0 30px;
@@ -510,27 +535,19 @@
             background: rgba(10, 9, 8, 0.05);
         }
 
-        .footer .footer-logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 6px;
-            opacity: 0.4;
-        }
-
-        .footer .footer-logo img {
-            height: 18px;
-            width: auto;
-        }
-
-        .footer .footer-logo span {
+        .footer .footer-wordmark {
             font-family: 'Playfair Display', serif;
-            font-size: 0.65rem;
-            font-weight: 400;
-            letter-spacing: 0.3em;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-style: italic;
+            letter-spacing: 0.05em;
             color: #c8c0b8;
-            text-transform: uppercase;
+            opacity: 0.3;
+        }
+
+        .footer .footer-wordmark .x-stylized {
+            color: #dbb8a0;
+            opacity: 0.4;
         }
 
         .footer .tagline {
@@ -595,11 +612,14 @@
                 padding: 24px 0 16px;
                 min-height: auto;
             }
-            .hero-brand {
-                font-size: 2.4rem;
-            }
             .hero h1 {
                 font-size: 2rem;
+            }
+            .brand-wordmark {
+                font-size: 1.1rem;
+            }
+            .brand-wordmark .x-stylized {
+                font-size: 1.2rem;
             }
             .seamless-grid {
                 grid-template-columns: 1fr;
@@ -608,9 +628,6 @@
             .specs-preview .specs-grid {
                 grid-template-columns: 1fr;
                 gap: 10px;
-            }
-            .brand-logo img {
-                height: 22px;
             }
             .product-item {
                 max-width: 340px;
@@ -624,9 +641,6 @@
             .container {
                 padding: 0 16px;
             }
-            .hero-brand {
-                font-size: 2rem;
-            }
             .hero h1 {
                 font-size: 1.6rem;
             }
@@ -634,8 +648,17 @@
                 gap: 0.8rem;
                 font-size: 0.35rem;
             }
-            .brand-logo img {
-                height: 18px;
+            .brand-wordmark {
+                font-size: 0.9rem;
+            }
+            .brand-wordmark .x-stylized {
+                font-size: 1rem;
+            }
+            .hero-wordmark {
+                font-size: 2.2rem;
+            }
+            .hero-wordmark .x-stylized {
+                font-size: 2.4rem;
             }
             .product-item {
                 max-width: 280px;
@@ -669,8 +692,8 @@
 
         <!-- ===== NAVBAR ===== -->
         <header class="navbar">
-            <a href="index.html" class="brand-logo">
-                <img src="halonex-logo.png" alt="HALONEX" />
+            <a href="index.html" class="brand-wordmark">
+                HALO<span class="x-stylized">N</span>EX
             </a>
             <div class="nav-links">
                 <a href="about.html">About</a>
@@ -685,15 +708,17 @@
 
             <div class="hero-badge">Wearable Payment · Ceramic</div>
 
-            <!-- ===== CENTERED HALONEX TEXT ===== -->
-            <div class="hero-brand">HALONEX</div>
+            <!-- ===== CENTERED HALONEX WORDMARK ===== -->
+            <div class="hero-wordmark">
+                HALO<span class="x-stylized">N</span>EX
+            </div>
 
             <h1>Payment, <span class="gold-gradient">Refined.</span></h1>
             <div class="sub-line">— no wallet. no phone. just tap. —</div>
             <p>The ceramic ring that redefines how you pay. No charging. No pairing. No complexity. Just a tap.</p>
             <a href="specs.html" class="cta-button">Explore the Ring</a>
 
-            <!-- ===== PRODUCT — ring-generic.webp ===== -->
+            <!-- ===== PRODUCT ===== -->
             <div class="product-display">
                 <div class="product-item">
                     <img src="ring-generic.webp" alt="HALONEX Ceramic Payment Ring" />
@@ -705,7 +730,7 @@
         </section>
 
         <!-- ============================================================
-           SEAMLESS — Technology Section
+           SEAMLESS
         ============================================================ -->
         <section class="seamless-section reveal">
             <div style="font-family:'Playfair Display',serif; font-size:clamp(1.2rem,2vw,1.6rem); font-weight:400; color:#f0ece6; opacity:0.7;">
@@ -759,9 +784,8 @@
 
         <!-- ===== FOOTER ===== -->
         <footer class="footer">
-            <div class="footer-logo">
-                <img src="halonex-logo.png" alt="HALONEX" />
-                <span>HALONEX</span>
+            <div class="footer-wordmark">
+                HALO<span class="x-stylized">N</span>EX
             </div>
             <p class="tagline">Luxury that moves with you.</p>
             <div class="footer-links">

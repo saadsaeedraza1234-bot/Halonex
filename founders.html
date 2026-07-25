@@ -4,30 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <!-- ===== PRIMARY SEO ===== -->
-    <title>HALONEX · Founder's Edition — Limited to 1000 Pieces</title>
+    <!-- ===== SEO ===== -->
+    <title>HALONEX · Founder's Edition — Limited to 1000</title>
     <meta name="description" content="The HALONEX Founder's Edition — limited to 1000 pieces. A ceramic payment wearable crafted as jewelry. Never to be reproduced." />
-    <meta name="keywords" content="HALONEX, Founder's Edition, limited edition, ceramic ring, payment ring, luxury wearable, Digiseq, Visa, Mastercard" />
     <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="https://halonex.uk/founders.html" />
 
     <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://halonex.uk/founders.html" />
-    <meta property="og:title" content="HALONEX · Founder's Edition — Limited to 1000" />
-    <meta property="og:description" content="The HALONEX Founder's Edition — limited to 1000 pieces. A ceramic payment wearable crafted as jewelry." />
+    <meta property="og:title" content="HALONEX · Founder's Edition" />
+    <meta property="og:description" content="The HALONEX Founder's Edition — limited to 1000 pieces. Never to be reproduced." />
     <meta property="og:image" content="https://halonex.vercel.app/og-image.jpg" />
 
-    <!-- ===== TWITTER ===== -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://halonex.uk/founders.html" />
-    <meta name="twitter:title" content="HALONEX · Founder's Edition" />
-    <meta name="twitter:description" content="The HALONEX Founder's Edition — limited to 1000 pieces. Never to be reproduced." />
-    <meta name="twitter:image" content="https://halonex.vercel.app/og-image.jpg" />
-
     <!-- ===== FAVICON ===== -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908' stroke='%23dbb8a0' stroke-width='1.5'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0908' stroke='%23dbb8a0' stroke-width='1.5'/><text x='50' y='68' font-family='Playfair Display,serif' font-size='48' font-weight='400' fill='%23dbb8a0' text-anchor='middle'>H</text></svg>" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,9 +45,6 @@
         ::selection {
             background: rgba(212, 168, 140, 0.25);
             color: #ece6de;
-        }
-        .rose-gold {
-            color: #dbb8a0;
         }
         .rose-gold-bg {
             background: linear-gradient(135deg, #dbb8a0, #e8c8b0, #dbb8a0);
@@ -122,23 +111,23 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            font-weight: 400;
-            letter-spacing: 0.4em;
-            color: #ece6de;
-            text-transform: uppercase;
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
             opacity: 0;
-            animation: logoFade 3s ease forwards;
+            animation: logoFade 2.5s ease forwards;
+        }
+        .brand-logo img {
+            height: 36px;
+            width: auto;
+            display: block;
+            filter: brightness(1.02) saturate(1.05);
         }
         @keyframes logoFade {
             0% { opacity: 0; }
-            100% { opacity: 0.85; }
-        }
-        .logo .rose {
-            color: #dbb8a0;
-            opacity: 0.7;
+            100% { opacity: 1; }
         }
         .nav-links {
             display: flex;
@@ -288,7 +277,30 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== BOX DISPLAY — Using ring.webp ===== */
+        /* ===== LOGO MARK (Rose Gold) ===== */
+        .logo-mark {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            animation: fadeIn 2.8s 0.1s ease forwards;
+            opacity: 0;
+        }
+        .logo-mark svg {
+            width: 80px;
+            height: 80px;
+            transition: transform 0.8s ease;
+        }
+        .logo-mark svg:hover {
+            transform: scale(1.02);
+        }
+        @media (max-width: 480px) {
+            .logo-mark svg {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* ===== BOX DISPLAY ===== */
         .box-display {
             margin: 28px 0 8px;
             display: flex;
@@ -356,7 +368,7 @@
             opacity: 0.5;
         }
 
-        /* ===== FOUNDER — Updated (Removed Pakistan/World) ===== */
+        /* ===== FOUNDER ===== */
         .founder-section {
             margin: 14px 0 6px;
             text-align: center;
@@ -664,20 +676,16 @@
             border-top: 1px solid rgba(212, 168, 140, 0.01);
             background: rgba(10, 9, 8, 0.1);
         }
-        .footer .emblem {
-            font-size: 1rem;
-            color: #dbb8a0;
-            opacity: 0.06;
-            letter-spacing: 0.3em;
+        .footer .footer-logo {
+            display: flex;
+            justify-content: center;
             margin-bottom: 6px;
         }
-        .footer .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.7rem;
-            font-weight: 400;
-            letter-spacing: 0.35em;
-            color: #d4c8bc;
-            opacity: 0.35;
+        .footer .footer-logo img {
+            height: 24px;
+            width: auto;
+            opacity: 0.15;
+            filter: brightness(1.02);
         }
         .footer .tagline {
             font-family: 'Great Vibes', cursive;
@@ -883,6 +891,9 @@
             .footer .footer-links {
                 gap: 1.2rem;
             }
+            .brand-logo img {
+                height: 28px;
+            }
         }
         @media (max-width: 480px) {
             .container {
@@ -925,6 +936,9 @@
             .footer .footer-links a {
                 font-size: 0.35rem;
             }
+            .brand-logo img {
+                height: 22px;
+            }
         }
 
         /* ===== SCROLL REVEAL ===== */
@@ -950,28 +964,6 @@
 </head>
 <body>
 
-    <!-- ===== PASSWORD PROTECTION ===== -->
-    <script>
-        (function() {
-            var password = "halonex2026";
-            var userInput = prompt("This page is private. Please enter the password:");
-            
-            if (userInput !== password) {
-                document.body.innerHTML = `
-                    <div style="display:flex; align-items:center; justify-content:center; height:100vh; background:#0a0908; color:#d4a88c; font-family:'Playfair Display',serif; text-align:center; padding:20px;">
-                        <div>
-                            <div style="font-size:2.5rem; margin-bottom:12px;">✦</div>
-                            <div style="font-size:1.5rem; color:#d4a88c; margin-bottom:6px;">Private Access</div>
-                            <p style="color:#8a827a; font-size:0.8rem; max-width:320px; margin:0 auto;">This page is restricted. Please contact the founder for access.</p>
-                        </div>
-                    </div>
-                `;
-                document.body.style.background = "#0a0908";
-                document.body.style.margin = "0";
-            }
-        })();
-    </script>
-
     <!-- ===== PARTICLES ===== -->
     <canvas id="particle-canvas"></canvas>
     <div class="glow-overlay" id="glowOverlay"></div>
@@ -980,7 +972,9 @@
 
         <!-- ===== NAVBAR ===== -->
         <header class="navbar">
-            <div class="logo">HALONEX <span class="rose">·</span></div>
+            <a href="index.html" class="brand-logo">
+                <img src="halonex-logo.png" alt="HALONEX" />
+            </a>
             <div class="nav-links">
                 <a href="index.html" class="home-link">
                     <span class="home-icon">⌂</span>
@@ -994,13 +988,22 @@
 
         <!-- ===== HERO ===== -->
         <section class="hero">
+
+            <!-- ===== ROSE GOLD LOGO MARK ===== -->
+            <div class="logo-mark">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="100" rx="20" fill="#0a0908" stroke="#dbb8a0" stroke-width="1.2"/>
+                    <text x="50" y="68" font-family="'Playfair Display', serif" font-size="48" font-weight="400" fill="#dbb8a0" text-anchor="middle">H</text>
+                </svg>
+            </div>
+
             <div class="hero-badge">Founder's Edition · 001/1000</div>
             <h1>THE FUTURE, <span class="rose-gold-bg">REFINED.</span></h1>
             <div class="sub-line">— by invitation only —</div>
             <p>A new expression of personal finance. Crafted as jewelry. Engineered as technology.</p>
             <button class="cta-button" id="ctaBtn">Request Private Access</button>
 
-            <!-- ===== BOX DISPLAY — Using ring.webp ===== -->
+            <!-- ===== BOX DISPLAY ===== -->
             <div class="box-display">
                 <div class="box-item">
                     <img src="ring.webp" alt="HALONEX Founder's Edition Ring" />
@@ -1009,7 +1012,7 @@
 
             <div class="box-caption">HALONEX <span>·</span> Founder's Edition · ceramic · invisible payment</div>
 
-            <!-- ===== FOUNDER — Updated (Removed Pakistan/World) ===== -->
+            <!-- ===== FOUNDER ===== -->
             <div class="founder-section">
                 <div class="founder-label">Founder</div>
                 <div class="founder-name">Saad Saeed</div>
@@ -1103,8 +1106,9 @@
 
         <!-- ===== FOOTER ===== -->
         <footer class="footer">
-            <div class="emblem">✦</div>
-            <div class="footer-logo">HALONEX <span style="color:#dbb8a0; opacity:0.25;">·</span></div>
+            <div class="footer-logo">
+                <img src="halonex-logo.png" alt="HALONEX" />
+            </div>
             <p class="tagline">Luxury that moves with you.</p>
             <p class="credit">— Saad Saeed —</p>
             <div class="footer-links">
@@ -1132,7 +1136,7 @@
     </div>
 
     <!-- ============================================================
-       JAVASCRIPT — Particles + Glow + Scroll Reveal
+       JAVASCRIPT
     ============================================================ -->
     <script>
         (function() {

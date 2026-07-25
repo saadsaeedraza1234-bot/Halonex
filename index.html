@@ -34,6 +34,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
 
     <style>
+        /* ============================================================
+           RESET & BASE
+        ============================================================ */
         * {
             margin: 0;
             padding: 0;
@@ -100,7 +103,7 @@
             pointer-events: none;
         }
 
-        /* ===== LOGO ===== */
+        /* ===== LOGO WITH TEXT ===== */
         .brand-logo {
             display: flex;
             align-items: center;
@@ -111,30 +114,24 @@
         }
 
         .brand-logo img {
-            height: 36px;
+            height: 32px;
             width: auto;
             display: block;
             filter: brightness(1.02) saturate(1.05);
-            transition: opacity 0.6s ease;
         }
 
-        .brand-logo:hover img {
-            opacity: 0.85;
+        .brand-logo .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.35em;
+            color: #ece6de;
+            text-transform: uppercase;
         }
 
-        .logo-hero {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            animation: fadeIn 2.8s 0.1s ease forwards;
-            opacity: 0;
-        }
-
-        .logo-hero img {
-            max-width: 120px;
-            height: auto;
-            display: block;
-            filter: brightness(1.05) saturate(1.05);
+        .brand-logo .logo-text .rose {
+            color: #dbb8a0;
+            opacity: 0.7;
         }
 
         @keyframes logoFade {
@@ -423,14 +420,26 @@
         .footer .footer-logo {
             display: flex;
             justify-content: center;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 6px;
+            opacity: 0.5;
         }
 
         .footer .footer-logo img {
-            height: 24px;
+            height: 20px;
             width: auto;
-            opacity: 0.2;
             filter: brightness(1.02);
+        }
+
+        .footer .footer-logo .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            color: #c8c0b8;
+            text-transform: uppercase;
+            opacity: 0.6;
         }
 
         .footer .tagline {
@@ -497,10 +506,10 @@
                 font-size: 2.4rem;
             }
             .brand-logo img {
-                height: 28px;
+                height: 24px;
             }
-            .logo-hero img {
-                max-width: 90px;
+            .brand-logo .logo-text {
+                font-size: 0.9rem;
             }
             .product-item {
                 max-width: 340px;
@@ -522,10 +531,11 @@
                 font-size: 0.35rem;
             }
             .brand-logo img {
-                height: 22px;
+                height: 20px;
             }
-            .logo-hero img {
-                max-width: 72px;
+            .brand-logo .logo-text {
+                font-size: 0.75rem;
+                letter-spacing: 0.2em;
             }
             .product-item {
                 max-width: 280px;
@@ -561,6 +571,7 @@
         <header class="navbar">
             <a href="index.html" class="brand-logo">
                 <img src="halonex-logo.png" alt="HALONEX" />
+                <span class="logo-text">HALONEX <span class="rose">·</span></span>
             </a>
             <div class="nav-links">
                 <a href="about.html">About</a>
@@ -573,9 +584,10 @@
         <!-- ===== HERO ===== -->
         <section class="hero">
 
-            <!-- ===== LARGE LOGO ===== -->
-            <div class="logo-hero">
-                <img src="halonex-logo.png" alt="HALONEX" />
+            <!-- ===== LARGE LOGO WITH TEXT ===== -->
+            <div class="logo-hero" style="display:flex; align-items:center; gap:14px; margin-bottom:16px; animation:fadeIn 2.8s 0.1s ease forwards; opacity:0;">
+                <img src="halonex-logo.png" alt="HALONEX" style="height:48px; width:auto; filter:brightness(1.05) saturate(1.05);" />
+                <span style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:400; letter-spacing:0.15em; color:#ece6de; text-transform:uppercase; opacity:0.7;">HALONEX</span>
             </div>
 
             <div class="hero-badge">Payment · Refined</div>
@@ -599,6 +611,7 @@
         <footer class="footer">
             <div class="footer-logo">
                 <img src="halonex-logo.png" alt="HALONEX" />
+                <span class="logo-text">HALONEX</span>
             </div>
             <p class="tagline">Luxury that moves with you.</p>
             <div class="footer-links">
@@ -611,7 +624,7 @@
     </div>
 
     <!-- ============================================================
-       JAVASCRIPT — Cream Glowing Particles
+       JAVASCRIPT
     ============================================================ -->
     <script>
         (function() {

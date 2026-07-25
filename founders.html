@@ -23,15 +23,18 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Great+Vibes&display=swap" rel="stylesheet" />
 
     <style>
-        /* ===== RESET & BASE ===== */
+        /* ============================================================
+           RESET & BASE
+        ============================================================ */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             background: #0a0908;
             color: #ece6de;
@@ -42,10 +45,12 @@
             overflow-x: hidden;
             min-height: 100vh;
         }
+
         ::selection {
             background: rgba(212, 168, 140, 0.25);
             color: #ece6de;
         }
+
         .rose-gold-bg {
             background: linear-gradient(135deg, #dbb8a0, #e8c8b0, #dbb8a0);
             background-size: 200% 200%;
@@ -54,15 +59,19 @@
             background-clip: text;
             animation: roseShimmer 8s ease-in-out infinite alternate;
         }
+
         @keyframes roseShimmer {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
+
         .signature {
             font-family: 'Great Vibes', cursive;
             font-weight: 400;
             letter-spacing: 0.02em;
         }
+
+        /* ===== PARTICLES ===== */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -72,6 +81,7 @@
             z-index: 0;
             pointer-events: none;
         }
+
         .glow-overlay {
             position: fixed;
             top: 0;
@@ -84,9 +94,11 @@
             transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
             opacity: 0;
         }
+
         .glow-overlay.visible {
             opacity: 1;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -95,7 +107,56 @@
             z-index: 2;
         }
 
-        /* ===== NAVBAR ===== */
+        /* ============================================================
+           BRAND WORDMARK — Same as Index/About (Navbar Only)
+        ============================================================ */
+        .brand-wordmark {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing: 0.04em;
+            color: #ece6de;
+            text-decoration: none;
+            opacity: 0;
+            animation: logoFade 2.5s ease forwards;
+            transition: color 0.4s ease;
+            display: inline-block;
+        }
+
+        .brand-wordmark .gold-o {
+            color: #dbb8a0;
+        }
+
+        .brand-wordmark .stylized-x {
+            display: inline-block;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            transform: scaleX(1.05);
+            color: #ece6de;
+        }
+
+        .brand-wordmark:hover {
+            color: #dbb8a0;
+        }
+
+        .brand-wordmark:hover .gold-o {
+            color: #ece6de;
+        }
+
+        @keyframes logoFade {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(12px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================================================
+           NAVBAR
+        ============================================================ */
         .navbar {
             padding: 20px 0 16px;
             display: flex;
@@ -111,24 +172,7 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            opacity: 0;
-            animation: logoFade 2.5s ease forwards;
-        }
-        .brand-logo img {
-            height: 36px;
-            width: auto;
-            display: block;
-            filter: brightness(1.02) saturate(1.05);
-        }
-        @keyframes logoFade {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
+
         .nav-links {
             display: flex;
             gap: 2.8rem;
@@ -140,6 +184,7 @@
             align-items: center;
             flex-wrap: wrap;
         }
+
         .nav-links a {
             color: inherit;
             text-decoration: none;
@@ -147,6 +192,7 @@
             position: relative;
             padding-bottom: 3px;
         }
+
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -158,18 +204,23 @@
             transition: width 0.8s ease;
             opacity: 0.4;
         }
+
         .nav-links a:hover::after {
             width: 100%;
         }
+
         .nav-links a:hover {
             color: #dbb8a0;
         }
+
         .nav-links a.active {
             color: #dbb8a0;
         }
+
         .nav-links a.active::after {
             width: 100%;
         }
+
         .nav-links .home-link {
             display: flex;
             align-items: center;
@@ -180,19 +231,24 @@
             opacity: 0.5;
             transition: all 0.6s ease;
         }
+
         .nav-links .home-link:hover {
             color: #dbb8a0;
             opacity: 1;
         }
+
         .nav-links .home-link .home-icon {
             font-size: 0.9rem;
             line-height: 1;
         }
+
         .nav-links .home-link::after {
             display: none;
         }
 
-        /* ===== HERO ===== */
+        /* ============================================================
+           HERO — No large wordmark, just badge + headline
+        ============================================================ */
         .hero {
             padding: 40px 0 20px;
             display: flex;
@@ -202,6 +258,7 @@
             min-height: 80vh;
             justify-content: center;
         }
+
         .hero-badge {
             border: 1px solid rgba(212, 168, 140, 0.04);
             padding: 4px 24px;
@@ -210,11 +267,12 @@
             letter-spacing: 0.4em;
             text-transform: uppercase;
             color: #c8c0b8;
-            margin-bottom: 32px;
+            margin-bottom: 20px;
             background: rgba(212, 168, 140, 0.01);
             animation: fadeIn 2.8s 0.3s ease forwards;
             opacity: 0;
         }
+
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(2.8rem, 9vw, 5.5rem);
@@ -226,9 +284,11 @@
             animation: fadeIn 3.2s 0.5s ease forwards;
             opacity: 0;
         }
+
         .hero h1 .rose-gold-bg {
             font-weight: 500;
         }
+
         .hero .sub-line {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -239,6 +299,7 @@
             animation: fadeIn 2.8s 0.7s ease forwards;
             opacity: 0;
         }
+
         .hero p {
             font-size: clamp(0.85rem, 1.1vw, 1.05rem);
             max-width: 440px;
@@ -250,6 +311,7 @@
             animation: fadeIn 2.8s 0.9s ease forwards;
             opacity: 0;
         }
+
         .cta-button {
             display: inline-block;
             background: transparent;
@@ -267,40 +329,16 @@
             animation: fadeIn 2.8s 1.1s ease forwards;
             opacity: 0;
         }
+
         .cta-button:hover {
             background: rgba(212, 168, 140, 0.03);
             border-color: rgba(212, 168, 140, 0.15);
             transform: scale(1.005);
         }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
 
-        /* ===== LOGO MARK (Rose Gold) ===== */
-        .logo-mark {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            animation: fadeIn 2.8s 0.1s ease forwards;
-            opacity: 0;
-        }
-        .logo-mark svg {
-            width: 80px;
-            height: 80px;
-            transition: transform 0.8s ease;
-        }
-        .logo-mark svg:hover {
-            transform: scale(1.02);
-        }
-        @media (max-width: 480px) {
-            .logo-mark svg {
-                width: 60px;
-                height: 60px;
-            }
-        }
-
-        /* ===== BOX DISPLAY ===== */
+        /* ============================================================
+           BOX DISPLAY
+        ============================================================ */
         .box-display {
             margin: 28px 0 8px;
             display: flex;
@@ -310,6 +348,7 @@
             opacity: 0;
             width: 100%;
         }
+
         .box-item {
             max-width: 440px;
             width: 100%;
@@ -323,6 +362,7 @@
             background: transparent;
             transition: all 1s ease;
         }
+
         .box-item::after {
             content: '';
             position: absolute;
@@ -333,11 +373,13 @@
             z-index: 0;
             animation: copperGlow 6s ease-in-out infinite alternate;
         }
+
         @keyframes copperGlow {
             0% { opacity: 0.06; transform: scale(0.98); }
             50% { opacity: 0.16; transform: scale(1); }
             100% { opacity: 0.06; transform: scale(1.02); }
         }
+
         .box-item img {
             width: 100%;
             height: 100%;
@@ -350,9 +392,11 @@
             transition: all 1.2s ease;
             border-radius: 12px;
         }
+
         .box-item:hover img {
             transform: scale(1.005);
         }
+
         .box-caption {
             text-align: center;
             margin-top: 8px;
@@ -363,18 +407,22 @@
             animation: fadeIn 2.8s 1.6s ease forwards;
             opacity: 0;
         }
+
         .box-caption span {
             color: #dbb8a0;
             opacity: 0.5;
         }
 
-        /* ===== FOUNDER ===== */
+        /* ============================================================
+           FOUNDER — Reduced prominence
+        ============================================================ */
         .founder-section {
             margin: 14px 0 6px;
             text-align: center;
             animation: fadeIn 3s 1.8s ease forwards;
             opacity: 0;
         }
+
         .founder-label {
             font-size: 0.35rem;
             letter-spacing: 0.4em;
@@ -383,6 +431,7 @@
             opacity: 0.4;
             margin-top: 2px;
         }
+
         .founder-name {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(0.9rem, 1.2vw, 1.1rem);
@@ -391,19 +440,23 @@
             opacity: 0.5;
         }
 
-        /* ===== SCARCITY ===== */
+        /* ============================================================
+           SCARCITY
+        ============================================================ */
         .scarcity-mark {
             text-align: center;
             padding: 8px 0 4px;
             animation: fadeIn 3s 2s ease forwards;
             opacity: 0;
         }
+
         .scarcity-mark .divider {
             width: 32px;
             height: 1px;
             background: rgba(212, 168, 140, 0.06);
             margin: 0 auto 8px;
         }
+
         .scarcity-mark p {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -412,24 +465,29 @@
             letter-spacing: 0.1em;
             opacity: 0.5;
         }
+
         .scarcity-mark p strong {
             color: #dbb8a0;
             font-weight: 400;
             opacity: 0.5;
         }
 
-        /* ===== CRAFT ===== */
+        /* ============================================================
+           CRAFT
+        ============================================================ */
         .craft-section {
             padding: 40px 0 36px;
             border-top: 1px solid rgba(212, 168, 140, 0.015);
             border-bottom: 1px solid rgba(212, 168, 140, 0.015);
         }
+
         .craft-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 28px;
             margin-top: 24px;
         }
+
         .craft-item {
             padding: 24px 18px 20px;
             border-radius: 12px;
@@ -442,15 +500,18 @@
             opacity: 0;
             transform: translateY(20px);
         }
+
         .craft-item.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         .craft-item:hover {
             border-color: rgba(212, 168, 140, 0.015);
             background: rgba(30, 28, 26, 0.08);
             transform: translateY(-2px);
         }
+
         .craft-item .icon {
             font-size: 1.8rem;
             margin-bottom: 8px;
@@ -458,6 +519,7 @@
             color: #dbb8a0;
             display: block;
         }
+
         .craft-item h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
@@ -467,6 +529,7 @@
             letter-spacing: 0.06em;
             opacity: 0.8;
         }
+
         .craft-item p {
             font-size: 0.6rem;
             color: #c8c0b8;
@@ -475,6 +538,7 @@
             letter-spacing: 0.04em;
             opacity: 0.6;
         }
+
         .craft-item:nth-child(1) .icon {
             font-size: 2.2rem;
             opacity: 0.08;
@@ -489,6 +553,7 @@
             opacity: 0.015;
             transform: rotate(15deg);
         }
+
         .craft-item:nth-child(2) .icon {
             font-size: 1.6rem;
             opacity: 0.08;
@@ -502,16 +567,19 @@
             color: #dbb8a0;
             opacity: 0.012;
         }
+
         .craft-item:nth-child(3) .icon {
             font-size: 1.6rem;
             opacity: 0.1;
             animation: chipGlow 4s ease-in-out infinite alternate;
         }
+
         @keyframes chipGlow {
             0% { opacity: 0.05; filter: blur(0px); }
             50% { opacity: 0.15; filter: blur(1px); }
             100% { opacity: 0.05; filter: blur(0px); }
         }
+
         .craft-item:nth-child(3)::before {
             content: '✦';
             position: absolute;
@@ -523,12 +591,15 @@
             opacity: 0.01;
         }
 
-        /* ===== EXPERIENCE ===== */
+        /* ============================================================
+           EXPERIENCE
+        ============================================================ */
         .experience-section {
             padding: 40px 0 36px;
             border-bottom: 1px solid rgba(212, 168, 140, 0.015);
             background: rgba(10, 9, 8, 0.15);
         }
+
         .experience-steps {
             display: flex;
             flex-direction: column;
@@ -536,6 +607,7 @@
             max-width: 560px;
             margin: 0 auto;
         }
+
         .exp-step {
             display: flex;
             align-items: center;
@@ -548,14 +620,17 @@
             opacity: 0;
             transform: translateY(16px);
         }
+
         .exp-step.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         .exp-step:hover {
             border-color: rgba(212, 168, 140, 0.015);
             background: rgba(30, 28, 26, 0.04);
         }
+
         .exp-step .step-num {
             font-family: 'Playfair Display', serif;
             font-size: 0.5rem;
@@ -564,6 +639,7 @@
             min-width: 28px;
             opacity: 0.35;
         }
+
         .exp-step .step-icon {
             width: 36px;
             height: 36px;
@@ -577,9 +653,11 @@
             color: #dbb8a0;
             opacity: 0.25;
         }
+
         .exp-step .step-text {
             flex: 1;
         }
+
         .exp-step .step-text h4 {
             font-family: 'Playfair Display', serif;
             font-size: 0.8rem;
@@ -589,6 +667,7 @@
             margin-bottom: 1px;
             opacity: 0.75;
         }
+
         .exp-step .step-text p {
             font-size: 0.6rem;
             color: #c8c0b8;
@@ -598,17 +677,21 @@
             opacity: 0.5;
         }
 
-        /* ===== SECURITY ===== */
+        /* ============================================================
+           SECURITY
+        ============================================================ */
         .security-section {
             padding: 40px 0 36px;
             border-bottom: 1px solid rgba(212, 168, 140, 0.015);
             background: rgba(10, 9, 8, 0.1);
         }
+
         .security-content {
             max-width: 560px;
             margin: 0 auto;
             text-align: center;
         }
+
         .security-content .section-title {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.8rem, 3vw, 2.4rem);
@@ -619,9 +702,11 @@
             margin-bottom: 6px;
             opacity: 0.85;
         }
+
         .security-content .section-title .rose-gold-bg {
             font-weight: 500;
         }
+
         .security-content p {
             color: #c8c0b8;
             font-size: 0.75rem;
@@ -632,6 +717,7 @@
             line-height: 1.7;
             opacity: 0.6;
         }
+
         .security-badge {
             border: 1px solid rgba(212, 168, 140, 0.015);
             padding: 3px 20px;
@@ -645,17 +731,21 @@
             opacity: 0.4;
         }
 
-        /* ===== TEASER ===== */
+        /* ============================================================
+           TEASER
+        ============================================================ */
         .teaser-section {
             padding: 28px 0 20px;
             text-align: center;
         }
+
         .teaser-section .divider {
             width: 32px;
             height: 1px;
             background: rgba(212, 168, 140, 0.02);
             margin: 0 auto 12px;
         }
+
         .teaser-section p {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -664,29 +754,42 @@
             letter-spacing: 0.06em;
             opacity: 0.4;
         }
+
         .teaser-section p .rose-gold-bg {
             font-style: normal;
             font-weight: 400;
         }
 
-        /* ===== FOOTER ===== */
+        /* ============================================================
+           FOOTER
+        ============================================================ */
         .footer {
             padding: 32px 0 24px;
             text-align: center;
             border-top: 1px solid rgba(212, 168, 140, 0.01);
             background: rgba(10, 9, 8, 0.1);
         }
-        .footer .footer-logo {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 6px;
+
+        .footer .footer-wordmark {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing: 0.04em;
+            color: #c8c0b8;
+            opacity: 0.3;
         }
-        .footer .footer-logo img {
-            height: 24px;
-            width: auto;
-            opacity: 0.15;
-            filter: brightness(1.02);
+
+        .footer .footer-wordmark .gold-o {
+            color: #dbb8a0;
+            opacity: 0.5;
         }
+
+        .footer .footer-wordmark .stylized-x {
+            font-weight: 800;
+            color: #c8c0b8;
+        }
+
         .footer .tagline {
             font-family: 'Great Vibes', cursive;
             font-size: 0.9rem;
@@ -695,6 +798,7 @@
             letter-spacing: 0.04em;
             opacity: 0.35;
         }
+
         .footer .credit {
             font-family: 'Great Vibes', cursive;
             font-size: 0.55rem;
@@ -703,6 +807,7 @@
             letter-spacing: 0.04em;
             opacity: 0.25;
         }
+
         .footer .footer-links {
             display: flex;
             justify-content: center;
@@ -710,6 +815,7 @@
             margin-top: 10px;
             flex-wrap: wrap;
         }
+
         .footer .footer-links a {
             color: #8a827a;
             text-decoration: none;
@@ -719,10 +825,12 @@
             transition: color 0.6s ease;
             opacity: 0.3;
         }
+
         .footer .footer-links a:hover {
             color: #c8b8a8;
             opacity: 0.6;
         }
+
         .footer p {
             color: #b0a89e;
             font-size: 0.35rem;
@@ -730,6 +838,7 @@
             margin-top: 6px;
             opacity: 0.3;
         }
+
         .footer .signature-line {
             font-family: 'Great Vibes', cursive;
             font-size: 0.45rem;
@@ -739,7 +848,9 @@
             opacity: 0.25;
         }
 
-        /* ===== MODAL ===== */
+        /* ============================================================
+           MODAL
+        ============================================================ */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -754,9 +865,11 @@
             justify-content: center;
             padding: 24px;
         }
+
         .modal-overlay.active {
             display: flex;
         }
+
         .modal-content {
             max-width: 420px;
             width: 100%;
@@ -769,10 +882,12 @@
             position: relative;
             animation: modalAppear 1.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
         }
+
         @keyframes modalAppear {
             0% { opacity: 0; transform: scale(0.96) translateY(12px); }
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
+
         .modal-content .gold-letter {
             font-family: 'Great Vibes', cursive;
             font-size: 2rem;
@@ -781,6 +896,7 @@
             margin-bottom: 2px;
             opacity: 0.5;
         }
+
         .modal-content .gold-letter-sub {
             font-size: 0.45rem;
             font-weight: 400;
@@ -790,6 +906,7 @@
             margin-bottom: 10px;
             opacity: 0.3;
         }
+
         .modal-content .divider {
             width: 32px;
             height: 1px;
@@ -797,6 +914,7 @@
             margin: 8px auto 12px;
             opacity: 0.06;
         }
+
         .modal-content p {
             color: #d4c8bc;
             font-size: 0.8rem;
@@ -806,11 +924,13 @@
             letter-spacing: 0.03em;
             opacity: 0.7;
         }
+
         .modal-content p strong {
             color: #dbb8a0;
             font-weight: 400;
             opacity: 0.5;
         }
+
         .modal-content .anticipation {
             font-size: 0.65rem;
             color: #c8c0b8;
@@ -819,6 +939,7 @@
             opacity: 0.4;
             font-style: italic;
         }
+
         .modal-content .bank-name {
             font-family: 'Playfair Display', serif;
             font-size: 0.55rem;
@@ -828,6 +949,7 @@
             margin-top: 12px;
             opacity: 0.1;
         }
+
         .modal-close {
             position: absolute;
             top: 14px;
@@ -841,12 +963,15 @@
             font-family: 'Inter', sans-serif;
             opacity: 0.2;
         }
+
         .modal-close:hover {
             color: #dbb8a0;
             opacity: 0.4;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
         @media (max-width: 768px) {
             .container {
                 padding: 0 24px;
@@ -868,6 +993,9 @@
             }
             .hero h1 {
                 font-size: 2.4rem;
+            }
+            .brand-wordmark {
+                font-size: 1rem;
             }
             .craft-grid {
                 grid-template-columns: 1fr;
@@ -891,10 +1019,8 @@
             .footer .footer-links {
                 gap: 1.2rem;
             }
-            .brand-logo img {
-                height: 28px;
-            }
         }
+
         @media (max-width: 480px) {
             .container {
                 padding: 0 16px;
@@ -905,6 +1031,9 @@
             .nav-links {
                 gap: 0.8rem;
                 font-size: 0.35rem;
+            }
+            .brand-wordmark {
+                font-size: 0.85rem;
             }
             .box-item {
                 max-width: 280px;
@@ -936,21 +1065,22 @@
             .footer .footer-links a {
                 font-size: 0.35rem;
             }
-            .brand-logo img {
-                height: 22px;
-            }
         }
 
-        /* ===== SCROLL REVEAL ===== */
+        /* ============================================================
+           SCROLL REVEAL
+        ============================================================ */
         .reveal {
             opacity: 0;
             transform: translateY(32px);
             transition: all 1.8s cubic-bezier(0.23, 1, 0.32, 1);
         }
+
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         .reveal-delay-1 {
             transition-delay: 0.05s;
         }
@@ -970,10 +1100,10 @@
 
     <div class="container">
 
-        <!-- ===== NAVBAR ===== -->
+        <!-- ===== NAVBAR — One logo only ===== -->
         <header class="navbar">
-            <a href="index.html" class="brand-logo">
-                <img src="halonex-logo.png" alt="HALONEX" />
+            <a href="index.html" class="brand-wordmark">
+                HAL<span class="gold-o">O</span>N<span class="stylized-x">E</span>X
             </a>
             <div class="nav-links">
                 <a href="index.html" class="home-link">
@@ -986,16 +1116,8 @@
             </div>
         </header>
 
-        <!-- ===== HERO ===== -->
+        <!-- ===== HERO — No large wordmark ===== -->
         <section class="hero">
-
-            <!-- ===== ROSE GOLD LOGO MARK ===== -->
-            <div class="logo-mark">
-                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="100" height="100" rx="20" fill="#0a0908" stroke="#dbb8a0" stroke-width="1.2"/>
-                    <text x="50" y="68" font-family="'Playfair Display', serif" font-size="48" font-weight="400" fill="#dbb8a0" text-anchor="middle">H</text>
-                </svg>
-            </div>
 
             <div class="hero-badge">Founder's Edition · 001/1000</div>
             <h1>THE FUTURE, <span class="rose-gold-bg">REFINED.</span></h1>
@@ -1025,7 +1147,9 @@
             </div>
         </section>
 
-        <!-- ===== CRAFT ===== -->
+        <!-- ============================================================
+           CRAFT
+        ============================================================ -->
         <section class="craft-section reveal reveal-delay-1" id="craft">
             <div style="text-align: center; max-width: 500px; margin: 0 auto;">
                 <div style="font-family:'Playfair Display',serif; font-size:clamp(1.2rem,2vw,1.6rem); font-weight:400; letter-spacing:-0.02em; color:#f5f0ea; opacity:0.75;">
@@ -1052,7 +1176,9 @@
             </div>
         </section>
 
-        <!-- ===== EXPERIENCE ===== -->
+        <!-- ============================================================
+           EXPERIENCE
+        ============================================================ -->
         <section class="experience-section" id="experience">
             <div style="text-align:center; margin-bottom:20px;">
                 <div style="font-size:0.35rem; letter-spacing:0.4em; text-transform:uppercase; color:#c8c0b8; opacity:0.25; margin-bottom:4px;">The Movement</div>
@@ -1089,7 +1215,9 @@
             </div>
         </section>
 
-        <!-- ===== SECURITY ===== -->
+        <!-- ============================================================
+           SECURITY
+        ============================================================ -->
         <section class="security-section reveal reveal-delay-3" id="security">
             <div class="security-content">
                 <div class="security-badge">✦ vault-grade security</div>
@@ -1098,16 +1226,20 @@
             </div>
         </section>
 
-        <!-- ===== TEASER ===== -->
+        <!-- ============================================================
+           TEASER
+        ============================================================ -->
         <section class="teaser-section reveal">
             <div class="divider"></div>
             <p>This is only the beginning. <span class="rose-gold-bg">More will follow.</span></p>
         </section>
 
-        <!-- ===== FOOTER ===== -->
+        <!-- ============================================================
+           FOOTER
+        ============================================================ -->
         <footer class="footer">
-            <div class="footer-logo">
-                <img src="halonex-logo.png" alt="HALONEX" />
+            <div class="footer-wordmark">
+                HAL<span class="gold-o">O</span>N<span class="stylized-x">E</span>X
             </div>
             <p class="tagline">Luxury that moves with you.</p>
             <p class="credit">— Saad Saeed —</p>
@@ -1121,7 +1253,9 @@
 
     </div>
 
-    <!-- ===== MODAL ===== -->
+    <!-- ============================================================
+       MODAL
+    ============================================================ -->
     <div class="modal-overlay" id="accessModal">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">✕</button>
